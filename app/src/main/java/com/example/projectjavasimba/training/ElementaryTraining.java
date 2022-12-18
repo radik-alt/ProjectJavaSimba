@@ -68,7 +68,7 @@ public class ElementaryTraining {
             return value;
 
         String valueStr = String.valueOf(value);
-        valueStr = valueStr.substring(valueStr.length()-1)+valueStr.substring(1, valueStr.length()-1)+valueStr.substring(0, 1);
+        valueStr = valueStr.substring(valueStr.length()-1)+valueStr.substring(1, valueStr.length()-1)+valueStr.charAt(0);
         value = Integer.parseInt(valueStr);
 
         return value;
