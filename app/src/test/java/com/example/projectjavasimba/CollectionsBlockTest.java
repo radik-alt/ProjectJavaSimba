@@ -119,7 +119,7 @@ public class CollectionsBlockTest {
         List<Integer> firstList = Arrays.asList(4, 1, 3, 2, 5);
         List<Integer> secondList = Arrays.asList(3, 2, 1, 4, 2, 1);
         boolean averageValue = collectionsBlock.collectionTask2(firstList, secondList);
-        boolean expectedValue = false;
+        boolean expectedValue = true;
         assertEquals(expectedValue, averageValue);
     }
 
