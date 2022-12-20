@@ -49,15 +49,18 @@ public class Main {
         client.getOrder(order);
         order.addProdToOrder(product);
 
-        // добавить клиента в черный списко
-        // admin.addBlackList(client);
+        // клиент добавлен в черный списко
+        admin.addBlackList(client);
+        if (!admin.clientContainsBlackList(client)){
+            admin.registerOrder(client);
+            order.setRegister(true);
 
-        admin.registerOrder(client);
-        order.setRegister(true);
-
-        client.pay();
-        client.take();
-        client.showOrder();
+            client.pay();
+            client.take();
+            client.showOrder();
+        } else {
+            admin.printBlackList(client);
+        }
     }
 
     private static void six(){

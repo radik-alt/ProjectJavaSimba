@@ -13,7 +13,7 @@ public class SellerAdmin {
         }
     }
 
-    private void addBlackList(Client client){
+    public void addBlackList(Client client){
         blackclients.add(client);
     }
 
@@ -27,6 +27,10 @@ public class SellerAdmin {
             System.out.println(product);
         }
         System.out.println();
+    }
+
+    public boolean clientContainsBlackList(Client client){
+        return blackclients.contains(client);
     }
 
     public void printBlackList(Client client){
