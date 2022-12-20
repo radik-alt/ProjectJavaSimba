@@ -2,10 +2,9 @@ package com.example.projectjavasimba.classes.seven;
 
 public class Product {
 
-    private String name; //Название товара
-    private int price;  // Цена товара
+    private String name;
+    private int price;
 
-    //конструктор
     public Product (String name, int price) {
         this.name = name;
         this.price = price;

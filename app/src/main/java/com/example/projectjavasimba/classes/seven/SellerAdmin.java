@@ -7,7 +7,6 @@ public class SellerAdmin {
     private ArrayList<Product> products = new ArrayList<Product>();
     private ArrayList<Client> blackclients = new ArrayList<Client>();
 
-    //регистрация товара и добавление неплательщиков в черный список
     public void registerOrder(Client client) {
         if (client.getOrder().isPayment()) {
             client.getOrder().setRegister(true);
@@ -18,7 +17,6 @@ public class SellerAdmin {
         blackclients.add(client);
     }
 
-    //создание новых продуктов
     public void createNewProduct(Product product) {
         products.add(product);
     }

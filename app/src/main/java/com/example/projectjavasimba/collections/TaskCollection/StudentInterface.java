@@ -1,7 +1,8 @@
 package com.example.projectjavasimba.collections.TaskCollection;
 
-import TaskCollection.dto.Group;
-import TaskCollection.dto.StudentDto;
+
+import com.example.projectjavasimba.collections.TaskCollection.dto.Group;
+import com.example.projectjavasimba.collections.TaskCollection.dto.StudentDto;
 
 public interface StudentInterface {
 
