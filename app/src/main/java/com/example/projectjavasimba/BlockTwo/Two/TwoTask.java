@@ -1,5 +1,10 @@
 package com.example.projectjavasimba.BlockTwo.Two;
 
+/*
+*
+* Движения по пикселям, через класс Directions (up, down, left, right)
+*
+* */
 public class TwoTask {
 
     private final int[] location = new int[2];
