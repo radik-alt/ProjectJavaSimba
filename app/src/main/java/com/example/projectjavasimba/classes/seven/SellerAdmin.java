@@ -2,6 +2,13 @@ package com.example.projectjavasimba.classes.seven;
 
 import java.util.ArrayList;
 
+
+/*
+     VII
+     Задача на взаимодействие между классами. Разработать систему «Интернет-магазин».
+     Товаровед добавляет информацию о Товаре. Клиент делает и оплачивает Заказ на Товары.
+     Товаровед регистрирует Продажу и может занести неплательщика в «черный список».
+    */
 public class SellerAdmin {
 
     private ArrayList<Product> products = new ArrayList<Product>();

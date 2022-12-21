@@ -2,6 +2,12 @@ package com.example.projectjavasimba.classes.six;
 
 import java.util.List;
 
+/*
+     VI
+     Задача на взаимодействие между классами. Разработать систему «Вступительные экзамены».
+     Абитуриент регистрируется на Факультет, сдает Экзамены. Преподаватель выставляет Оценку.
+     Система подсчитывает средний бал и определяет Абитуриента, зачисленного в учебное заведение.
+    */
 public class Exam implements ExamInterface {
 
     private Studen studen;

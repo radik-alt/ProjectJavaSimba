@@ -1,5 +1,12 @@
 package com.example.projectjavasimba.classes.three;
 
+
+/*
+      III
+      Описать класс, представляющий треугольник. Предусмотреть методы для создания объектов,
+      вычисления площади, периметра и точки пересечения медиан.
+      Описать свойства для получения состояния объекта.
+     */
 public class Third implements ThirdInterface{
 
     private int a = 0;
