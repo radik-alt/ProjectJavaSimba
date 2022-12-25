@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.BlockTwo.Two;
+package com.example.projectjavasimba.BlockTwoJava.Two;
 
 /*
 *

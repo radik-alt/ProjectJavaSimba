@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.BlockTwo.FIrst;
+package com.example.projectjavasimba.BlockTwoJava.FIrst;
 
 public class FirstTask{
 
