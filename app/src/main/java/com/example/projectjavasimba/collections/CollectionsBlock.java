@@ -1,10 +1,15 @@
 package com.example.projectjavasimba.collections;
 
 
+import static java.util.Collections.reverse;
+import static java.util.Collections.sort;
+
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Набор тренингов по работе со строками в java.
@@ -28,8 +33,12 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public List<T> collectionTask0(@NonNull List<T> firstList, @NonNull List<T> secondList) {
-        //TODO: implement it
-        return Collections.emptyList();
+        List<T> fullList = new ArrayList<T>();
+        fullList.addAll(firstList);
+        fullList.addAll(secondList);
+        sort(fullList);
+        reverse(fullList);
+        return fullList;
     }
 
     /**
@@ -40,8 +49,12 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public List<T> collectionTask1(@NonNull List<T> inputList) {
-        //TODO: implement it
-        return Collections.emptyList();
+        List<T> resultList = new ArrayList<>();
+        for (int i = 0; i < inputList.size(); i++){
+            resultList.add(inputList.get(i));
+            resultList.addAll(inputList.subList(0, i));
+        }
+        return resultList;
     }
 
     /**
@@ -53,8 +66,17 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public boolean collectionTask2(@NonNull List<T> firstList, @NonNull List<T> secondList) {
-        //TODO: implement it
-        return true;
+        if (firstList == null || secondList == null)
+            throw new NullPointerException();
+        if (firstList.isEmpty() && secondList.isEmpty())
+            return true;
+
+        for (int i =0; i < firstList.size(); i++){
+            if (secondList.contains(firstList.get(i))){
+               return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -69,8 +91,47 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public List<T> collectionTask3(@NonNull List<T> inputList, int n) {
-        //TODO: implement it
-        return Collections.emptyList();
+        if (inputList == null)
+            throw new NullPointerException();
+
+        if (inputList.isEmpty())
+            return Collections.emptyList();
+
+        int start = 0;
+        int end = inputList.size()-1;
+
+        List<Integer> newList = new ArrayList<>(4);
+        newList.addAll(List.of(0, 0, 0, 0));
+
+        for (int i = 0; i <= end; i++){
+            if (n > 0){
+                int newIndex = getNewIndex(i+n, end, start, true);
+                newList.set(newIndex, (Integer) inputList.get(i));
+            } else if (n < 0){
+                int newIndex = getNewIndex(i+n, end, start, false);
+                newList.set(newIndex, (Integer) inputList.get(i));
+            }
+        }
+        return (List<T>) newList;
+    }
+
+    private static int getNewIndex(Integer index, int end, int start, boolean flag){
+        if (flag && index > end){
+            int newIndex = index - end -1;
+            while (newIndex > end){
+                newIndex = newIndex - end -1;
+            }
+            return newIndex;
+        }
+        else if (!flag && index < start) {
+            int newIndex = end + index + 1;
+            while (newIndex < start){
+                newIndex = end + newIndex + 1;
+            }
+            return newIndex;
+        }
+
+        return index;
     }
 
     /**
@@ -85,8 +146,21 @@ public class CollectionsBlock<T extends Comparable> {
      */
     public List<String> collectionTask4(@NonNull List<String> inputList, @NonNull String a,
                                         @NonNull String b) {
-        //TODO: implement it
-        return Collections.emptyList();
+        if (inputList ==null || a == null || b == null)
+            throw new NullPointerException();
+
+        if (inputList.isEmpty())
+            return inputList;
+
+        for (int i = 0; i < inputList.size(); i++){
+            if (inputList.get(i).contains(a)){
+                if (inputList.get(i).contains(a)){
+                    String temp = inputList.get(i).replaceAll(a, b);
+                    inputList.set(i, temp);
+                }
+            }
+        }
+        return inputList;
     }
 
     /*

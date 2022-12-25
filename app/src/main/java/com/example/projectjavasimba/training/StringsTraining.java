@@ -1,5 +1,8 @@
 package com.example.projectjavasimba.training;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Набор тренингов по работе со строками в java.
  * <p>
@@ -42,17 +45,26 @@ public class StringsTraining {
      * вернуть пустой массив
      */
     public int[] getArrayLastSymbol(String text) {
-        int n = text.length();
+        if (text.isEmpty())
+            return new int[0];
+
+        int n = text.length()-1;
+        List<Integer> valueIndex = new ArrayList<>();
+
         char last = text.charAt(n);
-        int value[] = new int[n];
         for (int i =0; i < n; i++){
             char symbol = text.charAt(i);
             if (symbol == last){
-//                value[]
+                valueIndex.add(i);
             }
         }
 
-        return new int[]{};
+        int[] value = new int[valueIndex.size()];
+        for (int i = 0; i < valueIndex.size(); i++){
+            value[i] = valueIndex.get(i);
+        }
+
+        return value;
     }
 
     /**
@@ -80,7 +92,43 @@ public class StringsTraining {
      * @return текст, где цифры заменены словами
      */
     public String replaceAllNumbers(String text) {
-        return text;
+        StringBuilder textValue = new StringBuilder(text);
+        for (int i = 0; i < textValue.length(); i++){
+            char getSymbol = textValue.charAt(i);
+            if (Character.isDigit(getSymbol)){
+                String replaceNumber = getReplaceNumber(getSymbol);
+                textValue.replace(i, i+1, replaceNumber);
+            }
+        }
+
+        return textValue.toString();
+    }
+
+    private String getReplaceNumber(Character number){
+        switch (number){
+            case '0':
+                return "zero";
+            case '1':
+                return "one";
+            case '2':
+                return "two";
+            case '3':
+                return "three";
+            case '4':
+                return "four";
+            case '5':
+                return "five";
+            case '6':
+                return "six";
+            case '7':
+                return "seven";
+            case '8':
+                return "eight";
+            case '9':
+                return "nine";
+            default:
+                return "";
+        }
     }
 
     /**
