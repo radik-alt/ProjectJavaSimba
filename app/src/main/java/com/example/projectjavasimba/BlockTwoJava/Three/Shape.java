@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.BlockTwo.Three;
+package com.example.projectjavasimba.BlockTwoJava.Three;
 
 /*
 Создать интерфейс Shape с двумя методами perimeter и area, выводящими периметр и площадь фигуры соответственно,

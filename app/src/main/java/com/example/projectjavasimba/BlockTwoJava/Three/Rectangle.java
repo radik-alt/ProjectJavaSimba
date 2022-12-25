@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.BlockTwo.Three;
+package com.example.projectjavasimba.BlockTwoJava.Three;
 
 public class Rectangle implements Shape{
 
