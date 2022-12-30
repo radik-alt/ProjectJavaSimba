@@ -2,6 +2,8 @@ package com.example.projectjavasimba.classes.two;
 
 import static java.util.Arrays.sort;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -15,41 +17,41 @@ import java.util.Random;
      */
 public class Second implements  SecondInterface{
 
-    private int[] arr;
+    private final ArrayList<Integer> arr;
 
     public Second(int n){
-        arr = new int[n];
+        arr = new ArrayList<>(n);
     }
 
     @Override
     public void fillArray(){
-        for (int i = 0; i < arr.length; i++){
-            arr[i] = ((int)(Math.random() * 31) - 15);
+        for (int i = 0; i < arr.size(); i++){
+            arr.set(i, ((int) (Math.random() * 31) - 15));
         }
     }
 
     @Override
     public void shuffle(){
-        for (int i = arr.length -1; i >= 1; i--){
+        for (int i = arr.size() -1; i >= 1; i--){
             int j = new Random().nextInt(i + 1);
             swap(arr, i, j);
         }
     }
 
-    private void swap(int[] arr, int left, int right){
-        int temp = arr[left];
-        arr[left] = arr[right];
-        arr[right] = temp;
+    private void swap(List<Integer> arr, int left, int right){
+        int temp = arr.get(left);
+        arr.set(left, arr.get(right));
+        arr.set(right, temp);
     }
 
     @Override
     public void findChangeElementsOfArray(){
         int count = 1;
-        int[] sortArray = arr;
-        sort(sortArray);
+        List<Integer> sortArray = arr;
+        sortList(sortArray);
 
-        for (int i = 0; i < sortArray.length-1; i++) {
-            if(sortArray[i]!=sortArray[i+1]) {
+        for (int i = 0; i < sortArray.size()-1; i++) {
+            if(sortArray.get(i) != sortArray.get(i + 1)) {
                 count++;
             }
         }
@@ -57,10 +59,14 @@ public class Second implements  SecondInterface{
         System.out.println("Кол-во различных элементов: " + count);
     }
 
+    private void sortList(List<Integer> list){
+
+    }
+
     @Override
     public void printArray(){
-        for (int i = 0; i < arr.length; i++){
-            System.out.print(arr[i] + " ");
+        for (int i = 0; i < arr.size(); i++){
+            System.out.print(arr.get(i) + " ");
         }
         System.out.println();;
     }

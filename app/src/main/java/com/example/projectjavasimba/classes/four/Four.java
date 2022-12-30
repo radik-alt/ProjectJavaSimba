@@ -19,6 +19,10 @@ public class Four implements  FourInterface{
 
     public Four(int hour, int minute, int second){
         time = new GregorianCalendar();
+        changeTime(time.get(Calendar.HOUR), time.get(Calendar.MINUTE), time.get(Calendar.SECOND));
+    }
+
+    public void changeTime(int hour, int minute, int second){
         if (!validTime(hour, minute, second)){
             try {
                 throw new Exception("Ошибка! Не корректно указано время!");
@@ -28,30 +32,68 @@ public class Four implements  FourInterface{
                 System.out.println("Не корректное время!");
             }
         } else {
-            changeTime(hour, minute, second);
+            time.set(Calendar.HOUR, hour);
+            time.set(Calendar.MINUTE, minute);
+            time.set(Calendar.SECOND, second);
         }
     }
 
-    public void changeTime(int hour, int minute, int second){
-        time.set(Calendar.HOUR, hour);
-        time.set(Calendar.MINUTE, minute);
-        time.set(Calendar.SECOND, second);
-    }
-
     public void changeHour(int hour){
+        if (!validHour(hour)){
+            try {
+                throw new Exception("Ошибка! Не корректно указаны часы!");
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+                System.out.println("Не корректное время!");
+            }
+        }
+
         time.set(Calendar.HOUR, hour);
     }
 
     public void changeMinute(int minute){
+        if (!validMinute(minute)){
+            try {
+                throw new Exception("Ошибка! Не корректно указаны часы!");
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+                System.out.println("Не корректное время!");
+            }
+        }
+
         time.set(Calendar.MINUTE, minute);
     }
 
     public void changeSecond(int second){
+        if (!validSecond(second)){
+            try {
+                throw new Exception("Ошибка! Не корректно указаны часы!");
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+                System.out.println("Не корректное время!");
+            }
+        }
+
         time.set(Calendar.SECOND, second);
     }
 
     private boolean validTime(int hour, int minute, int second){
         return hour <= 24 && minute <= 60 && second <= 60;
+    }
+
+    private boolean validHour(int hour){
+        return hour <= 24;
+    }
+
+    private boolean validMinute(int minute){
+        return minute <= 60;
+    }
+
+    private boolean validSecond(int second){
+        return second <= 60;
     }
 
     public void printTime(){

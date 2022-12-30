@@ -41,6 +41,13 @@ public class CollectionsBlock<T extends Comparable> {
         return fullList;
     }
 
+    private void myQuickSort(List<T> list, int low, int height){
+
+    }
+
+    private void myReverse(List<T> list){
+
+    }
     /**
      * Дан список. После каждого элемента добавьте предшествующую ему часть списка.
      *
@@ -98,32 +105,38 @@ public class CollectionsBlock<T extends Comparable> {
             return Collections.emptyList();
 
         int start = 0;
-        int end = inputList.size()-1;
+        int end = inputList.size();
 
-        List<Integer> newList = new ArrayList<>(4);
-        newList.addAll(List.of(0, 0, 0, 0));
+        List<T> newList = new ArrayList<>(end-1);
+        fillList(newList, end);
 
         for (int i = 0; i <= end; i++){
             if (n > 0){
                 int newIndex = getNewIndex(i+n, end, start, true);
-                newList.set(newIndex, (Integer) inputList.get(i));
+                newList.set(newIndex, inputList.get(i));
             } else if (n < 0){
                 int newIndex = getNewIndex(i+n, end, start, false);
-                newList.set(newIndex, (Integer) inputList.get(i));
+                newList.set(newIndex, inputList.get(i));
             }
         }
-        return (List<T>) newList;
+        return newList;
     }
 
-    private static int getNewIndex(Integer index, int end, int start, boolean flag){
-        if (flag && index > end){
+    private void fillList(List<T> changeList, int n){
+        for (int i = 0; i < n; i++){
+            changeList.add(null);
+        }
+    }
+
+    private static int getNewIndex(Integer index, int end, int start, boolean positiveNumber){
+        if (positiveNumber && index > end){
             int newIndex = index - end -1;
             while (newIndex > end){
                 newIndex = newIndex - end -1;
             }
             return newIndex;
         }
-        else if (!flag && index < start) {
+        else if (!positiveNumber && index < start) {
             int newIndex = end + index + 1;
             while (newIndex < start){
                 newIndex = end + newIndex + 1;
