@@ -10,4 +10,7 @@
     
     
     <color name="green_color">#66a636</color>
+    <color name="color_text">#de000000</color>
+
+
 </resources>

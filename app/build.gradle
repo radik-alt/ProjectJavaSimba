@@ -1,15 +1,19 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
     namespace 'com.example.projectjavasimba'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.projectjavasimba"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -26,6 +30,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_9
         targetCompatibility JavaVersion.VERSION_1_9
     }
+
+    viewBinding{
+        enabled true
+    }
 }
 
 dependencies {
@@ -39,4 +47,10 @@ dependencies {
 
     implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 }
