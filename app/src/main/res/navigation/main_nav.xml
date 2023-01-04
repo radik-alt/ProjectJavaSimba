@@ -6,7 +6,7 @@
     app:startDestination="@id/profileFragment2">
     <fragment
         android:id="@+id/profileFragment2"
-        android:name="com.example.projectjavasimba.presentation.ProfileFragment"
+        android:name="com.example.projectjavasimba.presentation.profileFragment.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

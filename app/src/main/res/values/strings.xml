@@ -7,4 +7,13 @@
     <string name="history">История</string>
     <string name="profile">Профиль</string>
     <string name="name_user">Константинов Денис</string>
+    <string name="get_push_notification_text">Получать push увеодмелния</string>
+    <string name="default_work">Хирургия, травмотология</string>
+    <string name="birthday">01 февраля 1980</string>
+    <string name="text_birthday">Дата рождния</string>
+    <string name="your_friends">Ваши друзья:</string>
+    <string name="Field_of_activity">Сфера деятельности</string>
+    <string name="exit_button">Выйти из аккаунта</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
