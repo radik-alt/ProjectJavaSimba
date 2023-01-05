@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.adapter
+package com.example.projectjavasimba.presentation.adapter.friendsAdapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.ItemFriendsBinding
-import com.example.projectjavasimba.presentation.entity.Friends
+import com.example.projectjavasimba.data.entity.Friends
 
 class AdapterFriends(
     private val listFriends: List<Friends>

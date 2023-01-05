@@ -17,22 +17,27 @@
             android:layout_width="match_parent"
             android:fitsSystemWindows="true"
             app:toolbarId="@id/toolbar"
-            android:background="@color/green_color"
+            app:title="@string/profile"
+            app:collapsedTitleTextColor="@color/white"
             android:layout_height="wrap_content">
 
-                <ImageView
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/image_man"
-                    android:layout_width="match_parent"
-                    android:layout_height="220sp"/>
+            <ImageView
+                android:id="@+id/imageProfile"
+                app:layout_collapseMode="parallax"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_man"
+                android:layout_width="match_parent"
+                android:layout_height="220sp"/>
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:background="@color/green_color"
+                app:layout_collapseMode="pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
