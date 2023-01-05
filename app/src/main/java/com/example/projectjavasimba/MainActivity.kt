@@ -1,23 +1,45 @@
-package com.example.projectjavasimba;
+package com.example.projectjavasimba
 
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.LayoutInflater
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.projectjavasimba.R
+import com.example.projectjavasimba.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
+class MainActivity : AppCompatActivity() {
 
-import static androidx.navigation.Navigation.findNavController;
+    private var _binding: ActivityMainBinding?=null
+    private val binding:ActivityMainBinding
+        get() = _binding ?: throw RuntimeException("ActivityMainBinding == null")
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import android.os.Bundle;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+        /*val navView:BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        val navController = findNavController(R.id.fragmentContainerView)
 
-public class MainActivity extends AppCompatActivity {
+        val appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.profileFragment,
+            R.id.searchFragment,
+            R.id.helpFragment,
+            R.id.helpFragment,
+            R.id.helpFragment
+        ))
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)*/
 
+    }
 
-
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
