@@ -27,10 +27,12 @@ class MainKotlin {
         val equalSecond = publication == Book(100, 1000)
 
         if (equalFirst === equalSecond){
-            equalFirst == equalSecond
             log(FIRST_TASK, "Обьекты equalFirst и equalSecond равны по ссылке")
+        } else {
+            log(FIRST_TASK, "Обьекты equalFirst и equalSecond не равны по ссылке")
         }
 
+        equalFirst == equalSecond
 
         val sum = {a:Int, b:Int -> print(a + b)}
 

@@ -1,6 +1,7 @@
 package com.example.simbakotlin.KotlinFirst
 
 import android.util.Log
+import com.example.projectjavasimba.MainKotlin
 
 class Book(override var price: Int?, override var wordCount: Int) : Publication {
 
@@ -26,7 +27,7 @@ class Book(override var price: Int?, override var wordCount: Int) : Publication 
     }
 
     private fun log(message:String){
-        Log.d("BookLog", message)
+        Log.d(MainKotlin.FIRST_TASK, message)
     }
 
 }
