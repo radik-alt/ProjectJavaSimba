@@ -1,15 +1,14 @@
 package com.example.projectjavasimba.collections;
 
 
-import static java.util.Collections.reverse;
 import static java.util.Collections.sort;
+import static java.util.Collections.swap;
 
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Набор тренингов по работе со строками в java.
@@ -36,17 +35,52 @@ public class CollectionsBlock<T extends Comparable> {
         List<T> fullList = new ArrayList<T>();
         fullList.addAll(firstList);
         fullList.addAll(secondList);
-        sort(fullList);
-        reverse(fullList);
+        myQuickSort(fullList, 0, fullList.size()-1);
+        myReverse(fullList);
         return fullList;
     }
 
-    private void myQuickSort(List<T> list, int low, int height){
+    private void myQuickSort(List<T> list, int low, int high){
+        if (list.size() == 0) {
+            Collections.emptyList();
+            return;
+        }
+
+        if (low == high)
+            return;
+
+        int middle = low + (high - low) / 2;
+        T opora = list.get(middle);
+
+        int i = low, j = high;
+        while (i <= j) {
+            while (opora.compareTo(list.get(i)) < 0) {
+                i++;
+            }
+
+            while (opora.compareTo(list.get(j)) > 0) {
+                j--;
+            }
+
+            if (i <= j) {
+                swap(list, i, j);
+                i++;
+                j--;
+            }
+        }
+
+        if (low < j)
+            myQuickSort(list, low, j);
+
+        if (high > i)
+            myQuickSort(list, i, high);
 
     }
 
     private void myReverse(List<T> list){
-
+        for (int i = 0; i <list.size(); i++){
+            swap(list, i, list.size()-i-1);
+        }
     }
     /**
      * Дан список. После каждого элемента добавьте предшествующую ему часть списка.
@@ -105,10 +139,10 @@ public class CollectionsBlock<T extends Comparable> {
             return Collections.emptyList();
 
         int start = 0;
-        int end = inputList.size();
+        int end = inputList.size()-1;
 
-        List<T> newList = new ArrayList<>(end-1);
-        fillList(newList, end);
+        List<T> newList = new ArrayList<>(end+1);
+        fillList(newList, end+1);
 
         for (int i = 0; i <= end; i++){
             if (n > 0){
