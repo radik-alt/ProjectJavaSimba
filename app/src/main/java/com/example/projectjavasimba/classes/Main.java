@@ -19,7 +19,6 @@ import com.example.projectjavasimba.collections.TaskCollection.dto.MarkSubject;
 import com.example.projectjavasimba.collections.TaskCollection.dto.StudentDto;
 import com.example.projectjavasimba.collections.TaskCollection.dto.Subject;
 
-import java.net.Proxy;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -27,11 +26,6 @@ import java.util.List;
 import java.util.Random;
 
 public class Main {
-
-
-    public static void main(String[] args) {
-
-    }
 
 
     private static void seven(){

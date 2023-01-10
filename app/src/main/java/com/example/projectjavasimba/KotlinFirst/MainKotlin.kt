@@ -12,42 +12,45 @@ import kotlin.random.Random
 class MainKotlin {
 
     fun main(){
-        two()
+        first()
     }
 
     private fun first(){
         var publication: Publication = Magazine(100, 1000)
-        println("Magazine: кол-во строк = ${publication.wordCount}, цена в евро = ${covertRubleToEuro(publication.price)}, type = ${publication.getType()}")
+        println("Magazine: кол-во строк = ${publication.wordCount}, цена в евро = ${covertRubleToEuro(publication.price ?: 0)}, type = ${publication.getType()}")
 
-        val equalFirst = publication == Magazine(100, 1000)
+        val equalFirst = publication == Book(100, 1000)
 
         publication = Book(100, 1000)
-        println("Book: кол-во строк = ${publication.wordCount}, цена в евро = ${covertRubleToEuro(publication.price)}, type = ${publication.getType()}")
+        println("Book: кол-во строк = ${publication.wordCount}, цена в евро = ${covertRubleToEuro(publication.price ?: 0)}, type = ${publication.getType()}")
 
         val equalSecond = publication == Book(100, 1000)
 
-        println(equalFirst)
-        println(equalSecond)
+        if (equalFirst === equalSecond){
+            equalFirst == equalSecond
+            log(FIRST_TASK, "Обьекты equalFirst и equalSecond равны по ссылке")
+        }
 
-        val sum = {a:Int, b:Int -> a + b}
 
-        buy(Magazine(300, 2000))
-        buy(null)
+        val sum = {a:Int, b:Int -> print(a + b)}
 
-        log(FIRST_TASK, sum(1, 2).toString())
+        buy(Magazine(null, 2000))
+        buy(Magazine(1000, 2000))
+
+        sum(1, 2)
     }
 
     private fun covertRubleToEuro(price: Int): Double = price / courseEuro
 
 
 
-    private fun buy (publication: Publication?){
-        publication?.let {
-            println("The purchase is complete. The purchase amount was ${it.price}")
+    private fun buy (publication: Publication){
+        publication.price.let {
+            println("The purchase is complete. The purchase amount was $it")
         }
     }
 
-    public fun two(){
+    private fun two(){
         val listUser = ArrayList<User>()
         val user = User(0, "Радик", 20, Type.FULL)
         listUser.add(user)
@@ -111,6 +114,7 @@ class MainKotlin {
         is Action.Registration -> log(SECOND_TASK, "Регистрация юзера")
         is Action.Login -> log(SECOND_TASK, "Юзера авторизовался")
         is Action.Logout -> log(SECOND_TASK, "Юзер вышел")
+        else -> {log(SECOND_TASK, "Сервак упал... :(")}
     }
 
     private fun log(logName:String, message:String){
