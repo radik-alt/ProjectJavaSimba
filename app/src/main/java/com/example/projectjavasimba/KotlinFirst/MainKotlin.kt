@@ -13,6 +13,7 @@ class MainKotlin {
 
     fun main(){
         first()
+        two()
     }
 
     private fun first(){
@@ -87,9 +88,9 @@ class MainKotlin {
         log(SECOND_TASK, "Первый элемент списка: ${changeList.first()}. Послдений элемент списка: ${changeList.last()}")
 
 
-        auth {
+        auth { message ->
             if (user.validAge(user.getAge())){
-                println(it)
+                println(message)
                 authCallback.authSuccess()
             }
             else{
@@ -119,8 +120,8 @@ class MainKotlin {
     private fun doAction(action: Action) = when (action){
         is Action.Registration -> log(SECOND_TASK, "Регистрация юзера")
         is Action.Login -> {
-            auth {
-                println(it)
+            auth { message ->
+                println(message)
                 authCallback.authSuccess()
             }
             log(SECOND_TASK, "Юзера авторизовался")
