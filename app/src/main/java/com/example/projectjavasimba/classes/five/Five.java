@@ -42,10 +42,10 @@ public class Five {
         System.out.println();
     }
 
-    public void getListDataOfUrbanTime(){
-        System.out.println("Юзеры у которых время городского разговора превышает заданного (60):");
+    public void getListDataOfUrbanTime(Long limit){
+        System.out.println("Юзеры у которых время городского разговора превышает заданного (" + limit + "):");
         for (AbonentDto data : listUsers){
-            if (data.getTimeUrbanConversation() > 60L){
+            if (data.getTimeUrbanConversation() > limit){
                 System.out.println(data);
             }
         }

@@ -45,13 +45,12 @@ public class Main {
         admin.createNewProduct(product2);
         admin.printAllProduct();
 
-
-        client.getOrder(order);
-        order.addProdToOrder(product);
-
         // клиент добавлен в черный списко
-        admin.addBlackList(client);
+//        admin.addBlackList(client);
         if (!admin.clientContainsBlackList(client)){
+            client.getOrder(order);
+            order.addProdToOrderAndPay(product, client);
+
             admin.registerOrder(client);
             order.setRegister(true);
 
@@ -71,6 +70,7 @@ public class Main {
 
         Studen studen = new Studen(0L, "Радик", "Абдулхаков", Faculty.FIST, markStudent);
         Exam exam = new Exam(studen);
+        exam.printDataStudent();
     }
 
     public static void collectionTask(){
@@ -158,7 +158,7 @@ public class Main {
             five.addUser(dtoTest);
         }
         five.getListData();
-        five.getListDataOfUrbanTime();
+        five.getListDataOfUrbanTime(60L);
         five.getListDataInternational();
     }
 

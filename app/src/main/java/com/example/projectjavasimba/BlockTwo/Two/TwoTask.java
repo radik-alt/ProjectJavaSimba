@@ -15,15 +15,31 @@ public class TwoTask {
 
     private final int[] location = new int[2];
 
-    public void move(Directions directions){
+    public int[] move(Directions directions){
         switch (directions) {
-            case up: location[0] += 1;
-            case down: location[0] -= 1;
-            case left: location[1] -= 1;
-            case right: location[1] += 1;
+            case UP: location[0] += 1;
+            case DOWN: location[0] -= 1;
+            case LEFT: location[1] -= 1;
+            case RIGHT: location[1] += 1;
         }
 
-        printLocation();
+        return location;
+    }
+
+    public void multiMove(Directions[] directions){
+        for (Directions direction : directions) {
+            switch (direction) {
+                case UP:
+                    location[0] += 1;
+                case DOWN:
+                    location[0] -= 1;
+                case LEFT:
+                    location[1] -= 1;
+                case RIGHT:
+                    location[1] += 1;
+            }
+            printLocation();
+        }
     }
 
     private void printLocation(){

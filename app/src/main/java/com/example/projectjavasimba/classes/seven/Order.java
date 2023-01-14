@@ -15,6 +15,11 @@ public class Order {
         orderlist.add(product);
     }
 
+    public void addProdToOrderAndPay(Product product, Client client) {
+        orderlist.add(product);
+        client.pay();
+    }
+
     public void showOrder() {
         for (Product e: orderlist) {
             System.out.println (e);

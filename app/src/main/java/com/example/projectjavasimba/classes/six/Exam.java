@@ -11,9 +11,9 @@ import java.util.List;
 public class Exam implements ExamInterface {
 
     private Studen studen;
+
     public Exam(Studen studen){
         this.studen = studen;
-        printDataStudent();
         if (validStudent()){
             System.out.println("Студент: " + studen.getFirstName() + " прошел на факультет: " + studen.getFaculty());
         } else {
