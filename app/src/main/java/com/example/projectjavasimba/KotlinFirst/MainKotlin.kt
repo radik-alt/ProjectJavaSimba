@@ -33,9 +33,9 @@ class MainKotlin {
         }
 
         if (equalFirst.equals(equalSecond)){
-            log(FIRST_TASK, "Обьекты equalFirst и equalSecond равны")
+            log(FIRST_TASK, "Обьекты equalFirst и equalSecond равны методом equals")
         } else {
-            log(FIRST_TASK, "Обьекты equalFirst и equalSecond не равны")
+            log(FIRST_TASK, "Обьекты equalFirst и equalSecond не равны методом equals")
         }
 
 
@@ -52,8 +52,8 @@ class MainKotlin {
 
 
     private fun buy (publication: Publication){
-        publication.price.let {
-            println("The purchase is complete. The purchase amount was $it")
+        publication.price?.let { price ->
+            println("The purchase is complete. The purchase amount was $price")
         }
     }
 
@@ -139,6 +139,7 @@ class MainKotlin {
             throw Exception("Юзеры меньше 18!!!")
 
         log(SECOND_TASK, "Юзеру больше 18!!!")
+
         return false
     }
 
