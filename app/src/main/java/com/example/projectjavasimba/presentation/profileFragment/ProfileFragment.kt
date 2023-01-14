@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.FragmentProfileBinding
-import com.example.projectjavasimba.presentation.adapter.AdapterFriends
+import com.example.projectjavasimba.presentation.adapter.friendsAdapter.AdapterFriends
 import com.example.projectjavasimba.presentation.entity.Friends
 
 
 class ProfileFragment : Fragment() {
 
-    private var _binding:FragmentProfileBinding?=null
+    private var _binding: FragmentProfileBinding?=null
     private val binding:FragmentProfileBinding
         get() = _binding ?: throw RuntimeException("FragmentProfileBinding == null")
 
