@@ -26,13 +26,18 @@ class MainKotlin {
 
         val equalSecond = publication == Book(100, 1000)
 
-        if (equalFirst === equalSecond){
+        if (equalFirst == equalSecond){
             log(FIRST_TASK, "Обьекты equalFirst и equalSecond равны по ссылке")
         } else {
             log(FIRST_TASK, "Обьекты equalFirst и equalSecond не равны по ссылке")
         }
 
-        equalFirst == equalSecond
+        if (equalFirst.equals(equalSecond)){
+            log(FIRST_TASK, "Обьекты equalFirst и equalSecond равны")
+        } else {
+            log(FIRST_TASK, "Обьекты equalFirst и equalSecond не равны")
+        }
+
 
         val sum = {a:Int, b:Int -> print(a + b)}
 
@@ -66,8 +71,7 @@ class MainKotlin {
         user.getStartTime()
 
         for (i in listUser){
-            if (i.validAge(i.getAge()))
-                throw Exception("Юзеры меньше 18!!!")
+            i.validAge(i.getAge())
         }
 
         println("Список юзеров с типом FULL: ")
@@ -80,7 +84,7 @@ class MainKotlin {
             it.getName()
         }
         println(changeList)
-        log("TwoTaskLog", "Первый элемент списка: ${changeList.first()}. Послдений элемент списка: ${changeList.last()}")
+        log(SECOND_TASK, "Первый элемент списка: ${changeList.first()}. Послдений элемент списка: ${changeList.last()}")
 
 
         auth {
@@ -114,7 +118,13 @@ class MainKotlin {
 
     private fun doAction(action: Action) = when (action){
         is Action.Registration -> log(SECOND_TASK, "Регистрация юзера")
-        is Action.Login -> log(SECOND_TASK, "Юзера авторизовался")
+        is Action.Login -> {
+            auth {
+                println(it)
+                authCallback.authSuccess()
+            }
+            log(SECOND_TASK, "Юзера авторизовался")
+        }
         is Action.Logout -> log(SECOND_TASK, "Юзер вышел")
         else -> {log(SECOND_TASK, "Сервак упал... :(")}
     }
@@ -124,7 +134,13 @@ class MainKotlin {
         println(message)
     }
 
-    private fun User.validAge(age:Int) = age <= 18
+    private fun User.validAge(age:Int): Boolean {
+        if (age <= 18)
+            throw Exception("Юзеры меньше 18!!!")
+
+        log(SECOND_TASK, "Юзеру больше 18!!!")
+        return false
+    }
 
     companion object{
         const val FIRST_TASK = "FIRST_TASK_LOG"

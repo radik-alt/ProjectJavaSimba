@@ -22,7 +22,7 @@ public class Exam implements ExamInterface {
     }
 
     private boolean validStudent(){
-        Integer minScore = minMarkOfFaculty(studen.getFaculty());
+        Integer minScore = minMarkOfFacultyFromTeacher(studen.getFaculty());
         List<Integer> markStudent = studen.getScore();
 
         Integer allScore = 0;
@@ -33,7 +33,12 @@ public class Exam implements ExamInterface {
         return allScore >= minScore;
     }
 
-    private Integer minMarkOfFaculty(Faculty faculty){
+    private void setMarkTeacher(List<Integer> markStudent){
+        for (int i = 0; i < markStudent.size(); i++){
+        }
+    }
+
+    private Integer minMarkOfFacultyFromTeacher(Faculty faculty){
         switch (faculty){
             case FIST:
                 return 230;
@@ -52,6 +57,5 @@ public class Exam implements ExamInterface {
     public void printDataStudent(){
         System.out.println(studen);
     }
-
 
 }
