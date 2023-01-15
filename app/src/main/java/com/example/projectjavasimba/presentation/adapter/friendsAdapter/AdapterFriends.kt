@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.ItemFriendsBinding
-import com.example.projectjavasimba.data.entity.Friends
+import com.example.projectjavasimba.presentation.entity.Friends
 
 class AdapterFriends(
     private val listFriends: List<Friends>

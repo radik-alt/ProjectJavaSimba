@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.adapter
+package com.example.projectjavasimba.presentation.adapter.friendsAdapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectjavasimba.databinding.ItemFriendsBinding
