@@ -14,4 +14,5 @@
     <color name="color_text">#de000000</color>
     <color name="gray_color">#aabbbb</color>
     <color name="background_item_helper">#eaede8</color>
+    <color name="select_tab_color">#f2b630</color>
 </resources>

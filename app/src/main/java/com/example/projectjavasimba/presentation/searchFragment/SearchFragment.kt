@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.projectjavasimba.R
-import com.example.projectjavasimba.databinding.FragmentProfileBinding
+import com.example.projectjavasimba.Utils.HingeAnimation
 import com.example.projectjavasimba.databinding.FragmentSearchBinding
 import com.example.projectjavasimba.presentation.adapter.searchViewPager.MySearchViewPager
 import com.google.android.material.tabs.TabLayoutMediator
@@ -39,6 +38,7 @@ class SearchFragment : Fragment() {
                 }
             }
         }.attach()
+        binding.viewPagerSearch.setPageTransformer(HingeAnimation())
     }
 
     override fun onDestroyView() {

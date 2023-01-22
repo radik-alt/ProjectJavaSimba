@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.FragmentProfileBinding
 import com.example.projectjavasimba.presentation.adapter.friendsAdapter.AdapterFriends
@@ -18,12 +21,25 @@ class ProfileFragment : Fragment() {
     private val binding:FragmentProfileBinding
         get() = _binding ?: throw RuntimeException("FragmentProfileBinding == null")
 
+    private val sharedViewModel:SharedViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val uriImage = sharedViewModel.getImage().value
+        if (uriImage != null){
+            Glide.with(requireContext())
+                .load(uriImage)
+                .error(R.drawable.ic_launcher_foreground)
+                .into(binding.imageProfile)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,8 +50,6 @@ class ProfileFragment : Fragment() {
             val dialogImage = DialogFragmentSelect()
             dialogImage.show(parentFragmentManager, dialogImage.tag)
         }
-
-
     }
 
     private fun setAdapter(){

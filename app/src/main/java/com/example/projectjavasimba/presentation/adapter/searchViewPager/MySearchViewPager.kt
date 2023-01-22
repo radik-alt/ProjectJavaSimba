@@ -16,4 +16,5 @@ class MySearchViewPager(fragmentManager: FragmentActivity): FragmentStateAdapter
             else -> NKOFragment()
         }
     }
+
 }
