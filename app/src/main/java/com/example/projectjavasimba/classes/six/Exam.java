@@ -22,27 +22,33 @@ public class Exam implements ExamInterface {
     }
 
     private boolean validStudent(){
-        Integer minScore = minMarkOfFaculty(studen.getFaculty());
+        Long minScore = minMarkOfFaculty(studen.getFaculty());
         List<Integer> markStudent = studen.getScore();
 
-        Integer allScore = 0;
+        Long allScore = 0L;
         for (Integer score : markStudent) {
-            allScore += score;
+            allScore += setMarkFromTeacher(score);
         }
 
-        return allScore >= minScore;
+        Long midMark = allScore/markStudent.size();
+
+        return midMark >= minScore;
     }
 
-    private Integer minMarkOfFaculty(Faculty faculty){
+    private Long setMarkFromTeacher(Integer score){
+        return (long) (score / 100) * 5;
+    }
+
+    private Long minMarkOfFaculty(Faculty faculty){
         switch (faculty){
             case FIST:
-                return 230;
+                return 4L;
             case Gum:
-                return 190;
+                return 3L;
             case Econom:
-                return 200;
+                return 2L;
             case IE:
-                return 180;
+                return 1L;
             default:
                 return null;
         }
