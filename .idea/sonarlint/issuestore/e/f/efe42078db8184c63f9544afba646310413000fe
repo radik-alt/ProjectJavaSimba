@@ -1,0 +1,7 @@
+
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(½»‚¶úÿÿÿÿ
+„
+java:S1319
+"iThe type of "orderlist" should be an interface such as "List" rather than the implementation "ArrayList".(Ž¿Ïùøÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍþÿÿÿÿ

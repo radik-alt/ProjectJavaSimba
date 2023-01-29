@@ -23,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:fontFamily="@font/roboto_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name_user"
@@ -30,6 +31,7 @@
                 android:textSize="24sp" />
 
             <TextView
+                android:fontFamily="@font/roboto_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30sp"
@@ -37,6 +39,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:fontFamily="@font/roboto_regular"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5sp"
@@ -45,6 +48,7 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:fontFamily="@font/roboto_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
@@ -52,6 +56,7 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:fontFamily="@font/roboto_regular"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5sp"
@@ -73,6 +78,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <TextView
+                android:fontFamily="@font/roboto_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/get_push_notification_text"
@@ -101,6 +107,7 @@
                 android:background="@color/gray_color" />
 
             <TextView
+                android:fontFamily="@font/roboto_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
@@ -125,6 +132,7 @@
                 android:background="@color/gray_color" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:fontFamily="@font/roboto_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

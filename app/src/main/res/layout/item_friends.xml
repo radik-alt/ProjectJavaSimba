@@ -13,6 +13,7 @@
         android:layout_height="48sp"/>
 
     <TextView
+        android:fontFamily="@font/roboto_regular"
         android:id="@+id/nameFriends"
         android:layout_marginStart="20sp"
         android:layout_gravity="center_vertical"

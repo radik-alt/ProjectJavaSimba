@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.profileFragment
+    package com.example.projectjavasimba.presentation.profileFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
