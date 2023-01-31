@@ -1,35 +1,39 @@
 package com.example.projectjavasimba.presentation.profileFragment.dialog
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.provider.SyncStateContract.Constants
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
+import com.example.projectjavasimba.BuildConfig
 import com.example.projectjavasimba.databinding.DialogLayoutBinding
 import com.example.projectjavasimba.presentation.profileFragment.SharedViewModel
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DialogFragmentSelect : DialogFragment() {
 
-    private var _binding:DialogLayoutBinding?=null
-    private val binding:DialogLayoutBinding
+    private var _binding: DialogLayoutBinding? = null
+    private val binding: DialogLayoutBinding
         get() = _binding ?: throw RuntimeException("DialogLayoutBinding == null")
 
-    private val sharedViewModel:SharedViewModel by activityViewModels()
+    private var uri: Uri? = null
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = DialogLayoutBinding.inflate(inflater, container, false)
         return binding.root
@@ -43,9 +47,8 @@ class DialogFragmentSelect : DialogFragment() {
         }
 
         binding.makePhoto.setOnClickListener {
-            if (allPermission()){
-                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                getContent.launch(Uri.parse(""))
+            if (allPermission()) {
+                openCamera()
             } else {
                 ActivityCompat.requestPermissions(requireActivity(), PERMISSION, PERMISSION_CODE)
             }
@@ -56,26 +59,51 @@ class DialogFragmentSelect : DialogFragment() {
         }
     }
 
-    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()) { imageUri ->
-        if (imageUri != null) {
-//            sharedViewModel.setImage(imageUri)
+    private val getContent =
+        registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
+            if (success) {
+                uri?.let { sharedViewModel.setImage(it) }
+            }
+        }
+
+    private fun openCamera() {
+        val file = createImageFile()
+        try {
+            uri = FileProvider.getUriForFile(
+                requireActivity(),
+                "${BuildConfig.APPLICATION_ID}.fileProvider",
+                file
+            )
+        } catch (e: Exception) {
+            Log.d("OpenCameraContent", e.message.toString())
+        }
+        if (uri != null) {
+            getContent.launch(uri)
         }
     }
 
+    private fun createImageFile(): File {
+        val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val imageDirectory = requireActivity().filesDir
+        return File.createTempFile(
+            "Camera_${timestamp}",
+            ".png",
+            imageDirectory
+        )
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    private fun allPermission() = PERMISSION.all{
+    private fun allPermission() = PERMISSION.all {
         ContextCompat.checkSelfPermission(requireContext(), it) == PackageManager.PERMISSION_GRANTED
     }
 
-    companion object{
-        private const val REQUEST_TAKE_PHOTO = 1;
-        private const val TAG_IMAGE = "profile_photo"
-        private val PERMISSION = arrayOf(Manifest.permission.CAMERA)
+    companion object {
+        private val PERMISSION =
+            arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
         private const val PERMISSION_CODE = 100
     }
 

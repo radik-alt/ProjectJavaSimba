@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
+        android:fontFamily="@font/roboto_regular"
         android:text="@string/default_text_item_search"
         android:textColor="@color/black"
         android:textSize="20sp"

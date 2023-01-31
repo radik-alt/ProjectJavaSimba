@@ -17,6 +17,7 @@
     <TextView
         android:id="@+id/textHelper"
         android:textStyle="bold"
+        android:fontFamily="@font/roboto_regular"
         android:textSize="15sp"
         android:textColor="@color/green_color"
         android:layout_gravity="center_horizontal"
