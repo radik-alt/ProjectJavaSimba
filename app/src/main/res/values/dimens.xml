@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="indiement5">5dp</dimen>
+    <dimen name="indiement10">10dp</dimen>
+    <dimen name="indiement15">15dp</dimen>
+    <dimen name="indiement20">20dp</dimen>
+</resources>
