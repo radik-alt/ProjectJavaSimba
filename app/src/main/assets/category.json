@@ -1,0 +1,16 @@
+{
+  "Category": [
+    {
+      "id": 1,
+      "image": "",
+      "title": "Помочь вещами",
+      "enable": true
+    },
+    {
+      "id": 2,
+      "image": "",
+      "title": "Помочь вещами",
+      "enable": true
+    }
+  ]
+}

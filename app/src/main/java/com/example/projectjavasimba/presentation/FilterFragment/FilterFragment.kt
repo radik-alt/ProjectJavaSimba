@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.FragmentFilterBinding
+import com.example.projectjavasimba.presentation.adapter.HelpAdapter.HelpAdapter
 
 
 class FilterFragment : Fragment() {
 
-    private var _binding:FragmentFilterBinding?= null
-    private val binding:FragmentFilterBinding
+    private var _binding: FragmentFilterBinding? = null
+    private val binding: FragmentFilterBinding
         get() = _binding ?: throw RuntimeException("FragmentFilterBinding == null")
 
     override fun onCreateView(
@@ -23,11 +24,14 @@ class FilterFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
+        setAdapter()
+    }
 
-
-
+    private fun setAdapter() {
+        binding.helpRecycler.adapter =
+            HelpAdapter(listOf("Деньгами", "Вещами", "Проф. помощью", "Волонтерством"))
     }
 
     override fun onDestroyView() {

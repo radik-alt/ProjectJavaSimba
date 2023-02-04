@@ -12,6 +12,24 @@
         layout="@layout/toolbar_filter"/>
 
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:padding="@dimen/indiement20"
+        android:textSize="14sp"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/black_70_color"
+        android:text="Категории помощи"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/type_help_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="@dimen/indiement10"
+        android:id="@+id/help_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

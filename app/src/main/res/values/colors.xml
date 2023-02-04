@@ -17,4 +17,5 @@
     <color name="select_tab_color">#f2b630</color>
     <color name="blue_gray">#627f8f</color>
     <color name="light_gray_color">#e8eded</color>
+    <color name="black_70_color">#b3000000</color>
 </resources>

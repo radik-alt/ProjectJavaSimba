@@ -9,37 +9,41 @@
     app:cardCornerRadius="@dimen/indiement5"
     android:layout_height="wrap_content">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView3"
+        android:layout_width="match_parent"
+        android:layout_height="400sp"
+        android:background="@drawable/background_image"
+        android:clipToOutline="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="s" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/appCompatImageView3"
-            android:layout_width="match_parent"
-            android:layout_height="300sp"
-            android:background="@drawable/background_image"
-            android:clipToOutline="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/img"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:targetApi="s" />
+        android:layout_height="match_parent">
 
         <TextView
+            android:layout_marginBottom="8dp"
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:lineHeight="23sp"
             android:text="@string/default_title_news"
             android:textColor="@color/blue_gray"
             android:textSize="21sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/appCompatImageView4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="p" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginBottom="10dp"
             android:id="@+id/appCompatImageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +54,11 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:textColor="@color/black_70_color"
             android:id="@+id/textView4"
+            android:textSize="14sp"
+            android:lineHeight="20sp"
+            android:fontFamily="@font/roboto_regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -58,7 +66,8 @@
             android:paddingEnd="@dimen/indiement20"
             android:paddingBottom="@dimen/indiement20"
             android:text="@string/default_text_news"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2" />
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            tools:targetApi="p" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -76,6 +85,7 @@
                 android:src="@drawable/icon_calendar" />
 
             <TextView
+                android:layout_marginStart="@dimen/indiement5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/default_after_down_text_news"
