@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.DetailNewsFragment.DetailFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -10,35 +11,205 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:text="@string/default_title_news"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <GridLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="vertical"
+            android:padding="@dimen/indiement20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_calendar" />
+                android:gravity="left"
+                android:lineHeight="23sp"
+                android:text="@string/default_title_news"
+                android:textColor="@color/blue_gray"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                tools:targetApi="p" />
 
-            <TextView
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/indiement5"
-                android:layout_width="wrap_content"
+            <GridLayout
+                android:columnCount="2"
+                android:layout_marginTop="@dimen/indiement10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_calendar_dark" />
+
+                <TextView
+                    android:textSize="12sp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/grey"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/indiement10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_after_down_text_news"/>
+
+
+            </GridLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textSize="12sp"
+                android:textColor="@color/black_60_color"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_marginTop="@dimen/indiement10"
+                android:text="@string/default_text_charity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <GridLayout
+                android:layout_marginTop="@dimen/indiement10"
+                android:columnCount="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_columnWeight="0"
+                    android:src="@drawable/nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_marginStart="@dimen/indiement10"
+                    android:layout_columnWeight="0"
+                    android:maxWidth="250sp"
+                    android:textSize="14sp"
+                    android:lineHeight="20sp"
+                    android:textColor="@color/black_70_color"
+                    android:text="Санкт-Петербург, Кирочная улица,д. 50А, каб. 208"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+
+            </GridLayout>
+
+            <GridLayout
+                android:layout_marginTop="@dimen/indiement10"
+                android:columnCount="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_columnWeight="0"
+                    android:src="@drawable/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="14sp"
+                    android:lineHeight="20sp"
+                    android:textColor="@color/black_70_color"
+                    android:layout_marginStart="@dimen/indiement10"
+                    android:layout_columnWeight="0"
+                    android:text="+7 (937) 037 37-73\n +7 (937) 016 16-16"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+
+            </GridLayout>
+
+            <GridLayout
+                android:layout_marginTop="@dimen/indiement10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_columnWeight="0"
+                    android:src="@drawable/mail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="14sp"
+                    android:textColor="@color/black_70_color"
+                    android:text="У вас есть вопросы?"
+                    android:layout_marginStart="@dimen/indiement10"
+                    android:layout_columnWeight="0"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="14sp"
+                    android:text="@string/write_you"
+                    android:textColor="@color/green_color"
+                    android:layout_marginStart="@dimen/indiement10"
+                    android:layout_columnWeight="0"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+            </GridLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/indiement10"
+                android:id="@+id/recycler_image_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="14sp"
+                android:lineHeight="20sp"
+                android:text="Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям."
+                android:textColor="@color/black_70_color"
+                android:layout_marginTop="@dimen/indiement10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginTop="@dimen/indiement10"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="14sp"
+                android:text="@string/to_website"
+                android:textColor="@color/green_color"
+                android:layout_columnWeight="0"
                 android:layout_height="wrap_content"
-                android:text="@string/default_after_down_text_news"/>
+                android:layout_width="wrap_content"/>
 
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </GridLayout>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:text="@string/default_text_charity"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:background="@color/light_gray_color"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:orientation="horizontal"
+            android:padding="@dimen/indiement20"
+            android:layout_height="wrap_content">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="wrap_content"
+                tools:itemCount="5"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginStart="@dimen/indiement10"
+                android:text="+102"
+                android:textSize="14sp"
+                android:textColor="@color/black_54_color"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/indiement10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

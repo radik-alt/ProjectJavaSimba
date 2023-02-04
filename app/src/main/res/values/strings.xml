@@ -27,4 +27,6 @@
     <string name="default_after_down_text_news">Осталось 13 дней (21.09 – 20.10)</string>
     <string name="default_text_charity">Благотворительный Фонд «Счастливый Мир»</string>
     <string name="filter">Фильтер</string>
+    <string name="write_you"><u>Напишите нам</u></string>
+    <string name="to_website"><u>Перейти на сайт организаии</u></string>
 </resources>

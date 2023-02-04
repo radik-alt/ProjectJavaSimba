@@ -1,11 +1,11 @@
 package com.example.projectjavasimba.presentation.adapter.NewsAdapter
 
 import androidx.recyclerview.widget.DiffUtil
-import java.util.Objects
+import com.example.projectjavasimba.data.entity.Event
 
 class DiffUtilsNews(
-    private val oldList: List<Objects>,
-    private val newList: List<Objects>
+    private val oldList: List<Event>,
+    private val newList: List<Event>
 ): DiffUtil.Callback() {
 
     override fun getOldListSize(): Int = oldList.size
@@ -13,10 +13,10 @@ class DiffUtilsNews(
     override fun getNewListSize(): Int = newList.size
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return false
+        return oldList[oldItemPosition].id == newList[newItemPosition].id
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return false
+        return oldList[oldItemPosition] == newList[newItemPosition]
     }
 }

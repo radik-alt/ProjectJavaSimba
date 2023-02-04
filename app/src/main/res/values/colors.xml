@@ -18,4 +18,7 @@
     <color name="blue_gray">#627f8f</color>
     <color name="light_gray_color">#e8eded</color>
     <color name="black_70_color">#b3000000</color>
+    <color name="black_60_color">#99000000</color>
+    <color name="grey">#94998a</color>
+    <color name="black_54_color">#8a000000</color>
 </resources>

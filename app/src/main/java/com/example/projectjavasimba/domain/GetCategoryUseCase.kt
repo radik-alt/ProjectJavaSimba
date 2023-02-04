@@ -1,6 +1,6 @@
 package com.example.projectjavasimba.domain
 
-import com.example.projectjavasimba.data.Category
+import com.example.projectjavasimba.data.entity.Category
 
 class GetCategoryUseCase {
 

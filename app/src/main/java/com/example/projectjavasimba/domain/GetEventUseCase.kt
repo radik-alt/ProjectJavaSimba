@@ -1,6 +1,6 @@
 package com.example.projectjavasimba.domain
 
-import com.example.projectjavasimba.data.Event
+import com.example.projectjavasimba.data.entity.Event
 
 class GetEventUseCase {
 

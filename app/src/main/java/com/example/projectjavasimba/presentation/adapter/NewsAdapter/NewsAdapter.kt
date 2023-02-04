@@ -2,12 +2,15 @@ package com.example.projectjavasimba.presentation.adapter.NewsAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.ItemNewsBinding
 import java.util.Objects
 
 class NewsAdapter(
-    private val list: List<Objects>
+    private var listEvent: List<Event>,
+    private val onClickEvent: (Event) -> Unit
 ) : RecyclerView.Adapter<NewsViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
@@ -17,11 +20,19 @@ class NewsAdapter(
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
 
+
+        holder.itemView.setOnClickListener {
+            onClickEvent.invoke(listEvent[position])
+        }
     }
 
-    override fun getItemCount(): Int = 0
+    override fun getItemCount(): Int = listEvent.size
 
-    fun update(list: List<Objects>){
+    fun update(newListEvent: List<Event>){
+        DiffUtil.calculateDiff(DiffUtilsNews(listEvent, newListEvent)).run {
+            listEvent = newListEvent
+            dispatchUpdatesTo(this@NewsAdapter)
+        }
 
     }
 }
