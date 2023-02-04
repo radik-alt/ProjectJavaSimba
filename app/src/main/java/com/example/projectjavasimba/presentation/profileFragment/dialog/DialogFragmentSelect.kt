@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import com.example.projectjavasimba.BuildConfig
 import com.example.projectjavasimba.databinding.DialogLayoutBinding
 import com.example.projectjavasimba.presentation.profileFragment.SharedViewModel
 import java.io.File
@@ -71,7 +70,7 @@ class DialogFragmentSelect : DialogFragment() {
         try {
             uri = FileProvider.getUriForFile(
                 requireActivity(),
-                "${BuildConfig.APPLICATION_ID}.fileProvider",
+                "com.example.projectjavasimba.fileProvider",
                 file
             )
         } catch (e: Exception) {
