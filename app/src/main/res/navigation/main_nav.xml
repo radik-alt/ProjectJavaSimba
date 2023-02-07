@@ -3,18 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/newsFragment">
-
+    app:startDestination="@id/profileFragment">
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.projectjavasimba.presentation.profileFragment.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.example.projectjavasimba.presentation.newsFragment.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
-            android:id="@+id/action_newsFragment_to_filterFragment"
+            android:id="@+id/action_newsFragment2_to_filterFragment"
             app:destination="@id/filterFragment" />
         <action
-            android:id="@+id/action_newsFragment_to_detailFragment"
+            android:id="@+id/action_newsFragment2_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
     <fragment
@@ -31,6 +35,5 @@
         android:name="com.example.projectjavasimba.presentation.filterFragment.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter" />
-
 
 </navigation>

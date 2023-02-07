@@ -35,14 +35,14 @@ class NewsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.toolbarNews.filter.setOnClickListener {
-            val action = NewsFragmentDirections.actionNewsFragmentToFilterFragment()
+            val action = NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
             findNavController().navigate(action)
         }
     }
 
     private fun setAdapter() {
         binding.recyclerNews.adapter = NewsAdapter(listOf()) { event ->
-            val action = NewsFragmentDirections.actionNewsFragmentToDetailFragment(event)
+            val action = NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
             findNavController().navigate(action)
         }
     }

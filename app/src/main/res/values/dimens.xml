@@ -4,4 +4,8 @@
     <dimen name="indiement10">10dp</dimen>
     <dimen name="indiement15">15dp</dimen>
     <dimen name="indiement20">20dp</dimen>
+    <dimen name="size_picture_dialog">30sp</dimen>
+    <dimen name="margin_allow_item_dialog">30sp</dimen>
+    <dimen name="size_text_dialog">20sp</dimen>
+    <dimen name="indiment_20">20sp</dimen>
 </resources>
