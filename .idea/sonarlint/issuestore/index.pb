@@ -1,8 +1,6 @@
 
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 |
 Lapp/src/main/java/com/example/projectjavasimba/training/StringsTraining.java,7\0\70bb08cb2fbf6d667358345d270663d8b9913c58
 x
@@ -37,9 +35,5 @@ w
 Gapp/src/main/java/com/example/projectjavasimba/classes/six/Subject.java,3\0\306c6b1999ec71981532c48c5ab980bc051d4d42
 w
 Gapp/src/main/java/com/example/projectjavasimba/classes/six/Faculty.java,a\3\a30f53e7ca362b5f14d862e9eea8f83ca0ac38e8
-”
-dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/AdapterFriends.kt,c\5\c57fad6b4dfa94b49770b1460abafc974c4a16d5
 —
 gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/ViewHolderFriends.kt,d\0\d0ac42f3afdc4c8dc75fb9c8ba7d115d874124aa
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
