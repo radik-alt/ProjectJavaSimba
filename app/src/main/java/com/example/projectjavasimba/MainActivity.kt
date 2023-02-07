@@ -9,7 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val s = "ic_launcher_foreground"
-        Log.d("GenIntImage", R.drawable.ic_launcher_foreground.toString())
+
     }
 }

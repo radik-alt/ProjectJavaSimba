@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.NewsFragment
+package com.example.projectjavasimba.presentation.newsFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.projectjavasimba.data.ParseJSON
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.adapter.NewsAdapter.NewsAdapter
 
@@ -26,6 +27,7 @@ class NewsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        ParseJSON(requireContext()).parseCategoryJson()
         setAdapter()
     }
 

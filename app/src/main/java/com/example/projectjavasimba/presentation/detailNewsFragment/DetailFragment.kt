@@ -1,11 +1,10 @@
-package com.example.projectjavasimba.presentation.DetailNewsFragment
+package com.example.projectjavasimba.presentation.detailNewsFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {

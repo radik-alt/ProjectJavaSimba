@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.FilterFragment
+package com.example.projectjavasimba.presentation.filterFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

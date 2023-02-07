@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.projectjavasimba.presentation.NewsFragment.NewsFragment"
+        android:name="com.example.projectjavasimba.presentation.newsFragment.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.projectjavasimba.presentation.DetailNewsFragment.DetailFragment"
+        android:name="com.example.projectjavasimba.presentation.detailNewsFragment.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.example.projectjavasimba.presentation.FilterFragment.FilterFragment"
+        android:name="com.example.projectjavasimba.presentation.filterFragment.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter" />
 

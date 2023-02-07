@@ -6,7 +6,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Category(
     val id:Long,
-    val image:String,
+    val image:Int,
     val title:String,
-    val enable:Boolean
 ):Parcelable

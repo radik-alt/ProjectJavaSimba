@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.NewsFragment
+package com.example.projectjavasimba.presentation.newsFragment
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
