@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".presentation.searchFragment.MeetingFragment">
+
+    <TextView
+        android:padding="@dimen/indiment_20"
+        android:lineHeight="20dp"
+        android:textSize="14sp"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_fragment_search" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/recyclerSearch"
+        tools:itemCount="4"
+        android:layout_width="match_parent"
+        tools:listitem="@layout/item_search"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

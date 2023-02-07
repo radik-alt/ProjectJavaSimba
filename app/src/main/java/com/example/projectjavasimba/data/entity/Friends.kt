@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.entity
+package com.example.projectjavasimba.data.entity
 
 data class Friends(
     val id: Long?=null,
