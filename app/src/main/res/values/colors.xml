@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    
+    <color name="green_color">#66a636</color>
+    <color name="bolotny_green_color">#51812C</color>
+    <color name="color_text">#de000000</color>
+    <color name="gray_color">#aabbbb</color>
+    <color name="background_item_helper">#eaede8</color>
+    <color name="select_tab_color">#f2b630</color>
 </resources>

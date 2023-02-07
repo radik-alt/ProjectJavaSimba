@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">ProjectJavaSimba</string>
+    <string name="download_splash">Загрузка</string>
+    <string name="news">Новости</string>
+    <string name="search">Поиск</string>
+    <string name="help">Помочь</string>
+    <string name="history">История</string>
+    <string name="profile">Профиль</string>
+    <string name="name_user">Константинов Денис</string>
+    <string name="get_push_notification_text">Получать push увеодмелния</string>
+    <string name="default_work">Хирургия, травмотология</string>
+    <string name="birthday">01 февраля 1980</string>
+    <string name="text_birthday">Дата рождния</string>
+    <string name="your_friends">Ваши друзья:</string>
+    <string name="Field_of_activity">Сфера деятельности</string>
+    <string name="exit_button">Выйти из аккаунта</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Удалить</string>
+    <string name="make_picture">Сделать снимок</string>
+    <string name="choose_photo">Выбрать фото</string>
+    <string name="text_select_sort_help">Выберите категорию помощи</string>
+    <string name="text_fragment_search">Ключевые слова: мастер-класс, помощь Результаты поиска: 109 мероприятий</string>
+    <string name="default_text_item_search">Благодтворительный фонд Алисы фвфыв</string>
 </resources>
