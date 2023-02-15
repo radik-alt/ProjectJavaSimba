@@ -29,8 +29,8 @@
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/check_helper_type"
             android:layout_columnWeight="0"
-            style="@style/SCBSwitch"
-            android:checked="true"
+            android:padding="@dimen/indiement10"
+            android:theme="@style/SCBSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

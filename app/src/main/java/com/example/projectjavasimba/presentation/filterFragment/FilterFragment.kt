@@ -42,7 +42,9 @@ class FilterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.run {
-            toolbarFilter.back.setOnClickListener { findNavController().popBackStack() }
+            toolbarFilter.back.setOnClickListener {
+                findNavController().popBackStack()
+            }
             toolbarFilter.doneChangeCategory.setOnClickListener {
                 findNavController().popBackStack()
             }
@@ -53,6 +55,7 @@ class FilterFragment : Fragment() {
         val listCategory = ParseJSON(requireContext()).parseCategoryJson()
         val adapter = CategoryAdapter(listCategory) { category ->
             sharedNewsFilterViewModel.setCategory(category)
+            findNavController().popBackStack()
         }
 
         binding.typeHelpRecycler.adapter = adapter
@@ -64,8 +67,9 @@ class FilterFragment : Fragment() {
             add(TypeHelp(getString(R.string.prof_help), false))
             add(TypeHelp(getString(R.string.help_many), false))
         }
+
         binding.helpRecycler.adapter =
-            HelpAdapter(listTypeHelp) {
+            HelpAdapter(listTypeHelp) { typeHelp ->
 
             }
     }

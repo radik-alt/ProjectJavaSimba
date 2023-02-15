@@ -11,7 +11,6 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.ParseJSON
 import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
-import com.example.projectjavasimba.domain.GetEventUseCase
 import com.example.projectjavasimba.presentation.adapter.NewsAdapter.NewsAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -52,16 +51,24 @@ class NewsFragment : Fragment() {
     }
 
     private fun setAdapter(listEvent: List<Event>) {
-        binding.recyclerNews.adapter = NewsAdapter(listEvent) { event ->
-            val action = NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
-            findNavController().navigate(action)
+        binding.recyclerNews.adapter.let { adapter ->
+            if (adapter is NewsAdapter) {
+                adapter.update(listEvent)
+            } else {
+                binding.recyclerNews.adapter = NewsAdapter(listEvent) { event ->
+                    val action = NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
+                    findNavController().navigate(action)
+                }
+            }
         }
+
     }
 
-    private fun showBottomNavigation(){
+    private fun showBottomNavigation() {
         val fragmentActivity = activity
-        if (activity != null){
-            val bottom = fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        if (activity != null) {
+            val bottom =
+                fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
             if (bottom != null && bottom.visibility == View.GONE) {
                 bottom.visibility = View.VISIBLE
             }

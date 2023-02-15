@@ -21,6 +21,11 @@ class HelpAdapter(
         holder.title.text = listHelp[position].name
 
         holder.itemView.setOnClickListener {
+            holder.switch.isChecked = true
+            onClickTypeHelp.invoke(listHelp[position])
+        }
+
+        holder.switch.setOnClickListener {
             onClickTypeHelp.invoke(listHelp[position])
         }
     }

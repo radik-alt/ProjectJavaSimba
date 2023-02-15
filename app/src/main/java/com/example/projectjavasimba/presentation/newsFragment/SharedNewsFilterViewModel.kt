@@ -1,5 +1,6 @@
 package com.example.projectjavasimba.presentation.newsFragment
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.projectjavasimba.data.entity.Category
@@ -12,5 +13,7 @@ class SharedNewsFilterViewModel : ViewModel() {
         category.value = changeCategory
     }
 
-    fun getCategory() = category
+    fun getCategory(): LiveData<Category> = category
+
+
 }
