@@ -2,17 +2,19 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    app:cardUseCompatPadding="true"
-    app:contentPadding="@dimen/indiement5"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_item_news"
+    android:orientation="vertical"
     app:cardCornerRadius="@dimen/indiement5"
-    android:layout_height="wrap_content">
+    app:cardUseCompatPadding="true"
+    app:contentPadding="@dimen/indiement5">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView3"
+        android:id="@+id/image_event"
         android:layout_width="match_parent"
-        android:layout_height="400sp"
+        android:layout_height="350sp"
+        android:alpha="0.8"
         android:background="@drawable/background_image"
         android:clipToOutline="true"
         android:scaleType="fitXY"
@@ -27,10 +29,10 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_marginBottom="8dp"
-            android:id="@+id/textView3"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:gravity="center"
             android:lineHeight="23sp"
             android:text="@string/default_title_news"
@@ -43,29 +45,29 @@
             tools:targetApi="p" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_marginBottom="10dp"
             android:id="@+id/appCompatImageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/decor"
-            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintBottom_toTopOf="@+id/description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:textColor="@color/black_70_color"
-            android:id="@+id/textView4"
-            android:textSize="14sp"
-            android:lineHeight="20sp"
-            android:fontFamily="@font/roboto_regular"
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
             android:gravity="center"
+            android:lineHeight="20sp"
             android:paddingStart="@dimen/indiement20"
             android:paddingEnd="@dimen/indiement20"
             android:paddingBottom="@dimen/indiement20"
             android:text="@string/default_text_news"
+            android:textColor="@color/black_70_color"
+            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             tools:targetApi="p" />
 
@@ -85,9 +87,10 @@
                 android:src="@drawable/icon_calendar" />
 
             <TextView
-                android:layout_marginStart="@dimen/indiement5"
+                android:id="@+id/date_event"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/indiement5"
                 android:text="@string/default_after_down_text_news"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
@@ -95,9 +98,7 @@
         </LinearLayout>
 
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </com.google.android.material.card.MaterialCardView>

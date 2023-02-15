@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.Helper
+import com.example.projectjavasimba.data.ParseJSON
+import com.example.projectjavasimba.data.entity.CategoryDetail
+import com.example.projectjavasimba.data.entity.TypeHelp
 import com.example.projectjavasimba.databinding.FragmentFilterBinding
 import com.example.projectjavasimba.presentation.adapter.HelpAdapter.HelpAdapter
-import com.example.projectjavasimba.presentation.adapter.helperAdapter.HelperAdapter
+import com.example.projectjavasimba.presentation.adapter.helperAdapter.CategoryAdapter
+import com.example.projectjavasimba.presentation.newsFragment.SharedNewsFilterViewModel
 
 
 class FilterFragment : Fragment() {
@@ -19,6 +24,7 @@ class FilterFragment : Fragment() {
     private val binding: FragmentFilterBinding
         get() = _binding ?: throw RuntimeException("FragmentFilterBinding == null")
 
+    private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -32,19 +38,36 @@ class FilterFragment : Fragment() {
         setAdapter()
     }
 
-    private fun setAdapter() {
-        val helper = Helper("Дети", R.drawable.invalid_name)
-        val helper2 = Helper("Взрослые", R.drawable.invalid_name2)
-        val helper3 = Helper("Пожилые", R.drawable.invalid_name3)
-        val helper4 = Helper("Животные", R.drawable.invalid_name4)
-        val helper5 = Helper("Мероприятия", R.drawable.invalid_name5)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val adapter = HelperAdapter(listOf(helper, helper2, helper3, helper4, helper5))
+        binding.run {
+            toolbarFilter.back.setOnClickListener { findNavController().popBackStack() }
+            toolbarFilter.doneChangeCategory.setOnClickListener {
+                findNavController().popBackStack()
+            }
+        }
+    }
+
+    private fun setAdapter() {
+        val listCategory = ParseJSON(requireContext()).parseCategoryJson()
+        val adapter = CategoryAdapter(listCategory) { category ->
+            sharedNewsFilterViewModel.setCategory(category)
+        }
+
         binding.typeHelpRecycler.adapter = adapter
         binding.typeHelpRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
 
+        val listTypeHelp = ArrayList<TypeHelp>().apply {
+            add(TypeHelp(getString(R.string.help_shirt), false))
+            add(TypeHelp(getString(R.string.state_hands), false))
+            add(TypeHelp(getString(R.string.prof_help), false))
+            add(TypeHelp(getString(R.string.help_many), false))
+        }
         binding.helpRecycler.adapter =
-            HelpAdapter(listOf("Деньгами", "Вещами", "Проф. помощью", "Волонтерством"))
+            HelpAdapter(listTypeHelp) {
+
+            }
     }
 
     override fun onDestroyView() {

@@ -5,10 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.ParseJSON
+import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
+import com.example.projectjavasimba.domain.GetEventUseCase
 import com.example.projectjavasimba.presentation.adapter.NewsAdapter.NewsAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class NewsFragment : Fragment() {
@@ -16,6 +21,8 @@ class NewsFragment : Fragment() {
     private var _binding: FragmentNewsBinding? = null
     private val binding: FragmentNewsBinding
         get() = _binding ?: throw RuntimeException("FragmentNewsBinding == null")
+
+    private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +34,12 @@ class NewsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        ParseJSON(requireContext()).parseCategoryJson()
-        setAdapter()
+        showBottomNavigation()
+        var listEvent = ParseJSON(requireContext()).parseEventJson()
+        sharedNewsFilterViewModel.getCategory().observe(viewLifecycleOwner) { category ->
+            listEvent = listEvent.filter { listEvent -> listEvent.category.contains(category) }
+        }
+        setAdapter(listEvent)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,10 +51,20 @@ class NewsFragment : Fragment() {
         }
     }
 
-    private fun setAdapter() {
-        binding.recyclerNews.adapter = NewsAdapter(listOf()) { event ->
+    private fun setAdapter(listEvent: List<Event>) {
+        binding.recyclerNews.adapter = NewsAdapter(listEvent) { event ->
             val action = NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
             findNavController().navigate(action)
+        }
+    }
+
+    private fun showBottomNavigation(){
+        val fragmentActivity = activity
+        if (activity != null){
+            val bottom = fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            if (bottom != null && bottom.visibility == View.GONE) {
+                bottom.visibility = View.VISIBLE
+            }
         }
     }
 

@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.ItemNewsBinding
-import java.util.Objects
 
 class NewsAdapter(
     private var listEvent: List<Event>,
@@ -19,6 +18,10 @@ class NewsAdapter(
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+
+        holder.title.text = listEvent[position].title
+        holder.desc.text = listEvent[position].description
+        holder.date.text = listEvent[position].date
 
 
         holder.itemView.setOnClickListener {

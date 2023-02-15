@@ -1,5 +1,6 @@
 package com.example.projectjavasimba.data.entity
 
+import android.media.Image
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
@@ -14,5 +15,5 @@ data class Event(
     val phone:String,
     val email:String,
     val category: List<Category>,
-    val listFriends: Int
+    val listFriends: List<Int>
 ):Parcelable

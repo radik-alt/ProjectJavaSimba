@@ -11,6 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_detail"/>
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:orientation="vertical"
             android:padding="@dimen/indiement20"
@@ -18,6 +22,7 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
@@ -40,6 +45,7 @@
                     android:src="@drawable/icon_calendar_dark" />
 
                 <TextView
+                    android:id="@+id/date"
                     android:textSize="12sp"
                     android:fontFamily="@font/roboto_regular"
                     android:textColor="@color/grey"
@@ -75,6 +81,7 @@
                     android:layout_height="wrap_content"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/street"
                     android:fontFamily="@font/roboto_regular"
                     android:layout_marginStart="@dimen/indiement10"
                     android:layout_columnWeight="0"
@@ -102,6 +109,7 @@
                     android:layout_height="wrap_content"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/phone"
                     android:fontFamily="@font/roboto_regular"
                     android:textSize="14sp"
                     android:lineHeight="20sp"
@@ -137,6 +145,7 @@
                     android:layout_width="wrap_content"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/send_email"
                     android:fontFamily="@font/roboto_regular"
                     android:textSize="14sp"
                     android:text="@string/write_you"
@@ -155,10 +164,11 @@
                 android:layout_height="wrap_content"/>
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/description"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp"
                 android:lineHeight="20sp"
-                android:text="Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям."
+                android:text="@string/test_desc_detail_news"
                 android:textColor="@color/black_70_color"
                 android:layout_marginTop="@dimen/indiement10"
                 android:layout_width="match_parent"
@@ -166,6 +176,7 @@
 
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/web_site"
                 android:layout_marginTop="@dimen/indiement10"
                 android:fontFamily="@font/roboto_regular"
                 android:textSize="14sp"
@@ -185,6 +196,7 @@
             android:layout_height="wrap_content">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_friends_detail"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_width="wrap_content"
@@ -192,8 +204,10 @@
                 android:layout_height="wrap_content"/>
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/count_friends"
                 android:layout_marginStart="@dimen/indiement10"
-                android:text="+102"
+                android:text=""
+                android:layout_gravity="center_vertical"
                 android:textSize="14sp"
                 android:textColor="@color/black_54_color"
                 android:fontFamily="@font/roboto_regular"
@@ -205,6 +219,8 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.recyclerview.widget.RecyclerView
+            tools:listitem="@layout/item_detail_category"
+            android:id="@+id/recycler_help_detail"
             android:layout_marginTop="@dimen/indiement10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
