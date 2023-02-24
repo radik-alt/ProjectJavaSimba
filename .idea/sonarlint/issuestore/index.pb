@@ -1,8 +1,6 @@
 
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 w
@@ -13,8 +11,6 @@ aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter
 \app/src/main/java/com/example/projectjavasimba/presentation/FilterFragment/FilterFragment.kt,7\d\7ddad4d759d86f21edf5f5f62d942be10ff9e692
 ˆ
 Xapp/src/main/java/com/example/projectjavasimba/presentation/NewsFragment/NewsFragment.kt,8\6\86d133bf2bdeecda03209d1570a9119e50a8a482
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 u
 Eapp/src/main/java/com/example/projectjavasimba/data/entity/Friends.kt,c\b\cba72aae0560de4a6fdf67b4f809ada2402009ac
 n
@@ -27,9 +23,23 @@ japp/src/main/java/com/example/projectjavasimba/presentation/profileFragment/dia
 ^app/src/main/java/com/example/projectjavasimba/presentation/profileFragment/ProfileFragment.kt,d\e\dedec1168f8ef3f669e68a447ca7cd501b0f7bde
 Ž
 ^app/src/main/java/com/example/projectjavasimba/presentation/profileFragment/SharedViewModel.kt,f\7\f7433a089fed2f1a12b0472f04fd18efbdf6db06
-•
-eapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/SharedNewsFilterViewModel.kt,6\a\6a9791285146fd0087430a692d9d5f3bceb94c50
 v
 Fapp/src/main/java/com/example/projectjavasimba/data/entity/Category.kt,f\5\f5c40e84c9f26800e1dd67dd9cb392d5d26ce9dc
 ”
 dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/AdapterFriends.kt,c\5\c57fad6b4dfa94b49770b1460abafc974c4a16d5
+w
+G.idea/sonarlint/issuestore/d/0/d0ac42f3afdc4c8dc75fb9c8ba7d115d874124aa,f\b\fbb14eccc0d7cf1d2794571a856c74f8bc186057
+”
+dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/CategoryAdapter.kt,1\3\1348a5eef5838d9a60dfe53809872387290b870f
+ 
+papp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsDetailAdapter/FriendsDetailAdapter.kt,7\1\713f2bbc10f24d63590087dd082368e6e3e3ec33
+v
+Fapp/src/main/java/com/example/projectjavasimba/data/entity/TypeHelp.kt,5\3\5336a615a53e1a04644b08e1554ed00f49aaf1a8
+t
+Dapp/src/main/java/com/example/projectjavasimba/data/entity/Helper.kt,7\d\7df92758495b5f626a060abc314adee2b7d94945
+—
+gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/CategoryViewHolder.kt,a\e\aecf284934fa11685b1b7583d1361cc0de7128c1
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164

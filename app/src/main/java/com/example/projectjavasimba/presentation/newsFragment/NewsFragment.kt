@@ -1,19 +1,21 @@
 package com.example.projectjavasimba.presentation.newsFragment
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.ParseJSON
 import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
-import com.example.projectjavasimba.domain.GetEventUseCase
 import com.example.projectjavasimba.presentation.adapter.NewsAdapter.NewsAdapter
+import com.example.projectjavasimba.utils.Constants.getListSaveInstance
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlin.collections.ArrayList
 
 
 class NewsFragment : Fragment() {
@@ -23,6 +25,7 @@ class NewsFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("FragmentNewsBinding == null")
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
+    private val newsViewModel: NewsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,15 +38,41 @@ class NewsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         showBottomNavigation()
-        var listEvent = ParseJSON(requireContext()).parseEventJson()
+        getListData()
+    }
+
+    private fun getListData() {
+
         sharedNewsFilterViewModel.getCategory().observe(viewLifecycleOwner) { category ->
-            listEvent = listEvent.filter { listEvent -> listEvent.category.contains(category) }
+            newsViewModel.setCategory(category)
         }
-        setAdapter(listEvent)
+
+        newsViewModel.isLoader.observe(viewLifecycleOwner){ isLoader ->
+            if (isLoader) {
+                binding.progressLoader.hide()
+            } else {
+                binding.progressLoader.show()
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        val saveList = savedInstanceState?.getParcelableArrayList(getListSaveInstance, )
+        val saveList = listOf<Event>()
+        if (saveList == null) {
+            newsViewModel.getParseListEvent()
+        }
+
+        newsViewModel.getListEvent().observe(viewLifecycleOwner) { listEvent ->
+            savedInstanceState?.putParcelableArrayList(getListSaveInstance, listEvent as ArrayList<out Event>);
+            if (saveList != null) {
+                setAdapter(saveList)
+            } else {
+                setAdapter(listEvent)
+            }
+        }
 
         binding.toolbarNews.filter.setOnClickListener {
             val action = NewsFragmentDirections.actionNewsFragment2ToFilterFragment()

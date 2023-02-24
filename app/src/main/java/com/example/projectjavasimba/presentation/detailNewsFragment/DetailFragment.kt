@@ -71,8 +71,6 @@ class DetailFragment : Fragment() {
     private fun setAdapter() {
         val listImage = args.event.listImage
         binding.recyclerImageDetail.adapter = ImageDetailAdapter(listImage)
-        binding.recyclerImageDetail.layoutManager =
-            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         val listCategoryDetail = listOf(
             CategoryDetail(getString(R.string.help_shirt), R.drawable.shirt),

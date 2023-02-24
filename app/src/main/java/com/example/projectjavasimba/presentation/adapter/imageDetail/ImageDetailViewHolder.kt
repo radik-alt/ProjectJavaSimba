@@ -6,4 +6,6 @@ import com.example.projectjavasimba.databinding.ItemImageDetailBinding
 class ImageDetailViewHolder(binding: ItemImageDetailBinding) : ViewHolder(binding.root) {
 
     val image = binding.image
+
+
 }
