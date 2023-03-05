@@ -22,4 +22,8 @@
     <string name="text_select_sort_help">Выберите категорию помощи</string>
     <string name="text_fragment_search">Ключевые слова: мастер-класс, помощь Результаты поиска: 109 мероприятий</string>
     <string name="default_text_item_search">Благодтворительный фонд Алисы фвфыв</string>
+    <string name="auth_accros_soc_network">Для участия в мероприятиях войдите в приложение через социальые сети</string>
+    <string name="auth_application">Или авторизуйтесь через приложение</string>
+    <string name="sing_up"><u>Регистрация</u></string>
+    <string name="forgot_pwsrd"><u>Забыли пароль?</u></string>
 </resources>
