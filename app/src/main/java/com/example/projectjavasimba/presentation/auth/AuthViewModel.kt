@@ -5,11 +5,13 @@ import androidx.lifecycle.ViewModel
 class AuthViewModel : ViewModel() {
 
     fun authUser(email: String, password: String) {
+        if (validAuth(email, password)){
 
+        }
     }
 
-    private fun validAuth(email: String, password: String):Boolean {
-        return true
+    fun validAuth(email: String, password: String):Boolean {
+        return email.length < 6 || password.length < 6
     }
 
 }

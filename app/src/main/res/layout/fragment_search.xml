@@ -13,9 +13,9 @@
         android:padding="10sp"
         android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.SearchView
+        <SearchView
             android:background="@drawable/bg_search_view"
-            android:id="@+id/search"
+            android:id="@+id/sv_search"
             app:voiceIcon="@drawable/ic_baseline_file_download_24"
             android:iconifiedByDefault="false"
             android:layout_width="match_parent"

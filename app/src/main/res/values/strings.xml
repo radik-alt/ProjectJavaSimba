@@ -26,4 +26,7 @@
     <string name="auth_application">Или авторизуйтесь через приложение</string>
     <string name="sing_up"><u>Регистрация</u></string>
     <string name="forgot_pwsrd"><u>Забыли пароль?</u></string>
+    <string name="valid_error_auth">Проверьте корректность введеных данных! Неоюходимо минимиу 6 символов!</string>
+    <string name="meeting_title">По мероприятиям</string>
+    <string name="nko_title">По НКО</string>
 </resources>

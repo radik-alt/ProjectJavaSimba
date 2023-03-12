@@ -1,9 +1,10 @@
-package com.example.projectjavasimba
+package com.example.projectjavasimba.presentation
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.projectjavasimba.classes.Main
+import com.example.projectjavasimba.R
+import com.example.projectjavasimba.presentation.auth.AuthActivity
 import kotlinx.coroutines.*
 
 class SplashScreen : AppCompatActivity() {
@@ -17,6 +18,8 @@ class SplashScreen : AppCompatActivity() {
             startActivity(Intent(this@SplashScreen, AuthActivity::class.java))
             finish()
         }
+
+
 
     }
 }

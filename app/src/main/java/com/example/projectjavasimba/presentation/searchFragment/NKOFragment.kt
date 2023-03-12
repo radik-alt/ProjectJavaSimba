@@ -28,6 +28,8 @@ class NKOFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         val randomText = Utils()
         binding.recyclerSearch.adapter = SearchAdapter(listOf(randomText.randomStringByJavaRandom(),
             randomText.randomStringByJavaRandom(),
