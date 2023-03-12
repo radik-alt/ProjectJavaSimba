@@ -1,7 +1,6 @@
 package com.example.projectjavasimba.presentation.newsFragment
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,7 +14,7 @@ class NewsViewModel(
 
     private val listEvent = MutableLiveData<List<Event>>()
     private var filterCategory: Category? = null
-    val isLoader = MutableLiveData<Boolean>()
+    val progressLoader = MutableLiveData<Int>()
 
     fun setCategory(_category: Category) {
         filterCategory = _category
@@ -24,15 +23,18 @@ class NewsViewModel(
     fun getListEvent(): LiveData<List<Event>> = listEvent
 
     fun getParseListEvent() {
-        isLoader.postValue(false)
+        progressLoader.postValue(0)
         val myThread = Thread {
-            Thread.sleep(5000)
-            val data = ParseJSON(getApplication())
-            val request = data.parseEventJson().get().filter { listEvent ->
-                listEvent.category.contains(filterCategory)
+            for (i in 0..4) {
+                Thread.sleep(1000)
+                progressLoader.postValue(i * 20)
             }
+            val data = ParseJSON(getApplication())
+            val request = data.parseEventJson().get()
+//                .filter { listEvent ->
+//                listEvent.category.contains(filterCategory)
+//            }
             listEvent.postValue(request)
-            isLoader.postValue(true)
         }
         myThread.start()
     }

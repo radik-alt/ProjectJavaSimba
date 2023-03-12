@@ -1,16 +1,12 @@
 package com.example.projectjavasimba.data
 
 import android.content.Context
-import android.util.Log
-import androidx.lifecycle.LiveData
 import com.example.projectjavasimba.data.entity.Category
 import com.example.projectjavasimba.data.entity.Event
 import com.google.gson.Gson
-import java.lang.Thread.sleep
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
-import kotlin.concurrent.thread
 
 class ParseJSON(
     private val context: Context,

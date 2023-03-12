@@ -1,7 +1,6 @@
 package com.example.projectjavasimba.presentation.newsFragment
 
 import android.os.Bundle
-import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -47,10 +46,11 @@ class NewsFragment : Fragment() {
             newsViewModel.setCategory(category)
         }
 
-        newsViewModel.isLoader.observe(viewLifecycleOwner){ isLoader ->
-            if (isLoader) {
+        newsViewModel.progressLoader.observe(viewLifecycleOwner){ loader ->
+            if (loader == 100) {
                 binding.progressLoader.hide()
             } else {
+                binding.progressLoader.progress += loader
                 binding.progressLoader.show()
             }
         }
@@ -59,8 +59,7 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val saveList = savedInstanceState?.getParcelableArrayList(getListSaveInstance, )
-        val saveList = listOf<Event>()
+        val saveList = savedInstanceState?.getParcelableArrayList<Event>(getListSaveInstance)
         if (saveList == null) {
             newsViewModel.getParseListEvent()
         }

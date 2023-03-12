@@ -7,8 +7,6 @@ import android.os.IBinder
 
 class ServiceGetData: Service() {
 
-
-
     override fun onCreate() {
         super.onCreate()
     }
