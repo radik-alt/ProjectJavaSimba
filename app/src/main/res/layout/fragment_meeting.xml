@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".presentation.searchFragment.MeetingFragment">
+    tools:context=".presentation.meetingFragment.MeetingFragment">
 
     <TextView
         android:padding="@dimen/indiment_20"
