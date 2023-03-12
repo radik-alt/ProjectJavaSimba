@@ -36,4 +36,14 @@
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter" />
 
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.projectjavasimba.presentation.searchFragment.SearchFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.projectjavasimba.presentation.helpFragment.HelpFragment"
+        android:label="fragment_helpragment"
+        tools:layout="@layout/fragment_helpragment" />
 </navigation>
