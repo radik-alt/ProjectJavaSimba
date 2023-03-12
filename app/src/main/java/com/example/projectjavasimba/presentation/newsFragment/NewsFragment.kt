@@ -12,7 +12,7 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.adapter.NewsAdapter.NewsAdapter
-import com.example.projectjavasimba.utils.Constants.getListSaveInstance
+import com.example.projectjavasimba.utils.Constants.getListSaveInstanceEvent
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.collections.ArrayList
 
@@ -59,13 +59,13 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val saveList = savedInstanceState?.getParcelableArrayList<Event>(getListSaveInstance)
+        val saveList = savedInstanceState?.getParcelableArrayList<Event>(getListSaveInstanceEvent)
         if (saveList == null) {
             newsViewModel.getParseListEvent()
         }
 
         newsViewModel.getListEvent().observe(viewLifecycleOwner) { listEvent ->
-            savedInstanceState?.putParcelableArrayList(getListSaveInstance, listEvent as ArrayList<out Event>);
+            savedInstanceState?.putParcelableArrayList(getListSaveInstanceEvent, listEvent as ArrayList<out Event>);
             if (saveList != null) {
                 setAdapter(saveList)
             } else {

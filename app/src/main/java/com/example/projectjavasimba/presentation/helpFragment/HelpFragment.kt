@@ -5,23 +5,39 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.Helper
+import com.example.projectjavasimba.data.entity.Category
 import com.example.projectjavasimba.databinding.FragmentHelpragmentBinding
 import com.example.projectjavasimba.presentation.adapter.helperAdapter.HelperAdapter
+import com.example.projectjavasimba.utils.Constants
 
 
 class HelpFragment : Fragment() {
 
-    private var _binding: FragmentHelpragmentBinding?=null
-    private val binding:FragmentHelpragmentBinding
+    private var _binding: FragmentHelpragmentBinding? = null
+    private val binding: FragmentHelpragmentBinding
         get() = _binding ?: throw RuntimeException()
 
+    private val viewModel: HelpViewModel by activityViewModels()
     override fun onResume() {
         super.onResume()
-        setAdapter()
-        workView()
+        setToolbar()
+        loaderShow()
+        viewModel.getParseListCategory()
+    }
+
+    private fun loaderShow() {
+        viewModel.progressLoader.observe(viewLifecycleOwner) { loader ->
+            if (loader == 100) {
+                binding.selectCategoryTitle.text = getString(R.string.text_select_sort_help)
+                binding.progressLoader.hide()
+            } else {
+                binding.selectCategoryTitle.text = getString(R.string.load)
+                binding.progressLoader.progress += loader
+            }
+        }
     }
 
     override fun onCreateView(
@@ -35,22 +51,30 @@ class HelpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val saveListCategory =
+            savedInstanceState?.getParcelableArrayList<Category>(Constants.getListSaveInstanceCategory)
+
+        viewModel.listCategory.observe(viewLifecycleOwner) { listCategory ->
+            if (saveListCategory == null)
+                setAdapter(listCategory)
+            else {
+                setAdapter(listCategory)
+                savedInstanceState.putParcelableArrayList(
+                    Constants.getListSaveInstanceCategory,
+                    listCategory as ArrayList<out Category>
+                )
+            }
+        }
     }
 
-    private fun setAdapter(){
-        val helper = Helper("Дети", R.drawable.invalid_name)
-        val helper2 = Helper("Взрослые", R.drawable.invalid_name2)
-        val helper3 = Helper("Пожилые", R.drawable.invalid_name3)
-        val helper4 = Helper("Животные", R.drawable.invalid_name4)
-        val helper5 = Helper("Мероприятия", R.drawable.invalid_name5)
-
-        val adapter = HelperAdapter(listOf(helper, helper2, helper3, helper4, helper5))
+    private fun setAdapter(listCategory: List<Category>) {
+        val adapter = HelperAdapter(listCategory)
         binding.recyclerHelper.adapter = adapter
         binding.recyclerHelper.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
-    private fun workView(){
-        binding.toolbarHelper.text.text = "Помощь"
+    private fun setToolbar() {
+        binding.toolbarHelper.text.text = getString(R.string.help)
         binding.toolbarHelper.create.visibility = View.GONE
     }
 

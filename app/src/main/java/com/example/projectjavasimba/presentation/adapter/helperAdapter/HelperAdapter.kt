@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
+import com.example.projectjavasimba.data.entity.Category
 import com.example.projectjavasimba.data.entity.Helper
 import com.example.projectjavasimba.databinding.ItemHelpSortBinding
 
 class HelperAdapter(
-    private val list: List<Helper>
+    private val list: List<Category>
 ) : RecyclerView.Adapter<HelperViewHolder>() {
 
     private lateinit var context: Context
@@ -23,7 +24,7 @@ class HelperAdapter(
 
     override fun onBindViewHolder(holder: HelperViewHolder, position: Int) {
 
-        holder.name.text = list[position].name
+        holder.name.text = list[position].title
         Glide.with(context)
             .load(list[position].image)
             .error(R.drawable.ic_launcher_foreground)

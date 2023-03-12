@@ -3,6 +3,7 @@ package com.example.projectjavasimba.utils
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.Category
 import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.data.entity.Helper
 
 class DefaultData {
 
@@ -25,6 +26,14 @@ class DefaultData {
                 )
             ),
             listFriends = listOf()
+        )
+
+        val defaultListCategory = listOf(
+            Category(1, R.drawable.invalid_name, "Дети"),
+            Category(2, R.drawable.invalid_name2, "Взрослые"),
+            Category(3, R.drawable.invalid_name3, "Пожилые"),
+            Category(4, R.drawable.invalid_name4,"Животные"),
+            Category(5, R.drawable.invalid_name5,"Мероприятия")
         )
 
     }

@@ -23,9 +23,8 @@ class NewsViewModel(
     fun getListEvent(): LiveData<List<Event>> = listEvent
 
     fun getParseListEvent() {
-        progressLoader.postValue(0)
         val myThread = Thread {
-            for (i in 0..4) {
+            for (i in 0..5) {
                 Thread.sleep(1000)
                 progressLoader.postValue(i * 20)
             }

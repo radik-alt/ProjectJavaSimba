@@ -50,13 +50,13 @@ class FilterFragment : Fragment() {
     }
 
     private fun setAdapter() {
-        val listCategory = ParseJSON(requireContext()).parseCategoryJson()
-        val adapter = CategoryAdapter(listCategory) { category ->
-            sharedNewsFilterViewModel.setCategory(category)
-        }
-
-        binding.typeHelpRecycler.adapter = adapter
-        binding.typeHelpRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
+//        val listCategory = ParseJSON(requireContext()).parseCategoryJson()
+//        val adapter = CategoryAdapter(listCategory) { category ->
+//            sharedNewsFilterViewModel.setCategory(category)
+//        }
+//
+//        binding.typeHelpRecycler.adapter = adapter
+//        binding.typeHelpRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
 
         val listTypeHelp = ArrayList<TypeHelp>().apply {
             add(TypeHelp(getString(R.string.help_shirt), false))

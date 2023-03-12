@@ -21,8 +21,6 @@ japp/src/main/java/com/example/projectjavasimba/presentation/profileFragment/dia
 ^app/src/main/java/com/example/projectjavasimba/presentation/profileFragment/ProfileFragment.kt,d\e\dedec1168f8ef3f669e68a447ca7cd501b0f7bde
 Ž
 ^app/src/main/java/com/example/projectjavasimba/presentation/profileFragment/SharedViewModel.kt,f\7\f7433a089fed2f1a12b0472f04fd18efbdf6db06
-v
-Fapp/src/main/java/com/example/projectjavasimba/data/entity/Category.kt,f\5\f5c40e84c9f26800e1dd67dd9cb392d5d26ce9dc
 ”
 dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/AdapterFriends.kt,c\5\c57fad6b4dfa94b49770b1460abafc974c4a16d5
 w
@@ -33,8 +31,6 @@ dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapt
 papp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsDetailAdapter/FriendsDetailAdapter.kt,7\1\713f2bbc10f24d63590087dd082368e6e3e3ec33
 v
 Fapp/src/main/java/com/example/projectjavasimba/data/entity/TypeHelp.kt,5\3\5336a615a53e1a04644b08e1554ed00f49aaf1a8
-t
-Dapp/src/main/java/com/example/projectjavasimba/data/entity/Helper.kt,7\d\7df92758495b5f626a060abc314adee2b7d94945
 —
 gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/CategoryViewHolder.kt,a\e\aecf284934fa11685b1b7583d1361cc0de7128c1
 <
