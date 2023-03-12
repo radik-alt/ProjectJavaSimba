@@ -29,30 +29,33 @@ class AuthActivity : AppCompatActivity() {
             }
         }
 
-
         RxTextView.textChanges(binding.etEmail)
             .mergeWith(RxTextView.textChanges(binding.etPassword))
             .debounce(400, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                if (it.length >= 6) {
-                    binding.btnAuth.isEnabled = true
-                    binding.btnAuth.background = getDrawable(R.drawable.button_background)
-                }
+            .subscribe { email ->
+                authViewModel.setEmail(email.toString())
+                authViewModel.validAuth()
             }
 
 
         RxTextView.textChanges(binding.etPassword)
             .debounce(400, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                if (it.length >= 6) {
-                    binding.btnAuth.isEnabled = true
-                    binding.btnAuth.background = getDrawable(R.drawable.button_background)
-                }
+            .subscribe { password ->
+                authViewModel.setPassword(password.toString())
+                authViewModel.validAuth()
             }
 
-
+        authViewModel.isEnabled.observe(this) { enabled ->
+            if (enabled) {
+                binding.btnAuth.isEnabled = true
+                binding.btnAuth.background = getDrawable(R.drawable.button_background)
+            } else {
+                binding.btnAuth.isEnabled = false
+                binding.btnAuth.background = getDrawable(R.drawable.dont_view_btn_background)
+            }
+        }
     }
 
 }
