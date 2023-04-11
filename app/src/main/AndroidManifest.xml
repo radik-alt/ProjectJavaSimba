@@ -38,6 +38,11 @@
                 android:resource="@xml/file_path"/>
 
         </provider>
+
+        <service
+            android:name=".service.ServiceGetData"
+            android:exported="false" />
     </application>
+
 
 </manifest>

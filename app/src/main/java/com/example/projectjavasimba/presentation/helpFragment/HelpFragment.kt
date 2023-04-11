@@ -11,7 +11,7 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.Category
 import com.example.projectjavasimba.databinding.FragmentHelpragmentBinding
 import com.example.projectjavasimba.presentation.adapter.helperAdapter.HelperAdapter
-import com.example.projectjavasimba.utils.Constants
+import com.example.projectjavasimba.common.utils.Constants
 
 
 class HelpFragment : Fragment() {

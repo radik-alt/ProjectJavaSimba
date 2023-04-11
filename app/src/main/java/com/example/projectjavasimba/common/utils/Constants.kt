@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.utils
+package com.example.projectjavasimba.common.utils
 
 object Constants {
 

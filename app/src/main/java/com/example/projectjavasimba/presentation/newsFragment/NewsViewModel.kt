@@ -22,19 +22,23 @@ class NewsViewModel(
 
     fun getListEvent(): LiveData<List<Event>> = listEvent
 
-    fun getParseListEvent() {
+    fun setListEvent(list: List<Event>) {
         val myThread = Thread {
             for (i in 0..5) {
                 Thread.sleep(1000)
                 progressLoader.postValue(i * 20)
             }
-            val data = ParseJSON(getApplication())
-            val request = data.parseEventJson().get()
-//                .filter { listEvent ->
-//                listEvent.category.contains(filterCategory)
-//            }
-            listEvent.postValue(request)
+            listEvent.postValue(list)
         }
         myThread.start()
+    }
+
+    fun getParseListEvent() {
+        val data = ParseJSON(getApplication())
+        val request = data.parseEventJson().get()
+            .filter { listEvent ->
+                listEvent.category.contains(filterCategory)
+            }
+        setListEvent(request)
     }
 }

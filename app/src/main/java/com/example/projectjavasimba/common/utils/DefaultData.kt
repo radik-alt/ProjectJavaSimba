@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.utils
+package com.example.projectjavasimba.common.utils
 
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.Category
