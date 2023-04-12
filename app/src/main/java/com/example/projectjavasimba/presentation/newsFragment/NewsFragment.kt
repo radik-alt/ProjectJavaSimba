@@ -21,6 +21,7 @@ import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.adapter.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.Constants.getListSaveInstanceEvent
+import com.example.projectjavasimba.common.utils.show
 import com.example.projectjavasimba.service.ServiceGetData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.collections.ArrayList
@@ -34,6 +35,7 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
     private val newsViewModel: NewsViewModel by viewModels()
+    private var callback: ServiceGetData.CallbackData? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +47,8 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
 
     override fun onResume() {
         super.onResume()
-        showBottomNavigation()
         getListData()
-        startService()
+        showBottomNavigation()
     }
 
     private fun getListData() {
@@ -71,32 +72,37 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
 
         val saveList =
             savedInstanceState?.getParcelableArrayList<Event>(getListSaveInstanceEvent)
+        Log.d("GetDataService", saveList.toString())
         if (saveList == null) {
             // вывебри способ загрузки
             val select = 2
             if (select == 1) {
                 newsViewModel.getParseListEvent()
             } else {
+                Log.d("GetDataService", "true")
                 startService()
             }
         }
 
-        newsViewModel.getListEvent().observe(viewLifecycleOwner) { listEvent ->
-
-            if (saveList != null) {
-                savedInstanceState.putParcelableArrayList(
+        newsViewModel.listEvent.observe(viewLifecycleOwner) { listEvent ->
+            Log.d("GetDataService", saveList.toString())
+            if (saveList == null) {
+                savedInstanceState?.putParcelableArrayList(
                     getListSaveInstanceEvent,
-                    listEvent as ArrayList<out Event>
+                    ArrayList(listEvent)
                 )
-                setAdapter(saveList)
-            } else {
                 setAdapter(listEvent)
+            } else {
+                setAdapter(saveList)
             }
         }
 
-        binding.toolbarNews.filter.setOnClickListener {
-            val action = NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
-            findNavController().navigate(action)
+        binding.run {
+            toolbarNews.filter.setOnClickListener {
+                findNavController().navigate(
+                    NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
+                )
+            }
         }
     }
 
@@ -119,7 +125,7 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
             val bottom =
                 fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
             if (bottom != null && bottom.visibility == View.GONE) {
-                bottom.visibility = View.VISIBLE
+                bottom.show()
             }
         }
     }
@@ -145,6 +151,11 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
         override fun onServiceDisconnected(name: ComponentName?) {}
     }
 
+
+    override fun onPause() {
+        stopService()
+        super.onPause()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

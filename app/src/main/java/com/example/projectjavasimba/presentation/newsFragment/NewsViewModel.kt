@@ -12,15 +12,13 @@ class NewsViewModel(
     application: Application,
 ) : AndroidViewModel(application) {
 
-    private val listEvent = MutableLiveData<List<Event>>()
+    val listEvent = MutableLiveData<List<Event>>()
     private var filterCategory: Category? = null
     val progressLoader = MutableLiveData<Int>()
 
     fun setCategory(_category: Category) {
         filterCategory = _category
     }
-
-    fun getListEvent(): LiveData<List<Event>> = listEvent
 
     fun setListEvent(list: List<Event>) {
         val myThread = Thread {

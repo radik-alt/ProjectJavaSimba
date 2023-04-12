@@ -11,8 +11,6 @@ aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter
 Xapp/src/main/java/com/example/projectjavasimba/presentation/NewsFragment/NewsFragment.kt,8\6\86d133bf2bdeecda03209d1570a9119e50a8a482
 u
 Eapp/src/main/java/com/example/projectjavasimba/data/entity/Friends.kt,c\b\cba72aae0560de4a6fdf67b4f809ada2402009ac
-n
->app/src/main/java/com/example/projectjavasimba/MainActivity.kt,c\4\c466d3490c6c482807d4f3675f3a23e50e7b8e87
 —
 gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/ViewHolderFriends.kt,d\0\d0ac42f3afdc4c8dc75fb9c8ba7d115d874124aa
 š
@@ -35,8 +33,6 @@ Fapp/src/main/java/com/example/projectjavasimba/data/entity/TypeHelp.kt,5\3\533
 gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/CategoryViewHolder.kt,a\e\aecf284934fa11685b1b7583d1361cc0de7128c1
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-q
-Aapp/src/main/java/com/example/projectjavasimba/utils/UtilsNews.kt,1\9\19336529c1b805b57138c91cddf891f2e58e1ed5
 s
 Capp/src/main/java/com/example/projectjavasimba/data/entity/Event.kt,a\0\a0e6ed7471ceef19a9bd4b52a53335669da5a5d8
 •
@@ -53,8 +49,6 @@ G.idea/sonarlint/issuestore/3/0/3015db28207d36b308954224b39539abbcb6766b,1\b\1b
 Kapp/src/main/java/com/example/projectjavasimba/KotlinSecond/AuthCallback.kt,3\2\32d5c59196ac11c0edb378ef0281c68da7e2ac81
 •
 eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/HelperViewHolder.kt,6\6\66fc9e1a92a956f7b66fe043847f243d272c3292
-v
-Fapp/src/main/java/com/example/projectjavasimba/utils/HingeAnimation.kt,7\4\7426c26dea4ff4ae49011716fa50d7b906f6bdf6
 
 ]app/src/main/java/com/example/projectjavasimba/presentation/searchFragment/MeetingFragment.kt,9\9\999610a024377edcf42239cbf43865f6d62dd7b1
 ˜
@@ -71,8 +65,6 @@ s
 Capp/src/main/java/com/example/projectjavasimba/KotlinSecond/Type.kt,9\a\9a6b5be092e4f9fcd8daf86009a15ae3f4fec8e1
 s
 Capp/src/main/java/com/example/projectjavasimba/KotlinSecond/User.kt,6\5\651f95777cc4121ac6723a18008c9ace2e9e3541
-m
-=app/src/main/java/com/example/projectjavasimba/utils/Utils.kt,3\f\3f62963763a8032ab131c588aa89f31a1ad4439b
 Œ
 \app/src/main/java/com/example/projectjavasimba/presentation/searchFragment/SearchFragment.kt,0\0\00d00405db0dc80d7f01ed68772940080b05ef47
 –
@@ -81,13 +73,33 @@ v
 Fapp/src/main/java/com/example/projectjavasimba/data/entity/Category.kt,f\5\f5c40e84c9f26800e1dd67dd9cb392d5d26ce9dc
 t
 Dapp/src/main/java/com/example/projectjavasimba/data/entity/Helper.kt,7\d\7df92758495b5f626a060abc314adee2b7d94945
-q
-Aapp/src/main/java/com/example/projectjavasimba/utils/Constants.kt,b\a\ba4599481a40cbfd21492347b266b811356b748f
-s
-Capp/src/main/java/com/example/projectjavasimba/utils/DefaultData.kt,f\1\f1e0a5c5543d33026b16895c3f42ae560bf195af
 Œ
 \app/src/main/java/com/example/projectjavasimba/presentation/filterFragment/FilterFragment.kt,9\2\920c0e41cb33419411a21a8f9a3744440bd2c4de
 ’
 bapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/HelperAdapter.kt,8\5\857602e4b7723e208d30c3529c85d89362de5470
 ‰
 Yapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/HelpViewModel.kt,9\d\9da8c3439ad4db2db4dc65652a3731c33d730aa2
+l
+<app/src/main/java/com/example/projectjavasimba/MainKotlin.kt,4\0\40f6f873d7b4dea53969c44fc4f178314cb3335f
+
+]app/src/main/java/com/example/projectjavasimba/presentation/filterFragment/FilterViewModel.kt,f\0\f0345a89f9275fbff9841eab5245a4ee8273374f
+•
+eapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/SharedNewsFilterViewModel.kt,6\a\6a9791285146fd0087430a692d9d5f3bceb94c50
+Ž
+^app/src/main/java/com/example/projectjavasimba/presentation/adapter/NewsAdapter/NewsAdapter.kt,c\8\c8d7c0b37cd21fcebdeff26ffda6a246d6e3374e
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+x
+Happ/src/main/java/com/example/projectjavasimba/common/utils/Constants.kt,a\b\ab4f2aa261ae723e140ff074143d3e8dd7d42174
+z
+Japp/src/main/java/com/example/projectjavasimba/common/utils/DefaultData.kt,0\a\0a37bf91111944e7999698db0e18a882114a62ab
+ˆ
+Xapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/HelpFragment.kt,8\4\8441a780b681df0fe225b35c39b8c39e20e0e10d
+}
+Mapp/src/main/java/com/example/projectjavasimba/common/utils/HingeAnimation.kt,8\7\87e66f3b2c1ffebad3aca430b34c1ee0fe1caee2
+t
+Dapp/src/main/java/com/example/projectjavasimba/common/utils/Utils.kt,a\2\a288b6d09c49cb48afe049458196a1d62ef81b1d
+x
+Happ/src/main/java/com/example/projectjavasimba/common/utils/UtilsNews.kt,0\9\09208bed6bc4d01436a503b8abe8c2667a81ce90

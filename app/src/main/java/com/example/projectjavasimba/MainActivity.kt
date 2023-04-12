@@ -1,10 +1,14 @@
 package com.example.projectjavasimba
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.projectjavasimba.common.utils.hide
+import com.example.projectjavasimba.common.utils.show
 import com.example.projectjavasimba.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,6 +27,15 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         navBar.setupWithNavController(navController)
+    }
+
+    fun changeVisibleBottomNavigation() {
+        val bottom = binding.bottomNavigationView
+        if (bottom.visibility == View.GONE) {
+            bottom.show()
+        } else {
+            bottom.hide()
+        }
     }
 
     override fun onDestroy() {
