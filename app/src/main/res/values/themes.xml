@@ -24,7 +24,7 @@
         <!-- inactive track color (30% transparency) -->
         <item name="android:colorForeground">#42221f1f</item>
     </style>
-    
+
     <style name="DefaultText">
         <item name="android:fontFamily">@font/roboto_regular</item>
         <item name="android:gravity">center</item>

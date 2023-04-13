@@ -42,7 +42,7 @@ class DialogFragmentSelect : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.getPhoto.setOnClickListener {
-
+            getContentFromGallery.launch("image/*")
         }
 
         binding.makePhoto.setOnClickListener {
@@ -54,8 +54,12 @@ class DialogFragmentSelect : DialogFragment() {
         }
 
         binding.deletePhoto.setOnClickListener {
-
+            sharedViewModel.setIsDeleteImage(true)
         }
+    }
+
+    private val getContentFromGallery = registerForActivityResult(ActivityResultContracts.GetContent()){ imageUri ->
+        imageUri?.let { sharedViewModel.setImage(it) }
     }
 
     private val getContent =

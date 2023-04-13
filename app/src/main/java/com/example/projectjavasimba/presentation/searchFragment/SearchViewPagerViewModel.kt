@@ -6,4 +6,5 @@ import androidx.lifecycle.ViewModel
 class SearchViewPagerViewModel: ViewModel() {
 
     val searchMeeting = MutableLiveData<String>()
+
 }

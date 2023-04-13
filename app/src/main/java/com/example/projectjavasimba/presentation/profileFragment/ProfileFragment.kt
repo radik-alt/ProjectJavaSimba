@@ -16,11 +16,11 @@ import com.example.projectjavasimba.presentation.profileFragment.dialog.DialogFr
 
 class ProfileFragment : Fragment() {
 
-    private var _binding:FragmentProfileBinding?=null
-    private val binding:FragmentProfileBinding
+    private var _binding: FragmentProfileBinding? = null
+    private val binding: FragmentProfileBinding
         get() = _binding ?: throw RuntimeException("FragmentProfileBinding == null")
 
-    private val sharedViewModel:SharedViewModel by activityViewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,12 +32,22 @@ class ProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val uriImage = sharedViewModel.getImage().value
-        if (uriImage != null){
-            Glide.with(requireContext())
-                .load(uriImage)
-                .error(R.drawable.ic_launcher_foreground)
-                .into(binding.imageProfile)
+        sharedViewModel.getImage().observe(viewLifecycleOwner) { uriImage ->
+            if (uriImage != null) {
+                Glide.with(requireContext())
+                    .load(uriImage)
+                    .error(R.drawable.ic_launcher_foreground)
+                    .into(binding.imageProfile)
+            }
+        }
+
+        sharedViewModel.getIsDeleteImage().observe(viewLifecycleOwner) { isDelete ->
+            if (isDelete) {
+                Glide.with(requireContext())
+                    .load(R.drawable.ic_launcher_foreground)
+                    .into(binding.imageProfile)
+                sharedViewModel.setIsDeleteImage(false)
+            }
         }
     }
 
@@ -51,12 +61,13 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun setAdapter(){
+    private fun setAdapter() {
         val friends = Friends(null, "Дмитрий Валерьевич", R.drawable.avatar_3)
         val friends2 = Friends(null, "Евгений Александров", R.drawable.avatar_1)
         val friends3 = Friends(null, "Виктор Кузнецов", R.drawable.avatar_2)
 
-        binding.contentProfile.recyclerFriends.adapter = AdapterFriends(listOf(friends, friends2, friends3))
+        binding.contentProfile.recyclerFriends.adapter =
+            AdapterFriends(listOf(friends, friends2, friends3))
     }
 
     override fun onDestroyView() {
