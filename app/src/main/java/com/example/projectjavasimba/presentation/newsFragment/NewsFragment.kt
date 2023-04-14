@@ -11,8 +11,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -24,6 +22,7 @@ import com.example.projectjavasimba.common.utils.Constants.getListSaveInstanceEv
 import com.example.projectjavasimba.common.utils.show
 import com.example.projectjavasimba.service.ServiceGetData
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import io.reactivex.rxjava3.subjects.PublishSubject
 import kotlin.collections.ArrayList
 
 
@@ -35,7 +34,9 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
     private val newsViewModel: NewsViewModel by viewModels()
-    private var callback: ServiceGetData.CallbackData? = null
+    private val newsSubject: PublishSubject<List<Event>> by lazy {
+        PublishSubject.create()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -84,9 +85,24 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
             }
         }
 
+        newsSubject.subscribe { event ->
+            var isReadCount = 0
+            for (i in event) {
+                if (!i.isRead) {
+                    isReadCount++
+                }
+            }
+
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView).let {
+                it.getOrCreateBadge(R.id.newsFragment).let { badge ->
+                    badge.number = isReadCount
+                    badge.isVisible = isReadCount > 0
+                }
+            }
+        }
+
         newsViewModel.listEvent.observe(viewLifecycleOwner) { listEvent ->
-            Log.d("GetDataService", saveList.toString())
-            if (saveList == null) {
+             if (saveList == null) {
                 savedInstanceState?.putParcelableArrayList(
                     getListSaveInstanceEvent,
                     ArrayList(listEvent)
@@ -106,14 +122,15 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
         }
     }
 
+
+
     private fun setAdapter(listEvent: List<Event>) {
         binding.recyclerNews.adapter.let { adapter ->
             if (adapter is NewsAdapter) {
                 adapter.update(listEvent)
             } else {
-                binding.recyclerNews.adapter = NewsAdapter(listEvent) { event ->
-                    val action = NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
-                    findNavController().navigate(action)
+                binding.recyclerNews.adapter = NewsAdapter(listEvent, newsSubject) {
+
                 }
             }
         }

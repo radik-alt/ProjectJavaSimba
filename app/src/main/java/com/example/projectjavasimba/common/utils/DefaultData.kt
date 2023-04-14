@@ -25,7 +25,8 @@ class DefaultData {
                     title = "Дети"
                 )
             ),
-            listFriends = listOf()
+            listFriends = listOf(),
+            isRead = false
         )
 
         val defaultListCategory = listOf(

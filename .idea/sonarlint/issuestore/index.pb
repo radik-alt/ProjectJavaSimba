@@ -1,8 +1,6 @@
 
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
-w
-G.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e,3\2\32813322c99a6c8a141ab2dc12bc10af3425f1b4
 ‘
 aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter/HelpViewHolder.kt,0\e\0e29d5953525444ed1ed516526219c21349170da
 Œ
@@ -33,8 +31,6 @@ Fapp/src/main/java/com/example/projectjavasimba/data/entity/TypeHelp.kt,5\3\533
 gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/CategoryViewHolder.kt,a\e\aecf284934fa11685b1b7583d1361cc0de7128c1
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-s
-Capp/src/main/java/com/example/projectjavasimba/data/entity/Event.kt,a\0\a0e6ed7471ceef19a9bd4b52a53335669da5a5d8
 •
 eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/imageDetail/ImageDetailAdapter.kt,3\2\323ee9bfda0114b4cd4abad964ecaf9f2005aab4
 w
@@ -49,18 +45,12 @@ G.idea/sonarlint/issuestore/3/0/3015db28207d36b308954224b39539abbcb6766b,1\b\1b
 Kapp/src/main/java/com/example/projectjavasimba/KotlinSecond/AuthCallback.kt,3\2\32d5c59196ac11c0edb378ef0281c68da7e2ac81
 •
 eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/HelperViewHolder.kt,6\6\66fc9e1a92a956f7b66fe043847f243d272c3292
-
-]app/src/main/java/com/example/projectjavasimba/presentation/searchFragment/MeetingFragment.kt,9\9\999610a024377edcf42239cbf43865f6d62dd7b1
 ˜
 happ/src/main/java/com/example/projectjavasimba/presentation/adapter/searchViewPager/MySearchViewPager.kt,1\0\105a4bcf7aab4751bebbee2020efca53b406dc26
-‰
-Yapp/src/main/java/com/example/projectjavasimba/presentation/searchFragment/NKOFragment.kt,c\5\c5fdf649900c21c13a8e2fb3052052887c60e9cb
 ’
 bapp/src/main/java/com/example/projectjavasimba/presentation/adapter/searchAdapter/SearchAdapter.kt,4\8\4870f975d5b6b66700fcdfb98ac43979e7b4fff5
 •
 eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/searchAdapter/SearchViewHolder.kt,d\6\d68d87d82e23b0da98dc20c513580ed4fc021a5c
-n
->app/src/main/java/com/example/projectjavasimba/SplashScreen.kt,1\a\1aa66c906b1664f8c9b246fa5451a77c59e193db
 s
 Capp/src/main/java/com/example/projectjavasimba/KotlinSecond/Type.kt,9\a\9a6b5be092e4f9fcd8daf86009a15ae3f4fec8e1
 s
@@ -85,16 +75,12 @@ l
 ]app/src/main/java/com/example/projectjavasimba/presentation/filterFragment/FilterViewModel.kt,f\0\f0345a89f9275fbff9841eab5245a4ee8273374f
 •
 eapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/SharedNewsFilterViewModel.kt,6\a\6a9791285146fd0087430a692d9d5f3bceb94c50
-Ž
-^app/src/main/java/com/example/projectjavasimba/presentation/adapter/NewsAdapter/NewsAdapter.kt,c\8\c8d7c0b37cd21fcebdeff26ffda6a246d6e3374e
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 x
 Happ/src/main/java/com/example/projectjavasimba/common/utils/Constants.kt,a\b\ab4f2aa261ae723e140ff074143d3e8dd7d42174
-z
-Japp/src/main/java/com/example/projectjavasimba/common/utils/DefaultData.kt,0\a\0a37bf91111944e7999698db0e18a882114a62ab
 ˆ
 Xapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/HelpFragment.kt,8\4\8441a780b681df0fe225b35c39b8c39e20e0e10d
 }
@@ -103,3 +89,13 @@ t
 Dapp/src/main/java/com/example/projectjavasimba/common/utils/Utils.kt,a\2\a288b6d09c49cb48afe049458196a1d62ef81b1d
 x
 Happ/src/main/java/com/example/projectjavasimba/common/utils/UtilsNews.kt,0\9\09208bed6bc4d01436a503b8abe8c2667a81ce90
+†
+Vapp/src/main/java/com/example/projectjavasimba/presentation/nkoFragment/NKOFragment.kt,f\a\fa49ce67d921da6e22dadece7e1100dbb466455d
+€
+Papp/src/main/java/com/example/projectjavasimba/presentation/auth/AuthActivity.kt,6\8\68937282115964584633a193c56ceedbce08cbf6
+Ž
+^app/src/main/java/com/example/projectjavasimba/presentation/meetingFragment/MeetingFragment.kt,1\8\18f43db18c8ad87fc46e86b1cd74b5d7eeab0140
+p
+@app/src/main/java/com/example/projectjavasimba/data/ParseJSON.kt,c\9\c999a51c10a7d395f13684d0ecfd746f7a06baff
+
+Oapp/src/main/java/com/example/projectjavasimba/data/callable/MyCallableEvent.kt,e\2\e2f5500fcd347136be2dc2ad5bce69261bb9e217

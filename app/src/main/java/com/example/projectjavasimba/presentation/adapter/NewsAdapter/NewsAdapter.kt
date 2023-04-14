@@ -6,10 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.ItemNewsBinding
+import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 
 class NewsAdapter(
     private var listEvent: List<Event>,
-    private val onClickEvent: (Event) -> Unit
+    private val onClickEvent: PublishSubject<List<Event>>,
+    private val callback: (Event) -> Unit
 ) : RecyclerView.Adapter<NewsViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
@@ -25,7 +28,8 @@ class NewsAdapter(
 
 
         holder.itemView.setOnClickListener {
-            onClickEvent.invoke(listEvent[position])
+            callback.invoke(listEvent[position])
+            onClickEvent.onNext(listEvent)
         }
     }
 
