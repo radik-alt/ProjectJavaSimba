@@ -11,8 +11,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -27,7 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.collections.ArrayList
 
 
-class NewsFragment : Fragment(), ServiceGetData.CallbackData {
+class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
 
     private var _binding: FragmentNewsBinding? = null
     private val binding: FragmentNewsBinding
@@ -35,7 +33,6 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
     private val newsViewModel: NewsViewModel by viewModels()
-    private var callback: ServiceGetData.CallbackData? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +49,6 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
     }
 
     private fun getListData() {
-
         sharedNewsFilterViewModel.getCategory().observe(viewLifecycleOwner) { category ->
             newsViewModel.setCategory(category)
         }
@@ -74,18 +70,16 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
             savedInstanceState?.getParcelableArrayList<Event>(getListSaveInstanceEvent)
         Log.d("GetDataService", saveList.toString())
         if (saveList == null) {
-            // вывебри способ загрузки
+            // вывебри способ загрузки данных
             val select = 2
             if (select == 1) {
                 newsViewModel.getParseListEvent()
             } else {
-                Log.d("GetDataService", "true")
                 startService()
             }
         }
 
         newsViewModel.listEvent.observe(viewLifecycleOwner) { listEvent ->
-            Log.d("GetDataService", saveList.toString())
             if (saveList == null) {
                 savedInstanceState?.putParcelableArrayList(
                     getListSaveInstanceEvent,
@@ -143,19 +137,14 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             val binder = service as? ServiceGetData.LocalBinder
             binder?.getService().let { service ->
-                service?.callback = this@NewsFragment
-                service?.getData()
+                service?.callbackEvent = this@NewsFragment
+                service?.getDataEvent()
             }
         }
 
         override fun onServiceDisconnected(name: ComponentName?) {}
     }
 
-
-    override fun onPause() {
-        stopService()
-        super.onPause()
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

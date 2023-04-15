@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
@@ -25,6 +26,8 @@ class FilterFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("FragmentFilterBinding == null")
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
+    private val filterViewModel: FilterViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -36,6 +39,7 @@ class FilterFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         setAdapter()
+        filterViewModel.getListCategory()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,13 +54,15 @@ class FilterFragment : Fragment() {
     }
 
     private fun setAdapter() {
-//        val listCategory = ParseJSON(requireContext()).parseCategoryJson()
-//        val adapter = CategoryAdapter(listCategory) { category ->
-//            sharedNewsFilterViewModel.setCategory(category)
-//        }
-//
-//        binding.typeHelpRecycler.adapter = adapter
-//        binding.typeHelpRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
+        filterViewModel.listCategory.observe(viewLifecycleOwner) {listCategory ->
+            val adapter = CategoryAdapter(listCategory) { category ->
+                sharedNewsFilterViewModel.setCategory(category)
+                findNavController().popBackStack()
+            }
+            binding.typeHelpRecycler.adapter = adapter
+            binding.typeHelpRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
+        }
+
 
         val listTypeHelp = ArrayList<TypeHelp>().apply {
             add(TypeHelp(getString(R.string.help_shirt), false))
