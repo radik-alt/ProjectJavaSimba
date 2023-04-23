@@ -63,8 +63,6 @@ v
 Fapp/src/main/java/com/example/projectjavasimba/data/entity/Category.kt,f\5\f5c40e84c9f26800e1dd67dd9cb392d5d26ce9dc
 t
 Dapp/src/main/java/com/example/projectjavasimba/data/entity/Helper.kt,7\d\7df92758495b5f626a060abc314adee2b7d94945
-Œ
-\app/src/main/java/com/example/projectjavasimba/presentation/filterFragment/FilterFragment.kt,9\2\920c0e41cb33419411a21a8f9a3744440bd2c4de
 ’
 bapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/HelperAdapter.kt,8\5\857602e4b7723e208d30c3529c85d89362de5470
 ‰
@@ -91,8 +89,6 @@ x
 Happ/src/main/java/com/example/projectjavasimba/common/utils/UtilsNews.kt,0\9\09208bed6bc4d01436a503b8abe8c2667a81ce90
 †
 Vapp/src/main/java/com/example/projectjavasimba/presentation/nkoFragment/NKOFragment.kt,f\a\fa49ce67d921da6e22dadece7e1100dbb466455d
-€
-Papp/src/main/java/com/example/projectjavasimba/presentation/auth/AuthActivity.kt,6\8\68937282115964584633a193c56ceedbce08cbf6
 Ž
 ^app/src/main/java/com/example/projectjavasimba/presentation/meetingFragment/MeetingFragment.kt,1\8\18f43db18c8ad87fc46e86b1cd74b5d7eeab0140
 p

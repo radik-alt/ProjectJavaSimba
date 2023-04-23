@@ -18,6 +18,11 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
     private val authViewModel: AuthViewModel by viewModels()
 
+    override fun onResume() {
+        super.onResume()
+        observable()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
@@ -26,6 +31,12 @@ class AuthActivity : AppCompatActivity() {
         binding.run {
             btnAuth.setOnClickListener {
                 startActivity(Intent(this@AuthActivity, MainActivity::class.java))
+            }
+
+            etEmail.setOnLongClickListener {
+                etEmail.setText("Radik.app")
+                etPassword.setText("12345678")
+                true
             }
         }
 
@@ -46,7 +57,9 @@ class AuthActivity : AppCompatActivity() {
                 authViewModel.setPassword(password.toString())
                 authViewModel.validAuth()
             }
+    }
 
+    private fun observable() {
         authViewModel.isEnabled.observe(this) { enabled ->
             if (enabled) {
                 binding.btnAuth.isEnabled = true

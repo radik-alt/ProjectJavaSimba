@@ -29,8 +29,13 @@ class NewsAdapter(
 
         holder.itemView.setOnClickListener {
             callback.invoke(listEvent[position])
+            checkNews(listEvent[position])
             onClickEvent.onNext(listEvent)
         }
+    }
+
+    private fun checkNews(event: Event) {
+        event.isRead = true
     }
 
     override fun getItemCount(): Int = listEvent.size

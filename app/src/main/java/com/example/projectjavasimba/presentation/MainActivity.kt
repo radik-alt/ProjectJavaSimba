@@ -1,7 +1,6 @@
 package com.example.projectjavasimba.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -10,6 +9,7 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.ActivityMainBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import io.reactivex.rxjava3.subjects.PublishSubject
 
 class MainActivity : AppCompatActivity() {
@@ -19,9 +19,11 @@ class MainActivity : AppCompatActivity() {
         get() = _binding ?: throw RuntimeException("ActivityMainBinding == null")
 
     private val newsViewModel: NewsViewModel by viewModels()
+
     override fun onResume() {
         super.onResume()
         newsViewModel.getParseListEvent()
+        observable()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,23 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         navBar.setupWithNavController(navController)
+    }
+
+    private fun observable() {
+        newsViewModel.newsSubject.subscribe { event ->
+            val notReadCount = if (event.isEmpty()) {
+                0
+            } else {
+                event.count { !it.isRead }
+            }
+
+            findViewById<BottomNavigationView>(R.id.bottomNavigationView).let {
+                it.getOrCreateBadge(R.id.newsFragment).let { badge ->
+                    badge.number = notReadCount
+                    badge.isVisible = notReadCount > 0
+                }
+            }
+        }
     }
 
     override fun onDestroy() {

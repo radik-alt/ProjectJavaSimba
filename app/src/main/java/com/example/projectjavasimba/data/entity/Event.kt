@@ -15,5 +15,5 @@ data class Event(
     val email:String,
     val category: List<Category>,
     val listFriends: List<Int>,
-    val isRead: Boolean
+    var isRead: Boolean
 ):Parcelable
