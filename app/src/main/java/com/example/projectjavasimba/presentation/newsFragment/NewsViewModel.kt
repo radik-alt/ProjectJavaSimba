@@ -7,6 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.projectjavasimba.data.ParseJSON
 import com.example.projectjavasimba.data.entity.Category
 import com.example.projectjavasimba.data.entity.Event
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.PublishSubject
 
 class NewsViewModel(
@@ -54,17 +56,20 @@ class NewsViewModel(
     }
 
     fun getParseListEvent() {
-        val data = ParseJSON(getApplication())
-        val request = data.parseEventJson().get()
-        fullListEvent.value = request
-        newsSubject.onNext(request)
+        ParseJSON(getApplication()).parseEventJson()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { request ->
+                fullListEvent.postValue(request)
+                newsSubject.onNext(request)
+                val selectLoader = 0
+                if (selectLoader == 1) {
+                    setDelayListEvent(request)
+                } else {
+                    setListEvent(request)
+                }
+            }
 
-        val selectLoader = 0
-        if (selectLoader == 1) {
-            setDelayListEvent(request)
-        } else {
-            setListEvent(request)
-        }
     }
 
 
