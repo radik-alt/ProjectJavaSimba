@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_item_news"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/indiement5"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="@dimen/indiement5">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_event"
+        android:layout_width="match_parent"
+        android:layout_height="350sp"
+        android:alpha="0.8"
+        android:background="@drawable/background_image"
+        android:clipToOutline="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="s" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:lineHeight="23sp"
+            android:text="@string/default_title_news"
+            android:textColor="@color/blue_gray"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/appCompatImageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="p" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/decor"
+            app:layout_constraintBottom_toTopOf="@+id/description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:lineHeight="20sp"
+            android:paddingStart="@dimen/indiement20"
+            android:paddingEnd="@dimen/indiement20"
+            android:paddingBottom="@dimen/indiement20"
+            android:text="@string/default_text_news"
+            android:textColor="@color/black_70_color"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            tools:targetApi="p" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green_color"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/indiement5"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_calendar" />
+
+            <TextView
+                android:id="@+id/date_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/indiement5"
+                android:text="@string/default_after_down_text_news"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

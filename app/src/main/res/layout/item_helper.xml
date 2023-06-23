@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:paddingTop="@dimen/indiement10"
+    android:paddingBottom="@dimen/indiement10"
+    android:paddingStart="@dimen/indiement20"
+    android:paddingEnd="@dimen/indiement20"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <GridLayout
+        android:columnCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/help_type_title"
+            android:text="@string/app_name"
+            android:layout_gravity="left"
+            android:maxWidth="300sp"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="16sp"
+            android:layout_columnWeight="0"
+            android:textColor="@color/black_70_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/check_helper_type"
+            android:layout_columnWeight="0"
+            style="@style/SCBSwitch"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </GridLayout>
+
+    <View
+        android:background="@color/gray_color"
+        android:layout_height="1dp"
+        android:layout_width="match_parent"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

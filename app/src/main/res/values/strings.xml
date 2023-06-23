@@ -22,4 +22,19 @@
     <string name="text_select_sort_help">Выберите категорию помощи</string>
     <string name="text_fragment_search">Ключевые слова: мастер-класс, помощь Результаты поиска: 109 мероприятий</string>
     <string name="default_text_item_search">Благодтворительный фонд Алисы фвфыв</string>
+    <string name="default_title_news">Спонсоры отремонтируют школу-интернат</string>
+    <string name="default_text_news">Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …</string>
+    <string name="default_after_down_text_news">Осталось 13 дней (21.09 – 20.10)</string>
+    <string name="default_text_charity">Благотворительный Фонд «Счастливый Мир»</string>
+    <string name="filter">Фильтер</string>
+    <string name="title_detail_fragment">Спонсоры отремонтирую</string>
+    <string name="write_you"><u>Напишите нам</u></string>
+    <string name="to_website"><u>Перейти на сайт организаии</u></string>
+    <string name="category_type_title">Категории помощи</string>
+    <string name="help_shirt">Помочь вещами</string>
+    <string name="state_hands">Стать волонтером</string>
+    <string name="prof_help">Проф помощь</string>
+    <string name="help_many">Помочь деньгами</string>
+    <string name="test_desc_detail_news">Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям.</string>
+    <string name="load">Загрузка</string>
 </resources>
