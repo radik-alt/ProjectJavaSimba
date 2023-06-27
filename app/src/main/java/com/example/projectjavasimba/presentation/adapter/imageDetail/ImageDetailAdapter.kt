@@ -20,25 +20,6 @@ class ImageDetailAdapter(
         context = parent.context
         val binding =
             ItemImageDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-//        binding.root.viewTreeObserver.addOnPreDrawListener {
-//            val layoutParams = binding.root.layoutParams
-//            val sgLayoutParams: StaggeredGridLayoutManager.LayoutParams = layoutParams as StaggeredGridLayoutManager.LayoutParams
-//            when (viewType) {
-//                TYPE_HALF -> {
-//                    sgLayoutParams.isFullSpan = true
-//                    sgLayoutParams.width = binding.root.width / 2
-//                }
-//                TYPE_QUARTER -> {
-//                    sgLayoutParams.isFullSpan = false
-//                    sgLayoutParams.width = binding.root.width / 2
-//                    sgLayoutParams.height = binding.root.height / 2
-//                }
-//            }
-//            binding.root.layoutParams = sgLayoutParams
-//            sgLayoutParams
-//            return@addOnPreDrawListener true
-//        }
-
         return ImageDetailViewHolder(binding)
     }
 

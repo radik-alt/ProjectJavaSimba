@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         newsViewModel.getParseListEvent()
         observable()
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
@@ -36,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         navBar.setupWithNavController(navController)
     }
 
-    private fun observable() {
-        newsViewModel.newsSubject.subscribe { event ->
+    private fun observable() = with(newsViewModel) {
+        newsSubject.subscribe { event ->
             val notReadCount = if (event.isEmpty()) {
                 0
             } else {

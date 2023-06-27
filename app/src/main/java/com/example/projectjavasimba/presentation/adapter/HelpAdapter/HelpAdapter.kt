@@ -3,6 +3,7 @@ package com.example.projectjavasimba.presentation.adapter.HelpAdapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projectjavasimba.common.utils.hide
 import com.example.projectjavasimba.data.entity.TypeHelp
 import com.example.projectjavasimba.databinding.ItemHelperBinding
 
@@ -18,10 +19,15 @@ class HelpAdapter(
 
     override fun onBindViewHolder(holder: HelpViewHolder, position: Int) {
 
-        holder.title.text = listHelp[position].name
+        holder.run {
+            title.text = listHelp[position].name
 
-        holder.itemView.setOnClickListener {
-            onClickTypeHelp.invoke(listHelp[position])
+            if (listHelp.size - 1 == position)
+                divider.hide()
+
+            itemView.setOnClickListener {
+                onClickTypeHelp.invoke(listHelp[position])
+            }
         }
     }
 

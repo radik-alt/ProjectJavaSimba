@@ -1,6 +1,7 @@
 package com.example.projectjavasimba.data
 
 import android.content.Context
+import android.util.Log
 import com.example.projectjavasimba.common.utils.Constants
 import com.example.projectjavasimba.common.utils.DefaultData
 import com.example.projectjavasimba.data.callable.MyCallableCategory
@@ -45,6 +46,9 @@ class ParseJSON(
             }
             result
         }.subscribeOn(Schedulers.io())
+            .doOnNext {
+                Log.d("LoggerData", it.toString())
+            }
     }
 
 

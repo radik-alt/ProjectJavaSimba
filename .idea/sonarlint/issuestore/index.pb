@@ -1,8 +1,6 @@
 
 X
 (gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
-‘
-aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter/HelpViewHolder.kt,0\e\0e29d5953525444ed1ed516526219c21349170da
 u
 Eapp/src/main/java/com/example/projectjavasimba/data/entity/Friends.kt,c\b\cba72aae0560de4a6fdf67b4f809ada2402009ac
 —
@@ -19,8 +17,6 @@ Fapp/src/main/java/com/example/projectjavasimba/data/entity/TypeHelp.kt,5\3\533
 gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/CategoryViewHolder.kt,a\e\aecf284934fa11685b1b7583d1361cc0de7128c1
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-•
-eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/imageDetail/ImageDetailAdapter.kt,3\2\323ee9bfda0114b4cd4abad964ecaf9f2005aab4
 w
 G.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233,3\c\3c8c56407c35e5f5ebbd6c7250a79af8128a13a6
 w

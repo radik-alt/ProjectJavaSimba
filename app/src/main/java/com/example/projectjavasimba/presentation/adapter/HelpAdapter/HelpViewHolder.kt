@@ -7,5 +7,6 @@ class HelpViewHolder(binding: ItemHelperBinding): RecyclerView.ViewHolder(bindin
 
     val title = binding.helpTypeTitle
     val switch = binding.checkHelperType
+    val divider = binding.divider
 
 }
