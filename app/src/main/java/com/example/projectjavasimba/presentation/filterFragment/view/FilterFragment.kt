@@ -13,7 +13,7 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.TypeHelp
 import com.example.projectjavasimba.databinding.FragmentFilterBinding
 import com.example.projectjavasimba.presentation.adapter.HelpAdapter.HelpAdapter
-import com.example.projectjavasimba.presentation.adapter.helperAdapter.CategoryAdapter
+import com.example.projectjavasimba.presentation.helpFragment.adapter.CategoryAdapter
 import com.example.projectjavasimba.presentation.filterFragment.viewmodel.FilterViewModel
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel
 

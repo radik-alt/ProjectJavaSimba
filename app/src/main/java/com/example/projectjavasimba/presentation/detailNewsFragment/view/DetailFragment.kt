@@ -12,8 +12,8 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.CategoryDetail
 import com.example.projectjavasimba.databinding.FragmentDetailBinding
 import com.example.projectjavasimba.presentation.adapter.categoryDetailAdapter.CategoryDetailAdapter
-import com.example.projectjavasimba.presentation.adapter.friendsDetailAdapter.FriendsDetailAdapter
-import com.example.projectjavasimba.presentation.adapter.imageDetail.ImageDetailAdapter
+import com.example.projectjavasimba.presentation.detailNewsFragment.adapter.friendsDetailAdapter.FriendsDetailAdapter
+import com.example.projectjavasimba.presentation.detailNewsFragment.adapter.imageAdapter.ImageDetailAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DetailFragment : Fragment() {

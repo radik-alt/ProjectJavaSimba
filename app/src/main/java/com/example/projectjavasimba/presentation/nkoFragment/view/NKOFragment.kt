@@ -5,10 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.projectjavasimba.R
 import com.example.projectjavasimba.Utils.Utils
 import com.example.projectjavasimba.databinding.FragmentNKOBinding
-import com.example.projectjavasimba.presentation.adapter.searchAdapter.SearchAdapter
+import com.example.projectjavasimba.presentation.searchFragment.adapter.SearchAdapter
 
 
 class NKOFragment : Fragment() {

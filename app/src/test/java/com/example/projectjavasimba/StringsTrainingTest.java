@@ -3,7 +3,7 @@ package com.example.projectjavasimba;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
-import com.example.projectjavasimba.training.StringsTraining;
+import com.example.projectjavasimba.OtherTasks.training.StringsTraining;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

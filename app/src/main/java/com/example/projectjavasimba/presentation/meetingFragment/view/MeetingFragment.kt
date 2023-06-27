@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.projectjavasimba.Utils.Utils
 import com.example.projectjavasimba.databinding.FragmentMeetingBinding
-import com.example.projectjavasimba.presentation.adapter.searchAdapter.SearchAdapter
+import com.example.projectjavasimba.presentation.searchFragment.adapter.SearchAdapter
 import com.example.projectjavasimba.presentation.searchFragment.viewmodel.SearchViewPagerViewModel
 
 

@@ -2,7 +2,7 @@ package com.example.projectjavasimba;
 
 import static org.junit.Assert.assertEquals;
 
-import com.example.projectjavasimba.collections.CollectionsBlock;
+import com.example.projectjavasimba.OtherTasks.collections.CollectionsBlock;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

@@ -2,7 +2,7 @@ package com.example.projectjavasimba;
 
 import static org.junit.Assert.assertEquals;
 
-import com.example.projectjavasimba.training.ElementaryTraining;
+import com.example.projectjavasimba.OtherTasks.training.ElementaryTraining;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

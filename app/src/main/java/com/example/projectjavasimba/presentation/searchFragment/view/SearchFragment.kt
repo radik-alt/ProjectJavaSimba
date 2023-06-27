@@ -19,8 +19,8 @@ import java.util.concurrent.TimeUnit
 
 class SearchFragment : Fragment() {
 
-    private var _binding:FragmentSearchBinding?=null
-    private val binding:FragmentSearchBinding
+    private var _binding: FragmentSearchBinding? = null
+    private val binding: FragmentSearchBinding
         get() = _binding ?: throw RuntimeException("")
 
     private val searchViewModel: SearchViewPagerViewModel by activityViewModels()
@@ -48,14 +48,10 @@ class SearchFragment : Fragment() {
             }
 
         binding.viewPagerSearch.adapter = MySearchViewPager(requireActivity())
-        TabLayoutMediator(binding.tabLayout, binding.viewPagerSearch){ tab, pos ->
-            when (pos){
-                0 -> {
-                    tab.text = getString(R.string.meeting_title)
-                }
-                1 -> {
-                    tab.text = getString(R.string.nko_title)
-                }
+        TabLayoutMediator(binding.tabLayout, binding.viewPagerSearch) { tab, pos ->
+            when (pos) {
+                0 -> tab.text = getString(R.string.meeting_title)
+                1 -> tab.text = getString(R.string.nko_title)
             }
         }.attach()
         binding.viewPagerSearch.setPageTransformer(HingeAnimation())
