@@ -6,12 +6,12 @@
     app:startDestination="@id/profileFragment">
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.projectjavasimba.presentation.profileFragment.ProfileFragment"
+        android:name="com.example.projectjavasimba.presentation.profileFragment.view.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.projectjavasimba.presentation.newsFragment.NewsFragment"
+        android:name="com.example.projectjavasimba.presentation.newsFragment.view.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.projectjavasimba.presentation.detailNewsFragment.DetailFragment"
+        android:name="com.example.projectjavasimba.presentation.detailNewsFragment.view.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
@@ -32,18 +32,18 @@
     </fragment>
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.example.projectjavasimba.presentation.filterFragment.FilterFragment"
+        android:name="com.example.projectjavasimba.presentation.filterFragment.view.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter" />
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.projectjavasimba.presentation.searchFragment.SearchFragment"
+        android:name="com.example.projectjavasimba.presentation.searchFragment.view.SearchFragment"
         android:label="@string/search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/helpFragment"
-        android:name="com.example.projectjavasimba.presentation.helpFragment.HelpFragment"
+        android:name="com.example.projectjavasimba.presentation.helpFragment.view.HelpFragment"
         android:label="fragment_helpragment"
         tools:layout="@layout/fragment_helpragment" />
 </navigation>

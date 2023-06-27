@@ -1,0 +1,144 @@
+package com.example.projectjavasimba.presentation.newsFragment.view
+
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
+import android.os.Bundle
+import android.os.IBinder
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.example.projectjavasimba.R
+import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.databinding.FragmentNewsBinding
+import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
+import com.example.projectjavasimba.common.utils.show
+import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
+import com.example.projectjavasimba.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel
+import com.example.projectjavasimba.service.ServiceGetData
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+
+class NewsFragment : Fragment(), ServiceGetData.CallbackData {
+
+    private var _binding: FragmentNewsBinding? = null
+    private val binding: FragmentNewsBinding
+        get() = _binding ?: throw RuntimeException("FragmentNewsBinding == null")
+
+    private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
+    private val newsViewModel: NewsViewModel by activityViewModels()
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        _binding = FragmentNewsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        observable()
+        showBottomNavigation()
+    }
+
+    private fun observable() {
+        newsViewModel.allowGetData.observe(this) {
+            if (it) {
+                val select = 1
+                if (select == 1) {
+                    newsViewModel.getParseListEvent()
+                } else {
+                    startService()
+                }
+                newsViewModel.allowGetData.value = false
+            }
+        }
+
+        sharedNewsFilterViewModel.getCategory().observe(viewLifecycleOwner) { category ->
+            newsViewModel.setCategory(category)
+        }
+
+        newsViewModel.progressLoader.observe(viewLifecycleOwner) { loader ->
+            if (loader == 100) {
+                binding.progressLoader.hide()
+            } else {
+                binding.progressLoader.progress += loader
+                binding.progressLoader.show()
+            }
+        }
+
+        newsViewModel.listEvent.observe(viewLifecycleOwner) { listEvent ->
+            setAdapter(listEvent)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.run {
+            toolbarNews.filter.setOnClickListener {
+                findNavController().navigate(
+                    NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
+                )
+            }
+        }
+    }
+
+
+    private fun setAdapter(listEvent: List<Event>) {
+        binding.recyclerNews.adapter.let { adapter ->
+            if (adapter is NewsAdapter) {
+                adapter.update(listEvent)
+            } else {
+                binding.recyclerNews.adapter =
+                    NewsAdapter(listEvent, newsViewModel.newsSubject) { event ->
+                        findNavController().navigate(
+                            NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
+                        )
+                    }
+            }
+        }
+    }
+
+    private fun showBottomNavigation() {
+        val fragmentActivity = activity
+        if (activity != null) {
+            val bottom =
+                fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            if (bottom != null && bottom.visibility == View.GONE) {
+                bottom.show()
+            }
+        }
+    }
+
+    private fun startService() {
+        val serviceIntent = Intent(requireContext(), ServiceGetData::class.java)
+        requireContext().bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
+    }
+
+    private val serviceConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            val binder = service as? ServiceGetData.LocalBinder
+            binder?.getService().let { service ->
+                service?.callback = this@NewsFragment
+                service?.getData()
+            }
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {}
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onDataReceived(list: List<Event>) {
+        newsViewModel.setDelayListEvent(list)
+    }
+}

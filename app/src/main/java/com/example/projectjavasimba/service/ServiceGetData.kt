@@ -14,8 +14,8 @@ class ServiceGetData: Service() {
     var callback: CallbackData ?= null
 
     fun getData() {
-        val data = ParseJSON(applicationContext).parseEventJson().get()
-        callback?.onDataReceived(data)
+//        val data = ParseJSON(applicationContext).parseEventJson().get()
+//        callback?.onDataReceived(data)
     }
 
     override fun onBind(intent: Intent?): IBinder {

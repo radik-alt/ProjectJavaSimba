@@ -44,4 +44,6 @@
     <string name="valid_error_auth">Проверьте корректность введеных данных! Неоюходимо минимиу 6 символов!</string>
     <string name="meeting_title">По мероприятиям</string>
     <string name="nko_title">По НКО</string>
+    <string name="unknow_error">Ошибка подключения! Проверьте соединение с интренетом!</string>
+    <string name="error_network">Ошибка запроса! Неполадки с сетью</string>
 </resources>

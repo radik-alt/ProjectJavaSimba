@@ -17,7 +17,7 @@
         android:theme="@style/Theme.ProjectJavaSimba"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.auth.AuthActivity"
+            android:name=".presentation.auth.view.AuthActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.SplashScreen"
