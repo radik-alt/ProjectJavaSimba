@@ -7,7 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.ActivityMainBinding
-import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
+import com.example.projectjavasimba.presentation.newsFragment.NewsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

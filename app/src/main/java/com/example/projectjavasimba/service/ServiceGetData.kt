@@ -4,26 +4,31 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import android.util.Log
-import com.example.projectjavasimba.data.ParseJSON
+import com.example.projectjavasimba.data.entity.Category
 import com.example.projectjavasimba.data.entity.Event
 
 
 class ServiceGetData: Service() {
 
-    var callback: CallbackData ?= null
+    var callbackEvent: CallbackData<Event> ?= null
+    var callbackCategory : CallbackData<Category> ?= null
 
-    fun getData() {
+    fun getDataEvent() {
 //        val data = ParseJSON(applicationContext).parseEventJson().get()
-//        callback?.onDataReceived(data)
+//        callbackEvent?.onDataReceived(data)
+    }
+
+    fun getDataCategory() {
+//        val data = ParseJSON(applicationContext).parseCategoryJson().get()
+//        callbackCategory?.onDataReceived(data)
     }
 
     override fun onBind(intent: Intent?): IBinder {
         return LocalBinder()
     }
 
-    interface CallbackData {
-        fun onDataReceived(list: List<Event>)
+    interface CallbackData<T> {
+        fun onDataReceived(list: List<T>)
     }
 
     inner class LocalBinder : Binder() {

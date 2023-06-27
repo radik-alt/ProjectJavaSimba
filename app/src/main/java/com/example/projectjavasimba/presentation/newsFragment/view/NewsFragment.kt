@@ -11,26 +11,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.show
-import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
+import com.example.projectjavasimba.presentation.newsFragment.NewsViewModel
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel
 import com.example.projectjavasimba.service.ServiceGetData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class NewsFragment : Fragment(), ServiceGetData.CallbackData {
+class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
 
     private var _binding: FragmentNewsBinding? = null
     private val binding: FragmentNewsBinding
         get() = _binding ?: throw RuntimeException("FragmentNewsBinding == null")
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
-    private val newsViewModel: NewsViewModel by activityViewModels()
+    private val newsViewModel: NewsViewModel by viewModels()
+    private var callbackEvent: ServiceGetData.CallbackData<Event> ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -125,8 +127,8 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             val binder = service as? ServiceGetData.LocalBinder
             binder?.getService().let { service ->
-                service?.callback = this@NewsFragment
-                service?.getData()
+                service?.callbackEvent = this@NewsFragment
+                service?.getDataEvent()
             }
         }
 

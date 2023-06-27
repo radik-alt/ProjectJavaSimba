@@ -7,8 +7,6 @@ Eapp/src/main/java/com/example/projectjavasimba/data/entity/Friends.kt,c\b\cba7
 gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/ViewHolderFriends.kt,d\0\d0ac42f3afdc4c8dc75fb9c8ba7d115d874124aa
 w
 G.idea/sonarlint/issuestore/d/0/d0ac42f3afdc4c8dc75fb9c8ba7d115d874124aa,f\b\fbb14eccc0d7cf1d2794571a856c74f8bc186057
-”
-dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/CategoryAdapter.kt,1\3\1348a5eef5838d9a60dfe53809872387290b870f
  
 papp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsDetailAdapter/FriendsDetailAdapter.kt,7\1\713f2bbc10f24d63590087dd082368e6e3e3ec33
 v
@@ -47,11 +45,19 @@ bapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapt
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 
 Oapp/src/main/java/com/example/projectjavasimba/data/callable/MyCallableEvent.kt,e\2\e2f5500fcd347136be2dc2ad5bce69261bb9e217
-s
-Capp/src/main/java/com/example/projectjavasimba/data/entity/Event.kt,a\0\a0e6ed7471ceef19a9bd4b52a53335669da5a5d8
-x
-Happ/src/main/java/com/example/projectjavasimba/common/utils/Constants.kt,a\b\ab4f2aa261ae723e140ff074143d3e8dd7d42174
 ”
 dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/AdapterFriends.kt,c\5\c57fad6b4dfa94b49770b1460abafc974c4a16d5
-y
-Iapp/src/main/java/com/example/projectjavasimba/common/utils/Extensions.kt,2\3\23fa717c2fbd1cf71c4368bf4b3e6c8a8ba14512
+}
+Mapp/src/main/java/com/example/projectjavasimba/common/utils/HingeAnimation.kt,8\7\87e66f3b2c1ffebad3aca430b34c1ee0fe1caee2
+l
+<app/src/main/java/com/example/projectjavasimba/MainKotlin.kt,4\0\40f6f873d7b4dea53969c44fc4f178314cb3335f
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+˜
+happ/src/main/java/com/example/projectjavasimba/presentation/adapter/searchViewPager/MySearchViewPager.kt,1\0\105a4bcf7aab4751bebbee2020efca53b406dc26
+•
+eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/imageDetail/ImageDetailAdapter.kt,3\2\323ee9bfda0114b4cd4abad964ecaf9f2005aab4
+“
+capp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAdapter/NewsAdapter.kt,0\6\06d4068ec8cfe6b912932bbd1ece482386113036
+ˆ
+Xapp/src/main/java/com/example/projectjavasimba/data/repositoryimpl/NewsRepositoryImpl.kt,1\8\18f6ac2e6ffd850c2361b1414453d7be5b0b3a28

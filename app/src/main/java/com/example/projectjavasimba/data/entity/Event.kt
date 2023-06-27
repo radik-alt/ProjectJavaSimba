@@ -1,5 +1,6 @@
 package com.example.projectjavasimba.data.entity
 
+import android.media.Image
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 

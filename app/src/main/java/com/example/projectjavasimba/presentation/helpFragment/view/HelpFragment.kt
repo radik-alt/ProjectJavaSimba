@@ -1,6 +1,11 @@
 package com.example.projectjavasimba.presentation.helpFragment.view
 
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +18,10 @@ import com.example.projectjavasimba.databinding.FragmentHelpragmentBinding
 import com.example.projectjavasimba.presentation.adapter.helperAdapter.HelperAdapter
 import com.example.projectjavasimba.common.utils.Constants
 import com.example.projectjavasimba.presentation.helpFragment.viewmodel.HelpViewModel
+import com.example.projectjavasimba.service.ServiceGetData
 
 
-class HelpFragment : Fragment() {
+class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
 
     private var _binding: FragmentHelpragmentBinding? = null
     private val binding: FragmentHelpragmentBinding
@@ -59,6 +65,24 @@ class HelpFragment : Fragment() {
 //        }
     }
 
+    private fun startService() {
+        val serviceIntent = Intent(requireContext(), ServiceGetData::class.java)
+        requireContext().bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
+    }
+
+    private val serviceConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            val binder = service as? ServiceGetData.LocalBinder
+            binder?.getService().let { service ->
+                service?.callbackCategory = this@HelpFragment
+                service?.getDataCategory()
+            }
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {}
+    }
+
+
     private fun observable() = with(viewModel) {
         listCategory.observe(this@HelpFragment) { listCategory ->
             val adapter = HelperAdapter(listCategory)
@@ -86,5 +110,9 @@ class HelpFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onDataReceived(list: List<Category>) {
+//        viewModel.setCategory(list)
     }
 }
