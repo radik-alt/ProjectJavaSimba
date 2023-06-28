@@ -39,8 +39,6 @@ v
 Fapp/src/main/java/com/example/projectjavasimba/data/entity/Category.kt,f\5\f5c40e84c9f26800e1dd67dd9cb392d5d26ce9dc
 t
 Dapp/src/main/java/com/example/projectjavasimba/data/entity/Helper.kt,7\d\7df92758495b5f626a060abc314adee2b7d94945
-’
-bapp/src/main/java/com/example/projectjavasimba/presentation/adapter/helperAdapter/HelperAdapter.kt,8\5\857602e4b7723e208d30c3529c85d89362de5470
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 
@@ -49,8 +47,6 @@ Oapp/src/main/java/com/example/projectjavasimba/data/callable/MyCallableEvent.kt
 dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/AdapterFriends.kt,c\5\c57fad6b4dfa94b49770b1460abafc974c4a16d5
 }
 Mapp/src/main/java/com/example/projectjavasimba/common/utils/HingeAnimation.kt,8\7\87e66f3b2c1ffebad3aca430b34c1ee0fe1caee2
-l
-<app/src/main/java/com/example/projectjavasimba/MainKotlin.kt,4\0\40f6f873d7b4dea53969c44fc4f178314cb3335f
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 ˜

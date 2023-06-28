@@ -1,4 +1,4 @@
-package com.example.projectjavasimba
+package com.example.projectjavasimba.OtherTasks
 
 import android.util.Log
 import com.example.simbakotlin.KotlinFirst.Book
@@ -129,6 +129,6 @@ class MainKotlin {
 
 sealed class Action {
     class Registration(user: User): Action()
-    class Login(user: User):Action()
-    class Logout(user: User):Action()
+    class Login(user: User): Action()
+    class Logout(user: User): Action()
 }
