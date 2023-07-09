@@ -12,16 +12,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.Event
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.show
-import com.example.projectjavasimba.presentation.newsFragment.NewsViewModel
+import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel
 import com.example.projectjavasimba.service.ServiceGetData
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
 
 
 class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
@@ -32,7 +34,7 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
     private val newsViewModel: NewsViewModel by viewModels()
-    private var callbackEvent: ServiceGetData.CallbackData<Event> ?= null
+    private var callbackEvent: ServiceGetData.CallbackData<Event>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +46,9 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
 
     override fun onResume() {
         super.onResume()
-        observable()
+        if (binding.recyclerNews.adapter == null) {
+            observable()
+        }
         showBottomNavigation()
     }
 
@@ -58,6 +62,19 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
                     startService()
                 }
                 newsViewModel.allowGetData.value = false
+            }
+        }
+
+        lifecycleScope.launch {
+            newsViewModel.countNotReadEvent.collect { listCount ->
+                val count = listCount.count { !it.isRead }
+                requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                    .let {
+                        it.getOrCreateBadge(R.id.newsFragment).let { badge ->
+                            badge.number = count
+                            badge.isVisible = count > 0
+                        }
+                    }
             }
         }
 
@@ -75,7 +92,19 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
         }
 
         newsViewModel.listEvent.observe(viewLifecycleOwner) { listEvent ->
-            setAdapter(listEvent)
+            binding.recyclerNews.adapter.let { adapter ->
+                if (adapter is NewsAdapter) {
+                    adapter.update(listEvent)
+                } else {
+                    binding.recyclerNews.adapter =
+                        NewsAdapter(listEvent) { event ->
+                            if (!event.isRead) newsViewModel.updateItemBadge(event)
+                            findNavController().navigate(
+                                NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
+                            )
+                        }
+                }
+            }
         }
     }
 
@@ -87,22 +116,6 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
                 findNavController().navigate(
                     NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
                 )
-            }
-        }
-    }
-
-
-    private fun setAdapter(listEvent: List<Event>) {
-        binding.recyclerNews.adapter.let { adapter ->
-            if (adapter is NewsAdapter) {
-                adapter.update(listEvent)
-            } else {
-                binding.recyclerNews.adapter =
-                    NewsAdapter(listEvent, newsViewModel.newsSubject) { event ->
-                        findNavController().navigate(
-                            NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
-                        )
-                    }
             }
         }
     }
