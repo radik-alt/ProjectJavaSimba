@@ -13,7 +13,6 @@ class SearchAdapter(
         val binding = ItemSearchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return SearchViewHolder(binding)
     }
-
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         holder.text.text = list[position]
     }

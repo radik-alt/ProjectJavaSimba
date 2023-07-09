@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.example.projectjavasimba.BuildConfig
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.ActivityAuthBinding
 import com.example.projectjavasimba.presentation.MainActivity
@@ -28,6 +29,12 @@ class AuthActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.run {
+            if (BuildConfig.DEBUG) {
+                etEmail.setText("Radik.app")
+                etPassword.setText("12345678")
+            }
+
+
             btnAuth.setOnClickListener {
                 startActivity(Intent(this@AuthActivity, MainActivity::class.java))
             }

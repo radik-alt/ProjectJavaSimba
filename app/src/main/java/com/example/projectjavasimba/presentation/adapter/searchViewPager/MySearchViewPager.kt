@@ -6,14 +6,15 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.projectjavasimba.presentation.meetingFragment.view.MeetingFragment
 import com.example.projectjavasimba.presentation.nkoFragment.view.NKOFragment
 
-class MySearchViewPager(fragmentManager: FragmentActivity): FragmentStateAdapter(fragmentManager) {
+class MySearchViewPager(fragmentManager: FragmentActivity, private val listFragment: ArrayList<Fragment>): FragmentStateAdapter(fragmentManager) {
 
     override fun getItemCount(): Int = 2
 
     override fun createFragment(position: Int): Fragment {
         return when (position){
-            0 -> MeetingFragment()
-            else -> NKOFragment()
+            0 -> listFragment[0]
+            1 -> listFragment[1]
+            else -> listFragment[0]
         }
     }
 
