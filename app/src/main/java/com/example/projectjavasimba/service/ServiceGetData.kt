@@ -14,11 +14,13 @@ class ServiceGetData: Service() {
     var callbackCategory : CallbackData<Category> ?= null
 
     fun getDataEvent() {
+        // видоизменял получение данных с ParseJson()
 //        val data = ParseJSON(applicationContext).parseEventJson().get()
 //        callbackEvent?.onDataReceived(data)
     }
 
     fun getDataCategory() {
+        // видоизменял получение данных с ParseJson()
 //        val data = ParseJSON(applicationContext).parseCategoryJson().get()
 //        callbackCategory?.onDataReceived(data)
     }

@@ -2,21 +2,12 @@ package com.example.projectjavasimba.data
 
 import android.content.Context
 import android.util.Log
-import com.example.projectjavasimba.common.utils.Constants
-import com.example.projectjavasimba.common.utils.DefaultData
 import com.example.projectjavasimba.data.callable.MyCallableCategory
 import com.example.projectjavasimba.data.callable.MyCallableEvent
 import com.example.projectjavasimba.data.entity.Category
 import com.example.projectjavasimba.data.entity.Event
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import java.util.Objects
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import java.util.concurrent.Future
-import java.util.concurrent.TimeUnit
-import java.util.function.BiFunction
-import kotlin.random.Random
 
 class ParseJSON(
     private val context: Context,

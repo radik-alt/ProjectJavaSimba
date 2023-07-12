@@ -3,12 +3,14 @@ package com.example.projectjavasimba.presentation
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.ActivityMainBinding
-import com.example.projectjavasimba.presentation.newsFragment.NewsViewModel
+import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,17 +40,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observable() = with(newsViewModel) {
-        newsSubject.subscribe { event ->
-            val notReadCount = if (event.isEmpty()) {
-                0
-            } else {
-                event.count { !it.isRead }
-            }
-
-            findViewById<BottomNavigationView>(R.id.bottomNavigationView).let {
-                it.getOrCreateBadge(R.id.newsFragment).let { badge ->
-                    badge.number = notReadCount
-                    badge.isVisible = notReadCount > 0
+        lifecycleScope.launch {
+            countNotReadEvent.collect { listCount ->
+                val count = listCount.count { !it.isRead }
+                findViewById<BottomNavigationView>(R.id.bottomNavigationView).let {
+                    it.getOrCreateBadge(R.id.newsFragment).let { badge ->
+                        badge.number = count
+                        badge.isVisible = count > 0
+                    }
                 }
             }
         }

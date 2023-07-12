@@ -5,15 +5,33 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.Utils.HingeAnimation
 import com.example.projectjavasimba.Utils.StringUtils.meeting_fragment_pager
 import com.example.projectjavasimba.databinding.FragmentSearchBinding
 import com.example.projectjavasimba.presentation.adapter.searchViewPager.MySearchViewPager
+import com.example.projectjavasimba.presentation.meetingFragment.view.MeetingFragment
+import com.example.projectjavasimba.presentation.nkoFragment.view.NKOFragment
 import com.example.projectjavasimba.presentation.searchFragment.viewmodel.SearchViewPagerViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import com.jakewharton.rxbinding.widget.RxSearchView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import rx.android.schedulers.AndroidSchedulers
 import java.util.concurrent.TimeUnit
 
@@ -36,18 +54,27 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        RxSearchView.queryTextChanges(binding.svSearch)
-            .debounce(500, TimeUnit.MILLISECONDS)
-            .filter { it.isNotBlank() }
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                binding.viewPagerSearch.currentItem = meeting_fragment_pager
-                it.toString().lowercase().trim().let { searchString ->
-                    searchViewModel.searchMeeting.value = searchString
+        lifecycleScope.launch {
+            binding.svSearch.queryTextChangeFlow()
+                .debounce(400)
+                .flowOn(Dispatchers.IO)
+                .collect {
+                    withContext(Dispatchers.Main) {
+                        binding.viewPagerSearch.currentItem = meeting_fragment_pager
+                        it.lowercase().trim().let { searchString ->
+                            searchViewModel.searchMeeting.value = searchString
+                        }
+                    }
                 }
-            }
+        }
 
-        binding.viewPagerSearch.adapter = MySearchViewPager(requireActivity())
+        binding.viewPagerSearch.adapter = MySearchViewPager(
+            requireActivity(),
+            arrayListOf(
+                MeetingFragment(),
+                NKOFragment()
+            )
+        )
         TabLayoutMediator(binding.tabLayout, binding.viewPagerSearch) { tab, pos ->
             when (pos) {
                 0 -> tab.text = getString(R.string.meeting_title)
@@ -55,6 +82,23 @@ class SearchFragment : Fragment() {
             }
         }.attach()
         binding.viewPagerSearch.setPageTransformer(HingeAnimation())
+    }
+
+    private fun SearchView.queryTextChangeFlow(): Flow<String> = callbackFlow {
+        setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                trySend(newText)
+                return true
+            }
+        })
+
+        awaitClose {
+            setOnQueryTextListener(null)
+        }
     }
 
     override fun onDestroyView() {

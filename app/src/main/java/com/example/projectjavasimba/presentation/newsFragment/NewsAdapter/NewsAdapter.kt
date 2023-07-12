@@ -10,7 +10,6 @@ import io.reactivex.rxjava3.subjects.PublishSubject
 
 class NewsAdapter(
     private var listEvent: List<Event>,
-    private val onClickEvent: PublishSubject<List<Event>>,
     private val callback: (Event) -> Unit
 ) : RecyclerView.Adapter<NewsViewHolder>(){
 
@@ -28,8 +27,6 @@ class NewsAdapter(
 
         holder.itemView.setOnClickListener {
             callback.invoke(listEvent[position])
-            listEvent[position].isRead = true
-            onClickEvent.onNext(listEvent)
         }
     }
 
