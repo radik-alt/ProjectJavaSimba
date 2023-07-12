@@ -45,8 +45,6 @@ Dapp/src/main/java/com/example/projectjavasimba/common/utils/Utils.kt,a\2\a288b
 Vapp/src/main/java/com/example/projectjavasimba/OtherTasks/classes/five/AbonentDto.java,6\b\6b902a5b2793aa97a5b21954ea3e24756d6b714a
 †
 Vapp/src/main/java/com/example/projectjavasimba/OtherTasks/training/ArraysTraining.java,2\f\2faf52830c337e5f784e8ec3395517d8aa1bd3ce
-v
-Fapp/src/test/java/com/example/projectjavasimba/ArraysTrainingTest.java,3\0\3015db28207d36b308954224b39539abbcb6766b
 †
 Vapp/src/main/java/com/example/projectjavasimba/OtherTasks/KotlinSecond/AuthCallback.kt,2\6\26780cdd7e8d702934c801af0adf5ae30e166479
 }
@@ -167,3 +165,15 @@ aapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapte
 eapp/src/main/java/com/example/projectjavasimba/presentation/detailNewsFragment/view/DetailFragment.kt,8\c\8c4abf0ae65b797bef090799942f74c84993184e
 Ž
 ^app/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter/HelpAdapter.kt,7\1\715eebf865b7eda2bd0e1e2605555a68e26013fe
+“
+capp/src/main/java/com/example/projectjavasimba/presentation/meetingFragment/view/MeetingFragment.kt,1\2\12802bf56ba66370cb2ddae02d0b5bec0e05b8ca
+”
+dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/MessageAdapter/MessageAdapter.kt,3\4\34e39effd3859f7021e998d9e69f2c9c58f910e0
+‘
+aapp/src/main/java/com/example/projectjavasimba/presentation/searchFragment/view/SearchFragment.kt,f\4\f403ddf72222b7da08a7d5ceab7db5dbc7be80e0
+
+Oapp/src/main/java/com/example/projectjavasimba/data/callable/MyCallableEvent.kt,e\2\e2f5500fcd347136be2dc2ad5bce69261bb9e217
+x
+Happ/src/main/java/com/example/projectjavasimba/service/ServiceGetData.kt,a\6\a63e97b55549e991f192a621432b47434fad6628
+v
+Fapp/src/test/java/com/example/projectjavasimba/ArraysTrainingTest.java,3\0\3015db28207d36b308954224b39539abbcb6766b

@@ -1,7 +1,6 @@
 package com.example.projectjavasimba.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -23,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        newsViewModel.getParseListEvent()
         observable()
     }
 
@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
     private fun observable() = with(newsViewModel) {
         lifecycleScope.launch {
             countNotReadEvent.collect { listCount ->
-                Log.d("GetCountNotRead", listCount.map { it.isRead }.toString())
                 val count = listCount.count { !it.isRead }
                 findViewById<BottomNavigationView>(R.id.bottomNavigationView).let {
                     it.getOrCreateBadge(R.id.newsFragment).let { badge ->

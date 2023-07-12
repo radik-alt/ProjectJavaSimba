@@ -14,11 +14,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.getAndUpdate
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class NewsViewModel(
@@ -37,6 +32,7 @@ class NewsViewModel(
     val listEvent = MutableLiveData<List<Event>>()
     val progressLoader = MutableLiveData<Int>()
     val countNotReadEvent: MutableSharedFlow<List<Event>> = MutableSharedFlow()
+    private val _countNotReadEvent: MutableSharedFlow<List<Event>> = MutableSharedFlow()
     val allowGetData = MutableLiveData(true)
 
     fun setCategory(_category: Category) {
