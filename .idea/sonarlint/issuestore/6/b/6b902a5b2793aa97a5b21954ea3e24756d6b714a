@@ -1,0 +1,5 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­è•Şüÿÿÿÿ
+u
+java:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(ŒïÌ“ÿÿÿÿÿ
+W	java:S107"BConstructor has 10 parameters, which is greater than 7 authorized.(èÅĞù

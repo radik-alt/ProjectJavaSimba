@@ -4,13 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.data.entity.EventEntity
 import com.example.projectjavasimba.databinding.ItemNewsBinding
-import io.reactivex.rxjava3.subjects.PublishSubject
 
 class NewsAdapter(
-    private var listEvent: List<Event>,
-    private val callback: (Event) -> Unit
+    private var listEventEntity: List<EventEntity>,
+    private val callback: (EventEntity) -> Unit
 ) : RecyclerView.Adapter<NewsViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
@@ -20,21 +19,21 @@ class NewsAdapter(
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
 
-        holder.title.text = listEvent[position].title
-        holder.desc.text = listEvent[position].description
-        holder.date.text = listEvent[position].date
+        holder.title.text = listEventEntity[position].title
+        holder.desc.text = listEventEntity[position].description
+        holder.date.text = listEventEntity[position].date
 
 
         holder.itemView.setOnClickListener {
-            callback.invoke(listEvent[position])
+            callback.invoke(listEventEntity[position])
         }
     }
 
-    override fun getItemCount(): Int = listEvent.size
+    override fun getItemCount(): Int = listEventEntity.size
 
-    fun update(newListEvent: List<Event>){
-        DiffUtil.calculateDiff(DiffUtilsNews(listEvent, newListEvent)).run {
-            listEvent = newListEvent
+    fun update(newListEventEntity: List<EventEntity>){
+        DiffUtil.calculateDiff(DiffUtilsNews(listEventEntity, newListEventEntity)).run {
+            listEventEntity = newListEventEntity
             dispatchUpdatesTo(this@NewsAdapter)
         }
     }

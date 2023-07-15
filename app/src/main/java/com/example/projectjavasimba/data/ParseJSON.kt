@@ -5,7 +5,7 @@ import android.util.Log
 import com.example.projectjavasimba.data.callable.MyCallableCategory
 import com.example.projectjavasimba.data.callable.MyCallableEvent
 import com.example.projectjavasimba.data.entity.Category
-import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.data.entity.EventEntity
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -13,14 +13,14 @@ class ParseJSON(
     private val context: Context,
 ) {
 
-    fun parseEventJson(): Observable<ArrayList<Event>> {
+    fun parseEventJson(): Observable<ArrayList<EventEntity>> {
         return Observable.fromCallable {
             MyCallableEvent(context).call()
         }.zipWith(Observable.just(listOf(1, 2, 3, 4, 5))) { events, number ->
-            val result = ArrayList<Event>()
+            val result = ArrayList<EventEntity>()
             for (one in events) {
                 result.add(
-                    Event(
+                    EventEntity(
                         one.id,
                         one.title + number,
                         one.description,

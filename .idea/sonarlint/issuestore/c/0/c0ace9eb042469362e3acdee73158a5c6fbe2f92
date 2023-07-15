@@ -1,0 +1,30 @@
+
+t
+java:S2293W"YReplace the type specification in this constructor call with the diamond operator ("<>").(åÒƒ»ùÿÿÿÿ
+t
+java:S2293f"YReplace the type specification in this constructor call with the diamond operator ("<>").(¡¿É•ûÿÿÿÿ
+f
+java:S1192G"KDefine a constant instead of duplicating this literal "Ğ Ğ°Ğ´Ğ¸Ğº" 3 times.(ã½ó¿üÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ùò÷˜
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Çµí‘
+S
+java:S1854H"8Remove this useless assignment to local variable "exam".(†£Üûÿÿÿÿ
+D
+java:S1481H")Remove this unused "exam" local variable.(†£Üûÿÿÿÿ
+9
+java:S2119Y"Save and re-use this "Random".(ïìÂ±şÿÿÿÿ
+:
+java:S2119š"Save and re-use this "Random".(‚¯ƒÿÿÿÿÿ
+@
+java:S1144$"*Remove this unused private "seven" method.(–ØËš
+C
+java:S1144A"(Remove this unused private "six" method.(£Œ°Ñşÿÿÿÿ
+E
+java:S1144y"*Remove this unused private "first" method.(¶üó€ùÿÿÿÿ
+?
+java:S1144€"(Remove this unused private "two" method.(¨ıÈˆ
+A
+java:S1144Š"*Remove this unused private "three" method.(á°Úò
+E
+java:S1144")Remove this unused private "four" method.(Ì £Íúÿÿÿÿ

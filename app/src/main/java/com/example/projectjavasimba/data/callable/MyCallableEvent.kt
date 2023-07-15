@@ -1,17 +1,17 @@
 package com.example.projectjavasimba.data.callable
 
 import android.content.Context
-import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.data.entity.EventEntity
 import com.google.gson.Gson
 import java.util.concurrent.Callable
 
 class MyCallableEvent(
     private val context: Context,
-) : Callable<List<Event>> {
-    override fun call(): List<Event> {
+) : Callable<List<EventEntity>> {
+    override fun call(): List<EventEntity> {
         val gson = Gson()
-        val listEvent = gson.fromJson(loadJsonFromAssets("news.json"), Array<Event>::class.java)
-        return listEvent.toList()
+        val listEventEntity = gson.fromJson(loadJsonFromAssets("news.json"), Array<EventEntity>::class.java)
+        return listEventEntity.toList()
     }
 
     private fun loadJsonFromAssets(fileName: String): String =

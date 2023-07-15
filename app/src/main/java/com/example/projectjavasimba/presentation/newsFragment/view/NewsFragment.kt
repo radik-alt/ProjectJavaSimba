@@ -15,7 +15,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.data.entity.EventEntity
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.show
@@ -26,7 +26,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 
-class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
+class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
 
     private var _binding: FragmentNewsBinding? = null
     private val binding: FragmentNewsBinding
@@ -34,7 +34,7 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
     private val newsViewModel: NewsViewModel by viewModels()
-    private var callbackEvent: ServiceGetData.CallbackData<Event>? = null
+    private var callbackEventEntity: ServiceGetData.CallbackData<EventEntity>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,7 +66,7 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
         }
 
         lifecycleScope.launch {
-            newsViewModel.countNotReadEvent.collect { listCount ->
+            newsViewModel.countNotReadEventEntity.collect { listCount ->
                 val count = listCount.count { !it.isRead }
                 requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
                     .let {
@@ -91,7 +91,7 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
             }
         }
 
-        newsViewModel.listEvent.observe(viewLifecycleOwner) { listEvent ->
+        newsViewModel.listEventEntity.observe(viewLifecycleOwner) { listEvent ->
             binding.recyclerNews.adapter.let { adapter ->
                 if (adapter is NewsAdapter) {
                     adapter.update(listEvent)
@@ -111,8 +111,8 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.run {
-            toolbarNews.filter.setOnClickListener {
+        with(binding.toolbarNews) {
+            filter.setOnClickListener {
                 findNavController().navigate(
                     NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
                 )
@@ -140,7 +140,7 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
             val binder = service as? ServiceGetData.LocalBinder
             binder?.getService().let { service ->
-                service?.callbackEvent = this@NewsFragment
+                service?.callbackEventEntity = this@NewsFragment
                 service?.getDataEvent()
             }
         }
@@ -153,7 +153,7 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<Event> {
         _binding = null
     }
 
-    override fun onDataReceived(list: List<Event>) {
+    override fun onDataReceived(list: List<EventEntity>) {
         newsViewModel.setDelayListEvent(list)
     }
 }

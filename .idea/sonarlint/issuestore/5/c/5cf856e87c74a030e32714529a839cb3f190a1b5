@@ -1,0 +1,14 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(­è•Þüÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(¢îÉýÿÿÿÿ
+N	java:S106&"9Replace this use of System.out or System.err by a logger.(øÏÝ
+S	java:S106("9Replace this use of System.out or System.err by a logger.(éí÷„ùÿÿÿÿ
+S	java:S106*"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
+S	java:S106."9Replace this use of System.out or System.err by a logger.(ëÖµˆùÿÿÿÿ
+S	java:S1061"9Replace this use of System.out or System.err by a logger.(éí÷„ùÿÿÿÿ
+S	java:S1064"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
+M	java:S106<"9Replace this use of System.out or System.err by a logger.(Û ·3
+S	java:S106?"9Replace this use of System.out or System.err by a logger.(éí÷„ùÿÿÿÿ
+S	java:S106B"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ
+I
+java:S11447".Remove this unused private "sortAlpha" method.(‰ð¤úÿÿÿÿ

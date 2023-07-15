@@ -2,14 +2,13 @@ package com.example.projectjavasimba.common.utils
 
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.entity.Category
-import com.example.projectjavasimba.data.entity.Event
-import com.example.projectjavasimba.data.entity.Helper
+import com.example.projectjavasimba.data.entity.EventEntity
 
 class DefaultData {
 
     companion object {
 
-        val defaultEvent = Event(
+        val defaultEventEntity = EventEntity(
             id = 0,
             title = "Спонсоры отремонтируют школу-интернат",
             description = "Дубовская школа-интернат для детей\u2028с ограниченными возможностями здоровья стала первой в области …",

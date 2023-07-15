@@ -1,0 +1,20 @@
+
+t
+java:S2293$"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ©´¿ùÿÿÿÿ
+F
+java:S1066"/Merge this if statement with the enclosing one.(É–îë
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¾™Ü	
+S
+java:S2589E"8Remove this expression which always evaluates to "false"(±¢îÿÿÿÿÿ
+S
+java:S2589E"8Remove this expression which always evaluates to "false"(±¢îÿÿÿÿÿ
+N
+java:S2589•"8Remove this expression which always evaluates to "false"(á•²K
+N
+java:S2589•"8Remove this expression which always evaluates to "false"(á•²K
+N
+java:S2589•"8Remove this expression which always evaluates to "false"(á•²K
+Z
+java:S2583^"DChange this condition so that it does not always evaluate to "false"(àê¾¢
+E
+java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ

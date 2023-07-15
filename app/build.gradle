@@ -69,22 +69,18 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
 
     implementation 'com.google.code.gson:gson:2.9.0'
 
-
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
-
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
     implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
     implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 
-
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
 
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 }

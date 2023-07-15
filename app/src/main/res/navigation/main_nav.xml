@@ -28,7 +28,7 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="event"
-            app:argType="com.example.projectjavasimba.data.entity.Event" />
+            app:argType="com.example.projectjavasimba.data.entity.EventEntity" />
     </fragment>
     <fragment
         android:id="@+id/filterFragment"

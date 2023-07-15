@@ -1,11 +1,11 @@
 package com.example.projectjavasimba.presentation.newsFragment.NewsAdapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.data.entity.EventEntity
 
 class DiffUtilsNews(
-    private val oldList: List<Event>,
-    private val newList: List<Event>
+    private val oldList: List<EventEntity>,
+    private val newList: List<EventEntity>
 ): DiffUtil.Callback() {
 
     override fun getOldListSize(): Int = oldList.size
