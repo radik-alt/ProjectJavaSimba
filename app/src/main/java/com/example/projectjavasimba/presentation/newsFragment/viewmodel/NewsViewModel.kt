@@ -19,6 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
+import kotlin.concurrent.thread
 
 class NewsViewModel(
     application: Application,
@@ -103,7 +104,7 @@ class NewsViewModel(
 
     @SuppressLint("CheckResult")
     fun getParseListEvent() {
-        coroutineScope.launch {
+        thread {
             useCase.getEvents()
                 .observeOn(Schedulers.io())
                 .doOnError {
@@ -112,6 +113,9 @@ class NewsViewModel(
                 .subscribe {
                     Log.d("GetInfo", it.toString())
                 }
+        }
+        coroutineScope.launch {
+
 
             ParseJSON(getApplication()).parseEventJson()
                 .subscribeOn(Schedulers.io())

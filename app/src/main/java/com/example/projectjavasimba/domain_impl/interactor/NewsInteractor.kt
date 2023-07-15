@@ -7,6 +7,6 @@ class NewsInteractor(
     private val repository: NewsRepository
 ) : NewsUseCase {
 
-    override suspend fun getEvents() = repository.getEvents()
+    override fun getEvents() = repository.getEvents()
 
 }

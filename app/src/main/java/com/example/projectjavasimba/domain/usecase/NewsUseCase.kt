@@ -4,6 +4,5 @@ import com.example.projectjavasimba.repository.dto.events.EventsDto
 import io.reactivex.rxjava3.core.Observable
 
 interface NewsUseCase {
-
-    suspend fun getEvents(): Observable<EventsDto>
+    fun getEvents(): Observable<EventsDto>
 }

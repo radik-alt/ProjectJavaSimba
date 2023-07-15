@@ -5,5 +5,5 @@ import io.reactivex.rxjava3.core.Observable
 
 interface NewsRepository {
 
-    suspend fun getEvents(): Observable<EventsDto>
+    fun getEvents(): Observable<EventsDto>
 }

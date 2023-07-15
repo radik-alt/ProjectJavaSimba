@@ -10,10 +10,10 @@ class NewsRepositoryImpl: NewsRepository {
 
     private val api = RetrofitBuilder.apiService
 
-    override suspend fun getEvents(): Observable<EventsDto> {
+    override fun getEvents(): Observable<EventsDto> {
         val request = api.getEvents()
         Log.d("GetInfo", request.toString())
-        return Observable.fromArray(request)
+        return request
     }
 
 }
