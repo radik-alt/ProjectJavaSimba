@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectjavasimba.common.utils.hide
-import com.example.projectjavasimba.data.entity.TypeHelp
+import com.example.projectjavasimba.domain.entity.TypeHelp
 import com.example.projectjavasimba.databinding.ItemHelperBinding
 
 class HelpAdapter(

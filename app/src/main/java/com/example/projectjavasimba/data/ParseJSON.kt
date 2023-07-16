@@ -4,10 +4,11 @@ import android.content.Context
 import android.util.Log
 import com.example.projectjavasimba.data.callable.MyCallableCategory
 import com.example.projectjavasimba.data.callable.MyCallableEvent
-import com.example.projectjavasimba.data.entity.Category
-import com.example.projectjavasimba.data.entity.EventEntity
+import com.example.projectjavasimba.domain.entity.Category
+import com.example.projectjavasimba.domain.entity.EventEntity
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import java.util.Date
 
 class ParseJSON(
     private val context: Context,
@@ -21,17 +22,18 @@ class ParseJSON(
             for (one in events) {
                 result.add(
                     EventEntity(
-                        one.id,
-                        one.title + number,
-                        one.description,
-                        one.listImage,
-                        one.date,
-                        one.street,
-                        one.phone,
-                        one.email,
-                        one.category,
-                        one.listFriends,
-                        one.isRead
+                        id = one.id ?: -1,
+                        title = one.title ?: "",
+                        description = one.description ?: "",
+                        listImage = one.listImage ?: arrayListOf(),
+                        createAt = one.createAt ?: Date(),
+                        street = one.street ?: "",
+                        status = one.status ?: -1,
+                        startDate = one.startDate ?: Date(),
+                        endDate = one.endDate ?: Date(),
+                        phone = one.phone ?: "",
+                        category = one.category ?: -1,
+                        isRead = false
                     )
                 )
             }

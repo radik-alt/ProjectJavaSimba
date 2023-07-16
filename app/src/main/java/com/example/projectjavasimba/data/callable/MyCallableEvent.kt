@@ -1,7 +1,7 @@
 package com.example.projectjavasimba.data.callable
 
 import android.content.Context
-import com.example.projectjavasimba.data.entity.EventEntity
+import com.example.projectjavasimba.domain.entity.EventEntity
 import com.google.gson.Gson
 import java.util.concurrent.Callable
 

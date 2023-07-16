@@ -1,6 +1,6 @@
 package com.example.projectjavasimba.common.utils
 
-import com.example.projectjavasimba.data.entity.EventEntity
+import com.example.projectjavasimba.domain.entity.EventEntity
 
 sealed class UtilsNews {
     object Loader : UtilsNews()

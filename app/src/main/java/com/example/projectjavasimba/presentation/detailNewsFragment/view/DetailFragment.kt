@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.CategoryDetail
+import com.example.projectjavasimba.domain.entity.CategoryDetail
 import com.example.projectjavasimba.databinding.FragmentDetailBinding
 import com.example.projectjavasimba.presentation.adapter.categoryDetailAdapter.CategoryDetailAdapter
 import com.example.projectjavasimba.presentation.detailNewsFragment.adapter.friendsDetailAdapter.FriendsDetailAdapter
@@ -55,21 +55,21 @@ class DetailFragment : Fragment() {
     }
 
     private fun setData() {
-        val event = args.event
-        binding.run {
-            title.text = event.title
-            description.text = event.description
-            date.text = event.date
-            countFriends.text = event.listFriends.toString()
-            street.text = event.street
-            phone.text = event.phone
-            setAdapter()
-        }
+//        val event = args.event
+//        binding.run {
+//            title.text = event.title
+//            description.text = event.description
+////            date.text = event.date
+////            countFriends.text = event.listFriends.toString()
+//            street.text = event.street
+//            phone.text = event.phone
+//            setAdapter()
+//        }
     }
 
     private fun setAdapter() {
-        val listImage = args.event.listImage
-        binding.recyclerImageDetail.adapter = ImageDetailAdapter(listImage)
+//        val listImage = args.event.listImage
+//        binding.recyclerImageDetail.adapter = ImageDetailAdapter(listImage)
 
         val listCategoryDetail = listOf(
             CategoryDetail(getString(R.string.help_shirt), R.drawable.shirt),
@@ -81,7 +81,7 @@ class DetailFragment : Fragment() {
         binding.recyclerHelpDetail.layoutManager =
             GridLayoutManager(requireContext(), listCategoryDetail.size)
 
-        val listFriends = args.event.listFriends
+        val listFriends = listOf<Int>()
         binding.recyclerFriendsDetail.adapter = FriendsDetailAdapter(listFriends)
         binding.countFriends.text = "+${listFriends.size}"
     }

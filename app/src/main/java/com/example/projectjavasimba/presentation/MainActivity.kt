@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        newsViewModel.getParseListEvent()
+        newsViewModel.getEvents()
         observable()
     }
 

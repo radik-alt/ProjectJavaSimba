@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.Category
+import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.databinding.FragmentHelpragmentBinding
 import com.example.projectjavasimba.presentation.helpFragment.adapter.HelperAdapter
 import com.example.projectjavasimba.presentation.helpFragment.viewmodel.HelpViewModel

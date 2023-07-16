@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.FragmentProfileBinding
 import com.example.projectjavasimba.presentation.adapter.friendsAdapter.AdapterFriends
-import com.example.projectjavasimba.data.entity.Friends
+import com.example.projectjavasimba.domain.entity.Friends
 import com.example.projectjavasimba.presentation.profileDialog.view.DialogFragmentSelect
 import com.example.projectjavasimba.presentation.profileFragment.viewmodel.SharedViewModel
 

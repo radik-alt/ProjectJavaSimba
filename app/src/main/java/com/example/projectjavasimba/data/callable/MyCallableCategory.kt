@@ -1,7 +1,7 @@
 package com.example.projectjavasimba.data.callable
 
 import android.content.Context
-import com.example.projectjavasimba.data.entity.Category
+import com.example.projectjavasimba.domain.entity.Category
 import com.google.gson.Gson
 import java.util.concurrent.Callable
 

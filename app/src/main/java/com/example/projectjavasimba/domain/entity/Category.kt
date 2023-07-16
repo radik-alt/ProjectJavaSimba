@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.data.entity
+package com.example.projectjavasimba.domain.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

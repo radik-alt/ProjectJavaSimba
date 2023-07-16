@@ -5,9 +5,10 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.ParseJSON
-import com.example.projectjavasimba.data.entity.Category
-import com.example.projectjavasimba.data.entity.EventEntity
+import com.example.projectjavasimba.domain.entity.Category
+import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.data_impl.NewsRepositoryImpl
 import com.example.projectjavasimba.domain.usecase.NewsUseCase
 import com.example.projectjavasimba.domain_impl.interactor.NewsInteractor
@@ -19,10 +20,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
-import kotlin.concurrent.thread
 
 class NewsViewModel(
-    application: Application,
+    private val application: Application,
 ) : AndroidViewModel(application) {
 
     private var filterCategory: Category? = null
@@ -36,29 +36,30 @@ class NewsViewModel(
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO + errorHandler)
 
-    val listEventEntity = MutableLiveData<List<EventEntity>>()
+    val events = MutableLiveData<List<EventEntity>>()
     val progressLoader = MutableLiveData<Int>()
     val countNotReadEventEntity: MutableSharedFlow<List<EventEntity>> = MutableSharedFlow()
     private val _countNotReadEventEntity: MutableSharedFlow<List<EventEntity>> = MutableSharedFlow()
     val allowGetData = MutableLiveData(true)
 
+    val message = MutableLiveData<String>()
     fun setCategory(_category: Category) {
         filterCategory = _category
-        filterList()
+//        filterList()
     }
 
-    private fun filterList() {
-        listEventEntity.value = fullListEventEntity.value
-        listEventEntity.value?.filter {
-            it.category.contains(filterCategory)
-        }.let { list ->
-            setListEvent(list ?: emptyList())
-        }
-    }
+//    private fun filterList() {
+//        listEventEntity.value = fullListEventEntity.value
+//        listEventEntity.value?.filter {
+//            it.category.contains(filterCategory)
+//        }.let { list ->
+//            setListEvent(list ?: emptyList())
+//        }
+//    }
 
     private fun setListEvent(list: List<EventEntity>) {
         updateListBadge(list)
-        listEventEntity.postValue(list)
+        events.postValue(list)
     }
 
     fun setDelayListEvent(list: List<EventEntity>) {
@@ -68,7 +69,7 @@ class NewsViewModel(
                 progressLoader.postValue(i * 20)
             }
             updateListBadge(list)
-            listEventEntity.postValue(list)
+            events.postValue(list)
         }
         myThread.start()
     }
@@ -97,40 +98,48 @@ class NewsViewModel(
                     }
                 }
             }
-            Log.d("GetCountNotRead", resultList.map { it.isRead }.toString())
             countNotReadEventEntity.emit(resultList)
         }
     }
 
     @SuppressLint("CheckResult")
-    fun getParseListEvent() {
-        thread {
-            useCase.getEvents()
-                .observeOn(Schedulers.io())
-                .doOnError {
-                    Log.d("GetInfo", it.toString())
-                }
-                .subscribe {
-                    Log.d("GetInfo", it.toString())
-                }
-        }
-        coroutineScope.launch {
-
-
-            ParseJSON(getApplication()).parseEventJson()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { request ->
-                    fullListEventEntity.postValue(request)
-                    val selectLoader = 0
-                    if (selectLoader == 1) {
-                        setDelayListEvent(request)
+    fun getEvents() {
+        useCase.getEvents()
+            .observeOn(Schedulers.io())
+            .doOnError {
+                getFromJsonEvents()
+            }
+            .subscribe {
+                it.events.let { result ->
+                    if (result.isNotEmpty()) {
+                        events.postValue(it.events)
+                        updateListBadge(it.events)
                     } else {
-                        setListEvent(request)
+                        message.postValue("Список новостей пуст!")
                     }
-                    updateListBadge(request)
                 }
-        }
+
+            }
+    }
+
+    @SuppressLint("CheckResult")
+    fun getFromJsonEvents() {
+        ParseJSON(getApplication()).parseEventJson()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnError {
+                message.postValue(application.getString(R.string.unknown_error))
+            }
+            .subscribe { request ->
+                fullListEventEntity.postValue(request)
+                val selectLoader = 0
+                if (selectLoader == 1) {
+                    setDelayListEvent(request)
+                } else {
+                    setListEvent(request)
+                }
+                updateListBadge(request)
+            }
     }
 
     override fun onCleared() {

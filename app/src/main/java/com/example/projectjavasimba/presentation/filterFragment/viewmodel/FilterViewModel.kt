@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.ParseJSON
-import com.example.projectjavasimba.data.entity.Category
+import com.example.projectjavasimba.domain.entity.Category
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.lang.Exception

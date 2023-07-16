@@ -1,7 +1,7 @@
 package com.example.projectjavasimba.presentation.newsFragment.NewsAdapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.projectjavasimba.data.entity.EventEntity
+import com.example.projectjavasimba.domain.entity.EventEntity
 
 class DiffUtilsNews(
     private val oldList: List<EventEntity>,

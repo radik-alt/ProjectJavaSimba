@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.TypeHelp
+import com.example.projectjavasimba.domain.entity.TypeHelp
 import com.example.projectjavasimba.databinding.FragmentFilterBinding
 import com.example.projectjavasimba.presentation.adapter.HelpAdapter.HelpAdapter
 import com.example.projectjavasimba.presentation.helpFragment.adapter.CategoryAdapter

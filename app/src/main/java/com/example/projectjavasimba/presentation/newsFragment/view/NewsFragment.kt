@@ -1,11 +1,6 @@
 package com.example.projectjavasimba.presentation.newsFragment.view
 
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.ServiceConnection
 import android.os.Bundle
-import android.os.IBinder
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.EventEntity
+import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.show
@@ -34,7 +29,6 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
 
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
     private val newsViewModel: NewsViewModel by viewModels()
-    private var callbackEventEntity: ServiceGetData.CallbackData<EventEntity>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,21 +46,38 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
         showBottomNavigation()
     }
 
-    private fun observable() {
-        newsViewModel.allowGetData.observe(this) {
-            if (it) {
-                val select = 1
-                if (select == 1) {
-                    newsViewModel.getParseListEvent()
+    private fun observable() = with(newsViewModel) {
+        allowGetData.observe(this@NewsFragment) {
+            newsViewModel.getEvents()
+            newsViewModel.allowGetData.value = false
+        }
+
+        progressLoader.observe(this@NewsFragment) { loader ->
+            if (loader == 100) {
+                binding.progressLoader.hide()
+            } else {
+                binding.progressLoader.progress += loader
+                binding.progressLoader.show()
+            }
+        }
+
+        events.observe(this@NewsFragment) { listEvent ->
+            binding.recyclerNews.adapter.let { adapter ->
+                if (adapter is NewsAdapter) {
+                    adapter.update(listEvent)
                 } else {
-                    startService()
+                    binding.recyclerNews.adapter = NewsAdapter(listEvent) { event ->
+                        if (!event.isRead) newsViewModel.updateItemBadge(event)
+                        findNavController().navigate(
+                            NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
+                        )
+                    }
                 }
-                newsViewModel.allowGetData.value = false
             }
         }
 
         lifecycleScope.launch {
-            newsViewModel.countNotReadEventEntity.collect { listCount ->
+            countNotReadEventEntity.collect { listCount ->
                 val count = listCount.count { !it.isRead }
                 requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
                     .let {
@@ -80,31 +91,6 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
 
         sharedNewsFilterViewModel.getCategory().observe(viewLifecycleOwner) { category ->
             newsViewModel.setCategory(category)
-        }
-
-        newsViewModel.progressLoader.observe(viewLifecycleOwner) { loader ->
-            if (loader == 100) {
-                binding.progressLoader.hide()
-            } else {
-                binding.progressLoader.progress += loader
-                binding.progressLoader.show()
-            }
-        }
-
-        newsViewModel.listEventEntity.observe(viewLifecycleOwner) { listEvent ->
-            binding.recyclerNews.adapter.let { adapter ->
-                if (adapter is NewsAdapter) {
-                    adapter.update(listEvent)
-                } else {
-                    binding.recyclerNews.adapter =
-                        NewsAdapter(listEvent) { event ->
-                            if (!event.isRead) newsViewModel.updateItemBadge(event)
-                            findNavController().navigate(
-                                NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
-                            )
-                        }
-                }
-            }
         }
     }
 
@@ -131,22 +117,6 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
         }
     }
 
-    private fun startService() {
-        val serviceIntent = Intent(requireContext(), ServiceGetData::class.java)
-        requireContext().bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE)
-    }
-
-    private val serviceConnection = object : ServiceConnection {
-        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            val binder = service as? ServiceGetData.LocalBinder
-            binder?.getService().let { service ->
-                service?.callbackEventEntity = this@NewsFragment
-                service?.getDataEvent()
-            }
-        }
-
-        override fun onServiceDisconnected(name: ComponentName?) {}
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
