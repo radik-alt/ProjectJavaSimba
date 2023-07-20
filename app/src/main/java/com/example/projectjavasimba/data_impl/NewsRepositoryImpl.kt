@@ -1,5 +1,7 @@
 package com.example.projectjavasimba.data_impl
 
+import android.content.Context
+import com.example.projectjavasimba.data.callable.MyCallableEvent
 import com.example.projectjavasimba.data.repository.NewsRepository
 import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.domain.entity.EventsEntity
@@ -13,9 +15,11 @@ class NewsRepositoryImpl : NewsRepository {
 
     private val api = RetrofitBuilder.apiService
 
-    override fun getEvents(): Observable<EventsEntity> {
+    override fun getEvents(context: Context): Observable<EventsEntity> {
         return api.getEvents().flatMap {
             Observable.just(it.toEntity())
+        }.onErrorResumeNext {
+            Observable.just(EventsEntity(MyCallableEvent(context).call().toList()))
         }
     }
 

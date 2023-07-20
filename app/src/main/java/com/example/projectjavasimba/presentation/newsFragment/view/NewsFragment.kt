@@ -21,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 
-class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
+class NewsFragment : Fragment(){
 
     private var _binding: FragmentNewsBinding? = null
     private val binding: FragmentNewsBinding
@@ -42,15 +42,24 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
         super.onResume()
         if (binding.recyclerNews.adapter == null) {
             observable()
+            newsViewModel.getEvents()
         }
         showBottomNavigation()
     }
 
-    private fun observable() = with(newsViewModel) {
-        allowGetData.observe(this@NewsFragment) {
-            newsViewModel.getEvents()
-            newsViewModel.allowGetData.value = false
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        with(binding.toolbarNews) {
+            filter.setOnClickListener {
+                findNavController().navigate(
+                    NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
+                )
+            }
         }
+    }
+
+    private fun observable() = with(newsViewModel) {
 
         progressLoader.observe(this@NewsFragment) { loader ->
             if (loader == 100) {
@@ -90,21 +99,10 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
         }
 
         sharedNewsFilterViewModel.getCategory().observe(viewLifecycleOwner) { category ->
-            newsViewModel.setCategory(category)
+            newsViewModel.setCategory(category.id.toInt())
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        with(binding.toolbarNews) {
-            filter.setOnClickListener {
-                findNavController().navigate(
-                    NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
-                )
-            }
-        }
-    }
 
     private fun showBottomNavigation() {
         val fragmentActivity = activity
@@ -121,9 +119,5 @@ class NewsFragment : Fragment(), ServiceGetData.CallbackData<EventEntity> {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onDataReceived(list: List<EventEntity>) {
-        newsViewModel.setDelayListEvent(list)
     }
 }
