@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitBuilder {
 
-    private const val BASE_URL = "https://97c46c90-4adc-41cd-a99a-5dd4a1c0ea7c.mock.pstmn.io"
+    private const val BASE_URL = "https://cd9fa175-5397-4aea-adfc-05b749772360.mock.pstmn.io"
 
     private val loggingInterceptor = HttpLoggingInterceptor { message ->
         Log.d(

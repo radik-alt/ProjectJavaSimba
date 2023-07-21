@@ -23,5 +23,7 @@
     <color name="black_54_color">#8a000000</color>
     <color name="color_3000000">#b3000000</color>
 
+    <color name="color_disable">#98C7F1</color>
+
     <color name="color_gray_auth">#61000000</color>
 </resources>

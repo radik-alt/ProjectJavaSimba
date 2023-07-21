@@ -1,24 +1,35 @@
 package com.example.projectjavasimba.presentation.helpFragment.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data.ParseJSON
+import com.example.projectjavasimba.data_impl.HelpRepositoryImpl
 import com.example.projectjavasimba.domain.entity.Category
+import com.example.projectjavasimba.domain_impl.interactor.HelpInteractor
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.lang.Exception
 
-class HelpViewModel(private val application: Application) : AndroidViewModel(application) {
+class HelpViewModel(
+    private val application: Application
+) : AndroidViewModel(application) {
 
     val messageError = MutableLiveData<String>()
     val listCategory = MutableLiveData<List<Category>>()
     val progressLoader = MutableLiveData<Int>()
 
+    private val repository = HelpRepositoryImpl()
+
     fun getParseListCategory() {
         val myThread = Thread {
             try {
+                repository.getCategory(application)
+                    .subscribe {
+                        Log.d("GetError", it.toString())
+                    }
                 for (i in 0..5) {
                     Thread.sleep(1000)
                     progressLoader.postValue(i * 20)

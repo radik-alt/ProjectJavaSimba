@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.databinding.FragmentHelpragmentBinding
+import com.example.projectjavasimba.presentation.adapter.MessageAdapter.MessageAdapter
 import com.example.projectjavasimba.presentation.helpFragment.adapter.HelperAdapter
 import com.example.projectjavasimba.presentation.helpFragment.viewmodel.HelpViewModel
 import com.example.projectjavasimba.service.ServiceGetData
@@ -29,9 +30,10 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
     private val viewModel: HelpViewModel by activityViewModels()
     override fun onResume() {
         super.onResume()
-        observable()
-        viewModel.getParseListCategory()
-        loaderShow()
+        if (binding.rvHelper.adapter == null) {
+            observable()
+            viewModel.getParseListCategory()
+        }
     }
 
     override fun onCreateView(
@@ -49,19 +51,27 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
             text.text = getString(R.string.help)
             create.visibility = View.GONE
         }
-//        val saveListCategory =
-//            savedInstanceState?.getParcelableArrayList<Category>(Constants.getListSaveInstanceCategory)
-//        viewModel.listCategory.observe(viewLifecycleOwner) { listCategory ->
-//            if (saveListCategory == null)
-//                setAdapter(listCategory)
-//            else {
-//                setAdapter(listCategory)
-//                savedInstanceState.putParcelableArrayList(
-//                    Constants.getListSaveInstanceCategory,
-//                    listCategory as ArrayList<out Category>
-//                )
-//            }
-//        }
+    }
+
+    private fun observable() = with(viewModel) {
+        listCategory.observe(this@HelpFragment) { listCategory ->
+            binding.rvHelper.adapter = HelperAdapter(listCategory)
+            binding.rvHelper.layoutManager = GridLayoutManager(requireContext(), 2)
+        }
+
+        messageError.observe(this@HelpFragment) { message ->
+            binding.rvHelper.adapter = MessageAdapter(message)
+        }
+
+        progressLoader.observe(viewLifecycleOwner) { loader ->
+            if (loader == 100) {
+                binding.selectCategoryTitle.text = getString(R.string.text_select_sort_help)
+                binding.progressLoader.hide()
+            } else {
+                binding.selectCategoryTitle.text = getString(R.string.load)
+                binding.progressLoader.progress += loader
+            }
+        }
     }
 
     private fun startService() {
@@ -81,37 +91,11 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
         override fun onServiceDisconnected(name: ComponentName?) {}
     }
 
-
-    private fun observable() = with(viewModel) {
-        listCategory.observe(this@HelpFragment) { listCategory ->
-            val adapter = HelperAdapter(listCategory)
-            binding.recyclerHelper.adapter = adapter
-            binding.recyclerHelper.layoutManager = GridLayoutManager(requireContext(), 2)
-        }
-
-        messageError.observe(this@HelpFragment) { error ->
-
-        }
-    }
-
-    private fun loaderShow() {
-        viewModel.progressLoader.observe(viewLifecycleOwner) { loader ->
-            if (loader == 100) {
-                binding.selectCategoryTitle.text = getString(R.string.text_select_sort_help)
-                binding.progressLoader.hide()
-            } else {
-                binding.selectCategoryTitle.text = getString(R.string.load)
-                binding.progressLoader.progress += loader
-            }
-        }
-    }
+    override fun onDataReceived(list: List<Category>) {}
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    override fun onDataReceived(list: List<Category>) {
-//        viewModel.setCategory(list)
-    }
 }

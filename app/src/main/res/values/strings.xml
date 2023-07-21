@@ -47,4 +47,5 @@
     <string name="unknow_error">Ошибка подключения! Проверьте соединение с интренетом!</string>
     <string name="error_network">Ошибка запроса! Неполадки с сетью</string>
     <string name="unknown_error">Ошибка запроса! Попробуйте обновить экран или обратитесь в поддержку</string>
+    <string name="empty_events">Список новостей пуст!</string>
 </resources>

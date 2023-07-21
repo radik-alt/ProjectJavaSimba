@@ -19,10 +19,13 @@ class NewsRepositoryImpl : NewsRepository {
         return api.getEvents().flatMap {
             Observable.just(it.toEntity())
         }.onErrorResumeNext {
-            Observable.just(EventsEntity(MyCallableEvent(context).call().toList()))
+            Observable.just(
+                EventsEntity(
+                    MyCallableEvent(context).call().toList()
+                )
+            )
         }
     }
-
 
     private fun EventsDto.toEntity() = EventsEntity(
         events = this.eventDtos?.toEntityList() ?: arrayListOf()

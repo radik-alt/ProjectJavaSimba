@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.databinding.ItemHelpSortBinding
@@ -26,6 +27,7 @@ class HelperAdapter(
         holder.name.text = list[position].title
         Glide.with(context)
             .load(list[position].image)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
             .error(R.drawable.ic_launcher_foreground)
             .into(holder.image)
 

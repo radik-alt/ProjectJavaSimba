@@ -10,18 +10,18 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.show
+import com.example.projectjavasimba.presentation.adapter.MessageAdapter.MessageAdapter
+import com.example.projectjavasimba.presentation.adapter.placeholder.PlaceHolderAdapter
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel
-import com.example.projectjavasimba.service.ServiceGetData
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
 
-class NewsFragment : Fragment(){
+class NewsFragment : Fragment() {
 
     private var _binding: FragmentNewsBinding? = null
     private val binding: FragmentNewsBinding
@@ -40,9 +40,10 @@ class NewsFragment : Fragment(){
 
     override fun onResume() {
         super.onResume()
-        if (binding.recyclerNews.adapter == null) {
+        if (binding.rvNews.adapter == null) {
             observable()
             newsViewModel.getEvents()
+            binding.rvNews.adapter = PlaceHolderAdapter()
         }
         showBottomNavigation()
     }
@@ -70,13 +71,19 @@ class NewsFragment : Fragment(){
             }
         }
 
+        message.observe(this@NewsFragment) { message ->
+            binding.rvNews.adapter = MessageAdapter(message)
+        }
+
         events.observe(this@NewsFragment) { listEvent ->
-            binding.recyclerNews.adapter.let { adapter ->
+            binding.rvNews.adapter.let { adapter ->
                 if (adapter is NewsAdapter) {
                     adapter.update(listEvent)
                 } else {
-                    binding.recyclerNews.adapter = NewsAdapter(listEvent) { event ->
-                        if (!event.isRead) newsViewModel.updateItemBadge(event)
+                    binding.rvNews.adapter = NewsAdapter(listEvent) { event ->
+                        if (!event.isRead) {
+                            newsViewModel.updateItemBadge(event)
+                        }
                         findNavController().navigate(
                             NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
                         )

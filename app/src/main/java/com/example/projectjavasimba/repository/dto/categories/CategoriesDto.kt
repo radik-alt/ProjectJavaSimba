@@ -3,7 +3,7 @@ package com.example.projectjavasimba.repository.dto.categories
 
 import com.google.gson.annotations.SerializedName
 
-data class CategoriesListDto(
+data class CategoriesDto(
     @SerializedName("Categories")
-    val categories: List<CategoryDto>
+    val categories: List<CategoryDto>?
 )

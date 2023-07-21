@@ -32,5 +32,41 @@
         <item name="android:textSize">@dimen/default_size_text</item>
     </style>
 
+    <style name="Placeholder">
+        <item name="android:background">@drawable/bg_placeholder</item>
+    </style>
+
+    <style name="Placeholder.TextSize18" parent="Placeholder">
+        <item name="android:layout_height">28dp</item>
+    </style>
+
+    <style name="Placeholder.TextSize12" parent="Placeholder">
+        <item name="android:layout_height">19dp</item>
+    </style>
+
+    <style name="Placeholder.TextSize10" parent="Placeholder">
+        <item name="android:layout_height">15dp</item>
+    </style>
+
+    <style name="Placeholder.TextSize15" parent="Placeholder">
+        <item name="android:layout_height">23dp</item>
+    </style>
+
+    <style name="Placeholder.EditText" parent="Placeholder">
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="VerticalGuideline">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="HorizontalGuideline">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
 </resources>
 

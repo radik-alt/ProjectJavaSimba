@@ -47,11 +47,6 @@ class NewsViewModel(
         }
     }
 
-    private fun setListEvent(list: List<EventEntity>) {
-        updateListBadge(list)
-        events.postValue(list)
-    }
-
     private fun updateListBadge(eventEntities: List<EventEntity>) {
         coroutineScope.launch {
             eventEntities.filter { event -> !event.isRead }.let { count ->
@@ -79,9 +74,10 @@ class NewsViewModel(
     @SuppressLint("CheckResult")
     fun getEvents() {
         useCase.getEvents(application)
+            .subscribeOn(Schedulers.io())
             .observeOn(Schedulers.io())
             .doOnError {
-                message.postValue("Неизвестная ошибка! Обновите страницу или повоторите попытку позже!")
+                message.postValue(application.getString(R.string.unknown_error))
             }
             .subscribe {
                 it.events.let { result ->
@@ -89,10 +85,9 @@ class NewsViewModel(
                         events.postValue(it.events)
                         updateListBadge(it.events)
                     } else {
-                        message.postValue("Список новостей пуст!")
+                        message.postValue(application.getString(R.string.empty_events))
                     }
                 }
-
             }
     }
 
