@@ -6,13 +6,10 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.ParseJSON
-import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.data_impl.NewsRepositoryImpl
 import com.example.projectjavasimba.domain.usecase.NewsUseCase
 import com.example.projectjavasimba.domain_impl.interactor.NewsInteractor
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
@@ -42,8 +39,8 @@ class NewsViewModel(
     val countNotReadEventEntity: MutableSharedFlow<List<EventEntity>> = MutableSharedFlow()
 
     fun setCategory(categoryId: Int) {
-        fullListEventEntity.value?.filter { it.category == categoryId }.let {
-            events.value = it
+        fullListEventEntity.value?.filter { it.category == categoryId }?.let {
+            events.postValue(it)
         }
     }
 
@@ -82,8 +79,9 @@ class NewsViewModel(
             .subscribe {
                 it.events.let { result ->
                     if (result.isNotEmpty()) {
-                        events.postValue(it.events)
-                        updateListBadge(it.events)
+                        fullListEventEntity.postValue(result)
+                        events.postValue(result)
+                        updateListBadge(result)
                     } else {
                         message.postValue(application.getString(R.string.empty_events))
                     }

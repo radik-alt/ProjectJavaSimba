@@ -105,8 +105,8 @@ class NewsFragment : Fragment() {
             }
         }
 
-        sharedNewsFilterViewModel.getCategory().observe(viewLifecycleOwner) { category ->
-            newsViewModel.setCategory(category.id.toInt())
+        sharedNewsFilterViewModel.category.observe(this@NewsFragment) { categoryId ->
+            newsViewModel.setCategory(categoryId)
         }
     }
 

@@ -4,10 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.example.projectjavasimba.data_impl.callable.MyCallableCategory
 import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
-import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.repository.dto.categories.CategoriesDto
-import com.example.projectjavasimba.repository.dto.categories.CategoryDto
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.Date

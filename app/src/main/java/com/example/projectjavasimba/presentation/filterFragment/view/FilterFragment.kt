@@ -26,7 +26,7 @@ class FilterFragment : Fragment() {
     private val binding: FragmentFilterBinding
         get() = _binding ?: throw RuntimeException("FragmentFilterBinding == null")
 
-    private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
+    private val sharedViewModel: SharedNewsFilterViewModel by activityViewModels()
     private val viewModel: FilterViewModel by viewModels()
 
     override fun onCreateView(
@@ -73,7 +73,7 @@ class FilterFragment : Fragment() {
     private fun observable() = with(viewModel) {
         listCategory.observe(this@FilterFragment) { listCategory ->
             binding.rvTypeHelp.adapter = CategoryAdapter(listCategory) { category ->
-//                sharedNewsFilterViewModel.setCategory(category)
+                sharedViewModel.category.value = category.id
                 findNavController().popBackStack()
             }
             binding.rvTypeHelp.layoutManager = GridLayoutManager(requireContext(), 2)

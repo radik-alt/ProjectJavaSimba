@@ -347,8 +347,6 @@ Kapp/src/main/java/com/example/projectjavasimba/presentation/MainActivity.kt,d\
 capp/src/main/java/com/example/projectjavasimba/presentation/profileFragment/view/ProfileFragment.kt,6\6\661b3851480db4b4645cad8b7da5ac6f8d6b7bab
 x
 Happ/src/main/java/com/example/projectjavasimba/service/ServiceGetData.kt,a\6\a63e97b55549e991f192a621432b47434fad6628
-ü
-oapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/viewmodel/SharedNewsFilterViewModel.kt,f\3\f3e06a4efcc718a1c2512822e715ce5dd2cd7b27
 x
 Happ/src/main/java/com/example/projectjavasimba/domain/entity/TypeHelp.kt,d\1\d1084b8d53eee8c2315e7cc288ce377cc878841d
 x
@@ -383,10 +381,6 @@ Oapp/src/main/java/com/example/projectjavasimba/data/callable/MyCallableEvent.kt
 Yapp/src/main/java/com/example/projectjavasimba/repository/dto/categories/CategoriesDto.kt,e\f\efa5e3262dee67a0fdd5c5b4f030c0fc33196093
 Ä
 Papp/src/main/java/com/example/projectjavasimba/domain/entity/CategoriesEntity.kt,4\8\48c55c4b71d75acc606ed9b85b65d0a14ed8aceb
-ç
-]app/src/main/java/com/example/projectjavasimba/presentation/newsFragment/view/NewsFragment.kt,3\0\3010f2603e5783d7e68ff20d2e90be2a4bffcaed
-ì
-capp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/viewmodel/NewsViewModel.kt,8\8\884032b1ade4bd7ac4a4ab2dfb3931c29b373e14
 ï
 eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/placeholder/PlaceHolderAdapter.kt,a\8\a865c33bebe5ad9ddf4dd67a90cd09b5e4a0a4da
 {

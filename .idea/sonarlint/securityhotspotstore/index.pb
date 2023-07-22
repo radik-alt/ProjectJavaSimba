@@ -331,8 +331,6 @@ Kapp/src/main/java/com/example/projectjavasimba/presentation/MainActivity.kt,d\
 capp/src/main/java/com/example/projectjavasimba/presentation/profileFragment/view/ProfileFragment.kt,6\6\661b3851480db4b4645cad8b7da5ac6f8d6b7bab
 ¥
 Éapp/src/main/java/com/example/projectjavasimba/presentation/detailNewsFragment/adapter/friendsDetailAdapter/FriendsDetailAdapter.kt,c\2\c227edcc68cca31e0f387c5f8b2380121aee15dc
-ü
-oapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/viewmodel/SharedNewsFilterViewModel.kt,f\3\f3e06a4efcc718a1c2512822e715ce5dd2cd7b27
 v
 Fapp/src/main/java/com/example/projectjavasimba/domain/entity/Helper.kt,9\c\9c56514bccd22482994587cfca6a865d15e78bf8
 w
@@ -363,16 +361,12 @@ Qapp/src/main/java/com/example/projectjavasimba/repository/dto/events/EventsDto.
 Oapp/src/main/java/com/example/projectjavasimba/data/callable/MyCallableEvent.kt,e\2\e2f5500fcd347136be2dc2ad5bce69261bb9e217
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-ç
-]app/src/main/java/com/example/projectjavasimba/presentation/newsFragment/view/NewsFragment.kt,3\0\3010f2603e5783d7e68ff20d2e90be2a4bffcaed
 {
 Kapp/src/main/java/com/example/projectjavasimba/repository/api/PostmanApi.kt,2\6\2662a6430625e7ea8c7c51dd31cae173bb663c5f
 â
 Yapp/src/main/java/com/example/projectjavasimba/repository/dto/categories/CategoriesDto.kt,e\f\efa5e3262dee67a0fdd5c5b4f030c0fc33196093
 Ä
 Papp/src/main/java/com/example/projectjavasimba/repository/api/RetrofitBuilder.kt,b\9\b9872f1acade29f8071e7a08a9a80b19f2a46088
-ì
-capp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/viewmodel/NewsViewModel.kt,8\8\884032b1ade4bd7ac4a4ab2dfb3931c29b373e14
 ï
 eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/placeholder/PlaceHolderAdapter.kt,a\8\a865c33bebe5ad9ddf4dd67a90cd09b5e4a0a4da
 Ä
