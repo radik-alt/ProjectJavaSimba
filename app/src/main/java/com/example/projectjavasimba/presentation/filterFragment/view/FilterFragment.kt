@@ -13,6 +13,8 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.domain.entity.TypeHelp
 import com.example.projectjavasimba.databinding.FragmentFilterBinding
 import com.example.projectjavasimba.presentation.adapter.HelpAdapter.HelpAdapter
+import com.example.projectjavasimba.presentation.adapter.MessageAdapter.MessageAdapter
+import com.example.projectjavasimba.presentation.adapter.placeholder.PlaceHolderAdapter
 import com.example.projectjavasimba.presentation.helpFragment.adapter.CategoryAdapter
 import com.example.projectjavasimba.presentation.filterFragment.viewmodel.FilterViewModel
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel
@@ -41,6 +43,7 @@ class FilterFragment : Fragment() {
             setDefaultData()
             observable()
             viewModel.getLoadData()
+            binding.rvTypeHelp.adapter = PlaceHolderAdapter()
         }
     }
 
@@ -62,24 +65,22 @@ class FilterFragment : Fragment() {
             add(TypeHelp(getString(R.string.prof_help), false))
             add(TypeHelp(getString(R.string.help_many), false))
         }
-        binding.helpRecycler.adapter =
-            HelpAdapter(listTypeHelp) {
+        binding.helpRecycler.adapter = HelpAdapter(listTypeHelp) {
 
-            }
+        }
     }
 
-    private fun observable() = with(viewModel){
+    private fun observable() = with(viewModel) {
         listCategory.observe(this@FilterFragment) { listCategory ->
-            val adapter = CategoryAdapter(listCategory) { category ->
-                sharedNewsFilterViewModel.setCategory(category)
+            binding.rvTypeHelp.adapter = CategoryAdapter(listCategory) { category ->
+//                sharedNewsFilterViewModel.setCategory(category)
                 findNavController().popBackStack()
             }
-            binding.typeHelpRecycler.adapter = adapter
-            binding.typeHelpRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
+            binding.rvTypeHelp.layoutManager = GridLayoutManager(requireContext(), 2)
         }
 
-        messageError.observe(this@FilterFragment) { error ->
-
+        messageError.observe(this@FilterFragment) { message ->
+            binding.rvTypeHelp.adapter = MessageAdapter(message)
         }
     }
 

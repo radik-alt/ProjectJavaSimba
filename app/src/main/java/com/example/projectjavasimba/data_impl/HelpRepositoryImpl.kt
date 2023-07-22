@@ -1,8 +1,8 @@
 package com.example.projectjavasimba.data_impl
 
 import android.content.Context
-import android.util.Log
 import com.example.projectjavasimba.data.repository.HelpRepository
+import com.example.projectjavasimba.data_impl.callable.MyCallableCategory
 import com.example.projectjavasimba.domain.entity.CategoriesEntity
 import com.example.projectjavasimba.domain.entity.CategoryEntity
 import com.example.projectjavasimba.repository.api.RetrofitBuilder
@@ -16,8 +16,12 @@ class HelpRepositoryImpl : HelpRepository {
 
     override fun getCategory(context: Context): Observable<CategoriesEntity> {
         return api.getCategories()
-            .doOnError {
-                Log.d("GetError", it.message.toString())
+            .onErrorResumeNext {
+                Observable.just(
+                    MyCallableCategory(
+                        context
+                    ).call()
+                )
             }
             .flatMap {
                 Observable.just(it.toEntity())

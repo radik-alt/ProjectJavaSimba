@@ -19,8 +19,6 @@ x
 Happ/src/main/java/com/example/projectjavasimba/common/utils/Constants.kt,a\b\ab4f2aa261ae723e140ff074143d3e8dd7d42174
 y
 Iapp/src/main/java/com/example/projectjavasimba/common/utils/Extensions.kt,2\3\23fa717c2fbd1cf71c4368bf4b3e6c8a8ba14512
-ç
-]app/src/main/java/com/example/projectjavasimba/presentation/filterFragment/FilterViewModel.kt,f\0\f0345a89f9275fbff9841eab5245a4ee8273374f
 t
 Dapp/src/main/java/com/example/projectjavasimba/common/utils/Utils.kt,a\2\a288b6d09c49cb48afe049458196a1d62ef81b1d
 Ü
@@ -323,18 +321,12 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 ç
 ]app/src/main/java/com/example/projectjavasimba/repository/serializer/DateNetworkSerializer.kt,f\e\fe1a152afd6881f03ebeb60e8cd96f68927fc196
-Ç
-Rapp/src/main/java/com/example/projectjavasimba/data/repository/FilterRepository.kt,8\5\851d78bc353b2475be128269bfe1694df70da0ba
-~
-Napp/src/main/java/com/example/projectjavasimba/domain/usecase/FilterUseCase.kt,1\3\130ed1247cf57ece48973728ffc1450323cd539f
 Ä
 Papp/src/main/java/com/example/projectjavasimba/repository/dto/events/EventDto.kt,f\5\f5a532242b52eb09afbd450d708b93dc4147a3af
 î
 dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/AdapterFriends.kt,c\5\c57fad6b4dfa94b49770b1460abafc974c4a16d5
 x
 Happ/src/main/java/com/example/projectjavasimba/domain/entity/Category.kt,8\2\825bf8e42e955431df42ffd290558e7af2a02bf6
-ì
-capp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/CategoryAdapter.kt,1\d\1dc746d40889320a32197a691e266492503fa30f
 ~
 Napp/src/main/java/com/example/projectjavasimba/domain/entity/CategoryDetail.kt,c\3\c31549e6a677ba278d08cd4f56f8cfda66c30f50
 ¢
@@ -343,10 +335,6 @@ z
 Japp/src/main/java/com/example/projectjavasimba/common/utils/DefaultData.kt,0\a\0a37bf91111944e7999698db0e18a882114a62ab
 ï
 eapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAdapter/DiffUtilsNews.kt,7\d\7d2fe6273c3ed49e83fe32281adc9ca2c4cbb218
-ë
-aapp/src/main/java/com/example/projectjavasimba/presentation/filterFragment/view/FilterFragment.kt,b\0\b0c1c671d3e4e82bd0f53d96c202b2dec545a90d
-ó
-gapp/src/main/java/com/example/projectjavasimba/presentation/filterFragment/viewmodel/FilterViewModel.kt,2\5\25fe72a740a73ec7a5558dffbc49fe22b700f2c2
 w
 Gapp/src/main/java/com/example/projectjavasimba/domain/entity/Friends.kt,4\8\486e1dcbc9ef9fa30078ce4562d49bcb16ea69e5
 ¥
@@ -375,8 +363,6 @@ capp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAd
 Kapp/src/main/java/com/example/projectjavasimba/domain/entity/EventEntity.kt,6\3\6348f2b758ce85266524a1e9b646eea6a4f0b488
 ñ
 fapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAdapter/NewsViewHolder.kt,d\8\d85ed2b3680ee538ca33778e56eb781fe7d3af4d
-â
-Yapp/src/main/java/com/example/projectjavasimba/domain_impl/interactor/FilterInteractor.kt,7\4\74d14648835a10106ee1663088c0eac484ee66c1
 |
 Lapp/src/main/java/com/example/projectjavasimba/domain/entity/EventsEntity.kt,3\0\30f81a35e408292b807b7338ba886295e5f5672c
 î
@@ -387,8 +373,6 @@ Lapp/src/main/java/com/example/projectjavasimba/domain/usecase/NewsUseCase.kt,9
 Wapp/src/main/java/com/example/projectjavasimba/domain_impl/interactor/NewsInteractor.kt,7\4\7411121ae4bfd93b7313c4a8efc34b7d53e42edc
 Ä
 Papp/src/main/java/com/example/projectjavasimba/data/repository/NewsRepository.kt,2\a\2ac7f27506a553511d7971ff76cf61e01f72224d
-Ä
-Papp/src/main/java/com/example/projectjavasimba/data_impl/FilterRepositoryImpl.kt,1\c\1c51de92c1c7cd56ec0d2017a6084f45aa8d7a47
 Å
 Qapp/src/main/java/com/example/projectjavasimba/repository/dto/events/EventsDto.kt,9\1\918cdcff6da30af7741a45db0d7694963f718f5d
 

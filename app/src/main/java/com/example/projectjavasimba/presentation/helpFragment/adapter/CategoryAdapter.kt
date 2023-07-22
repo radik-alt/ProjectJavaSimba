@@ -8,10 +8,11 @@ import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.databinding.ItemHelpSortBinding
+import com.example.projectjavasimba.domain.entity.CategoryEntity
 
 class CategoryAdapter(
-    private val list: List<Category>,
-    private val selectCategory: (Category) -> Unit
+    private val list: List<CategoryEntity>,
+    private val selectCategory: (CategoryEntity) -> Unit
 ) : RecyclerView.Adapter<CategoryViewHolder>() {
 
     private lateinit var context: Context
@@ -24,7 +25,7 @@ class CategoryAdapter(
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
 
-        holder.name.text = list[position].title
+        holder.name.text = list[position].nameEn
         Glide.with(context)
             .load(list[position].image)
             .error(R.drawable.ic_launcher_foreground)

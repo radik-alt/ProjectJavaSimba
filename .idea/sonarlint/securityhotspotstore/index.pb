@@ -5,8 +5,6 @@ Mapp/src/main/java/com/example/projectjavasimba/common/utils/HingeAnimation.kt,
 aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter/HelpViewHolder.kt,0\e\0e29d5953525444ed1ed516526219c21349170da
 x
 Happ/src/main/java/com/example/projectjavasimba/common/utils/Constants.kt,a\b\ab4f2aa261ae723e140ff074143d3e8dd7d42174
-ç
-]app/src/main/java/com/example/projectjavasimba/presentation/filterFragment/FilterViewModel.kt,f\0\f0345a89f9275fbff9841eab5245a4ee8273374f
 y
 Iapp/src/main/java/com/example/projectjavasimba/common/utils/Extensions.kt,2\3\23fa717c2fbd1cf71c4368bf4b3e6c8a8ba14512
 t
@@ -151,8 +149,6 @@ Q.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a
 Q.idea/sonarlint/securityhotspotstore/1/0/10f8829caafa5b8d5778612298c81ac9536f986c,5\9\59c845f2646893ed04ab42d0fb6738a4ce77198d
 w
 G.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35,b\f\bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf
-~
-Napp/src/main/java/com/example/projectjavasimba/domain/usecase/FilterUseCase.kt,1\3\130ed1247cf57ece48973728ffc1450323cd539f
 Å
 Q.idea/sonarlint/securityhotspotstore/9/a/9ac3b845eb3d6effa8dcca9f7be10766cd4debd1,f\0\f0b7723ff63bf39322c3c10ecde116f7ec779664
 w
@@ -161,8 +157,6 @@ G.idea/sonarlint/issuestore/f/0/f0345a89f9275fbff9841eab5245a4ee8273374f,1\7\17
 Q.idea/sonarlint/securityhotspotstore/6/b/6b868e5ef39a80a5a3ce15bda38a83b2dd0d3d65,7\5\7537523ffeeff660d3f0a4f152bd8b1f2ad5d580
 Å
 Q.idea/sonarlint/securityhotspotstore/5/1/51a4cf30b8a9cf57fe40d13af897c8dfa7fedac5,1\a\1a8ee962f94a35e3125abd9a7b6e58ecb2e7e3bb
-Ç
-Rapp/src/main/java/com/example/projectjavasimba/data/repository/FilterRepository.kt,8\5\851d78bc353b2475be128269bfe1694df70da0ba
 w
 G.idea/sonarlint/issuestore/f/7/f7f71f416d3fe9bf8aabccb6a7d07e19a1a30a4d,d\9\d94de721ee1cf115648a9133bca494685290a35e
 w
@@ -329,8 +323,6 @@ x
 Happ/src/main/java/com/example/projectjavasimba/domain/entity/TypeHelp.kt,d\1\d1084b8d53eee8c2315e7cc288ce377cc878841d
 ~
 Napp/src/main/java/com/example/projectjavasimba/domain/entity/CategoryDetail.kt,c\3\c31549e6a677ba278d08cd4f56f8cfda66c30f50
-ì
-capp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/CategoryAdapter.kt,1\d\1dc746d40889320a32197a691e266492503fa30f
 x
 Happ/src/main/java/com/example/projectjavasimba/domain/entity/Category.kt,8\2\825bf8e42e955431df42ffd290558e7af2a02bf6
 {
@@ -347,10 +339,6 @@ w
 Gapp/src/main/java/com/example/projectjavasimba/domain/entity/Friends.kt,4\8\486e1dcbc9ef9fa30078ce4562d49bcb16ea69e5
 ï
 eapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAdapter/DiffUtilsNews.kt,7\d\7d2fe6273c3ed49e83fe32281adc9ca2c4cbb218
-ó
-gapp/src/main/java/com/example/projectjavasimba/presentation/filterFragment/viewmodel/FilterViewModel.kt,2\5\25fe72a740a73ec7a5558dffbc49fe22b700f2c2
-ë
-aapp/src/main/java/com/example/projectjavasimba/presentation/filterFragment/view/FilterFragment.kt,b\0\b0c1c671d3e4e82bd0f53d96c202b2dec545a90d
 ï
 eapp/src/main/java/com/example/projectjavasimba/presentation/detailNewsFragment/view/DetailFragment.kt,8\c\8c4abf0ae65b797bef090799942f74c84993184e
 ì
@@ -361,8 +349,6 @@ fapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAd
 Kapp/src/main/java/com/example/projectjavasimba/domain/entity/EventEntity.kt,6\3\6348f2b758ce85266524a1e9b646eea6a4f0b488
 |
 Lapp/src/main/java/com/example/projectjavasimba/domain/entity/EventsEntity.kt,3\0\30f81a35e408292b807b7338ba886295e5f5672c
-â
-Yapp/src/main/java/com/example/projectjavasimba/domain_impl/interactor/FilterInteractor.kt,7\4\74d14648835a10106ee1663088c0eac484ee66c1
 î
 dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/MessageAdapter/MessageAdapter.kt,3\4\34e39effd3859f7021e998d9e69f2c9c58f910e0
 |
@@ -371,8 +357,6 @@ Lapp/src/main/java/com/example/projectjavasimba/domain/usecase/NewsUseCase.kt,9
 Wapp/src/main/java/com/example/projectjavasimba/domain_impl/interactor/NewsInteractor.kt,7\4\7411121ae4bfd93b7313c4a8efc34b7d53e42edc
 Ä
 Papp/src/main/java/com/example/projectjavasimba/data/repository/NewsRepository.kt,2\a\2ac7f27506a553511d7971ff76cf61e01f72224d
-Ä
-Papp/src/main/java/com/example/projectjavasimba/data_impl/FilterRepositoryImpl.kt,1\c\1c51de92c1c7cd56ec0d2017a6084f45aa8d7a47
 Å
 Qapp/src/main/java/com/example/projectjavasimba/repository/dto/events/EventsDto.kt,9\1\918cdcff6da30af7741a45db0d7694963f718f5d
 
