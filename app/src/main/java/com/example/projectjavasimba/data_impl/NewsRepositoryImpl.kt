@@ -1,7 +1,7 @@
 package com.example.projectjavasimba.data_impl
 
 import android.content.Context
-import com.example.projectjavasimba.data.callable.MyCallableEvent
+import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
 import com.example.projectjavasimba.data.repository.NewsRepository
 import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.domain.entity.EventsEntity

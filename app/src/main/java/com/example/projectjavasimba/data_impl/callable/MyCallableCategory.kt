@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.data.callable
+package com.example.projectjavasimba.data_impl.callable
 
 import android.content.Context
 import com.example.projectjavasimba.domain.entity.Category

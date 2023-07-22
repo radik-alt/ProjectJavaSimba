@@ -2,8 +2,8 @@ package com.example.projectjavasimba.data
 
 import android.content.Context
 import android.util.Log
-import com.example.projectjavasimba.data.callable.MyCallableCategory
-import com.example.projectjavasimba.data.callable.MyCallableEvent
+import com.example.projectjavasimba.data_impl.callable.MyCallableCategory
+import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
 import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.domain.entity.EventEntity
 import io.reactivex.rxjava3.core.Observable

@@ -14,7 +14,7 @@ class HelpRepositoryImpl : HelpRepository {
 
     private val api = RetrofitBuilder.apiService
 
-    fun getCategory(context: Context): Observable<CategoriesEntity> {
+    override fun getCategory(context: Context): Observable<CategoriesEntity> {
         return api.getCategories()
             .doOnError {
                 Log.d("GetError", it.message.toString())
