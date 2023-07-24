@@ -26,7 +26,9 @@ class AdapterFriends(
         holder.name.text = listFriends[position].name
         Glide.with(context)
             .load(listFriends[position].image)
+            .placeholder(R.drawable.bg_placeholder)
             .error(R.drawable.ic_launcher_foreground)
+            .dontAnimate()
             .into(holder.image)
 
     }

@@ -27,7 +27,9 @@ class CategoryAdapter(
         holder.name.text = list[position].nameEn
         Glide.with(context)
             .load(list[position].image)
+            .placeholder(R.drawable.bg_placeholder)
             .error(R.drawable.ic_launcher_foreground)
+            .dontAnimate()
             .into(holder.image)
 
         holder.itemView.setOnClickListener {

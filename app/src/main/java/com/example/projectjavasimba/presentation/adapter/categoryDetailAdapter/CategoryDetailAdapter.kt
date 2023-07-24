@@ -29,7 +29,9 @@ class CategoryDetailAdapter(
 
         Glide.with(context)
             .load(list[position].image)
+            .placeholder(R.drawable.bg_placeholder)
             .error(R.drawable.ic_launcher_foreground)
+            .dontAnimate()
             .into(holder.image)
 
     }

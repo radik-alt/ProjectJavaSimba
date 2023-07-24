@@ -37,7 +37,9 @@ class ProfileFragment : Fragment() {
             if (uriImage != null) {
                 Glide.with(requireContext())
                     .load(uriImage)
+                    .placeholder(R.drawable.bg_placeholder)
                     .error(R.drawable.ic_launcher_foreground)
+                    .dontAnimate()
                     .into(binding.imageProfile)
             }
         }
