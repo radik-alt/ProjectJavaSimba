@@ -2,9 +2,9 @@ package com.example.projectjavasimba.data.repository
 
 import android.content.Context
 import com.example.projectjavasimba.domain.entity.CategoriesEntity
-import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.flow.Flow
 
 interface HelpRepository {
 
-    fun getCategory(context: Context): Observable<CategoriesEntity>
+    suspend fun getCategory(context: Context): Flow<CategoriesEntity>
 }

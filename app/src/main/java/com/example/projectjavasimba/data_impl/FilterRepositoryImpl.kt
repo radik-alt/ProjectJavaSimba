@@ -9,24 +9,25 @@ import com.example.projectjavasimba.repository.api.RetrofitBuilder
 import com.example.projectjavasimba.repository.dto.categories.CategoriesDto
 import com.example.projectjavasimba.repository.dto.categories.CategoryDto
 import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 
 class FilterRepositoryImpl: FilterRepository {
 
     private val api = RetrofitBuilder.apiService
 
-    override fun getCategory(context: Context): Observable<CategoriesEntity> {
-        return api.getCategories()
-            .onErrorResumeNext {
-                Observable.just(
-                    MyCallableCategory(
-                        context
-                    ).call()
-                )
-            }
-            .flatMap {
-                Observable.just(it.toEntity())
-            }
-
+    override suspend fun getCategory(context: Context): Flow<CategoriesEntity> {
+        return flowOf(api.getCategories()).map {
+            it.toEntity()
+        }.catch {
+            emit(
+                MyCallableCategory(
+                    context
+                ).call().toEntity()
+            )
+        }
     }
 
     private fun CategoriesDto.toEntity() = CategoriesEntity(

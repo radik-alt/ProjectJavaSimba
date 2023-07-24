@@ -8,18 +8,21 @@ import com.example.projectjavasimba.domain.entity.EventsEntity
 import com.example.projectjavasimba.repository.api.RetrofitBuilder
 import com.example.projectjavasimba.repository.dto.events.EventDto
 import com.example.projectjavasimba.repository.dto.events.EventsDto
-import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
 import java.util.Date
 
 class NewsRepositoryImpl : NewsRepository {
 
     private val api = RetrofitBuilder.apiService
 
-    override fun getEvents(context: Context): Observable<EventsEntity> {
-        return api.getEvents().flatMap {
-            Observable.just(it.toEntity())
-        }.onErrorResumeNext {
-            Observable.just(
+    override suspend fun getEvents(context: Context): Flow<EventsEntity> {
+        return flowOf(api.getEvents()).map {
+            it.toEntity()
+        }.catch {
+            emit(
                 EventsEntity(
                     MyCallableEvent(context).call().toList()
                 )

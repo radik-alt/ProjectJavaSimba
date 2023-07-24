@@ -4,11 +4,11 @@ import android.content.Context
 import com.example.projectjavasimba.data.repository.HelpRepository
 import com.example.projectjavasimba.domain.entity.CategoriesEntity
 import com.example.projectjavasimba.domain.usecase.HelpUseCase
-import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.flow.Flow
 
 class HelpInteractor(
     private val repository: HelpRepository
 ) : HelpUseCase {
-    override fun getCategory(context: Context): Observable<CategoriesEntity> =
+    override suspend fun getCategory(context: Context): Flow<CategoriesEntity> =
         repository.getCategory(context)
 }

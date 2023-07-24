@@ -7,6 +7,6 @@ import com.example.projectjavasimba.domain.usecase.NewsUseCase
 class NewsInteractor(
     private val repository: NewsRepository
 ) : NewsUseCase {
-    override fun getEvents(context: Context) =
+    override suspend fun getEvents(context: Context) =
         repository.getEvents(context)
 }

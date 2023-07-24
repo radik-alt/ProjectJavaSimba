@@ -16,6 +16,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onEmpty
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 class NewsViewModel(
@@ -26,6 +30,7 @@ class NewsViewModel(
     private val useCase: NewsUseCase = NewsInteractor(NewsRepositoryImpl())
 
     private val errorHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+        message.postValue(application.getString(R.string.unknown_error))
         Log.d("GetError", throwable.message.toString())
     }
     private val coroutineScope = CoroutineScope(Dispatchers.IO + errorHandler)
@@ -70,23 +75,25 @@ class NewsViewModel(
 
     @SuppressLint("CheckResult")
     fun getEvents() {
-        useCase.getEvents(application)
-            .subscribeOn(Schedulers.io())
-            .observeOn(Schedulers.io())
-            .doOnError {
-                message.postValue(application.getString(R.string.unknown_error))
-            }
-            .subscribe {
-                it.events.let { result ->
-                    if (result.isNotEmpty()) {
-                        fullListEventEntity.postValue(result)
-                        events.postValue(result)
-                        updateListBadge(result)
-                    } else {
-                        message.postValue(application.getString(R.string.empty_events))
+        coroutineScope.launch {
+            useCase.getEvents(application)
+                .flowOn(Dispatchers.IO)
+                .catch {
+                    message.postValue(application.getString(R.string.unknown_error))
+                }
+                .collect {
+                    Log.d("GetError", it?.events.toString())
+                    it?.events?.let { result ->
+                        if (result.isNotEmpty()) {
+                            fullListEventEntity.postValue(result)
+                            events.postValue(result)
+                            updateListBadge(result)
+                        } else {
+                            message.postValue(application.getString(R.string.empty_events))
+                        }
                     }
                 }
-            }
+        }
     }
 
     override fun onCleared() {

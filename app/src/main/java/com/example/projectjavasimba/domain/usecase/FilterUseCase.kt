@@ -2,8 +2,8 @@ package com.example.projectjavasimba.domain.usecase
 
 import android.content.Context
 import com.example.projectjavasimba.domain.entity.CategoriesEntity
-import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.flow.Flow
 
 interface FilterUseCase {
-    fun getCategory(context: Context): Observable<CategoriesEntity>
+    suspend fun getCategory(context: Context): Flow<CategoriesEntity>
 }
