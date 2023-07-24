@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        newsViewModel.getParseListEvent()
+        newsViewModel.getEvents()
         observable()
     }
 
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun observable() = with(newsViewModel) {
         lifecycleScope.launch {
-            countNotReadEvent.collect { listCount ->
+            countNotReadEventEntity.collect { listCount ->
                 val count = listCount.count { !it.isRead }
                 findViewById<BottomNavigationView>(R.id.bottomNavigationView).let {
                     it.getOrCreateBadge(R.id.newsFragment).let { badge ->

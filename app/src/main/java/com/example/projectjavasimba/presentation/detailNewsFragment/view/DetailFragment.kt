@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.CategoryDetail
+import com.example.projectjavasimba.domain.entity.CategoryDetail
 import com.example.projectjavasimba.databinding.FragmentDetailBinding
 import com.example.projectjavasimba.presentation.adapter.categoryDetailAdapter.CategoryDetailAdapter
 import com.example.projectjavasimba.presentation.detailNewsFragment.adapter.friendsDetailAdapter.FriendsDetailAdapter
@@ -36,7 +36,7 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.toolbar.run {
-            shareNews.setOnClickListener {  }
+            shareNews.setOnClickListener { }
             back.setOnClickListener { findNavController().popBackStack() }
         }
 
@@ -44,8 +44,6 @@ class DetailFragment : Fragment() {
             webSite.setOnClickListener {}
             sendEmail.setOnClickListener {}
         }
-
-
     }
 
     override fun onResume() {
@@ -59,30 +57,30 @@ class DetailFragment : Fragment() {
         binding.run {
             title.text = event.title
             description.text = event.description
-            date.text = event.date
-            countFriends.text = event.listFriends.toString()
+            date.text = event.startDate.toString()
+            countFriends.text = "3"
             street.text = event.street
             phone.text = event.phone
-            setAdapter()
+            setDefaultAdapter()
         }
     }
 
-    private fun setAdapter() {
-        val listImage = args.event.listImage
-        binding.recyclerImageDetail.adapter = ImageDetailAdapter(listImage)
+    private fun setDefaultAdapter() {
+        binding.recyclerImageDetail.adapter = ImageDetailAdapter(args.event.listImage)
 
-        val listCategoryDetail = listOf(
-            CategoryDetail(getString(R.string.help_shirt), R.drawable.shirt),
-            CategoryDetail(getString(R.string.state_hands), R.drawable.hands),
-            CategoryDetail(getString(R.string.prof_help), R.drawable.tools),
-            CategoryDetail(getString(R.string.help_many), R.drawable.coins)
+        binding.recyclerHelpDetail.adapter = CategoryDetailAdapter(
+            listOf(
+                CategoryDetail(getString(R.string.help_shirt), R.drawable.shirt),
+                CategoryDetail(getString(R.string.state_hands), R.drawable.hands),
+                CategoryDetail(getString(R.string.prof_help), R.drawable.tools),
+                CategoryDetail(getString(R.string.help_many), R.drawable.coins)
+            )
         )
-        binding.recyclerHelpDetail.adapter = CategoryDetailAdapter(listCategoryDetail)
         binding.recyclerHelpDetail.layoutManager =
-            GridLayoutManager(requireContext(), listCategoryDetail.size)
+            GridLayoutManager(requireContext(), 2)
 
-        val listFriends = args.event.listFriends
-        binding.recyclerFriendsDetail.adapter = FriendsDetailAdapter(listFriends)
+        val listFriends = listOf(1, 2, 3, 4, 5, 6, 7)
+        binding.recyclerFriendsDetail.adapter = FriendsDetailAdapter(listFriends.take(3))
         binding.countFriends.text = "+${listFriends.size}"
     }
 

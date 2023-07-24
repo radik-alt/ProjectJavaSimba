@@ -1,27 +1,28 @@
-[
-  {
-    "id":0,
-    "image":2131165354,
-    "title":"Дети"
-  },
-  {
-    "id":1,
-    "image":2131165355,
-    "title":"Взрослые"
-  },
-  {
-    "id":2,
-    "image":2131165356,
-    "title":"Пожилые"
-  },
-  {
-    "id":3,
-    "image":2131165357,
-    "title":"Животные"
-  },
-  {
-    "id":4,
-    "image":2131165358,
-    "title":"Мероприятия"
-  }
-]
+{
+  "Categories": [
+    {
+      "id": 1,
+      "name_en": "Взрослые",
+      "name": "Категория 1",
+      "image": "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
+    },
+    {
+      "id": 2,
+      "name_en": "Дети",
+      "name": "Категория 2",
+      "image": "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
+    },
+    {
+      "id": 3,
+      "name_en": "Пожилые",
+      "name": "Категория 3",
+      "image": "image3.jpg"
+    },
+    {
+      "id": 4,
+      "name_en": "Животные",
+      "name": "Категория 4",
+      "image": "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
+    }
+  ]
+}

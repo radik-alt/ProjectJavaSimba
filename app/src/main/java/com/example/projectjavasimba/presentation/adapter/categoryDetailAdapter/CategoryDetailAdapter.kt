@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.CategoryDetail
+import com.example.projectjavasimba.domain.entity.CategoryDetail
 import com.example.projectjavasimba.databinding.ItemDetailCategoryBinding
 
 class CategoryDetailAdapter(
@@ -29,7 +29,9 @@ class CategoryDetailAdapter(
 
         Glide.with(context)
             .load(list[position].image)
+            .placeholder(R.drawable.bg_placeholder)
             .error(R.drawable.ic_launcher_foreground)
+            .dontAnimate()
             .into(holder.image)
 
     }

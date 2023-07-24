@@ -1,110 +1,164 @@
 [
   {
-    "category": [
-      {
-        "id": 0,
-        "image": 2131165354,
-        "title": "Дети"
-      }
-    ],
-    "date": "Осталось 13 дней (21.09 – 20.10)",
-    "description": "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …",
-    "email": "radik.app@yandex.ru",
-    "id": 0,
-    "listFriends": [
-      2131165353,
-      2131165353,
-      2131165353
-    ],
-    "listImage": [
-      2131165353,
-      2131165353,
-      2131165353
-    ],
-    "phone": "+7 (937) 037 37-73 +7 (937) 016 16-16",
-    "street": "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208",
-    "title": "Спонсоры отремонтируют школу-интернат",
-    "isRead": false
-  },
-  {
-    "category": [
-      {
-        "id": 0,
-        "image": 2131165354,
-        "title": "Дети"
-      }
-    ],
-    "date": "Осталось 13 дней (21.09 – 20.10)",
-    "description": "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …",
-    "email": "radik.app@yandex.ru",
     "id": 1,
-    "listFriends": [
-      2131165353,
-      2131165353,
-      2131165353
+    "name": "Событие 1",
+    "startDate": 1654320000,
+    "endDate": 1654395600,
+    "description": "Описание события 1",
+    "status": 1,
+    "photos": [
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
     ],
-    "listImage": [
-      2131165353,
-      2131165353,
-      2131165353
-    ],
-    "phone": "+7 (937) 037 37-73 +7 (937) 016 16-16",
-    "street": "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208",
-    "title": "Спонсоры отремонтируют школу-интернат",
-    "isRead": false
+    "category": 1,
+    "createAt": 1654291200,
+    "phone": "+1234567890",
+    "address": "Адрес 1",
+    "organisation": "Организация 1"
   },
   {
-    "category": [
-      {
-        "id": 0,
-        "image": 2131165354,
-        "title": "Дети"
-      }
-    ],
-    "date": "Осталось 13 дней (21.09 – 20.10)",
-    "description": "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …",
-    "email": "radik.app@yandex.ru",
     "id": 2,
-    "listFriends": [
-      2131165353,
-      2131165353,
-      2131165353
+    "name": "Событие 2",
+    "startDate": 1654410000,
+    "endDate": 1654492800,
+    "description": "Описание события 2",
+    "status": 2,
+    "photos": [
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png",
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
     ],
-    "listImage": [
-      2131165353,
-      2131165353,
-      2131165353
-    ],
-    "phone": "+7 (937) 037 37-73 +7 (937) 016 16-16",
-    "street": "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208",
-    "title": "Спонсоры отремонтируют школу-интернат",
-    "isRead": false
+    "category": 2,
+    "createAt": 1654377600,
+    "phone": "+0987654321",
+    "address": "Адрес 2",
+    "organisation": "Организация 2"
   },
   {
-    "category": [
-      {
-        "id": 0,
-        "image": 2131165354,
-        "title": "Дети"
-      }
-    ],
-    "date": "Осталось 13 дней (21.09 – 20.10)",
-    "description": "Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …",
-    "email": "radik.app@yandex.ru",
     "id": 3,
-    "listFriends": [
-      2131165353,
-      2131165353,
-      2131165353
+    "name": "Событие 3",
+    "startDate": 1654515600,
+    "endDate": 1654587600,
+    "description": "Описание события 3",
+    "status": 1,
+    "photos": [
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png",
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
     ],
-    "listImage": [
-      2131165353,
-      2131165353,
-      2131165353
+    "category": 1,
+    "createAt": 1654483200,
+    "phone": "+9876543210",
+    "address": "Адрес 3",
+    "organisation": "Организация 3"
+  },
+  {
+    "id": 4,
+    "name": "Событие 4",
+    "startDate": 1654611600,
+    "endDate": 1654683600,
+    "description": "Описание события 4",
+    "status": 2,
+    "photos": [
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png",
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
     ],
-    "phone": "+7 (937) 037 37-73 +7 (937) 016 16-16",
-    "street": "Санкт-Петербург, Кирочная улица, д. 50А, каб. 208",
-    "title": "Спонсоры отремонтируют школу-интернат",
-    "isRead": false
+    "category": 2,
+    "createAt": 1654579200,
+    "phone": "+0123456789",
+    "address": "Адрес 4",
+    "organisation": "Организация 4"
+  },
+  {
+    "id": 5,
+    "name": "Событие 5",
+    "startDate": 1654697600,
+    "endDate": 1654770000,
+    "description": "Описание события 5",
+    "status": 1,
+    "photos": [
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png",
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
+    ],
+    "category": 1,
+    "createAt": 1654665600,
+    "phone": "+9876543210",
+    "address": "Адрес 5",
+    "organisation": "Организация 5"
+  },
+  {
+    "id": 6,
+    "name": "Событие 6",
+    "startDate": 1654783600,
+    "endDate": 1654856400,
+    "description": "Описание события 6",
+    "status": 2,
+    "photos": [
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png",
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
+    ],
+    "category": 2,
+    "createAt": 1654752000,
+    "phone": "+1234567890",
+    "address": "Адрес 6",
+    "organisation": "Организация 6"
+  },
+  {
+    "id": 7,
+    "name": "Событие 7",
+    "startDate": 1654875600,
+    "endDate": 1654947600,
+    "description": "Описание события 7",
+    "status": 1,
+    "photos": [],
+    "category": "1",
+    "createAt": 1654843200,
+    "phone": "+0123456789",
+    "address": "Адрес 7",
+    "organisation": "Организация 7"
+  },
+  {
+    "id": 8,
+    "name": "Событие 8",
+    "startDate": 1654961600,
+    "endDate": 1655034000,
+    "description": "Описание события 8",
+    "status": 2,
+    "photos": [
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
+    ],
+    "category": 2,
+    "createAt": 1654929600,
+    "phone": "+9876543210",
+    "address": "Адрес 8",
+    "organisation": "Организация 8"
+  },
+  {
+    "id": 9,
+    "name": "Событие 9",
+    "startDate": 1655048400,
+    "endDate": 1655120400,
+    "description": "Описание события 9",
+    "status": 1,
+    "photos": [],
+    "category": 1,
+    "createAt": 1655016000,
+    "phone": "+1234567890",
+    "address": "Адрес 9",
+    "organisation": "Организация 9"
+  },
+  {
+    "id": 10,
+    "name": "Событие 10",
+    "startDate": 1655132400,
+    "endDate": 1655204400,
+    "description": "Описание события 10",
+    "status": 2,
+    "photos": [
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png",
+      "https://www.kindpng.com/picc/m/237-2373565_transparent-girl-icon-png-kids-circle-icon-png.png"
+    ],
+    "category": 2,
+    "createAt": 1655100000,
+    "phone": "+0123456789",
+    "address": "Адрес 10",
+    "organisation": "Организация 10"
   }
 ]

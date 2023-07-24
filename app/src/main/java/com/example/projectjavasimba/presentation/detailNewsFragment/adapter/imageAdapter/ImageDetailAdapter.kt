@@ -9,7 +9,7 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.ItemImageDetailBinding
 
 class ImageDetailAdapter(
-    private val listImage: List<Int>,
+    private val listImage: List<String>,
 ) : RecyclerView.Adapter<ImageDetailViewHolder>(){
 
     private lateinit var context: Context
@@ -21,13 +21,14 @@ class ImageDetailAdapter(
         return ImageDetailViewHolder(binding)
     }
 
-
     override fun getItemCount(): Int = listImage.size
 
     override fun onBindViewHolder(holder: ImageDetailViewHolder, position: Int) {
         Glide.with(context)
             .load(listImage[position])
+            .placeholder(R.drawable.bg_placeholder)
             .error(R.drawable.ic_launcher_foreground)
+            .dontAnimate()
             .into(holder.image)
     }
 

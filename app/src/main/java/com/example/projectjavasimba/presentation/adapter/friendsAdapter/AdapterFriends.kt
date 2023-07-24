@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.Friends
+import com.example.projectjavasimba.domain.entity.Friends
 import com.example.projectjavasimba.databinding.ItemFriendsBinding
 
 class AdapterFriends(
@@ -26,7 +26,9 @@ class AdapterFriends(
         holder.name.text = listFriends[position].name
         Glide.with(context)
             .load(listFriends[position].image)
+            .placeholder(R.drawable.bg_placeholder)
             .error(R.drawable.ic_launcher_foreground)
+            .dontAnimate()
             .into(holder.image)
 
     }

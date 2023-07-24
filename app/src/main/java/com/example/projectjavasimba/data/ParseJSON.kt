@@ -2,36 +2,38 @@ package com.example.projectjavasimba.data
 
 import android.content.Context
 import android.util.Log
-import com.example.projectjavasimba.data.callable.MyCallableCategory
-import com.example.projectjavasimba.data.callable.MyCallableEvent
-import com.example.projectjavasimba.data.entity.Category
-import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.data_impl.callable.MyCallableCategory
+import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
+import com.example.projectjavasimba.domain.entity.EventEntity
+import com.example.projectjavasimba.repository.dto.categories.CategoriesDto
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
+import java.util.Date
 
 class ParseJSON(
     private val context: Context,
 ) {
 
-    fun parseEventJson(): Observable<ArrayList<Event>> {
+    fun parseEventJson(): Observable<ArrayList<EventEntity>> {
         return Observable.fromCallable {
             MyCallableEvent(context).call()
         }.zipWith(Observable.just(listOf(1, 2, 3, 4, 5))) { events, number ->
-            val result = ArrayList<Event>()
+            val result = ArrayList<EventEntity>()
             for (one in events) {
                 result.add(
-                    Event(
-                        one.id,
-                        one.title + number,
-                        one.description,
-                        one.listImage,
-                        one.date,
-                        one.street,
-                        one.phone,
-                        one.email,
-                        one.category,
-                        one.listFriends,
-                        one.isRead
+                    EventEntity(
+                        id = one.id ?: -1,
+                        title = one.title ?: "",
+                        description = one.description ?: "",
+                        listImage = one.listImage ?: arrayListOf(),
+                        createAt = one.createAt ?: Date(),
+                        street = one.street ?: "",
+                        status = one.status ?: -1,
+                        startDate = one.startDate ?: Date(),
+                        endDate = one.endDate ?: Date(),
+                        phone = one.phone ?: "",
+                        category = one.category ?: -1,
+                        isRead = false
                     )
                 )
             }
@@ -43,7 +45,7 @@ class ParseJSON(
     }
 
 
-    fun parseCategoryJson(): Observable<List<Category>> {
+    fun parseCategoryJson(): Observable<CategoriesDto> {
         return Observable.fromCallable {
             MyCallableCategory(context).call()
         }.subscribeOn(Schedulers.io())

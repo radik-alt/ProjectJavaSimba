@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.entity.Friends
+import com.example.projectjavasimba.domain.entity.Friends
 import com.example.projectjavasimba.databinding.ItemDetailFriendsBinding
 
 class FriendsDetailAdapter(

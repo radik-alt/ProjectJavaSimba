@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.FragmentProfileBinding
 import com.example.projectjavasimba.presentation.adapter.friendsAdapter.AdapterFriends
-import com.example.projectjavasimba.data.entity.Friends
+import com.example.projectjavasimba.domain.entity.Friends
 import com.example.projectjavasimba.presentation.profileDialog.view.DialogFragmentSelect
 import com.example.projectjavasimba.presentation.profileFragment.viewmodel.SharedViewModel
 
@@ -37,7 +37,9 @@ class ProfileFragment : Fragment() {
             if (uriImage != null) {
                 Glide.with(requireContext())
                     .load(uriImage)
+                    .placeholder(R.drawable.bg_placeholder)
                     .error(R.drawable.ic_launcher_foreground)
+                    .dontAnimate()
                     .into(binding.imageProfile)
             }
         }

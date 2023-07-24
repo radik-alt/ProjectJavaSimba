@@ -4,13 +4,13 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import com.example.projectjavasimba.data.entity.Category
-import com.example.projectjavasimba.data.entity.Event
+import com.example.projectjavasimba.domain.entity.Category
+import com.example.projectjavasimba.domain.entity.EventEntity
 
 
 class ServiceGetData: Service() {
 
-    var callbackEvent: CallbackData<Event> ?= null
+    var callbackEventEntity: CallbackData<EventEntity> ?= null
     var callbackCategory : CallbackData<Category> ?= null
 
     fun getDataEvent() {
