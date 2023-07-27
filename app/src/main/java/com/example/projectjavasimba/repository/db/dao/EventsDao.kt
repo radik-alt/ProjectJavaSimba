@@ -21,6 +21,10 @@ interface EventsDao {
     suspend fun insert(event: EventsRoomDto)
 
     @Transaction
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(events: List<EventsRoomDto>)
+
+    @Transaction
     @Query("DELETE FROM Events")
     suspend fun delete()
 }

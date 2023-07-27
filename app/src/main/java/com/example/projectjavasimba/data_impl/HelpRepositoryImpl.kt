@@ -6,6 +6,8 @@ import com.example.projectjavasimba.data_impl.callable.MyCallableCategory
 import com.example.projectjavasimba.domain.entity.CategoriesEntity
 import com.example.projectjavasimba.domain.entity.CategoryEntity
 import com.example.projectjavasimba.repository.api.RetrofitBuilder
+import com.example.projectjavasimba.repository.db.SimbaDataBase
+import com.example.projectjavasimba.repository.db.dto.CategoryRoomDto
 import com.example.projectjavasimba.repository.dto.categories.CategoriesDto
 import com.example.projectjavasimba.repository.dto.categories.CategoryDto
 import kotlinx.coroutines.flow.Flow
@@ -13,7 +15,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 
-class HelpRepositoryImpl : HelpRepository {
+class HelpRepositoryImpl(
+    private val db: SimbaDataBase
+) : HelpRepository {
 
     private val api = RetrofitBuilder.apiService
 
@@ -27,6 +31,24 @@ class HelpRepositoryImpl : HelpRepository {
                 ).call().toEntity()
             )
         }
+    }
+
+    private suspend fun getCacheCategory(): Flow<CategoriesEntity> {
+        return db.categoriesDao.select()
+            .map {
+                CategoriesEntity(it.roomToEntityList())
+            }.catch {
+
+            }
+    }
+
+    private fun List<CategoryRoomDto>.roomToEntityList() = map {
+        CategoryEntity(
+            id = it.id ?: -1,
+            image = it.image ?: "",
+            name = it.name ?: "",
+            nameEn = it.nameEn ?: ""
+        )
     }
 
     private fun CategoriesDto.toEntity() = CategoriesEntity(

@@ -1,6 +1,5 @@
 package com.example.projectjavasimba.presentation.newsFragment.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
@@ -10,7 +9,7 @@ import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.data_impl.NewsRepositoryImpl
 import com.example.projectjavasimba.domain.usecase.NewsUseCase
 import com.example.projectjavasimba.domain_impl.interactor.NewsInteractor
-import io.reactivex.rxjava3.schedulers.Schedulers
+import com.example.projectjavasimba.repository.db.SimbaDataBase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,15 +18,14 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onEmpty
-import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 class NewsViewModel(
     private val application: Application,
 ) : AndroidViewModel(application) {
 
-
-    private val useCase: NewsUseCase = NewsInteractor(NewsRepositoryImpl())
+    private val db = SimbaDataBase.getDatabaseNotes(application)
+    private val useCase: NewsUseCase = NewsInteractor(NewsRepositoryImpl(db))
 
     private val errorHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         message.postValue(application.getString(R.string.unknown_error))
@@ -73,8 +71,27 @@ class NewsViewModel(
         }
     }
 
-    @SuppressLint("CheckResult")
-    fun getEvents() {
+    fun getCacheEvents() {
+        coroutineScope.launch {
+            useCase.getCacheEvents(application)
+                .onEmpty { getEvents() }
+                .flowOn(Dispatchers.IO)
+                .catch { getEvents() }
+                .collect {
+                    it.events.let { result ->
+                        if (result.isNotEmpty()) {
+                            fullListEventEntity.postValue(result)
+                            events.postValue(result)
+                            updateListBadge(result)
+                        } else {
+                            getEvents()
+                        }
+                    }
+                }
+        }
+    }
+
+    private fun getEvents() {
         coroutineScope.launch {
             useCase.getEvents(application)
                 .flowOn(Dispatchers.IO)
@@ -82,8 +99,7 @@ class NewsViewModel(
                     message.postValue(application.getString(R.string.unknown_error))
                 }
                 .collect {
-                    Log.d("GetError", it?.events.toString())
-                    it?.events?.let { result ->
+                    it.events.let { result ->
                         if (result.isNotEmpty()) {
                             fullListEventEntity.postValue(result)
                             events.postValue(result)

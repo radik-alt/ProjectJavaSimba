@@ -16,11 +16,11 @@ import com.example.projectjavasimba.repository.db.dto.PhotoRoomDto
         EventsRoomDto::class,
         PhotoRoomDto::class,
     ],
-    version = 1
+    version = 2
 )
 abstract class SimbaDataBase : RoomDatabase() {
-    abstract fun categoriesDao(): CategoriesDao
-    abstract fun eventsDao(): EventsDao
+    abstract val categoriesDao: CategoriesDao
+    abstract val eventsDao: EventsDao
 
 
     companion object {
@@ -39,6 +39,7 @@ abstract class SimbaDataBase : RoomDatabase() {
                     SimbaDataBase::class.java,
                     "SimbaDataBase"
                 )
+                    .fallbackToDestructiveMigration()
                     .build()
 
                 INSTANCE = roomDataBaseInstance

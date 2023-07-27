@@ -8,6 +8,7 @@ import com.example.projectjavasimba.R
 import com.example.projectjavasimba.data_impl.HelpRepositoryImpl
 import com.example.projectjavasimba.domain.entity.CategoryEntity
 import com.example.projectjavasimba.domain_impl.interactor.HelpInteractor
+import com.example.projectjavasimba.repository.db.SimbaDataBase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +23,8 @@ class HelpViewModel(
     val messageError = MutableLiveData<String>()
     val listCategory = MutableLiveData<List<CategoryEntity>>()
 
-    private val useCase = HelpInteractor(HelpRepositoryImpl())
+    private val db = SimbaDataBase.getDatabaseNotes(application)
+    private val useCase = HelpInteractor(HelpRepositoryImpl(db))
 
     private val errorHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         messageError.postValue(application.getString(R.string.unknown_error))
