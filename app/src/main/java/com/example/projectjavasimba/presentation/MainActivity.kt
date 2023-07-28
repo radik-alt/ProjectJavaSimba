@@ -1,5 +1,6 @@
 package com.example.projectjavasimba.presentation
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        newsViewModel.getCacheEvents()
+        newsViewModel.getEvents()
         observable()
     }
 

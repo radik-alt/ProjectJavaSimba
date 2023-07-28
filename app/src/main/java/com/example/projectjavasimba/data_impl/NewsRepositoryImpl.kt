@@ -25,29 +25,33 @@ class NewsRepositoryImpl(
 
     private val api = RetrofitBuilder.apiService
 
-    override suspend fun getEvents(context: Context): Flow<EventsEntity> {
-        val response = api.getEvents()
-        response.eventDtos?.let { insertCacheEvents(it) }
-        return flowOf(response).map {
-            it.toEntity()
-        }.catch {
-            emit(
-                EventsEntity(
-                    MyCallableEvent(context).call().toList()
+    override suspend fun getEvents(context: Context, newSession: Boolean): Flow<EventsEntity> {
+        return if (!newSession) {
+            getCacheEvents(context)
+        } else {
+            val response = api.getEvents()
+            response.eventDtos?.let { insertCacheEvents(it) }
+            flowOf(response).map {
+                it.toEntity()
+            }.catch {
+                emit(
+                    EventsEntity(
+                        MyCallableEvent(context).call().toList()
+                    )
                 )
-            )
+            }
         }
     }
 
     override suspend fun getCacheEvents(context: Context): Flow<EventsEntity> {
         return db.eventsDao.select()
             .onEmpty {
-                getEvents(context)
+                getEvents(context, true)
             }
             .map {
                 EventsEntity(it.toEventEntityList())
             }.catch {
-                getEvents(context)
+                getEvents(context, true)
             }
     }
 

@@ -71,29 +71,9 @@ class NewsViewModel(
         }
     }
 
-    fun getCacheEvents() {
+    fun getEvents() {
         coroutineScope.launch {
-            useCase.getCacheEvents(application)
-                .onEmpty { getEvents() }
-                .flowOn(Dispatchers.IO)
-                .catch { getEvents() }
-                .collect {
-                    it.events.let { result ->
-                        if (result.isNotEmpty()) {
-                            fullListEventEntity.postValue(result)
-                            events.postValue(result)
-                            updateListBadge(result)
-                        } else {
-                            getEvents()
-                        }
-                    }
-                }
-        }
-    }
-
-    private fun getEvents() {
-        coroutineScope.launch {
-            useCase.getEvents(application)
+            useCase.getEvents(application, true)
                 .flowOn(Dispatchers.IO)
                 .catch {
                     message.postValue(application.getString(R.string.unknown_error))

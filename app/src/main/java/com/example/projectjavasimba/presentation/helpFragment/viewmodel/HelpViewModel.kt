@@ -35,7 +35,7 @@ class HelpViewModel(
 
     fun getParseListCategory() {
         coroutineScope.launch {
-            useCase.getCategory(application)
+            useCase.getCategory(application, true)
                 .catch {
                     messageError.postValue(application.getString(R.string.error_network))
                 }

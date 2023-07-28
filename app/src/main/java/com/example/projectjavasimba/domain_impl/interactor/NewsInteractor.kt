@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 class NewsInteractor(
     private val repository: NewsRepository
 ) : NewsUseCase {
-    override suspend fun getEvents(context: Context) =
-        repository.getEvents(context)
+    override suspend fun getEvents(context: Context, newSession: Boolean) =
+        repository.getEvents(context, newSession)
 
     override suspend fun getCacheEvents(context: Context): Flow<EventsEntity> =
         repository.getCacheEvents(context)

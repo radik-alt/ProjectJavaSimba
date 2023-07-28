@@ -13,8 +13,11 @@ interface CategoriesDao {
     @Query("SELECT * from Category")
     fun select(): Flow<List<CategoryRoomDto>>
 
-    @Insert(entity = CategoryRoomDto::class, onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(categoryRoomDto: CategoryRoomDto)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(categoryRoomDto: List<CategoryRoomDto>)
 
     @Query("DELETE FROM Category")
     suspend fun delete()

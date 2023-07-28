@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface HelpRepository {
 
-    suspend fun getCategory(context: Context): Flow<CategoriesEntity>
+    suspend fun getCategory(context: Context, newSession: Boolean): Flow<CategoriesEntity>
 }

@@ -1,25 +1,20 @@
 package com.example.projectjavasimba.presentation.filterFragment.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data.ParseJSON
 import com.example.projectjavasimba.data_impl.FilterRepositoryImpl
-import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.domain.entity.CategoryEntity
 import com.example.projectjavasimba.domain_impl.interactor.FilterInteractor
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import com.example.projectjavasimba.repository.db.SimbaDataBase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class FilterViewModel(
     private val application: Application
@@ -34,11 +29,13 @@ class FilterViewModel(
     }
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO + errorHandler)
-    private val useCase = FilterInteractor(FilterRepositoryImpl())
+
+    private val db = SimbaDataBase.getDatabaseNotes(application)
+    private val useCase = FilterInteractor(FilterRepositoryImpl(db))
 
     fun getLoadData() {
         coroutineScope.launch {
-            useCase.getCategory(application)
+            useCase.getCategory(application, true)
                 .catch {
                     messageError.postValue(application.getString(R.string.error_network))
                 }

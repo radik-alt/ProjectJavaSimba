@@ -42,7 +42,7 @@ class NewsFragment : Fragment() {
         super.onResume()
         if (binding.rvNews.adapter == null) {
             observable()
-            newsViewModel.getCacheEvents()
+            newsViewModel.getEvents()
             binding.rvNews.adapter = PlaceHolderAdapter()
         }
         showBottomNavigation()

@@ -22,15 +22,19 @@ class FilterRepositoryImpl(
 
     private val api = RetrofitBuilder.apiService
 
-    override suspend fun getCategory(context: Context): Flow<CategoriesEntity> {
-        return flowOf(api.getCategories()).map {
-            it.toEntity()
-        }.catch {
-            emit(
-                MyCallableCategory(
-                    context
-                ).call().toEntity()
-            )
+    override suspend fun getCategory(context: Context, newSession: Boolean): Flow<CategoriesEntity> {
+        return if (!newSession) {
+            getCacheCategory()
+        } else {
+            flowOf(api.getCategories()).map {
+                it.toEntity()
+            }.catch {
+                emit(
+                    MyCallableCategory(
+                        context
+                    ).call().toEntity()
+                )
+            }
         }
     }
 

@@ -21,25 +21,46 @@ class HelpRepositoryImpl(
 
     private val api = RetrofitBuilder.apiService
 
-    override suspend fun getCategory(context: Context): Flow<CategoriesEntity> {
-        return flowOf(api.getCategories()).map {
-            it.toEntity()
-        }.catch {
-            emit(
-                MyCallableCategory(
-                    context
-                ).call().toEntity()
-            )
+    override suspend fun getCategory(context: Context, newSession: Boolean): Flow<CategoriesEntity> {
+        if (!newSession) {
+            return getCacheCategory()
+        } else {
+            val response = api.getCategories()
+            response.categories?.let { insertCacheCategory(it.toEntityList()) }
+
+            return flowOf(response).map {
+                it.toEntity()
+            }.catch {
+                emit(
+                    MyCallableCategory(
+                        context
+                    ).call().toEntity()
+                )
+            }
         }
     }
 
-    private suspend fun getCacheCategory(): Flow<CategoriesEntity> {
+    private fun getCacheCategory(): Flow<CategoriesEntity> {
         return db.categoriesDao.select()
             .map {
                 CategoriesEntity(it.roomToEntityList())
             }.catch {
 
             }
+    }
+
+    private suspend fun insertCacheCategory(list: List<CategoryEntity>) {
+        db.categoriesDao.delete()
+        db.categoriesDao.insert(list.toRoomEntityList())
+    }
+
+    private fun List<CategoryEntity>.toRoomEntityList() = map {
+        CategoryRoomDto(
+            id = it.id ?: -1,
+            image = it.image ?: "",
+            name = it.name ?: "",
+            nameEn = it.nameEn ?: ""
+        )
     }
 
     private fun List<CategoryRoomDto>.roomToEntityList() = map {

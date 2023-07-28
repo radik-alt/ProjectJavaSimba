@@ -9,6 +9,6 @@ import kotlinx.coroutines.flow.Flow
 class FilterInteractor(
     private val repository: FilterRepository
 ): FilterUseCase {
-    override suspend fun getCategory(context: Context): Flow<CategoriesEntity> =
-        repository.getCategory(context)
+    override suspend fun getCategory(context: Context, newSession: Boolean): Flow<CategoriesEntity> =
+        repository.getCategory(context, newSession)
 }
