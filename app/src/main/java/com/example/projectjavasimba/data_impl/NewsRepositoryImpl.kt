@@ -6,7 +6,7 @@ import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
 import com.example.projectjavasimba.data.repository.NewsRepository
 import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.domain.entity.EventsEntity
-import com.example.projectjavasimba.repository.api.RetrofitBuilder
+import com.example.projectjavasimba.repository.api.PostmanApi
 import com.example.projectjavasimba.repository.db.SimbaDataBase
 import com.example.projectjavasimba.repository.db.dto.EventWitPhotos
 import com.example.projectjavasimba.repository.db.dto.EventsRoomDto
@@ -19,12 +19,12 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEmpty
 import java.util.Date
+import javax.inject.Inject
 
-class NewsRepositoryImpl(
-    private val db: SimbaDataBase
+class NewsRepositoryImpl @Inject constructor(
+    private val db: SimbaDataBase,
+    private val api:PostmanApi
 ) : NewsRepository {
-
-    private val api = RetrofitBuilder.apiService
 
     override suspend fun getEvents(context: Context, newSession: Boolean): Flow<EventsEntity> {
         return if (!newSession) {

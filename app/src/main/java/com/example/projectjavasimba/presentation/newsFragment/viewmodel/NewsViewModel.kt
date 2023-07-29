@@ -2,14 +2,11 @@ package com.example.projectjavasimba.presentation.newsFragment.viewmodel
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.domain.entity.EventEntity
-import com.example.projectjavasimba.data_impl.NewsRepositoryImpl
 import com.example.projectjavasimba.domain.usecase.NewsUseCase
-import com.example.projectjavasimba.domain_impl.interactor.NewsInteractor
-import com.example.projectjavasimba.repository.db.SimbaDataBase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,15 +14,13 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onEmpty
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NewsViewModel(
+class NewsViewModel @Inject constructor(
     private val application: Application,
-) : AndroidViewModel(application) {
-
-    private val db = SimbaDataBase.getDatabaseNotes(application)
-    private val useCase: NewsUseCase = NewsInteractor(NewsRepositoryImpl(db))
+    private val useCase: NewsUseCase
+) : ViewModel() {
 
     private val errorHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         message.postValue(application.getString(R.string.unknown_error))

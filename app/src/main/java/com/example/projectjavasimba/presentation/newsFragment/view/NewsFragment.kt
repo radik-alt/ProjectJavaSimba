@@ -1,12 +1,12 @@
 package com.example.projectjavasimba.presentation.newsFragment.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
@@ -15,13 +15,14 @@ import com.example.projectjavasimba.common.utils.isFirstEnter
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.show
+import com.example.projectjavasimba.di.SimbaApp
 import com.example.projectjavasimba.presentation.adapter.MessageAdapter.MessageAdapter
 import com.example.projectjavasimba.presentation.adapter.placeholder.PlaceHolderAdapter
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
-
+import javax.inject.Inject
 
 class NewsFragment : Fragment() {
 
@@ -29,8 +30,19 @@ class NewsFragment : Fragment() {
     private val binding: FragmentNewsBinding
         get() = _binding ?: throw RuntimeException("FragmentNewsBinding == null")
 
+
+    @Inject
+    lateinit var newsViewModel: NewsViewModel
     private val sharedNewsFilterViewModel: SharedNewsFilterViewModel by activityViewModels()
-    private val newsViewModel: NewsViewModel by viewModels()
+
+    private val component by lazy {
+        (requireActivity().application as SimbaApp).component
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        component.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -1,7 +1,6 @@
 package com.example.projectjavasimba.presentation
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
@@ -9,9 +8,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.common.utils.cancelSession
 import com.example.projectjavasimba.databinding.ActivityMainBinding
+import com.example.projectjavasimba.di.SimbaApp
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +20,12 @@ class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding
         get() = _binding ?: throw RuntimeException("ActivityMainBinding == null")
 
-    private val newsViewModel: NewsViewModel by viewModels()
+    @Inject
+    lateinit var newsViewModel: NewsViewModel
+
+    private val component by lazy {
+        (application as SimbaApp).component
+    }
 
     override fun onResume() {
         super.onResume()
@@ -29,6 +35,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        component.inject(this)
+
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
