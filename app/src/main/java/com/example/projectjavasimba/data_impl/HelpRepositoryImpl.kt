@@ -5,6 +5,7 @@ import com.example.projectjavasimba.data.repository.HelpRepository
 import com.example.projectjavasimba.data_impl.callable.MyCallableCategory
 import com.example.projectjavasimba.domain.entity.CategoriesEntity
 import com.example.projectjavasimba.domain.entity.CategoryEntity
+import com.example.projectjavasimba.repository.api.PostmanApi
 import com.example.projectjavasimba.repository.api.RetrofitBuilder
 import com.example.projectjavasimba.repository.db.SimbaDataBase
 import com.example.projectjavasimba.repository.db.dto.CategoryRoomDto
@@ -14,12 +15,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class HelpRepositoryImpl(
-    private val db: SimbaDataBase
+class HelpRepositoryImpl @Inject constructor(
+    private val db: SimbaDataBase,
+    private val api: PostmanApi
 ) : HelpRepository {
-
-    private val api = RetrofitBuilder.apiService
 
     override suspend fun getCategory(context: Context, newSession: Boolean): Flow<CategoriesEntity> {
         if (!newSession) {

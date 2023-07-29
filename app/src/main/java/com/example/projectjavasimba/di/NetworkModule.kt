@@ -7,13 +7,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-object NetworkModule {
-
-    @Provides
-    @Singleton
-    fun provideRetrofitBuilder(): RetrofitBuilder {
-        return RetrofitBuilder
-    }
+class NetworkModule {
 
     @Provides
     @Singleton

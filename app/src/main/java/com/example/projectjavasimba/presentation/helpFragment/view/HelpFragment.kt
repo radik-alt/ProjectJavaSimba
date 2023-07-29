@@ -19,11 +19,13 @@ import com.example.projectjavasimba.common.utils.isFirstEnter
 import com.example.projectjavasimba.common.utils.show
 import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.databinding.FragmentHelpragmentBinding
+import com.example.projectjavasimba.di.SimbaApp
 import com.example.projectjavasimba.presentation.adapter.MessageAdapter.MessageAdapter
 import com.example.projectjavasimba.presentation.adapter.placeholder.PlaceHolderAdapter
 import com.example.projectjavasimba.presentation.helpFragment.adapter.HelperAdapter
 import com.example.projectjavasimba.presentation.helpFragment.viewmodel.HelpViewModel
 import com.example.projectjavasimba.service.ServiceGetData
+import javax.inject.Inject
 
 
 class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
@@ -32,7 +34,17 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
     private val binding: FragmentHelpragmentBinding
         get() = _binding ?: throw RuntimeException()
 
-    private val viewModel: HelpViewModel by activityViewModels()
+    private val component by lazy {
+        (requireActivity().application as SimbaApp).component
+    }
+
+    @Inject
+    lateinit var viewModel: HelpViewModel
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        component.inject(this)
+    }
     override fun onResume() {
         super.onResume()
         if (binding.rvHelper.adapter == null) {

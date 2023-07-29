@@ -5,8 +5,9 @@ import com.example.projectjavasimba.data.repository.FilterRepository
 import com.example.projectjavasimba.domain.entity.CategoriesEntity
 import com.example.projectjavasimba.domain.usecase.FilterUseCase
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class FilterInteractor(
+class FilterInteractor @Inject constructor(
     private val repository: FilterRepository
 ): FilterUseCase {
     override suspend fun getCategory(context: Context, newSession: Boolean): Flow<CategoriesEntity> =
