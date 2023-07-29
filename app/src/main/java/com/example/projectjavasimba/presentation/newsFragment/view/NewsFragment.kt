@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
+import com.example.projectjavasimba.common.utils.SESSION_EVENTS
+import com.example.projectjavasimba.common.utils.isFirstEnter
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.show
@@ -42,7 +44,8 @@ class NewsFragment : Fragment() {
         super.onResume()
         if (binding.rvNews.adapter == null) {
             observable()
-            newsViewModel.getEvents()
+            val session = isFirstEnter(requireContext(), SESSION_EVENTS)
+            newsViewModel.getEvents(session)
             binding.rvNews.adapter = PlaceHolderAdapter()
         }
         showBottomNavigation()

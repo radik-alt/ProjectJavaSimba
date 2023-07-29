@@ -33,9 +33,9 @@ class HelpViewModel(
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO + errorHandler)
 
-    fun getParseListCategory() {
+    fun getParseListCategory(session: Boolean = true) {
         coroutineScope.launch {
-            useCase.getCategory(application, true)
+            useCase.getCategory(application, session)
                 .catch {
                     messageError.postValue(application.getString(R.string.error_network))
                 }

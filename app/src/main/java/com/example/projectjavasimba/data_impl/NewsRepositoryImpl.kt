@@ -1,6 +1,7 @@
 package com.example.projectjavasimba.data_impl
 
 import android.content.Context
+import android.util.Log
 import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
 import com.example.projectjavasimba.data.repository.NewsRepository
 import com.example.projectjavasimba.domain.entity.EventEntity
@@ -62,7 +63,7 @@ class NewsRepositoryImpl(
             description = it.event?.description ?: "",
             listImage = it.eventPhotos?.map { image -> image.photoUrl } ?: arrayListOf(),
             createAt = it.event?.createAt ?: Date(),
-            street = it.event?.address?: "",
+            street = it.event?.address ?: "",
             status = it.event?.status ?: -1,
             startDate = it.event?.startDate ?: Date(),
             endDate = it.event?.endDate ?: Date(),
@@ -73,8 +74,34 @@ class NewsRepositoryImpl(
     }
 
     private suspend fun insertCacheEvents(events: List<EventDto>) {
-//        db.eventsDao.insert(events.toRoomEntityList())
+        db.eventsDao.delete()
+        events.forEach { dto ->
+            val id = db.eventsDao.insertEvent(dto.toRoomDto())
+            Log.d("GetIndex", id.toString())
+            dto.photos?.map { image ->
+                val photoDto = PhotoRoomDto(
+                    id = null,
+                    eventId = id.toInt(),
+                    photoUrl = image
+                )
+                db.eventsDao.insertPhoto(photoDto)
+            }
+        }
     }
+
+    private fun EventDto.toRoomDto() = EventsRoomDto(
+        id = this.id ?: -1,
+        name = this.name ?: "",
+        description = this.description ?: "",
+        createAt = this.createAt ?: Date(),
+        address = this.address ?: "",
+        status = this.status ?: -1,
+        startDate = this.startDate ?: Date(),
+        endDate = this.endDate ?: Date(),
+        phone = this.phone ?: "",
+        category = this.category ?: -1,
+        organisation = this.organisation ?: ""
+    )
 
     private fun List<EventDto>.toRoomEntityList() = map {
         EventWitPhotos(

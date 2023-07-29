@@ -1,6 +1,5 @@
 package com.example.projectjavasimba.presentation
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectjavasimba.R
+import com.example.projectjavasimba.common.utils.cancelSession
 import com.example.projectjavasimba.databinding.ActivityMainBinding
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        cancelSession(this)
         newsViewModel.getEvents()
         observable()
     }
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        cancelSession(this)
         _binding = null
     }
 }

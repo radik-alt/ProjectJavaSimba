@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
+import com.example.projectjavasimba.common.utils.SESSION_CATEGORY
+import com.example.projectjavasimba.common.utils.isFirstEnter
 import com.example.projectjavasimba.domain.entity.TypeHelp
 import com.example.projectjavasimba.databinding.FragmentFilterBinding
 import com.example.projectjavasimba.presentation.adapter.HelpAdapter.HelpAdapter
@@ -42,7 +44,8 @@ class FilterFragment : Fragment() {
         if (binding.helpRecycler.adapter == null) {
             setDefaultData()
             observable()
-            viewModel.getLoadData()
+            val session = isFirstEnter(requireContext(), SESSION_CATEGORY)
+            viewModel.getLoadData(session)
             binding.rvTypeHelp.adapter = PlaceHolderAdapter()
         }
     }

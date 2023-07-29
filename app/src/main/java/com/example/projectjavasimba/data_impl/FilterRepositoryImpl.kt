@@ -10,7 +10,6 @@ import com.example.projectjavasimba.repository.db.SimbaDataBase
 import com.example.projectjavasimba.repository.db.dto.CategoryRoomDto
 import com.example.projectjavasimba.repository.dto.categories.CategoriesDto
 import com.example.projectjavasimba.repository.dto.categories.CategoryDto
-import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOf
@@ -38,7 +37,7 @@ class FilterRepositoryImpl(
         }
     }
 
-    private suspend fun getCacheCategory(): Flow<CategoriesEntity> {
+    private fun getCacheCategory(): Flow<CategoriesEntity> {
         return db.categoriesDao.select()
             .map {
                 CategoriesEntity(it.roomToEntityList())

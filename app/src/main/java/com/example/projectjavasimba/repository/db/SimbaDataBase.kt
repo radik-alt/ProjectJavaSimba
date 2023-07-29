@@ -16,7 +16,7 @@ import com.example.projectjavasimba.repository.db.dto.PhotoRoomDto
         EventsRoomDto::class,
         PhotoRoomDto::class,
     ],
-    version = 2
+    version = 3
 )
 abstract class SimbaDataBase : RoomDatabase() {
     abstract val categoriesDao: CategoriesDao

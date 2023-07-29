@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 )
 data class PhotoRoomDto(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int?,
     val eventId: Int,
     val photoUrl: String
 )

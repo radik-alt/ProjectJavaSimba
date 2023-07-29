@@ -5,8 +5,6 @@ Mapp/src/main/java/com/example/projectjavasimba/common/utils/HingeAnimation.kt,
 aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter/HelpViewHolder.kt,0\e\0e29d5953525444ed1ed516526219c21349170da
 x
 Happ/src/main/java/com/example/projectjavasimba/common/utils/Constants.kt,a\b\ab4f2aa261ae723e140ff074143d3e8dd7d42174
-y
-Iapp/src/main/java/com/example/projectjavasimba/common/utils/Extensions.kt,2\3\23fa717c2fbd1cf71c4368bf4b3e6c8a8ba14512
 t
 Dapp/src/main/java/com/example/projectjavasimba/common/utils/Utils.kt,a\2\a288b6d09c49cb48afe049458196a1d62ef81b1d
 ‹
@@ -297,8 +295,6 @@ eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/placeholder
 dapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/HelperViewHolder.kt,3\6\36ec1b0bca3816894465c76c1f400492ecc0ed8e
 ‡
 Wapp/src/main/java/com/example/projectjavasimba/data_impl/callable/MyCallableCategory.kt,6\6\666442077954ac45034ce9ca788e01f1c5588469
-‘
-aapp/src/main/java/com/example/projectjavasimba/presentation/filterFragment/view/FilterFragment.kt,b\0\b0c1c671d3e4e82bd0f53d96c202b2dec545a90d
 p
 @app/src/main/java/com/example/projectjavasimba/data/ParseJSON.kt,c\9\c999a51c10a7d395f13684d0ecfd746f7a06baff
 Ÿ
@@ -307,8 +303,6 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-
-]app/src/main/java/com/example/projectjavasimba/presentation/helpFragment/view/HelpFragment.kt,5\3\53db54bf42c01389aaf038a15c5ea0a502adb372
 ©
 yapp/src/main/java/com/example/projectjavasimba/presentation/detailNewsFragment/adapter/imageAdapter/ImageDetailAdapter.kt,5\8\581659838297759a4c68b139b17d70920bee886c
 ¢
@@ -431,15 +425,5 @@ G.idea/sonarlint/issuestore/7/1/715eebf865b7eda2bd0e1e2605555a68e26013fe,6\0\60
 Sapp/src/main/java/com/example/projectjavasimba/repository/db/utils/DateConvertor.kt,9\2\92e1962c7e56088468cbde772f799e7b1b56935d
 ƒ
 Sapp/src/main/java/com/example/projectjavasimba/repository/db/dto/CategoryRoomDto.kt,3\7\37cc07bcfcd1fc252aff2c38daa1cf6899de3917
-
-Qapp/src/main/java/com/example/projectjavasimba/repository/db/dto/EventsRoomDto.kt,a\c\acf3fa69ed8650b6560a0f62387978e49eceddae
 {
 Kapp/src/main/java/com/example/projectjavasimba/domain/entity/EventEntity.kt,6\3\6348f2b758ce85266524a1e9b646eea6a4f0b488
-€
-Papp/src/main/java/com/example/projectjavasimba/repository/db/dto/PhotoRoomDto.kt,2\8\28576d81cd3e9f519248eb89eca9a59497dbdac3
-}
-Mapp/src/main/java/com/example/projectjavasimba/repository/db/dao/EventsDao.kt,1\7\17d6fe2aa1aa356e9872f5feb05ed6802135491d
-‚
-Rapp/src/main/java/com/example/projectjavasimba/repository/db/dto/EventWitPhotos.kt,f\b\fb7cdf29af3e131b3e67ceb09878504be5f801d8
-}
-Mapp/src/main/java/com/example/projectjavasimba/repository/db/SimbaDataBase.kt,c\9\c95e9d603e03a5bd7a05393ae0b037001fb286a9

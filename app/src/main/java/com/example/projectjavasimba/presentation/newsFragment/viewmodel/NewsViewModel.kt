@@ -71,9 +71,9 @@ class NewsViewModel(
         }
     }
 
-    fun getEvents() {
+    fun getEvents(session: Boolean = true) {
         coroutineScope.launch {
-            useCase.getEvents(application, true)
+            useCase.getEvents(application, session)
                 .flowOn(Dispatchers.IO)
                 .catch {
                     message.postValue(application.getString(R.string.unknown_error))

@@ -33,9 +33,9 @@ class FilterViewModel(
     private val db = SimbaDataBase.getDatabaseNotes(application)
     private val useCase = FilterInteractor(FilterRepositoryImpl(db))
 
-    fun getLoadData() {
+    fun getLoadData(session: Boolean = true) {
         coroutineScope.launch {
-            useCase.getCategory(application, true)
+            useCase.getCategory(application, session)
                 .catch {
                     messageError.postValue(application.getString(R.string.error_network))
                 }

@@ -5,24 +5,32 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
+import androidx.room.TypeConverters
 import com.example.projectjavasimba.repository.db.dto.EventWitPhotos
 import com.example.projectjavasimba.repository.db.dto.EventsRoomDto
+import com.example.projectjavasimba.repository.db.dto.PhotoRoomDto
+import com.example.projectjavasimba.repository.db.utils.DateConvertor
 import kotlinx.coroutines.flow.Flow
 
 @Dao
+@TypeConverters(DateConvertor::class)
 interface EventsDao {
 
     @Transaction
     @Query("SELECT * FROM Events")
     fun select(): Flow<List<EventWitPhotos>>
 
-    @Transaction
     @Insert(entity = EventsRoomDto::class, onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(event: EventsRoomDto)
+    suspend fun insertEvent(event: EventsRoomDto): Long
 
-    @Transaction
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(events: List<EventsRoomDto>)
+    suspend fun insertEvents(events: List<EventsRoomDto>)
+
+    @Insert(entity = PhotoRoomDto::class, onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertPhoto(event: PhotoRoomDto)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertPhotos(event: List<PhotoRoomDto>)
 
     @Transaction
     @Query("DELETE FROM Events")
