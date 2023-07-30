@@ -9,31 +9,22 @@ import android.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.Utils.HingeAnimation
-import com.example.projectjavasimba.Utils.StringUtils.meeting_fragment_pager
+import com.example.projectjavasimba.common.utils.HingeAnimation
+import com.example.projectjavasimba.common.utils.StringUtils.meeting_fragment_pager
 import com.example.projectjavasimba.databinding.FragmentSearchBinding
 import com.example.projectjavasimba.presentation.adapter.searchViewPager.MySearchViewPager
 import com.example.projectjavasimba.presentation.meetingFragment.view.MeetingFragment
 import com.example.projectjavasimba.presentation.nkoFragment.view.NKOFragment
 import com.example.projectjavasimba.presentation.searchFragment.viewmodel.SearchViewPagerViewModel
 import com.google.android.material.tabs.TabLayoutMediator
-import com.jakewharton.rxbinding.widget.RxSearchView
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import rx.android.schedulers.AndroidSchedulers
-import java.util.concurrent.TimeUnit
 
 class SearchFragment : Fragment() {
 

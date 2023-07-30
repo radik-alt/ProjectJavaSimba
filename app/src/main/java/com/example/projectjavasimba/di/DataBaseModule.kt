@@ -2,7 +2,7 @@ package com.example.projectjavasimba.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.projectjavasimba.repository.db.SimbaDataBase
+import com.example.repository.db.SimbaDataBase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

@@ -10,8 +10,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.common.utils.SESSION_EVENTS
-import com.example.projectjavasimba.common.utils.isFirstEnter
+import com.example.common.utils.SESSION_EVENTS
+import com.example.common.utils.isFirstEnter
 import com.example.projectjavasimba.databinding.FragmentNewsBinding
 import com.example.projectjavasimba.presentation.newsFragment.NewsAdapter.NewsAdapter
 import com.example.projectjavasimba.common.utils.show

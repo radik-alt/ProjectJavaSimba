@@ -7,12 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.common.utils.SESSION_CATEGORY
-import com.example.projectjavasimba.common.utils.isFirstEnter
+import com.example.common.utils.SESSION_CATEGORY
+import com.example.common.utils.isFirstEnter
 import com.example.projectjavasimba.domain.entity.TypeHelp
 import com.example.projectjavasimba.databinding.FragmentFilterBinding
 import com.example.projectjavasimba.di.SimbaApp

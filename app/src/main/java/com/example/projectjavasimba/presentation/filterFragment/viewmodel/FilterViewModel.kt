@@ -10,8 +10,8 @@ import com.example.projectjavasimba.data_impl.FilterRepositoryImpl
 import com.example.projectjavasimba.domain.entity.CategoryEntity
 import com.example.projectjavasimba.domain.usecase.FilterUseCase
 import com.example.projectjavasimba.domain_impl.interactor.FilterInteractor
-import com.example.projectjavasimba.repository.api.PostmanApi
-import com.example.projectjavasimba.repository.db.SimbaDataBase
+import com.example.repository.api.PostmanApi
+import com.example.repository.db.SimbaDataBase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

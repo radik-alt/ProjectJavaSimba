@@ -6,13 +6,13 @@ import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
 import com.example.projectjavasimba.data.repository.NewsRepository
 import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.domain.entity.EventsEntity
-import com.example.projectjavasimba.repository.api.PostmanApi
-import com.example.projectjavasimba.repository.db.SimbaDataBase
-import com.example.projectjavasimba.repository.db.dto.EventWitPhotos
-import com.example.projectjavasimba.repository.db.dto.EventsRoomDto
-import com.example.projectjavasimba.repository.db.dto.PhotoRoomDto
-import com.example.projectjavasimba.repository.dto.events.EventDto
-import com.example.projectjavasimba.repository.dto.events.EventsDto
+import com.example.repository.api.PostmanApi
+import com.example.repository.db.SimbaDataBase
+import com.example.repository.db.dto.EventWitPhotos
+import com.example.repository.db.dto.EventsRoomDto
+import com.example.repository.db.dto.PhotoRoomDto
+import com.example.repository.dto.events.EventDto
+import com.example.repository.dto.events.EventsDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOf
@@ -22,8 +22,8 @@ import java.util.Date
 import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
-    private val db: SimbaDataBase,
-    private val api:PostmanApi
+    private val db: com.example.repository.db.SimbaDataBase,
+    private val api: com.example.repository.api.PostmanApi
 ) : NewsRepository {
 
     override suspend fun getEvents(context: Context, newSession: Boolean): Flow<EventsEntity> {
@@ -56,7 +56,7 @@ class NewsRepositoryImpl @Inject constructor(
             }
     }
 
-    private fun List<EventWitPhotos>.toEventEntityList() = map {
+    private fun List<com.example.repository.db.dto.EventWitPhotos>.toEventEntityList() = map {
         EventEntity(
             id = it.event?.id ?: -1,
             title = it.event?.name ?: "",
@@ -73,13 +73,13 @@ class NewsRepositoryImpl @Inject constructor(
         )
     }
 
-    private suspend fun insertCacheEvents(events: List<EventDto>) {
+    private suspend fun insertCacheEvents(events: List<com.example.repository.dto.events.EventDto>) {
         db.eventsDao.delete()
         events.forEach { dto ->
             val id = db.eventsDao.insertEvent(dto.toRoomDto())
             Log.d("GetIndex", id.toString())
             dto.photos?.map { image ->
-                val photoDto = PhotoRoomDto(
+                val photoDto = com.example.repository.db.dto.PhotoRoomDto(
                     id = null,
                     eventId = id.toInt(),
                     photoUrl = image
@@ -89,23 +89,24 @@ class NewsRepositoryImpl @Inject constructor(
         }
     }
 
-    private fun EventDto.toRoomDto() = EventsRoomDto(
-        id = this.id ?: -1,
-        name = this.name ?: "",
-        description = this.description ?: "",
-        createAt = this.createAt ?: Date(),
-        address = this.address ?: "",
-        status = this.status ?: -1,
-        startDate = this.startDate ?: Date(),
-        endDate = this.endDate ?: Date(),
-        phone = this.phone ?: "",
-        category = this.category ?: -1,
-        organisation = this.organisation ?: ""
-    )
+    private fun com.example.repository.dto.events.EventDto.toRoomDto() =
+        com.example.repository.db.dto.EventsRoomDto(
+            id = this.id ?: -1,
+            name = this.name ?: "",
+            description = this.description ?: "",
+            createAt = this.createAt ?: Date(),
+            address = this.address ?: "",
+            status = this.status ?: -1,
+            startDate = this.startDate ?: Date(),
+            endDate = this.endDate ?: Date(),
+            phone = this.phone ?: "",
+            category = this.category ?: -1,
+            organisation = this.organisation ?: ""
+        )
 
-    private fun List<EventDto>.toRoomEntityList() = map {
-        EventWitPhotos(
-            event = EventsRoomDto(
+    private fun List<com.example.repository.dto.events.EventDto>.toRoomEntityList() = map {
+        com.example.repository.db.dto.EventWitPhotos(
+            event = com.example.repository.db.dto.EventsRoomDto(
                 id = it.id ?: -1,
                 name = it.name ?: "",
                 description = it.description ?: "",
@@ -118,9 +119,9 @@ class NewsRepositoryImpl @Inject constructor(
                 category = it.category ?: -1,
                 organisation = it.organisation ?: ""
             ),
-            eventPhotos = listOf<PhotoRoomDto>().apply {
+            eventPhotos = listOf<com.example.repository.db.dto.PhotoRoomDto>().apply {
                 it.photos?.forEach { image ->
-                    PhotoRoomDto(
+                    com.example.repository.db.dto.PhotoRoomDto(
                         id = it.id ?: -1,
                         eventId = it.id ?: -1,
                         photoUrl = image
@@ -130,11 +131,11 @@ class NewsRepositoryImpl @Inject constructor(
         )
     }
 
-    private fun EventsDto.toEntity() = EventsEntity(
+    private fun com.example.repository.dto.events.EventsDto.toEntity() = EventsEntity(
         events = this.eventDtos?.toEntityList() ?: arrayListOf()
     )
 
-    private fun List<EventDto>.toEntityList() = map {
+    private fun List<com.example.repository.dto.events.EventDto>.toEntityList() = map {
         EventEntity(
             id = it.id ?: -1,
             title = it.name ?: "",

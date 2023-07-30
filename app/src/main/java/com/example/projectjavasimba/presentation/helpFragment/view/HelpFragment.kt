@@ -10,12 +10,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.common.utils.SESSION_CATEGORY
+import com.example.common.utils.SESSION_CATEGORY
 import com.example.projectjavasimba.common.utils.hide
-import com.example.projectjavasimba.common.utils.isFirstEnter
+import com.example.common.utils.isFirstEnter
 import com.example.projectjavasimba.common.utils.show
 import com.example.projectjavasimba.domain.entity.Category
 import com.example.projectjavasimba.databinding.FragmentHelpragmentBinding

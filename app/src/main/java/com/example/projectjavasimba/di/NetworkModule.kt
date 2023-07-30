@@ -1,7 +1,7 @@
 package com.example.projectjavasimba.di
 
-import com.example.projectjavasimba.repository.api.PostmanApi
-import com.example.projectjavasimba.repository.api.RetrofitBuilder
+import com.example.repository.api.PostmanApi
+import com.example.repository.api.RetrofitBuilder
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

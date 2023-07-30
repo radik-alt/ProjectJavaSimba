@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.Utils
+package com.example.projectjavasimba.common.utils
 
 object StringUtils {
 

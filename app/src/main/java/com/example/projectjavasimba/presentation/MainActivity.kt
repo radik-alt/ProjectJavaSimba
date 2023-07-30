@@ -6,7 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.common.utils.cancelSession
+import com.example.common.utils.cancelSession
 import com.example.projectjavasimba.databinding.ActivityMainBinding
 import com.example.projectjavasimba.di.SimbaApp
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.NewsViewModel

@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.Utils
+package com.example.projectjavasimba.common.utils
 
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
