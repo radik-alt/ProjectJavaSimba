@@ -85,14 +85,14 @@ class DetailFragment : Fragment() {
     }
 
     private fun hideBottomNavigation() {
-        val fragmentActivity = activity
-        if (activity != null) {
-            val bottom =
-                fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-            if (bottom != null && bottom.visibility == View.VISIBLE) {
-                bottom.visibility = View.GONE
-            }
-        }
+//        val fragmentActivity = activity
+//        if (activity != null) {
+//            val bottom =
+//                fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//            if (bottom != null && bottom.visibility == View.VISIBLE) {
+//                bottom.visibility = View.GONE
+//            }
+//        }
     }
 
     override fun onDestroyView() {

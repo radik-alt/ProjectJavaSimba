@@ -110,13 +110,13 @@ class NewsFragment : Fragment() {
         lifecycleScope.launch {
             countNotReadEventEntity.collect { listCount ->
                 val count = listCount.count { !it.isRead }
-                requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-                    .let {
-                        it.getOrCreateBadge(R.id.newsFragment).let { badge ->
-                            badge.number = count
-                            badge.isVisible = count > 0
-                        }
-                    }
+//                requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//                    .let {
+//                        it.getOrCreateBadge(R.id.newsFragment).let { badge ->
+//                            badge.number = count
+//                            badge.isVisible = count > 0
+//                        }
+//                    }
             }
         }
 
@@ -129,11 +129,11 @@ class NewsFragment : Fragment() {
     private fun showBottomNavigation() {
         val fragmentActivity = activity
         if (activity != null) {
-            val bottom =
-                fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-            if (bottom != null && bottom.visibility == View.GONE) {
-                bottom.show()
-            }
+//            val bottom =
+//                fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//            if (bottom != null && bottom.visibility == View.GONE) {
+//                bottom.show()
+//            }
         }
     }
 

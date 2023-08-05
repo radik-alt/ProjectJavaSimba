@@ -1,0 +1,16 @@
+com.example.main
+id action_newsFragment2_to_detailFragment
+id action_newsFragment2_to_filterFragment
+id bottomNavigationView
+id detailFragment
+id filterFragment
+id fragmentContainerView
+id helpFragment
+id historyFragment
+id main_nav
+id newsFragment
+id profileFragment
+id searchFragment
+layout activity_main
+menu bottom_menu
+navigation main_nav

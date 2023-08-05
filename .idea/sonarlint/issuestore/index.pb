@@ -311,8 +311,6 @@ oapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/viewmo
 capp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/CategoryAdapter.kt,1\d\1dc746d40889320a32197a691e266492503fa30f
 ©
 yapp/src/main/java/com/example/projectjavasimba/presentation/detailNewsFragment/adapter/imageAdapter/ImageDetailAdapter.kt,5\8\581659838297759a4c68b139b17d70920bee886c
-“
-capp/src/main/java/com/example/projectjavasimba/presentation/profileFragment/view/ProfileFragment.kt,6\6\661b3851480db4b4645cad8b7da5ac6f8d6b7bab
 ¢
 rapp/src/main/java/com/example/projectjavasimba/presentation/adapter/categoryDetailAdapter/CategoryDetailAdapter.kt,9\0\909326c36b31ec4716ad9451ba7402ff769249b5
 ‘

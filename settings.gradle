@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ProjectJavaSimba"
 include ':app'
+include ':main'
+include ':auth'
+include ':profile'
+include ':core'

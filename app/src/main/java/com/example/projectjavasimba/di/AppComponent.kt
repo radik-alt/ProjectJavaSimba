@@ -1,7 +1,7 @@
 package com.example.projectjavasimba.di
 
 import android.app.Application
-import com.example.projectjavasimba.presentation.MainActivity
+import com.example.main.presentation.MainActivity
 import com.example.projectjavasimba.presentation.filterFragment.view.FilterFragment
 import com.example.projectjavasimba.presentation.helpFragment.view.HelpFragment
 import com.example.projectjavasimba.presentation.newsFragment.view.NewsFragment

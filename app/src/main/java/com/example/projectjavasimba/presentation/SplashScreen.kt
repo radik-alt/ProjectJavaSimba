@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.presentation.auth.view.AuthActivity
+import com.example.auth.presentation.view.AuthActivity
 import kotlinx.coroutines.*
 
 class SplashScreen : AppCompatActivity() {
