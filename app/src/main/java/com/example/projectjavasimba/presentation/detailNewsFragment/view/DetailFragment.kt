@@ -14,7 +14,6 @@ import com.example.projectjavasimba.databinding.FragmentDetailBinding
 import com.example.projectjavasimba.presentation.adapter.categoryDetailAdapter.CategoryDetailAdapter
 import com.example.projectjavasimba.presentation.detailNewsFragment.adapter.friendsDetailAdapter.FriendsDetailAdapter
 import com.example.projectjavasimba.presentation.detailNewsFragment.adapter.imageAdapter.ImageDetailAdapter
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DetailFragment : Fragment() {
 
@@ -48,41 +47,41 @@ class DetailFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        setData()
+//        setData()
         hideBottomNavigation()
     }
 
-    private fun setData() {
-        val event = args.event
-        binding.run {
-            title.text = event.title
-            description.text = event.description
-            date.text = event.startDate.toString()
-            countFriends.text = "3"
-            street.text = event.street
-            phone.text = event.phone
-            setDefaultAdapter()
-        }
-    }
+//    private fun setData() {
+//        val event = args.event
+//        binding.run {
+//            title.text = event.title
+//            description.text = event.description
+//            date.text = event.startDate.toString()
+//            countFriends.text = "3"
+//            street.text = event.street
+//            phone.text = event.phone
+//            setDefaultAdapter()
+//        }
+//    }
 
-    private fun setDefaultAdapter() {
-        binding.recyclerImageDetail.adapter = ImageDetailAdapter(args.event.listImage)
-
-        binding.recyclerHelpDetail.adapter = CategoryDetailAdapter(
-            listOf(
-                CategoryDetail(getString(R.string.help_shirt), R.drawable.shirt),
-                CategoryDetail(getString(R.string.state_hands), R.drawable.hands),
-                CategoryDetail(getString(R.string.prof_help), R.drawable.tools),
-                CategoryDetail(getString(R.string.help_many), R.drawable.coins)
-            )
-        )
-        binding.recyclerHelpDetail.layoutManager =
-            GridLayoutManager(requireContext(), 2)
-
-        val listFriends = listOf(1, 2, 3, 4, 5, 6, 7)
-        binding.recyclerFriendsDetail.adapter = FriendsDetailAdapter(listFriends.take(3))
-        binding.countFriends.text = "+${listFriends.size}"
-    }
+//    private fun setDefaultAdapter() {
+//        binding.recyclerImageDetail.adapter = ImageDetailAdapter(args.event.listImage)
+//
+//        binding.recyclerHelpDetail.adapter = CategoryDetailAdapter(
+//            listOf(
+//                CategoryDetail(getString(R.string.help_shirt), R.drawable.shirt),
+//                CategoryDetail(getString(R.string.state_hands), R.drawable.hands),
+//                CategoryDetail(getString(R.string.prof_help), R.drawable.tools),
+//                CategoryDetail(getString(R.string.help_many), R.drawable.coins)
+//            )
+//        )
+//        binding.recyclerHelpDetail.layoutManager =
+//            GridLayoutManager(requireContext(), 2)
+//
+//        val listFriends = listOf(1, 2, 3, 4, 5, 6, 7)
+//        binding.recyclerFriendsDetail.adapter = FriendsDetailAdapter(listFriends.take(3))
+//        binding.countFriends.text = "+${listFriends.size}"
+//    }
 
     private fun hideBottomNavigation() {
 //        val fragmentActivity = activity

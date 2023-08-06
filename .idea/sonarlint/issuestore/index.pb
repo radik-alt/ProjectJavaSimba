@@ -9,12 +9,8 @@ w
 G.idea/sonarlint/issuestore/7/0/70bb08cb2fbf6d667358345d270663d8b9913c58,4\9\494f7cf7dee247635c13019ff90f0f2105d3d621
 w
 G.idea/sonarlint/issuestore/4/d/4d86f9e4ea282d3ca53a4965523929dfeedd2502,a\6\a6bc7b7558d1ee20bbe6b024067e4d5af28f29f0
-}
-Mapp/src/main/java/com/example/projectjavasimba/common/utils/HingeAnimation.kt,8\7\87e66f3b2c1ffebad3aca430b34c1ee0fe1caee2
 ‘
 aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter/HelpViewHolder.kt,0\e\0e29d5953525444ed1ed516526219c21349170da
-x
-Happ/src/main/java/com/example/projectjavasimba/common/utils/Constants.kt,a\b\ab4f2aa261ae723e140ff074143d3e8dd7d42174
 t
 Dapp/src/main/java/com/example/projectjavasimba/common/utils/Utils.kt,a\2\a288b6d09c49cb48afe049458196a1d62ef81b1d
 †
@@ -123,8 +119,6 @@ w
 Gapp/src/main/java/com/example/projectjavasimba/OtherTasks/MainKotlin.kt,c\d\cd9449a0d04459b9b677291a02ba954d303a4228
 –
 fapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/CategoryViewHolder.kt,0\3\037298580a311e590f37a9d8ee0416b966727467
-“
-capp/src/main/java/com/example/projectjavasimba/presentation/meetingFragment/view/MeetingFragment.kt,1\2\12802bf56ba66370cb2ddae02d0b5bec0e05b8ca
 v
 Fapp/src/test/java/com/example/projectjavasimba/ArraysTrainingTest.java,3\0\3015db28207d36b308954224b39539abbcb6766b
 ‚
@@ -317,8 +311,6 @@ rapp/src/main/java/com/example/projectjavasimba/presentation/adapter/categoryDet
 aapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/HelperAdapter.kt,8\3\83e4cb9f308fe4f72b2a72740f8729d288ebd194
 “
 capp/src/main/java/com/example/projectjavasimba/presentation/searchFragment/adapter/SearchAdapter.kt,b\4\b402b9bc6dfbd9ca8ce32b158bf36e407730215e
-‘
-aapp/src/main/java/com/example/projectjavasimba/presentation/searchFragment/view/SearchFragment.kt,f\4\f403ddf72222b7da08a7d5ceab7db5dbc7be80e0
 „
 Tapp/src/main/java/com/example/projectjavasimba/data_impl/callable/MyCallableEvent.kt,2\f\2f7ace070dead96148f5d8a4a4f4798863d79531
 ‡

@@ -99,9 +99,9 @@ class NewsFragment : Fragment() {
                         if (!event.isRead) {
                             newsViewModel.updateItemBadge(event)
                         }
-                        findNavController().navigate(
-                            NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
-                        )
+//                        findNavController().navigate(
+//                            NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
+//                        )
                     }
                 }
             }

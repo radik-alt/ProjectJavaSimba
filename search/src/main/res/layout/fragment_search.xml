@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.searchFragment.view.SearchFragment">
+
+
+    <LinearLayout
+        android:background="@color/green_color"
+        android:layout_width="match_parent"
+        android:padding="10sp"
+        android:layout_height="wrap_content">
+
+        <SearchView
+            android:background="@drawable/bg_search_view"
+            android:id="@+id/sv_search"
+            app:voiceIcon="@drawable/ic_baseline_file_download_24"
+            android:iconifiedByDefault="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green_color"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabTextAppearance="@android:style/TextAppearance.Material.Notification.Title"
+        app:tabIndicatorColor="@color/select_tab_color"
+        app:tabTextColor="@color/gray_color"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorAnimationMode="elastic"/>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerSearch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

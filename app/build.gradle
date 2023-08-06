@@ -49,12 +49,14 @@ ktlint {
 
 dependencies {
     implementation(project(":main"))
+    implementation(project(":profile"))
     implementation(project(":auth"))
 
 
     implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation project(path: ':core')
     testImplementation 'junit:junit:4.13.2'
     implementation "androidx.activity:activity-ktx:1.6.1"
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
