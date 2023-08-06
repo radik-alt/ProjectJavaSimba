@@ -1,9 +1,9 @@
-package com.example.projectjavasimba.presentation.adapter.placeholder
+package com.example.base.placeholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projectjavasimba.databinding.ItemPlaceholderBinding
+import com.example.core.databinding.ItemPlaceholderBinding
 import kotlin.random.Random
 
 class PlaceHolderAdapter(

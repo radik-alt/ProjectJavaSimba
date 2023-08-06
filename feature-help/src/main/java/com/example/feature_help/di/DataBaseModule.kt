@@ -1,0 +1,26 @@
+package com.example.feature_help.di
+
+import android.app.Application
+import androidx.room.Room
+import com.example.core.repository.db.SimbaDataBase
+import dagger.Module
+import dagger.Provides
+import javax.inject.Singleton
+
+@Module
+object DataBaseModule {
+
+    @Provides
+    @Singleton
+    fun provideSimbaDatabase(context: Application): SimbaDataBase {
+        return Room.databaseBuilder(
+            context.applicationContext,
+            SimbaDataBase::class.java,
+            "SimbaDataBase"
+        )
+            .fallbackToDestructiveMigration()
+            .build()
+
+    }
+
+}

@@ -1,13 +1,11 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-parcelize")
     id("kotlin-kapt")
-    id("androidx.navigation.safeargs")
 }
 
 android {
-    namespace = "com.example.main"
+    namespace = "com.example.feature_help"
     compileSdk = 33
 
     defaultConfig {
@@ -40,9 +38,6 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":profile"))
-    implementation(project(":search"))
-    implementation(project(":feature-help"))
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
@@ -52,11 +47,15 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+    implementation("com.google.code.gson:gson:2.9.0")
 
     implementation("com.google.dagger:dagger-android:2.40")
     implementation("com.google.dagger:dagger-android-support:2.40")
     kapt("com.google.dagger:dagger-android-processor:2.40")
     kapt("com.google.dagger:dagger-compiler:2.40")
+
+    implementation("androidx.room:room-ktx:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
+
+    implementation("com.github.bumptech.glide:glide:4.14.2")
 }

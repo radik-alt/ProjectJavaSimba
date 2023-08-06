@@ -265,8 +265,6 @@ Q.idea/sonarlint/securityhotspotstore/5/d/5d5e64306e708166496bec91d936bc9559e7ed
 Q.idea/sonarlint/securityhotspotstore/1/7/17bb08f17e4e6b744311647f8eebfe2f70f59fb9,7\5\759108ffb4bb3fee0bf495fbdf03bab97c88d79a
 Å
 Q.idea/sonarlint/securityhotspotstore/5/9/594b1622f6b1e23dd0f7586a51aa1dd0cf61d028,5\e\5effff74b7828128c86a44e250ae3ac474b85533
-z
-Japp/src/main/java/com/example/projectjavasimba/common/utils/DefaultData.kt,0\a\0a37bf91111944e7999698db0e18a882114a62ab
 x
 Happ/src/main/java/com/example/projectjavasimba/common/utils/UtilsNews.kt,0\9\09208bed6bc4d01436a503b8abe8c2667a81ce90
 ¥
@@ -277,10 +275,6 @@ eapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAd
 capp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAdapter/NewsAdapter.kt,0\6\06d4068ec8cfe6b912932bbd1ece482386113036
 ñ
 fapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAdapter/NewsViewHolder.kt,d\8\d85ed2b3680ee538ca33778e56eb781fe7d3af4d
-î
-dapp/src/main/java/com/example/projectjavasimba/presentation/adapter/MessageAdapter/MessageAdapter.kt,3\4\34e39effd3859f7021e998d9e69f2c9c58f910e0
-ï
-eapp/src/main/java/com/example/projectjavasimba/presentation/adapter/placeholder/PlaceHolderAdapter.kt,a\8\a865c33bebe5ad9ddf4dd67a90cd09b5e4a0a4da
 î
 dapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/HelperViewHolder.kt,3\6\36ec1b0bca3816894465c76c1f400492ecc0ed8e
 á

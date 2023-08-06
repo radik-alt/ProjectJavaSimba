@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.projectjavasimba.R
@@ -17,8 +16,8 @@ import com.example.projectjavasimba.domain.entity.TypeHelp
 import com.example.projectjavasimba.databinding.FragmentFilterBinding
 import com.example.projectjavasimba.di.SimbaApp
 import com.example.projectjavasimba.presentation.adapter.HelpAdapter.HelpAdapter
-import com.example.projectjavasimba.presentation.adapter.MessageAdapter.MessageAdapter
-import com.example.projectjavasimba.presentation.adapter.placeholder.PlaceHolderAdapter
+import com.example.base.MessageAdapter.MessageAdapter
+import com.example.base.placeholder.PlaceHolderAdapter
 import com.example.projectjavasimba.presentation.helpFragment.adapter.CategoryAdapter
 import com.example.projectjavasimba.presentation.filterFragment.viewmodel.FilterViewModel
 import com.example.projectjavasimba.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel

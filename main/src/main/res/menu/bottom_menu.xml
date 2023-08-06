@@ -13,7 +13,7 @@
 
     <item
         android:icon="@drawable/heart"
-        android:id="@+id/helpFragment"
+        android:id="@+id/help_fragment"
         android:title="@string/help"/>
 
     <item

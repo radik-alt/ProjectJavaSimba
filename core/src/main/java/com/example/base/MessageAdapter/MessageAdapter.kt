@@ -1,9 +1,9 @@
-package com.example.projectjavasimba.presentation.adapter.MessageAdapter
+package com.example.base.MessageAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projectjavasimba.databinding.LayoutErrorMessageBinding
+import com.example.core.databinding.LayoutErrorMessageBinding
 
 class MessageAdapter(
     private val errorMessage: String

@@ -16,4 +16,8 @@
         tools:layout="@layout/profile_layout"
         android:name="com.example.profile.presentation.view.ProfileFragment"
         android:label="@string/profile"/>
+    <fragment
+        android:id="@+id/help_fragment"
+        android:name="com.example.feature_help.presentation.view.HelpFragment"
+        android:label="HelpFragment" />
 </navigation>
