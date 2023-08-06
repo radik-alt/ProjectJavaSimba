@@ -68,9 +68,9 @@ class NewsFragment : Fragment() {
 
         with(binding.toolbarNews) {
             filter.setOnClickListener {
-                findNavController().navigate(
-                    NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
-                )
+//                findNavController().navigate(
+//                    NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
+//                )
             }
         }
     }

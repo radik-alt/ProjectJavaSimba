@@ -12,6 +12,8 @@ import com.example.core.utils.HingeAnimation
 import com.example.search.presentation.searchFragment.viewmodel.SearchViewPagerViewModel
 import com.example.search.R
 import com.example.search.databinding.FragmentSearchBinding
+import com.example.search.presentation.meetingFragment.view.MeetingFragment
+import com.example.search.presentation.nkoFragment.view.NKOFragment
 import com.example.search.presentation.searchFragment.adapter.MySearchViewPager
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.Dispatchers
@@ -59,8 +61,8 @@ class SearchFragment : Fragment() {
         binding.viewPagerSearch.adapter = MySearchViewPager(
             requireActivity(),
             arrayListOf(
-//                MeetingFragment(),
-//                NKOFragment()
+                MeetingFragment(),
+                NKOFragment()
             )
         )
         TabLayoutMediator(binding.tabLayout, binding.viewPagerSearch) { tab, pos ->

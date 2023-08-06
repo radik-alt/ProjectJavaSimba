@@ -38,8 +38,6 @@ Napp/src/main/java/com/example/projectjavasimba/OtherTasks/KotlinSecond/Type.kt
 ¬
 |app/src/main/java/com/example/projectjavasimba/presentation/detailNewsFragment/adapter/imageAdapter/ImageDetailViewHolder.kt,1\7\17bb08f17e4e6b744311647f8eebfe2f70f59fb9
 ‹
-[app/src/main/java/com/example/projectjavasimba/presentation/nkoFragment/view/NKOFragment.kt,a\d\ad735c80ca9e3566e097457c60acef527dcf556b
-‹
 [app/src/main/java/com/example/projectjavasimba/OtherTasks/classes/three/ThirdInterface.java,8\d\8dd9ff8b60a98af1b8af57bb82e638be3a7d54e1
 Š
 Zapp/src/main/java/com/example/projectjavasimba/OtherTasks/training/ElementaryTraining.java,6\9\6980d2d3bfee06091987055d74d742f70cda0384

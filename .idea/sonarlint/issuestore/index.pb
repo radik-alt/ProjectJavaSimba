@@ -71,8 +71,6 @@ Kapp/src/main/java/com/example/projectjavasimba/OtherTasks/classes/Main.java,c\
 iapp/src/main/java/com/example/projectjavasimba/OtherTasks/collections/TaskCollection/dto/MarkSubject.java,b\0\b0dde7d8111445b84d997f90bd87f27a6a590887
 ‹
 [app/src/main/java/com/example/projectjavasimba/OtherTasks/BlockTwoJava/FIrst/MyClosure.java,5\7\57a3003351653d7bd591dc0d0b87593b24ff3615
-‹
-[app/src/main/java/com/example/projectjavasimba/presentation/nkoFragment/view/NKOFragment.kt,a\d\ad735c80ca9e3566e097457c60acef527dcf556b
 ‚
 Rapp/src/main/java/com/example/projectjavasimba/OtherTasks/classes/seven/Order.java,6\5\6566a5cb2a540c39b6c61cf655ed66c08860f698
 „

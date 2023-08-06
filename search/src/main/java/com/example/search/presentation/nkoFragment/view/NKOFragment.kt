@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.nkoFragment.view
+package com.example.search.presentation.nkoFragment.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.common.Utils
-import com.example.projectjavasimba.databinding.FragmentNKOBinding
-import com.example.projectjavasimba.presentation.searchFragment.adapter.SearchAdapter
+import com.example.search.databinding.FragmentNKOBinding
+import com.example.search.presentation.searchFragment.adapter.SearchAdapter
 
 
 class NKOFragment : Fragment() {
 
-    private var _binding:FragmentNKOBinding?=null
+    private var _binding: FragmentNKOBinding?=null
     private val binding:FragmentNKOBinding
         get() = _binding ?: throw RuntimeException()
 

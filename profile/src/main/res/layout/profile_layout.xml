@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingBottom="20sp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="20sp">
 
         <LinearLayout
-            android:padding="10sp"
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:fontFamily="@font/roboto_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/name_user"
                 android:textColor="@color/color_text"
                 android:textSize="24sp" />
 
             <TextView
-                android:fontFamily="@font/roboto_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30sp"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/text_birthday"
                 android:textSize="12sp" />
 
             <TextView
-                android:fontFamily="@font/roboto_regular"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5sp"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/birthday"
                 android:textColor="@color/color_text"
                 android:textSize="16sp" />
 
             <TextView
-                android:fontFamily="@font/roboto_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/Field_of_activity"
                 android:textSize="12sp" />
 
             <TextView
-                android:fontFamily="@font/roboto_regular"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5sp"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/default_work"
                 android:textColor="@color/color_text"
                 android:textSize="16sp" />
@@ -69,18 +69,18 @@
 
 
         <GridLayout
-            android:padding="10sp"
             android:id="@+id/gridLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:columnCount="2"
+            android:padding="10sp"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <TextView
-                android:fontFamily="@font/roboto_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/get_push_notification_text"
                 android:textColor="@color/color_text"
                 android:textSize="16sp" />
@@ -107,17 +107,17 @@
                 android:background="@color/gray_color" />
 
             <TextView
-                android:fontFamily="@font/roboto_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:layout_marginTop="20sp"
                 android:layout_marginBottom="10sp"
+                android:fontFamily="@font/roboto_regular"
                 android:text="@string/your_friends"
                 android:textSize="12sp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerFriends"
+                android:id="@+id/rv_friends"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:overScrollMode="never"
@@ -132,12 +132,11 @@
                 android:background="@color/gray_color" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:fontFamily="@font/roboto_regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20sp"
-                android:background="@drawable/button_background"
+                android:fontFamily="@font/roboto_regular"
                 android:paddingStart="16sp"
                 android:paddingEnd="16sp"
                 android:text="@string/exit_button"

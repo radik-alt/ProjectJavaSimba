@@ -21,7 +21,7 @@ class DetailFragment : Fragment() {
     private val binding: FragmentDetailBinding
         get() = _binding ?: throw RuntimeException("FragmentDetailBinding == null")
 
-    private val args: DetailFragmentArgs by navArgs()
+//    private val args: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

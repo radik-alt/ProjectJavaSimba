@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="indiement5">5dp</dimen>
+    <dimen name="indiement10">10dp</dimen>
+    <dimen name="indiement15">15dp</dimen>
+    <dimen name="indiement20">20dp</dimen>
+    <dimen name="size_picture_dialog">30sp</dimen>
+    <dimen name="margin_allow_item_dialog">30sp</dimen>
+    <dimen name="size_text_dialog">20sp</dimen>
+    <dimen name="indiment_20">20sp</dimen>
+    <dimen name="indiment_10">10sp</dimen>
+    <dimen name="indiment_15">15sp</dimen>
+    <dimen name="indiment_5">5sp</dimen>
+
+    <dimen name="default_size_text">14sp</dimen>
+</resources>

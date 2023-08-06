@@ -69,7 +69,7 @@ class ProfileFragment : Fragment() {
         val friends2 = Friends(null, "Евгений Александров", R.drawable.avatar_1)
         val friends3 = Friends(null, "Виктор Кузнецов", R.drawable.avatar_2)
 
-        binding.contentProfile.recyclerFriends.adapter =
+        binding.contentProfile.rvFriends
             AdapterFriends(listOf(friends, friends2, friends3))
     }
 
