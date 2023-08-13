@@ -1,8 +1,4 @@
 
-ó
-gapp/src/main/java/com/example/projectjavasimba/presentation/adapter/friendsAdapter/ViewHolderFriends.kt,d\0\d0ac42f3afdc4c8dc75fb9c8ba7d115d874124aa
-w
-G.idea/sonarlint/issuestore/d/0/d0ac42f3afdc4c8dc75fb9c8ba7d115d874124aa,f\b\fbb14eccc0d7cf1d2794571a856c74f8bc186057
 w
 G.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233,3\c\3c8c56407c35e5f5ebbd6c7250a79af8128a13a6
 w
@@ -232,12 +228,6 @@ Q.idea/sonarlint/securityhotspotstore/5/7/57a3003351653d7bd591dc0d0b87593b24ff36
 Å
 Q.idea/sonarlint/securityhotspotstore/a/0/a0877459e6c03fa33499fa83e49462df3d239e85,2\1\2187ef007817c2629b1ae5634ac2a73b1f2c2ba0
 Å
-Q.idea/sonarlint/securityhotspotstore/3/4/34e39effd3859f7021e998d9e69f2c9c58f910e0,2\2\22846c69489c70e8c35ad6edff4ed4fcc0cbb7cc
-Å
-Q.idea/sonarlint/securityhotspotstore/8/7/87e66f3b2c1ffebad3aca430b34c1ee0fe1caee2,2\7\27296a5afc31e78232e16e6c8e436a0a85257d6d
-w
-G.idea/sonarlint/issuestore/3/4/34e39effd3859f7021e998d9e69f2c9c58f910e0,5\a\5a77211f41fe98d5b531f52e75aad9c3b397ac9c
-Å
 Q.idea/sonarlint/securityhotspotstore/9/d/9dd7b9ee6c2e3efb6e81ab8f608d00b8430eeef6,f\c\fc37e094b7bf698dbeef8d834543d096321f54c2
 Å
 Q.idea/sonarlint/securityhotspotstore/0/0/00363528babef2c60055464bb15ce255af9d8495,b\8\b868af85505c25e7bbf2885e5d4cefab84f1546b
@@ -253,8 +243,6 @@ Q.idea/sonarlint/securityhotspotstore/b/0/b0dde7d8111445b84d997f90bd87f27a6a5908
 Q.idea/sonarlint/securityhotspotstore/1/3/13f390c77bcef1039c4ce7e99207e221ffd5ad64,a\3\a3a1741b2e60c5ad58d642ed73647ba7acfe0e94
 Å
 Q.idea/sonarlint/securityhotspotstore/1/9/19fe6f2c7a7bb9e03dc579fb96a799ba1083ed99,d\5\d5e07cbc34555b5b31033e8197a39cc40400cda3
-w
-G.idea/sonarlint/issuestore/8/7/87e66f3b2c1ffebad3aca430b34c1ee0fe1caee2,e\4\e4bf474cb04e0267a452f7db01f860cf4b41dfa9
 w
 G.idea/sonarlint/issuestore/c/d/cd9449a0d04459b9b677291a02ba954d303a4228,6\8\68537b9c6a13d026a0b8620918f7e2961cf2738e
 Å
@@ -318,8 +306,6 @@ G.idea/sonarlint/issuestore/1/d/1dc746d40889320a32197a691e266492503fa30f,2\0\20
 w
 G.idea/sonarlint/issuestore/8/3/83e4cb9f308fe4f72b2a72740f8729d288ebd194,6\a\6ad73bbd53ad37d8d1fd08834b6e48d4ff3ed93b
 w
-G.idea/sonarlint/issuestore/6/6/661b3851480db4b4645cad8b7da5ac6f8d6b7bab,2\f\2fc61b03426a8934fa68174a00403cdd4f3967cf
-w
 G.idea/sonarlint/issuestore/5/8/581659838297759a4c68b139b17d70920bee886c,f\7\f7540d42995eb6d48100935f7beb926f85905b84
 w
 G.idea/sonarlint/issuestore/f/0/f07866736216be0ee2aba49e392191aeae700a35,b\f\bfb9453d49af9bc40f5f7a5f034be3c7ef8fa6bf
@@ -327,8 +313,6 @@ w
 G.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e,3\2\32813322c99a6c8a141ab2dc12bc10af3425f1b4
 Å
 Q.idea/sonarlint/securityhotspotstore/e/f/efa5e3262dee67a0fdd5c5b4f030c0fc33196093,f\5\f5b6146a1ad219f724017e9a88814a565c487235
-Å
-Q.idea/sonarlint/securityhotspotstore/c/5/c57fad6b4dfa94b49770b1460abafc974c4a16d5,4\5\450652b7806da6e94d5ba22bcf74981dbb88337f
 Å
 Q.idea/sonarlint/securityhotspotstore/1/d/1dc746d40889320a32197a691e266492503fa30f,0\2\02df15244f26692ec0c922d7326f703ce7f54117
 Å
@@ -344,11 +328,7 @@ Q.idea/sonarlint/securityhotspotstore/8/9/89948cca6a5437d70cf44c1a57cc8f24bcfd6c
 Å
 Q.idea/sonarlint/securityhotspotstore/8/3/83e4cb9f308fe4f72b2a72740f8729d288ebd194,6\1\61950bc3e1890e8a83cc05101e01f8f3a7123ed2
 Å
-Q.idea/sonarlint/securityhotspotstore/6/6/661b3851480db4b4645cad8b7da5ac6f8d6b7bab,a\a\aa72a0a6b8a2e4f9d352e35da7cab1ee3b1b1df6
-Å
 Q.idea/sonarlint/securityhotspotstore/5/8/581659838297759a4c68b139b17d70920bee886c,a\1\a1b967d57aadda4f2bfb4e0943a9f79a5a6725b9
-w
-G.idea/sonarlint/issuestore/c/5/c57fad6b4dfa94b49770b1460abafc974c4a16d5,5\8\586073ec72c4b589a4a4f02b220c77fa9a897d57
 Å
 Q.idea/sonarlint/securityhotspotstore/f/0/f07866736216be0ee2aba49e392191aeae700a35,2\5\25f6469773b9f3ebb994178c1114a60412389f58
 Å
@@ -385,3 +365,35 @@ Sapp/src/main/java/com/example/projectjavasimba/repository/db/utils/DateConverto
 Sapp/src/main/java/com/example/projectjavasimba/repository/db/dto/CategoryRoomDto.kt,3\7\37cc07bcfcd1fc252aff2c38daa1cf6899de3917
 {
 Kapp/src/main/java/com/example/projectjavasimba/domain/entity/EventEntity.kt,6\3\6348f2b758ce85266524a1e9b646eea6a4f0b488
+a
+1di/src/main/java/com/example/di/DataBaseModule.kt,4\3\43c6647e75725b0ba13734763fd25a7ceb8d9517
+[
++di/src/main/java/com/example/di/SimbaApp.kt,6\9\693cea3fdc4c5c0ec45e578d2ffe687c9eb1ac53
+_
+/di/src/main/java/com/example/di/AppComponent.kt,2\3\23c9bd769a52594e4b4e09ef9224b202441ac45c
+Ö
+Ufeature-help/src/main/java/com/example/feature_help/presentation/view/HelpFragment.kt,0\e\0e169955bfe6fce64d1587d3237e56bb53cd6a00
+ç
+]app/src/main/java/com/example/projectjavasimba/presentation/newsFragment/view/NewsFragment.kt,3\0\3010f2603e5783d7e68ff20d2e90be2a4bffcaed
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+`
+0di/src/main/java/com/example/di/NetworkModule.kt,c\0\c08fde8cd9514dcc8a5fb5c296d49095e4ed2c02
+p
+@main/src/main/java/com/example/main/presentation/MainActivity.kt,1\4\14a390227bfc1f6ddc163f4ae123394b642683b7
+ë
+aapp/src/main/java/com/example/projectjavasimba/presentation/filterFragment/view/FilterFragment.kt,b\0\b0c1c671d3e4e82bd0f53d96c202b2dec545a90d
+w
+Gfeature-help/src/main/java/com/example/feature_help/di/NetworkModule.kt,a\3\a311f1c9bae579f7a539226440349811b73985c2
+q
+Aapp/src/main/java/com/example/projectjavasimba/di/DomainModule.kt,7\7\7761288fdcb9dd02a55fb75d98c777b9fadb5f2d
+o
+?app/src/main/java/com/example/projectjavasimba/di/DataModule.kt,d\9\d9931dff92d5ddb08bbe06e7a1d3004c22158125
+x
+Hfeature-help/src/main/java/com/example/feature_help/di/DataBaseModule.kt,5\e\5eaf2c790d41e5c54626684a4446d9e598c2b8e6
+t
+Dfeature-help/src/main/java/com/example/feature_help/di/DataModule.kt,0\b\0ba189055543ecbbdabc8ba3c14781a35c8ae603
+q
+Aapp/src/main/java/com/example/projectjavasimba/di/AppComponent.kt,0\6\0685d5cc2665ed317a3fa51df3c0e963ae08218d
+á
+Wfeature-help/src/main/java/com/example/feature_help/domain/interactor/HelpInteractor.kt,7\3\731142679118e36e982dcbe64a8b1d83d06bd3e0

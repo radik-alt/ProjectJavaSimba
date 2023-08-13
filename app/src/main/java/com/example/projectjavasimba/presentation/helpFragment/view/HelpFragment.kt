@@ -33,23 +33,23 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
     private val binding: FragmentHelpragmentBinding
         get() = _binding ?: throw RuntimeException()
 
-    private val component by lazy {
-        (requireActivity().application as SimbaApp).component
-    }
+//    private val component by lazy {
+//        (requireActivity().application as SimbaApp).component
+//    }
 
-    @Inject
-    lateinit var viewModel: HelpViewModel
+//    @Inject
+//    lateinit var viewModel: HelpViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        component.inject(this)
+//        component.inject(this)
     }
     override fun onResume() {
         super.onResume()
         if (binding.rvHelper.adapter == null) {
-            observable()
+//            observable()
             val session = isFirstEnter(requireContext(), SESSION_CATEGORY)
-            viewModel.getParseListCategory(session)
+//            viewModel.getParseListCategory(session)
             binding.rvHelper.adapter = PlaceHolderAdapter()
             binding.selectCategoryTitle.hide()
         }
@@ -72,18 +72,18 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
         }
     }
 
-    private fun observable() = with(viewModel) {
-        listCategory.observe(this@HelpFragment) { listCategory ->
-            binding.selectCategoryTitle.show()
-            binding.rvHelper.adapter = HelperAdapter(listCategory)
-            binding.rvHelper.layoutManager = GridLayoutManager(requireContext(), 2)
-        }
-
-        messageError.observe(this@HelpFragment) { message ->
-            binding.selectCategoryTitle.hide()
-            binding.rvHelper.adapter = MessageAdapter(message)
-        }
-    }
+//    private fun observable() = with(viewModel) {
+//        listCategory.observe(this@HelpFragment) { listCategory ->
+//            binding.selectCategoryTitle.show()
+//            binding.rvHelper.adapter = HelperAdapter(listCategory)
+//            binding.rvHelper.layoutManager = GridLayoutManager(requireContext(), 2)
+//        }
+//
+//        messageError.observe(this@HelpFragment) { message ->
+//            binding.selectCategoryTitle.hide()
+//            binding.rvHelper.adapter = MessageAdapter(message)
+//        }
+//    }
 
     private fun startService() {
         val serviceIntent = Intent(requireContext(), ServiceGetData::class.java)
