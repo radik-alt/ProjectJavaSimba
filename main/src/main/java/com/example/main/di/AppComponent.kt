@@ -3,7 +3,6 @@ package com.example.main.di
 import android.app.Application
 import com.example.feature_help.di.FeatureModule
 import com.example.feature_help.di.HelpComponent
-import com.example.feature_help.presentation.view.HelpFragment
 import com.example.main.presentation.MainActivity
 import dagger.BindsInstance
 import dagger.Component

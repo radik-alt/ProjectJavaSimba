@@ -17,7 +17,6 @@ import kotlin.properties.Delegates.notNull
         DomainModule::class,
         NetworkModule::class,
         ViewModelModule::class,
-        FeatureModule::class
     ]
 )
 interface HelpComponent {
