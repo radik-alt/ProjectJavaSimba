@@ -43,6 +43,8 @@ dependencies {
     implementation(project(":profile"))
     implementation(project(":search"))
     implementation(project(":feature-help"))
+    implementation(project(":feature-events"))
+
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))

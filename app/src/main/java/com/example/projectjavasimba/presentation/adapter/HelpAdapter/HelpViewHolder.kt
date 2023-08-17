@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.adapter.HelpAdapter
+package com.example.fil.presentation.adapter.HelpAdapter
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectjavasimba.databinding.ItemHelperBinding

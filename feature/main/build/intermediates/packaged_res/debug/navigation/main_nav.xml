@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.projectjavasimba.presentation.newsFragment.view.NewsFragment"
+        android:name="com.example.feature_events.presentation.newsFragment.view.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.example.projectjavasimba.presentation.filterFragment.view.FilterFragment"
+        android:name="com.example.feature_events.presentation.filter_fragment.view.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter" />
 

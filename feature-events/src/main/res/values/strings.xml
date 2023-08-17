@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">ProjectJavaSimba</string>
+    <string name="download_splash">Загрузка</string>
+    <string name="news">Новости</string>
+    <string name="search">Поиск</string>
+    <string name="help">Помочь</string>
+    <string name="history">История</string>
+    <string name="profile">Профиль</string>
+    <string name="name_user">Константинов Денис</string>
+    <string name="get_push_notification_text">Получать push увеодмелния</string>
+    <string name="default_work">Хирургия, травмотология</string>
+    <string name="birthday">01 февраля 1980</string>
+    <string name="text_birthday">Дата рождния</string>
+    <string name="your_friends">Ваши друзья:</string>
+    <string name="Field_of_activity">Сфера деятельности</string>
+    <string name="exit_button">Выйти из аккаунта</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete">Удалить</string>
+    <string name="make_picture">Сделать снимок</string>
+    <string name="choose_photo">Выбрать фото</string>
+    <string name="text_select_sort_help">Выберите категорию помощи</string>
+    <string name="text_fragment_search">Ключевые слова: мастер-класс, помощь Результаты поиска: 109 мероприятий</string>
+    <string name="default_text_item_search">Благодтворительный фонд Алисы фвфыв</string>
+    <string name="default_title_news">Спонсоры отремонтируют школу-интернат</string>
+    <string name="default_text_news">Дубовская школа-интернат для детей с ограниченными возможностями здоровья стала первой в области …</string>
+    <string name="default_after_down_text_news">Осталось 13 дней (21.09 – 20.10)</string>
+    <string name="default_text_charity">Благотворительный Фонд «Счастливый Мир»</string>
+    <string name="filter">Фильтер</string>
+    <string name="title_detail_fragment">Спонсоры отремонтирую</string>
+    <string name="write_you"><u>Напишите нам</u></string>
+    <string name="to_website"><u>Перейти на сайт организаии</u></string>
+    <string name="category_type_title">Категории помощи</string>
+    <string name="help_shirt">Помочь вещами</string>
+    <string name="state_hands">Стать волонтером</string>
+    <string name="prof_help">Проф помощь</string>
+    <string name="help_many">Помочь деньгами</string>
+    <string name="test_desc_detail_news">Участники и болельщики смогли весело и активно провести время на «Петербургском благотворительном марафоне» и при этом финансово поучаствовать в помощи детям.</string>
+    <string name="load">Загрузка</string>
+    <string name="auth_accros_soc_network">Для участия в мероприятиях войдите в приложение через социальые сети</string>
+    <string name="auth_application">Или авторизуйтесь через приложение</string>
+    <string name="sing_up"><u>Регистрация</u></string>
+    <string name="forgot_pwsrd"><u>Забыли пароль?</u></string>
+    <string name="valid_error_auth">Проверьте корректность введеных данных! Неоюходимо минимиу 6 символов!</string>
+    <string name="meeting_title">По мероприятиям</string>
+    <string name="nko_title">По НКО</string>
+    <string name="unknow_error">Ошибка подключения! Проверьте соединение с интренетом!</string>
+    <string name="error_network">Ошибка запроса! Неполадки с сетью</string>
+    <string name="unknown_error">Ошибка запроса! Попробуйте обновить экран или обратитесь в поддержку</string>
+    <string name="empty_events">Список новостей пуст!</string>
+    <string name="children">Дети</string>
+</resources>

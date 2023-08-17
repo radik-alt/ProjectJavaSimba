@@ -5,8 +5,6 @@ w
 G.idea/sonarlint/issuestore/7/0/70bb08cb2fbf6d667358345d270663d8b9913c58,4\9\494f7cf7dee247635c13019ff90f0f2105d3d621
 w
 G.idea/sonarlint/issuestore/4/d/4d86f9e4ea282d3ca53a4965523929dfeedd2502,a\6\a6bc7b7558d1ee20bbe6b024067e4d5af28f29f0
-‘
-aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter/HelpViewHolder.kt,0\e\0e29d5953525444ed1ed516526219c21349170da
 t
 Dapp/src/main/java/com/example/projectjavasimba/common/utils/Utils.kt,a\2\a288b6d09c49cb48afe049458196a1d62ef81b1d
 †
@@ -275,8 +273,6 @@ fapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/NewsAd
 dapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/HelperViewHolder.kt,3\6\36ec1b0bca3816894465c76c1f400492ecc0ed8e
 Ÿ
 oapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/viewmodel/SharedNewsFilterViewModel.kt,f\3\f3e06a4efcc718a1c2512822e715ce5dd2cd7b27
-“
-capp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/CategoryAdapter.kt,1\d\1dc746d40889320a32197a691e266492503fa30f
 ©
 yapp/src/main/java/com/example/projectjavasimba/presentation/detailNewsFragment/adapter/imageAdapter/ImageDetailAdapter.kt,5\8\581659838297759a4c68b139b17d70920bee886c
 ¢

@@ -1,6 +1,4 @@
 
-‘
-aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter/HelpViewHolder.kt,0\e\0e29d5953525444ed1ed516526219c21349170da
 t
 Dapp/src/main/java/com/example/projectjavasimba/common/utils/Utils.kt,a\2\a288b6d09c49cb48afe049458196a1d62ef81b1d
 ‹
@@ -273,8 +271,6 @@ oapp/src/main/java/com/example/projectjavasimba/presentation/newsFragment/viewmo
 yapp/src/main/java/com/example/projectjavasimba/presentation/detailNewsFragment/adapter/imageAdapter/ImageDetailAdapter.kt,5\8\581659838297759a4c68b139b17d70920bee886c
 ¢
 rapp/src/main/java/com/example/projectjavasimba/presentation/adapter/categoryDetailAdapter/CategoryDetailAdapter.kt,9\0\909326c36b31ec4716ad9451ba7402ff769249b5
-“
-capp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/CategoryAdapter.kt,1\d\1dc746d40889320a32197a691e266492503fa30f
 ‘
 aapp/src/main/java/com/example/projectjavasimba/presentation/helpFragment/adapter/HelperAdapter.kt,8\3\83e4cb9f308fe4f72b2a72740f8729d288ebd194
 “

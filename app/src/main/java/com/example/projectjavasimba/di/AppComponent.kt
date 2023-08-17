@@ -1,11 +1,13 @@
 package com.example.projectjavasimba.di
 
 import android.app.Application
+import com.example.feature_events.di.EventModule
+import com.example.feature_events.di.EventsComponent
 import com.example.feature_help.di.HelpComponent
-import com.example.feature_help.presentation.view.HelpFragment
 import com.example.main.presentation.MainActivity
-import com.example.projectjavasimba.presentation.filterFragment.view.FilterFragment
-import com.example.projectjavasimba.presentation.newsFragment.view.NewsFragment
+import com.example.feature_events.presentation.filter_fragment.view.FilterFragment
+import com.example.feature_events.presentation.newsFragment.view.NewsFragment
+import com.example.feature_help.di.HelpModule
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -16,19 +18,16 @@ import javax.inject.Singleton
         HelpModule::class,
         NetworkModule::class,
         DataBaseModule::class,
-        ViewModelModule::class,
-        DomainModule::class,
-        DataModule::class
+        EventModule::class
     ]
 )
 interface AppComponent {
 
     fun inject(app: SimbaApp)
     fun inject(mainActivity: MainActivity)
-    fun inject(fragment: NewsFragment)
-    fun inject(fragment: FilterFragment)
 
     val helpComponent: HelpComponent.Builder
+    val eventComponent: EventsComponent.Builder
 
     @Component.Factory
     interface Factory {

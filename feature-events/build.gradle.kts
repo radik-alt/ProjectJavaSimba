@@ -31,13 +31,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    viewBinding{
+    viewBinding {
         enable = true
     }
 }
 
 dependencies {
-
     implementation(project(":core"))
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -57,6 +56,9 @@ dependencies {
 
     implementation("androidx.room:room-ktx:2.5.2")
     kapt("androidx.room:room-compiler:2.5.2")
+
+    implementation("androidx.activity:activity-ktx:1.6.1")
+    implementation("androidx.fragment:fragment-ktx:1.5.5")
 
     implementation("com.github.bumptech.glide:glide:4.14.2")
 }

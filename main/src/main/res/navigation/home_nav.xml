@@ -20,4 +20,9 @@
         android:id="@+id/help_fragment"
         android:name="com.example.feature_help.presentation.view.HelpFragment"
         android:label="HelpFragment" />
+    <fragment
+        android:id="@+id/news_fragment"
+        android:name="com.example.feature_events.presentation.newsFragment.view.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 </navigation>
