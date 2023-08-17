@@ -2,17 +2,17 @@ package com.example.projectjavasimba.data_impl
 
 import android.content.Context
 import android.util.Log
+import com.example.core.repository.api.PostmanApi
+import com.example.core.repository.db.SimbaDataBase
+import com.example.core.repository.db.dto.EventWitPhotos
+import com.example.core.repository.db.dto.EventsRoomDto
+import com.example.core.repository.db.dto.PhotoRoomDto
+import com.example.core.repository.dto.events.EventDto
+import com.example.core.repository.dto.events.EventsDto
 import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
 import com.example.projectjavasimba.data.repository.NewsRepository
 import com.example.projectjavasimba.domain.entity.EventEntity
 import com.example.projectjavasimba.domain.entity.EventsEntity
-import com.example.projectjavasimba.repository.api.PostmanApi
-import com.example.projectjavasimba.repository.db.SimbaDataBase
-import com.example.projectjavasimba.repository.db.dto.EventWitPhotos
-import com.example.projectjavasimba.repository.db.dto.EventsRoomDto
-import com.example.projectjavasimba.repository.db.dto.PhotoRoomDto
-import com.example.projectjavasimba.repository.dto.events.EventDto
-import com.example.projectjavasimba.repository.dto.events.EventsDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOf
@@ -23,7 +23,7 @@ import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
     private val db: SimbaDataBase,
-    private val api:PostmanApi
+    private val api: PostmanApi
 ) : NewsRepository {
 
     override suspend fun getEvents(context: Context, newSession: Boolean): Flow<EventsEntity> {
@@ -35,11 +35,11 @@ class NewsRepositoryImpl @Inject constructor(
             flowOf(response).map {
                 it.toEntity()
             }.catch {
-                emit(
-                    EventsEntity(
-                        MyCallableEvent(context).call().toList()
-                    )
-                )
+//                emit(
+//                    EventsEntity(
+//                        MyCallableEvent(context).call().toList()
+//                    )
+//                )
             }
         }
     }

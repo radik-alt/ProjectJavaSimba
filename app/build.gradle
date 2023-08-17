@@ -28,35 +28,38 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_9
-        targetCompatibility JavaVersion.VERSION_1_9
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    viewBinding{
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    viewBinding {
         enabled true
     }
 }
 
-ktlint {
-    android = true
-    ignoreFailures = false
-    reporters{
-        reporter "plain"
-        reporter "checkstyle"
-        reporter "sarif"
-    }
-}
+//ktlint {
+//    android = true
+//    ignoreFailures = false
+//    reporters {
+//        reporter "plain"
+//        reporter "checkstyle"
+//        reporter "sarif"
+//    }
+//}
 
 dependencies {
     implementation(project(":main"))
+    implementation(project(":core"))
     implementation(project(":profile"))
-    implementation(project(":auth"))
-
+    implementation(project(":search"))
+    implementation(project(":feature-help"))
+    implementation(project(":feature-events"))
 
     implementation 'androidx.appcompat:appcompat:1.6.0'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation project(path: ':core')
     testImplementation 'junit:junit:4.13.2'
     implementation "androidx.activity:activity-ktx:1.6.1"
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -84,7 +87,6 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
     implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
 
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -97,7 +99,7 @@ dependencies {
     kapt "androidx.room:room-compiler:2.5.2"
 
     implementation 'com.google.dagger:dagger-android:2.40'
-    implementation 'com.google.dagger:dagger-android-support:2.40' // if you use the support libraries
+    implementation 'com.google.dagger:dagger-android-support:2.40'
     kapt 'com.google.dagger:dagger-android-processor:2.40'
     kapt 'com.google.dagger:dagger-compiler:2.40'
 }

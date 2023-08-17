@@ -2,15 +2,11 @@ package com.example.projectjavasimba.presentation.helpFragment.viewmodel
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.data_impl.HelpRepositoryImpl
 import com.example.projectjavasimba.domain.entity.CategoryEntity
 import com.example.projectjavasimba.domain.usecase.HelpUseCase
-import com.example.projectjavasimba.domain_impl.interactor.HelpInteractor
-import com.example.projectjavasimba.repository.db.SimbaDataBase
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

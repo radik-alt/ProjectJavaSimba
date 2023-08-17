@@ -2,10 +2,8 @@ package com.example.projectjavasimba.data
 
 import android.content.Context
 import android.util.Log
-import com.example.projectjavasimba.data_impl.callable.MyCallableCategory
 import com.example.projectjavasimba.data_impl.callable.MyCallableEvent
 import com.example.projectjavasimba.domain.entity.EventEntity
-import com.example.projectjavasimba.repository.dto.categories.CategoriesDto
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.Date
@@ -45,10 +43,6 @@ class ParseJSON(
     }
 
 
-    fun parseCategoryJson(): Observable<CategoriesDto> {
-        return Observable.fromCallable {
-            MyCallableCategory(context).call()
-        }.subscribeOn(Schedulers.io())
-    }
+
 
 }

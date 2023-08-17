@@ -1,7 +1,7 @@
 package com.example.projectjavasimba.data_impl.callable
 
 import android.content.Context
-import com.example.projectjavasimba.repository.dto.categories.CategoriesDto
+import com.example.core.repository.dto.categories.CategoriesDto
 import com.google.gson.Gson
 import java.util.concurrent.Callable
 

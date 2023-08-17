@@ -15,8 +15,6 @@ interface DataModule {
     @Binds
     fun bindNewsRepository(impl: NewsRepositoryImpl): NewsRepository
     @Binds
-    fun bindHelpRepository(impl: HelpRepositoryImpl): HelpRepository
-    @Binds
     fun bindFilterRepository(impl: FilterRepositoryImpl): FilterRepository
 
 }

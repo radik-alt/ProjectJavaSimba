@@ -16,8 +16,5 @@ interface DomainModule {
     fun bindNewsUseCase(impl: NewsInteractor): NewsUseCase
 
     @Binds
-    fun bindHelpUseCase(impl: HelpInteractor): HelpUseCase
-
-    @Binds
     fun bindFilterUseCase(impl: FilterInteractor): FilterUseCase
 }

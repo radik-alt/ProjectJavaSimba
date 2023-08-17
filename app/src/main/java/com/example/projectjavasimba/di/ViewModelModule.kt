@@ -20,12 +20,6 @@ class ViewModelModule {
     ): NewsViewModel = NewsViewModel(application, useCase)
 
     @Provides
-    fun provideHelpViewModel(
-        application: Application,
-        useCase: HelpUseCase
-    ): HelpViewModel = HelpViewModel(application, useCase)
-
-    @Provides
     fun provideFilterViewModel(
         application: Application,
         useCase: FilterUseCase

@@ -137,7 +137,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20sp"
-                android:background="@drawable/button_background"
                 android:paddingStart="16sp"
                 android:paddingEnd="16sp"
                 android:text="@string/exit_button"

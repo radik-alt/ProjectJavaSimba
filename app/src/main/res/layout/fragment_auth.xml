@@ -104,7 +104,6 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_marginTop="@dimen/indiment_20"
             android:text="Войти"
-            android:background="@drawable/button_background"
             android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

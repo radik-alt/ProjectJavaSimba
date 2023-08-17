@@ -20,6 +20,7 @@ import com.example.feature_help.databinding.FragmentHelpragmentBinding
 import com.example.base.MessageAdapter.MessageAdapter
 import com.example.base.placeholder.PlaceHolderAdapter
 import com.example.common.show
+import com.example.feature_help.di.HelpComponentProvider
 import com.example.feature_help.presentation.adapter.HelperAdapter
 import com.example.feature_help.presentation.viewmodel.HelpViewModel
 import com.example.feature_help.service.ServiceGetData
@@ -32,16 +33,16 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
     private val binding: FragmentHelpragmentBinding
         get() = _binding ?: throw RuntimeException()
 
-//    private val component by lazy {
-//        (requireActivity().application as HelpApp).component
-//    }
+    private val component by lazy {
+        (requireActivity().application as HelpComponentProvider).provideHelpComponent()
+    }
 
     @Inject
     lateinit var viewModel: HelpViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-//        component.inject(this)
+        component.inject(this)
     }
 
     override fun onResume() {
@@ -66,10 +67,10 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding.toolbarHelper) {
-            text.text = getString(R.string.help)
-            create.visibility = View.GONE
-        }
+//        with(binding.toolbarHelper) {
+//            text.text = getString(R.string.help)
+//            create.visibility = View.GONE
+//        }
     }
 
     private fun observable() = with(viewModel) {
