@@ -7,14 +7,14 @@ class AuthViewModel : ViewModel() {
 
     val isEnabled = MutableLiveData<Boolean>()
 
-    private var email:String = ""
-    private var password:String = ""
+    private var email: String = ""
+    private var password: String = ""
 
-    fun setEmail(_email:String) {
+    fun setEmail(_email: String) {
         email = _email
     }
 
-    fun setPassword(_password:String) {
+    fun setPassword(_password: String) {
         password = _password
     }
 

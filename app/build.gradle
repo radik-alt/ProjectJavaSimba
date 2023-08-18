@@ -53,6 +53,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":profile"))
     implementation(project(":search"))
+    implementation(project(":auth"))
     implementation(project(":feature-help"))
     implementation(project(":feature-events"))
 

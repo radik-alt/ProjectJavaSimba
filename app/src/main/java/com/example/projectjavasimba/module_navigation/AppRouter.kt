@@ -1,10 +1,7 @@
 package com.example.projectjavasimba.module_navigation
 
+import android.app.Activity
+
 interface AppRouter {
-
-    fun openHomeActivity()
-
-    fun openProfileFragment()
-
-    fun openHelpFragment()
+    fun openHomeActivity(activity: Activity)
 }

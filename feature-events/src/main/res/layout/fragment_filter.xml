@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_gray_color"
-    tools:context="com.example.feature_events.presentation.filter_fragment.view.FilterFragment">
+    tools:context="com.example.feature_events.presentation.filter_news.view.FilterFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

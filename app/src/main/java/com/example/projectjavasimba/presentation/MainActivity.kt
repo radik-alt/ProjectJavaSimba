@@ -2,18 +2,11 @@ package com.example.projectjavasimba.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.feature_events.presentation.newsFragment.viewmodel.NewsViewModel
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.common.utils.cancelSession
 import com.example.projectjavasimba.databinding.ActivityMainBinding
-import com.example.projectjavasimba.di.SimbaApp
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.launch
-import javax.inject.Inject
-import kotlin.properties.Delegates.observable
 
 
 class MainActivity : AppCompatActivity() {

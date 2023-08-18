@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.example.feature_events.presentation.newsFragment.view.NewsFragment"
+        android:name="com.example.feature_events.presentation.news.view.NewsFragment"
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.feature_events.presentation.detailNewsFragment.view.DetailFragment"
+        android:name="com.example.feature_events.presentation.detail_news.view.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.example.feature_events.presentation.filter_fragment.view.FilterFragment"
+        android:name="com.example.feature_events.presentation.filter_news.view.FilterFragment"
         android:label="fragment_filter"
         tools:layout="@layout/fragment_filter" />
 

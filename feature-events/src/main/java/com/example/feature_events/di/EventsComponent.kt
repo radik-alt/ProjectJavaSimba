@@ -1,7 +1,7 @@
 package com.example.feature_events.di
 
-import com.example.feature_events.presentation.filter_fragment.view.FilterFragment
-import com.example.feature_events.presentation.newsFragment.view.NewsFragment
+import com.example.feature_events.presentation.filter_news.view.FilterFragment
+import com.example.feature_events.presentation.news.view.NewsFragment
 import dagger.Subcomponent
 
 @Subcomponent(

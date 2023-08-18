@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -54,4 +55,9 @@ dependencies {
     implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
     implementation("io.reactivex.rxjava3:rxjava:3.1.5")
     implementation("com.jakewharton.rxbinding:rxbinding:0.4.0")
+
+    implementation("com.google.dagger:dagger-android:2.40")
+    implementation("com.google.dagger:dagger-android-support:2.40")
+    kapt("com.google.dagger:dagger-android-processor:2.40")
+    kapt("com.google.dagger:dagger-compiler:2.40")
 }

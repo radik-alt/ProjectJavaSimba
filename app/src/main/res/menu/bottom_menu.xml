@@ -3,7 +3,7 @@
 
     <item
         android:icon="@drawable/news"
-        android:id="@+id/news_fragment"
+        android:id="@+id/events_nav"
         android:title="@string/news"/>
 
     <item

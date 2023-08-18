@@ -1,21 +1,16 @@
 package com.example.projectjavasimba.module_navigation
 
+import android.app.Activity
 import android.content.Context
-import androidx.navigation.NavController
+import android.content.Intent
+import com.example.projectjavasimba.presentation.MainActivity
 
 class NavComponent(
     private val context: Context,
-    private val navController: NavController
-): AppRouter {
-    override fun openHomeActivity() {
-
+) : AppRouter {
+    override fun openHomeActivity(activity: Activity) {
+        context.startActivity(
+            Intent(activity, MainActivity::class.java)
+        )
     }
-
-    override fun openProfileFragment() {
-
-    }
-
-    override fun openHelpFragment() {
-    }
-
 }

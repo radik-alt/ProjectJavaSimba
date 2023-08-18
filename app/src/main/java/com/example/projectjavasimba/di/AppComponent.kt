@@ -16,7 +16,7 @@ import javax.inject.Singleton
         HelpModule::class,
         NetworkModule::class,
         DataBaseModule::class,
-        EventModule::class
+        EventModule::class,
     ]
 )
 interface AppComponent {
