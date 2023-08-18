@@ -1,5 +1,6 @@
 package com.example.feature_events.presentation.newsFragment.view
 
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,15 +9,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.feature_events.presentation.newsFragment.news_adapter.NewsAdapter
 import com.example.base.MessageAdapter.MessageAdapter
 import com.example.base.placeholder.PlaceHolderAdapter
 import com.example.common.SESSION_EVENTS
 import com.example.common.isFirstEnter
+import com.example.feature_events.R
 import com.example.feature_events.databinding.FragmentNewsBinding
 import com.example.feature_events.di.EventComponentProvider
 import com.example.feature_events.presentation.newsFragment.viewmodel.NewsViewModel
 import com.example.feature_events.presentation.newsFragment.viewmodel.SharedNewsFilterViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,6 +30,8 @@ class NewsFragment : Fragment() {
     private val binding: FragmentNewsBinding
         get() = _binding ?: throw RuntimeException("FragmentNewsBinding == null")
 
+    @Inject
+    lateinit var application: Application
 
     @Inject
     lateinit var newsViewModel: NewsViewModel
@@ -54,7 +60,7 @@ class NewsFragment : Fragment() {
         if (binding.rvNews.adapter == null) {
             observable()
             val session = isFirstEnter(requireContext(), SESSION_EVENTS)
-            newsViewModel.getEvents()
+            newsViewModel.getEvents(session)
             binding.rvNews.adapter = PlaceHolderAdapter()
         }
         showBottomNavigation()
@@ -65,9 +71,9 @@ class NewsFragment : Fragment() {
 
         with(binding.toolbarNews) {
             filter.setOnClickListener {
-//                findNavController().navigate(
-//                    NewsFragmentDirections.actionNewsFragment2ToFilterFragment()
-//                )
+                findNavController().navigate(
+                    NewsFragmentDirections.actionNewsFragmentToFilterFragment()
+                )
             }
         }
     }
@@ -96,26 +102,26 @@ class NewsFragment : Fragment() {
                         if (!event.isRead) {
                             newsViewModel.updateItemBadge(event)
                         }
-//                        findNavController().navigate(
-//                            NewsFragmentDirections.actionNewsFragment2ToDetailFragment(event)
-//                        )
+                        findNavController().navigate(
+                            NewsFragmentDirections.actionNewsFragmentToDetailFragment(event)
+                        )
                     }
                 }
             }
         }
 
-        lifecycleScope.launch {
-            countNotReadEventEntity.collect { listCount ->
-                val count = listCount.count { !it.isRead }
-//                requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//        lifecycleScope.launch {
+//            countNotReadEventEntity.collect { listCount ->
+//                val count = listCount.count { !it.isRead }
+//                requireActivity().findViewById<BottomNavigationView>()
 //                    .let {
 //                        it.getOrCreateBadge(R.id.newsFragment).let { badge ->
 //                            badge.number = count
 //                            badge.isVisible = count > 0
 //                        }
 //                    }
-            }
-        }
+//            }
+//        }
 
         sharedNewsFilterViewModel.category.observe(this@NewsFragment) { categoryId ->
             newsViewModel.setCategory(categoryId)
@@ -124,14 +130,14 @@ class NewsFragment : Fragment() {
 
 
     private fun showBottomNavigation() {
-        val fragmentActivity = activity
-        if (activity != null) {
+//        val fragmentActivity = activity
+//        if (activity != null) {
 //            val bottom =
-//                fragmentActivity?.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//                fragmentActivity?.findViewById<BottomNavigationView>(com.example.main.R.id.bottomNavigationView)
 //            if (bottom != null && bottom.visibility == View.GONE) {
 //                bottom.show()
 //            }
-        }
+//        }
     }
 
 

@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.projectjavasimba.presentation.detailNewsFragment.view.DetailFragment"
+        android:name="com.example.feature_events.presentation.detailNewsFragment.view.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument

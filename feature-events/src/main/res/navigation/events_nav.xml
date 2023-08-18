@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/events_nav"
+    app:startDestination="@id/news_fragment">
+
+    <fragment
+        android:id="@+id/news_fragment"
+        android:name="com.example.feature_events.presentation.newsFragment.view.NewsFragment"
+        android:label="@string/news"
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment_to_filterFragment"
+            app:destination="@id/filter_fragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_detailFragment"
+            app:destination="@id/detail_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detail_fragment"
+        android:name="com.example.feature_events.presentation.detailNewsFragment.view.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="event"
+            app:argType="com.example.core.entity.EventEntity" />
+    </fragment>
+    <fragment
+        android:id="@+id/filter_fragment"
+        android:name="com.example.feature_events.presentation.filter_fragment.view.FilterFragment"
+        android:label="fragment_filter"
+        tools:layout="@layout/fragment_filter" />
+</navigation>

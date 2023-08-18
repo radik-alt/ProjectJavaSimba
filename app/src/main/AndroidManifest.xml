@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.main.presentation.MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true" />
 
         <provider

@@ -9,10 +9,8 @@ import dagger.Module
 
 @Module
 interface DomainModule {
-
     @Binds
     fun bindNewsUseCase(impl: NewsInteractor): NewsUseCase
-
     @Binds
     fun bindFilterUseCase(impl: FilterInteractor): FilterUseCase
 }

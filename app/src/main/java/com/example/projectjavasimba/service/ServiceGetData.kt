@@ -4,8 +4,8 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import com.example.projectjavasimba.domain.entity.Category
-import com.example.projectjavasimba.domain.entity.EventEntity
+import com.example.core.entity.Category
+import com.example.core.entity.EventEntity
 
 
 class ServiceGetData: Service() {
