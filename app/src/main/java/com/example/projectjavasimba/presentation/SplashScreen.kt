@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projectjavasimba.R
+import com.example.projectjavasimba.presentation.auth.view.AuthActivity
 import kotlinx.coroutines.*
 
 class SplashScreen : AppCompatActivity() {
@@ -14,11 +15,8 @@ class SplashScreen : AppCompatActivity() {
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(2000)
-            startActivity(Intent(this@SplashScreen, MainActivity::class.java))
+            startActivity(Intent(this@SplashScreen, AuthActivity::class.java))
             finish()
         }
-
-
-
     }
 }

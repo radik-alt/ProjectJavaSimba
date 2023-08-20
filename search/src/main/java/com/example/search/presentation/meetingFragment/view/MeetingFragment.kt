@@ -1,12 +1,14 @@
 package com.example.search.presentation.meetingFragment.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import com.example.base.MessageAdapter.MessageAdapter
 import com.example.search.presentation.meetingFragment.viewmodel.MeetingViewModel
 import com.example.search.databinding.FragmentMeetingBinding
 import com.example.search.presentation.searchFragment.adapter.SearchAdapter
@@ -43,12 +45,12 @@ class MeetingFragment : Fragment() {
             binding.recyclerSearch.adapter = SearchAdapter(meeting)
         }
 
-        searchViewModel.searchMeeting.observe(viewLifecycleOwner) { searchMeeting ->
-            searchMeeting?.let { it -> getMeetingByFilter(it) }
+        searchViewModel.searchMeeting.observe(this@MeetingFragment) { searchMeeting ->
+            searchMeeting?.let { getMeetingByFilter(it) }
         }
 
         errorMessage.observe(this@MeetingFragment) { message ->
-            binding.recyclerSearch.adapter = null
+            binding.recyclerSearch.adapter = MessageAdapter(message)
         }
     }
 

@@ -26,8 +26,8 @@ class NewsViewModel @Inject constructor(
         message.postValue(application.getString(R.string.unknown_error))
         Log.d("GetError", throwable.message.toString())
     }
-    private val coroutineScope = CoroutineScope(Dispatchers.IO + errorHandler)
 
+    private val coroutineScope = CoroutineScope(Dispatchers.IO + errorHandler)
 
     private val fullListEventEntity = MutableLiveData<List<EventEntity>>()
     val events = MutableLiveData<List<EventEntity>>()
@@ -37,8 +37,12 @@ class NewsViewModel @Inject constructor(
     val countNotReadEventEntity: MutableSharedFlow<List<EventEntity>> = MutableSharedFlow()
 
     fun setCategory(categoryId: Int) {
+        Log.d("FilterEvent", categoryId.toString())
         fullListEventEntity.value?.filter { it.category == categoryId }?.let {
-            events.postValue(it)
+            it.forEach {
+                Log.d("FilterEvent", it.title)
+            }
+            events.value = it
         }
     }
 

@@ -136,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20sp"
+                android:background="@drawable/button_background"
                 android:fontFamily="@font/roboto_regular"
                 android:paddingStart="16sp"
                 android:paddingEnd="16sp"

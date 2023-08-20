@@ -4,7 +4,7 @@ import android.app.Application
 import com.example.feature_events.di.EventModule
 import com.example.feature_events.di.EventsComponent
 import com.example.feature_help.di.HelpComponent
-import com.example.projectjavasimba.presentation.MainActivity
+import com.example.projectjavasimba.presentation.main.view.MainActivity
 import com.example.feature_help.di.HelpModule
 import dagger.BindsInstance
 import dagger.Component
@@ -13,6 +13,9 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
+        DomainModule::class,
+        DataModule::class,
+        ViewModel::class,
         HelpModule::class,
         NetworkModule::class,
         DataBaseModule::class,

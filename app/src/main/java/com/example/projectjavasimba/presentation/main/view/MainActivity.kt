@@ -1,12 +1,19 @@
-package com.example.projectjavasimba.presentation
+package com.example.projectjavasimba.presentation.main.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.example.common.cancelSession
 import com.example.projectjavasimba.R
-import com.example.projectjavasimba.common.utils.cancelSession
 import com.example.projectjavasimba.databinding.ActivityMainBinding
+import com.example.projectjavasimba.di.SimbaApp
+import com.example.projectjavasimba.presentation.main.viewmodel.MainViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,22 +22,22 @@ class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding
         get() = _binding ?: throw RuntimeException("ActivityMainBinding == null")
 
-//    @Inject
-//    lateinit var newsViewModel: NewsViewModel
-//
-//    private val component by lazy {
-//        (application as SimbaApp).provideEventComponent()
-//    }
+    @Inject
+    lateinit var newsViewModel: MainViewModel
+
+    private val component by lazy {
+        (application as SimbaApp).component
+    }
 
     override fun onResume() {
         super.onResume()
         cancelSession(this)
-//        newsViewModel.getEvents()
-//        observable()
+        newsViewModel.getEvents()
+        observable()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        component.inject(this)
+        component.inject(this)
 
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
@@ -44,19 +51,18 @@ class MainActivity : AppCompatActivity() {
         navBar.setupWithNavController(navController)
     }
 
-//    private fun observable() = with(newsViewModel) {
-//        lifecycleScope.launch {
-//            countNotReadEventEntity.collect { listCount ->
-//                val count = listCount.count { !it.isRead }
-//                findViewById<BottomNavigationView>(R.id.bottomNavigationView).let {
-//                    it.getOrCreateBadge(R.id.home_nav).let { badge ->
-//                        badge.number = count
-//                        badge.isVisible = count > 0
-//                    }
-//                }
-//            }
-//        }
-//    }
+    private fun observable() = with(newsViewModel) {
+        lifecycleScope.launch {
+            countNotReadEvents.collect { count ->
+                findViewById<BottomNavigationView>(R.id.bottomNavigationView).let {
+                    it.getOrCreateBadge(R.id.events_nav).let { badge ->
+                        badge.number = count
+                        badge.isVisible = count > 0
+                    }
+                }
+            }
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()

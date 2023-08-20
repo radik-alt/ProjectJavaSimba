@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.core.entity.Friends
 import com.example.profile.R
 import com.example.profile.databinding.FragmentProfileBinding
@@ -37,6 +38,7 @@ class ProfileFragment : Fragment() {
             if (uriImage != null) {
                 Glide.with(requireContext())
                     .load(uriImage)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .placeholder(R.drawable.bg_placeholder)
                     .error(R.drawable.ic_launcher_foreground)
                     .dontAnimate()
@@ -69,7 +71,7 @@ class ProfileFragment : Fragment() {
         val friends2 = Friends(null, "Евгений Александров", R.drawable.avatar_1)
         val friends3 = Friends(null, "Виктор Кузнецов", R.drawable.avatar_2)
 
-        binding.contentProfile.rvFriends
+        binding.contentProfile.rvFriends.adapter =
             AdapterFriends(listOf(friends, friends2, friends3))
     }
 

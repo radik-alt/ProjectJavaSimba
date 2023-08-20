@@ -279,5 +279,3 @@ aapp/src/main/java/com/example/projectjavasimba/presentation/adapter/HelpAdapter
 mfeature-events/src/main/java/com/example/feature_events/presentation/newsFragment/news_adapter/NewsAdapter.kt,4\6\462150c345d026b231a7e6fcb6c92d01610acc66
 ›
 kfeature-events/src/main/java/com/example/feature_events/presentation/filter_fragment/view/FilterFragment.kt,5\d\5da3d6416001f794b5fa0939ebc5a15499afbbd7
-g
-7core/src/main/java/com/example/common/SharedPrefence.kt,f\0\f0eafa4fed9144cec7f8761acb1673d1b36a1c68

@@ -13,7 +13,6 @@ class NewsAdapter(
 ) : RecyclerView.Adapter<NewsViewHolder>() {
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-
         holder.run {
             title.text = listEventEntity[position].title
             desc.text = listEventEntity[position].description

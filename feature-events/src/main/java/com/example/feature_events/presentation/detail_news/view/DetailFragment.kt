@@ -44,7 +44,6 @@ class DetailFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         setData()
-        hideBottomNavigation()
     }
 
     private fun setData() {
@@ -77,17 +76,6 @@ class DetailFragment : Fragment() {
         val listFriends = listOf(1, 2, 3, 4, 5, 6, 7)
         binding.recyclerFriendsDetail.adapter = FriendsDetailAdapter(listFriends.take(3))
         binding.countFriends.text = "+${listFriends.size}"
-    }
-
-    private fun hideBottomNavigation() {
-//        val fragmentActivity = activity
-//        if (activity != null) {
-//            val bottom =
-//                fragmentActivity?.findViewById<BottomNavigationView>(com.example.main.R.id.bottomNavigationView)
-//            if (bottom != null && bottom.visibility == View.VISIBLE) {
-//                bottom.visibility = View.GONE
-//            }
-//        }
     }
 
     override fun onDestroyView() {

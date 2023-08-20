@@ -81,9 +81,7 @@ class FilterFragment : Fragment() {
             add(TypeHelp(getString(R.string.prof_help), false))
             add(TypeHelp(getString(R.string.help_many), false))
         }
-        binding.helpRecycler.adapter = HelpAdapter(listTypeHelp) {
-
-        }
+        binding.helpRecycler.adapter = HelpAdapter(listTypeHelp) {}
     }
 
     private fun observable() = with(viewModel) {

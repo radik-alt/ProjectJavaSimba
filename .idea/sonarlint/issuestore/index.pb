@@ -283,5 +283,3 @@ Yfeature-events/src/main/java/com/example/feature_events/data/repository/NewsRep
 pfeature-events/src/main/java/com/example/feature_events/presentation/newsFragment/news_adapter/NewsViewHolder.kt,0\6\06782a9029e1a7bea128c40272ba1ca0ade17251
 ¨
 xfeature-events/src/main/java/com/example/feature_events/presentation/newsFragment/viewmodel/SharedNewsFilterViewModel.kt,4\9\49f731a7e975cf447ea0fe7149831c0e0e154215
-g
-7core/src/main/java/com/example/common/SharedPrefence.kt,f\0\f0eafa4fed9144cec7f8761acb1673d1b36a1c68

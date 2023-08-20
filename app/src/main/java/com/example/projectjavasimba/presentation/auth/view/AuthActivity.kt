@@ -1,4 +1,4 @@
-package com.example.auth.presentation.view
+package com.example.projectjavasimba.presentation.auth.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.auth.R
 import com.example.auth.databinding.ActivityAuthBinding
-import com.example.auth.presentation.viewmodel.AuthViewModel
+import com.example.projectjavasimba.presentation.auth.viewmodel.AuthViewModel
 import com.example.core.BuildConfig
+import com.example.projectjavasimba.presentation.main.view.MainActivity
 import com.jakewharton.rxbinding.widget.RxTextView
 import rx.android.schedulers.AndroidSchedulers
 import java.util.concurrent.TimeUnit
@@ -34,7 +35,7 @@ class AuthActivity : AppCompatActivity() {
             }
 
             btnAuth.setOnClickListener {
-//                startActivity(Intent(this@AuthActivity, MainActivity::class.java))
+                startActivity(Intent(this@AuthActivity, MainActivity::class.java))
             }
 
             etEmail.setOnLongClickListener {

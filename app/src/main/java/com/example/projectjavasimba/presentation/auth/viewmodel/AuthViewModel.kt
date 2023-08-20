@@ -1,9 +1,10 @@
-package com.example.auth.presentation.viewmodel
+package com.example.projectjavasimba.presentation.auth.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class AuthViewModel : ViewModel() {
+class AuthViewModel @Inject constructor() : ViewModel() {
 
     val isEnabled = MutableLiveData<Boolean>()
 

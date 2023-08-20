@@ -14,7 +14,7 @@ import com.example.search.R
 import com.example.search.databinding.FragmentSearchBinding
 import com.example.search.presentation.meetingFragment.view.MeetingFragment
 import com.example.search.presentation.nkoFragment.view.NKOFragment
-import com.example.search.presentation.searchFragment.adapter.MySearchViewPager
+import com.example.common.MySearchViewPager
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
