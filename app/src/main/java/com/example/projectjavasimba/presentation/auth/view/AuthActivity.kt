@@ -3,7 +3,10 @@ package com.example.projectjavasimba.presentation.auth.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.Composable
 import com.example.auth.R
 import com.example.auth.databinding.ActivityAuthBinding
 import com.example.projectjavasimba.presentation.auth.viewmodel.AuthViewModel
@@ -27,7 +30,13 @@ class AuthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+//        setContent {
+//            LazyColumn {
+//                item {
+//
+//                }
+//            }
+//        }
         binding.run {
             if (BuildConfig.DEBUG) {
                 etEmail.setText("Radik.app")
@@ -75,5 +84,11 @@ class AuthActivity : AppCompatActivity() {
             }
         }
     }
+
+    @Composable
+    fun AppBar() {
+
+    }
+
 
 }

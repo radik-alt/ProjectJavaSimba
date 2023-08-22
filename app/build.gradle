@@ -102,4 +102,11 @@ dependencies {
     implementation 'com.google.dagger:dagger-android-support:2.40'
     kapt 'com.google.dagger:dagger-android-processor:2.40'
     kapt 'com.google.dagger:dagger-compiler:2.40'
+
+    implementation("androidx.activity:activity-compose:1.5.1")
+    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
 }
