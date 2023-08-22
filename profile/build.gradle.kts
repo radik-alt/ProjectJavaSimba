@@ -33,6 +33,12 @@ android {
     viewBinding{
         enable = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
+    }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {

@@ -277,8 +277,6 @@ m
 =app/src/main/java/com/example/projectjavasimba/di/SimbaApp.kt,8\c\8c5fde33b344241e2fbb6980c241824d41694970
 s
 Capp/src/main/java/com/example/projectjavasimba/di/DataBaseModule.kt,8\e\8ee95e90d685c42c119cebaf048ca9eae9561359
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 q
 Aapp/src/main/java/com/example/projectjavasimba/di/AppComponent.kt,0\6\0685d5cc2665ed317a3fa51df3c0e963ae08218d
 ‹

@@ -281,7 +281,5 @@ o
 ?app/src/main/java/com/example/projectjavasimba/di/DataModule.kt,d\9\d9931dff92d5ddb08bbe06e7a1d3004c22158125
 ‹
 [app/src/main/java/com/example/projectjavasimba/presentation/auth/viewmodel/AuthViewModel.kt,d\2\d25f5cc6c9523b3ed97ad17d7e487bc8fffc489d
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 {
 Kapp/src/main/java/com/example/projectjavasimba/presentation/SplashScreen.kt,e\6\e67a96dd8c95ded26714191f305f4b820cffccee
