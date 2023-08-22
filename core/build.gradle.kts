@@ -56,4 +56,7 @@ dependencies {
     kapt("androidx.room:room-compiler:2.5.2")
 
     implementation("com.facebook.shimmer:shimmer:0.5.0")
+
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 }

@@ -1,23 +1,49 @@
 package com.example.common
 
 import android.app.Activity
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.Serializable
 
 
-fun View.hide(gone:Boolean = false) {
-    visibility = if (gone) {
-        View.GONE
-    } else {
-        View.INVISIBLE
-    }
-}
+fun View.showSoftKeyboard() =
+    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+        .showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+
+fun View.hideSoftKeyboard() =
+    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+        .hideSoftInputFromWindow(windowToken, 0)
 
 fun View.show() {
     visibility = View.VISIBLE
+}
+
+fun View.hide(visible: Int = View.GONE) {
+    visibility = visible
+}
+
+fun View.disable() {
+    isEnabled = false
+}
+
+fun View.enable() {
+    isEnabled = true
+}
+
+val View.isShown: Boolean
+    get() = visibility == View.VISIBLE
+
+val View.isHidden: Boolean
+    get() = visibility == View.GONE || visibility == View.INVISIBLE
+
+fun <T> View?.geTypedTag(): T? = if (this != null) tag as T else null
+
+fun View.setBottomPadding(newPadding: Int) {
+    this.setPadding(this.paddingLeft, this.paddingTop, this.paddingRight, newPadding)
 }
 
 fun Activity.showBottomNavigation(bottomNavigationView: BottomNavigationView?) {
