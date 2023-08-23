@@ -7,14 +7,12 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
@@ -33,7 +31,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -48,11 +45,12 @@ import com.example.auth.R
 import com.example.projectjavasimba.presentation.auth.viewmodel.AuthViewModel
 import com.example.core.BuildConfig
 import com.example.projectjavasimba.presentation.main.view.MainActivity
-import com.example.projectjavasimba.presentation.ui.defaultTextColor
-import com.example.projectjavasimba.presentation.ui.dimens20
-import com.example.projectjavasimba.presentation.ui.primaryColor
-import com.example.projectjavasimba.presentation.ui.robotoRegular
-import com.example.projectjavasimba.presentation.ui.windowPadding
+import com.example.compose.component.AppBar
+import com.example.compose.style.defaultTextColor
+import com.example.compose.style.dimens20
+import com.example.compose.style.primaryColor
+import com.example.compose.style.robotoRegular
+import com.example.compose.style.windowPadding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import java.util.concurrent.TimeUnit
@@ -69,7 +67,6 @@ class AuthActivity : AppCompatActivity() {
             }
         }
     }
-
 
     @Preview
     @Composable
@@ -104,34 +101,6 @@ class AuthActivity : AppCompatActivity() {
             }
         }
 
-    }
-
-    @Composable
-    fun AppBar(title: String) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color(0xff66a636))
-        ) {
-            Image(
-                painter = painterResource(id = com.example.projectjavasimba.R.drawable.baseline_arrow_back_24),
-                contentDescription = "Назад",
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .offset(x = 15.dp),
-                alignment = Alignment.Center
-            )
-            Text(
-                title,
-                Modifier
-                    .padding(15.dp)
-                    .fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                fontFamily = robotoRegular,
-                color = Color.White,
-                fontSize = 18.sp,
-            )
-        }
     }
 
     @Composable

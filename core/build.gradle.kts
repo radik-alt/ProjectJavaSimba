@@ -35,6 +35,12 @@ android {
     viewBinding {
         enable = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
+    }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
@@ -59,4 +65,12 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+
+    implementation("androidx.activity:activity-compose:1.5.1")
+    implementation (platform("androidx.compose:compose-bom:2022.10.00"))
+    implementation ("androidx.compose.ui:ui")
+    implementation ("androidx.compose.ui:ui-graphics")
+    implementation ("androidx.compose.ui:ui-tooling-preview")
+    implementation ("androidx.compose.material3:material3")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.2.1")
 }

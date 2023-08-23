@@ -1,4 +1,4 @@
-package com.example.projectjavasimba.presentation.ui
+package com.example.compose.style
 
 import androidx.compose.ui.graphics.Color
 
