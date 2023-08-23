@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">ProjectJavaSimba</string>
     <string name="download_splash">Загрузка</string>
     <string name="news">Новости</string>
@@ -49,4 +49,5 @@
     <string name="unknown_error">Ошибка запроса! Попробуйте обновить экран или обратитесь в поддержку</string>
     <string name="empty_events">Список новостей пуст!</string>
     <string name="children">Дети</string>
+    <string name="auth" tools:ignore="ExtraTranslation">Войти</string>
 </resources>
