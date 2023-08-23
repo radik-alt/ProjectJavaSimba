@@ -1,26 +1,30 @@
 package com.example.projectjavasimba.presentation.auth.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
 class AuthViewModel @Inject constructor() : ViewModel() {
 
-    val isEnabled = MutableLiveData<Boolean>()
+    private val isEnabled = MutableLiveData<Boolean>()
+    val _isEnabled: LiveData<Boolean> = isEnabled
 
-    private var email: String = ""
-    private var password: String = ""
+    private var validEmail: Boolean = false
+    private var validPassword: Boolean = false
 
     fun setEmail(_email: String) {
-        email = _email
+        validEmail = _email.trim().length >= 6
+        validAuth()
     }
 
     fun setPassword(_password: String) {
-        password = _password
+        validPassword = _password.trim().length >= 6
+        validAuth()
     }
 
     fun validAuth() {
-        isEnabled.value = email.trim().length >= 6 && password.trim().length >= 6
+        isEnabled.value = validEmail && validPassword
     }
 
 }

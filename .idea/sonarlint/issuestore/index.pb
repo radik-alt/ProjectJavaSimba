@@ -279,8 +279,6 @@ s
 Capp/src/main/java/com/example/projectjavasimba/di/DataBaseModule.kt,8\e\8ee95e90d685c42c119cebaf048ca9eae9561359
 q
 Aapp/src/main/java/com/example/projectjavasimba/di/AppComponent.kt,0\6\0685d5cc2665ed317a3fa51df3c0e963ae08218d
-‹
-[app/src/main/java/com/example/projectjavasimba/presentation/auth/viewmodel/AuthViewModel.kt,d\2\d25f5cc6c9523b3ed97ad17d7e487bc8fffc489d
 o
 ?app/src/main/java/com/example/projectjavasimba/di/DataModule.kt,d\9\d9931dff92d5ddb08bbe06e7a1d3004c22158125
 q
@@ -371,5 +369,3 @@ a
 ,core/src/main/java/com/example/common/Uri.kt,5\7\57691490824010c7ed8cd177510657c50f5fb357
 c
 3core/src/main/java/com/example/common/Extensions.kt,3\2\3244ba1fbf63b89f0190bcee5a24bcdf4b888867
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
