@@ -1,6 +1,5 @@
 package com.example.feature_events.presentation.news.view
 
-import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -8,13 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.feature_events.presentation.news.news_adapter.NewsAdapter
 import com.example.base.MessageAdapter.MessageAdapter
-import com.example.base.placeholder.PlaceHolderAdapter
-import com.example.common.SESSION_EVENTS
-import com.example.common.isFirstEnter
 import com.example.feature_events.databinding.FragmentNewsBinding
 import com.example.feature_events.di.EventComponentProvider
 import com.example.feature_events.presentation.news.viewmodel.NewsViewModel
@@ -27,8 +24,6 @@ class NewsFragment : Fragment() {
     private val binding: FragmentNewsBinding
         get() = _binding ?: throw RuntimeException("FragmentNewsBinding == null")
 
-    @Inject
-    lateinit var application: Application
 
     @Inject
     lateinit var newsViewModel: NewsViewModel
@@ -48,32 +43,38 @@ class NewsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentNewsBinding.inflate(inflater, container, false)
-        return binding.root
+        return ComposeView(requireContext()).apply {
+            setContent {
+                NewsScreen {
+                    findNavController().navigate(
+                        NewsFragmentDirections.actionNewsFragmentToFilterFragment()
+                    )
+                }
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
         Log.d("GetViewModel", newsViewModel.toString())
-        if (binding.rvNews.adapter == null) {
-            Log.d("GetEvents", "onResume")
-            observable()
-            val session = isFirstEnter(requireContext(), SESSION_EVENTS)
-            newsViewModel.getEvents(session)
-            binding.rvNews.adapter = PlaceHolderAdapter()
-        }
+//        if (binding.rvNews.adapter == null) {
+//            observable()
+//            val session = isFirstEnter(requireContext(), SESSION_EVENTS)
+//            newsViewModel.getEvents(session)
+//            binding.rvNews.adapter = PlaceHolderAdapter()
+//        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(binding.toolbarNews) {
-            filter.setOnClickListener {
-                findNavController().navigate(
-                    NewsFragmentDirections.actionNewsFragmentToFilterFragment()
-                )
-            }
-        }
+//        with(binding.toolbarNews) {
+//            filter.setOnClickListener {
+//                findNavController().navigate(
+//                    NewsFragmentDirections.actionNewsFragmentToFilterFragment()
+//                )
+//            }
+//        }
     }
 
     private fun observable() = with(newsViewModel) {
@@ -110,19 +111,6 @@ class NewsFragment : Fragment() {
                 }
             }
         }
-
-//        lifecycleScope.launch {
-//            countNotReadEventEntity.collect { listCount ->
-//                val count = listCount.count { !it.isRead }
-//                requireActivity().findViewById<BottomNavigationView>()
-//                    .let {
-//                        it.getOrCreateBadge(R.id.newsFragment).let { badge ->
-//                            badge.number = count
-//                            badge.isVisible = count > 0
-//                        }
-//                    }
-//            }
-//        }
 
         sharedNewsFilterViewModel.category.observe(viewLifecycleOwner) { categoryId ->
             newsViewModel.setCategory(categoryId)

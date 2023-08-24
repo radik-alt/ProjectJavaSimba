@@ -11,3 +11,10 @@ val robotoRegular = FontFamily(
         FontWeight.Normal,
     )
 )
+
+val robotoBold = FontFamily(
+    Font(
+        R.font.roboto_bold,
+        FontWeight.Bold
+    )
+)
