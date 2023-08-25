@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.compose.component.AppBarWithFilter
 import com.example.compose.style.blueGrayColor
 import com.example.compose.style.defaultTextColor
@@ -119,6 +120,7 @@ fun ItemEvent(
             ) {
                 it.error(R.drawable.img)
                     .placeholder(R.drawable.bg_placeholder)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .load(image)
             }
             Column(
