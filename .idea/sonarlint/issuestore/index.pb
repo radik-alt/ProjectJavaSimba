@@ -509,3 +509,5 @@ w
 G.idea/sonarlint/issuestore/3/c/3c9bc9f8c68494f9251807bbeaba31b8bf936e69,3\d\3dacb3835f7f75da35aebe11d5e116e4ec4b8d2a
 ‹
 [app/src/main/java/com/example/projectjavasimba/presentation/auth/viewmodel/AuthViewModel.kt,d\2\d25f5cc6c9523b3ed97ad17d7e487bc8fffc489d
+E
+core/build.gradle.kts,d\7\d72846b7b418aa17de692d1ccf924c738cf8dbe5

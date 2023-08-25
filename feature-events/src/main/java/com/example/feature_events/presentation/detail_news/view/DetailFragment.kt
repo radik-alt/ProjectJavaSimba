@@ -62,7 +62,7 @@ class DetailFragment : Fragment() {
     private fun setDefaultAdapter() {
         binding.recyclerImageDetail.adapter = ImageDetailAdapter(args.event.listImage)
 
-        binding.recyclerHelpDetail.adapter = CategoryDetailAdapter(
+        binding.rvHelpDetail.adapter = CategoryDetailAdapter(
             listOf(
                 CategoryDetail(getString(R.string.help_shirt), R.drawable.shirt),
                 CategoryDetail(getString(R.string.state_hands), R.drawable.hands),
@@ -70,8 +70,8 @@ class DetailFragment : Fragment() {
                 CategoryDetail(getString(R.string.help_many), R.drawable.coins)
             )
         )
-        binding.recyclerHelpDetail.layoutManager =
-            GridLayoutManager(requireContext(), 2)
+        binding.rvHelpDetail.layoutManager =
+            GridLayoutManager(requireContext(), 4)
 
         val listFriends = listOf(1, 2, 3, 4, 5, 6, 7)
         binding.recyclerFriendsDetail.adapter = FriendsDetailAdapter(listFriends.take(3))

@@ -225,7 +225,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             tools:listitem="@layout/item_detail_category"
-            android:id="@+id/recycler_help_detail"
+            android:id="@+id/rv_help_detail"
             android:layout_marginTop="@dimen/indiement10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

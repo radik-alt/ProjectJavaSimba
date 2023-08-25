@@ -9,3 +9,4 @@ val dimens20 = 20.dp
 val dimens25 = 25.dp
 
 val windowPadding = 15.dp
+val roundCorners = 4.dp

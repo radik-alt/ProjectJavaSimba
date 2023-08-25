@@ -45,11 +45,19 @@ class NewsFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                NewsScreen {
-                    findNavController().navigate(
-                        NewsFragmentDirections.actionNewsFragmentToFilterFragment()
-                    )
-                }
+                NewsScreen(
+                    viewModel = newsViewModel,
+                    appBarListener = {
+                        findNavController().navigate(
+                            NewsFragmentDirections.actionNewsFragmentToFilterFragment()
+                        )
+                    },
+                    clickCardListener = { event ->
+                        findNavController().navigate(
+                            NewsFragmentDirections.actionNewsFragmentToDetailFragment(event)
+                        )
+                    }
+                )
             }
         }
     }
@@ -57,10 +65,10 @@ class NewsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         Log.d("GetViewModel", newsViewModel.toString())
+        newsViewModel.getEvents()
 //        if (binding.rvNews.adapter == null) {
 //            observable()
 //            val session = isFirstEnter(requireContext(), SESSION_EVENTS)
-//            newsViewModel.getEvents(session)
 //            binding.rvNews.adapter = PlaceHolderAdapter()
 //        }
     }
@@ -104,9 +112,7 @@ class NewsFragment : Fragment() {
                         if (!event.isRead) {
                             newsViewModel.updateItemBadge(event)
                         }
-                        findNavController().navigate(
-                            NewsFragmentDirections.actionNewsFragmentToDetailFragment(event)
-                        )
+
                     }
                 }
             }
