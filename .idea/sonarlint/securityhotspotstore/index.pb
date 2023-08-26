@@ -507,3 +507,9 @@ G.idea/sonarlint/issuestore/3/c/3c9bc9f8c68494f9251807bbeaba31b8bf936e69,3\d\3d
 [app/src/main/java/com/example/projectjavasimba/presentation/auth/viewmodel/AuthViewModel.kt,d\2\d25f5cc6c9523b3ed97ad17d7e487bc8fffc489d
 E
 core/build.gradle.kts,d\7\d72846b7b418aa17de692d1ccf924c738cf8dbe5
+i
+9core/src/main/java/com/example/core/entity/EventEntity.kt,6\2\62a4499bcbae23894c72d1e1506b35146f25ce5f
+Ž
+^feature-events/src/main/java/com/example/feature_events/presentation/news/view/NewsFragment.kt,e\8\e87ac97506085b118d91d8b448bdc75661bded52
+O
+feature-events/build.gradle.kts,0\5\050a804e639d7bdc64e37cb4513e7f0397dd723a

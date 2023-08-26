@@ -11,6 +11,7 @@ import com.example.feature_events.databinding.ItemDetailCategoryBinding
 
 class CategoryDetailAdapter(
     private val list: List<CategoryDetail>,
+    private val clickListener: () -> Unit
 ) : RecyclerView.Adapter<CategoryDetailViewHolder>() {
 
     private lateinit var context: Context
@@ -33,6 +34,12 @@ class CategoryDetailAdapter(
             .error(R.drawable.ic_launcher_background)
             .dontAnimate()
             .into(holder.image)
+
+        holder.itemView.setOnClickListener {
+            if (position == 3) {
+                clickListener.invoke()
+            }
+        }
 
     }
 }

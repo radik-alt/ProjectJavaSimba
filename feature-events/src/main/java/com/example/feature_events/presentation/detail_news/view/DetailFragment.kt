@@ -1,5 +1,6 @@
 package com.example.feature_events.presentation.detail_news.view
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +9,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.common.dialog
 import com.example.core.entity.CategoryDetail
 import com.example.feature_events.R
+import com.example.feature_events.databinding.DialogHelpManyBinding
 import com.example.feature_events.databinding.FragmentDetailBinding
 import com.example.feature_events.presentation.detail_news.adapter.category_detail_adapter.CategoryDetailAdapter
 import com.example.feature_events.presentation.detail_news.adapter.friends_detail_adapter.FriendsDetailAdapter
@@ -22,6 +25,7 @@ class DetailFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("FragmentDetailBinding == null")
 
     private val args: DetailFragmentArgs by navArgs()
+    private var dialog: Dialog ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,13 +73,41 @@ class DetailFragment : Fragment() {
                 CategoryDetail(getString(R.string.prof_help), R.drawable.tools),
                 CategoryDetail(getString(R.string.help_many), R.drawable.coins)
             )
-        )
+        ) {
+            dialogHelpToMany()
+        }
         binding.rvHelpDetail.layoutManager =
             GridLayoutManager(requireContext(), 4)
 
         val listFriends = listOf(1, 2, 3, 4, 5, 6, 7)
         binding.recyclerFriendsDetail.adapter = FriendsDetailAdapter(listFriends.take(3))
         binding.countFriends.text = "+${listFriends.size}"
+    }
+
+    private fun dialogHelpToMany() {
+        dialog = dialog(
+            requireActivity(),
+            DialogHelpManyBinding.inflate(layoutInflater).apply {
+                tvTitle.text = getString(R.string.help_for_donate)
+                tvDescription.text = getString(R.string.choose_size_donate)
+                tvDescription2.text = getString(R.string.choose_size_donate_2)
+
+                btnCancel.setOnClickListener {
+                    dialog?.dismiss()
+                }
+
+                btnSend.setOnClickListener {
+
+                }
+            },
+            false
+        )
+
+        dialog?.setOnDismissListener {
+            dialog = null
+        }
+
+        dialog?.show()
     }
 
     override fun onDestroyView() {
