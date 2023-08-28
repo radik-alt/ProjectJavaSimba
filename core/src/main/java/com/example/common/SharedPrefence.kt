@@ -4,8 +4,9 @@ import android.content.Context
 import android.util.Log
 
 private const val SHARED_PREFERENCES_NAME = "MyAppPrefs"
-const val SESSION_CATEGORY = "SESSION_CATEGORY"
-const val SESSION_EVENTS = "SESSION_EVENTS"
+const val SESSION_EVENTS = "isFirstRun"
+const val SESSION_CATEGORY = "isFirstRun"
+
 
 
 fun isFirstEnter(context: Context, name: String): Boolean {
@@ -19,6 +20,6 @@ fun isFirstEnter(context: Context, name: String): Boolean {
 
 fun cancelSession(context: Context) {
     val sharedPreferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
-    sharedPreferences.edit().putBoolean(SESSION_CATEGORY, true).apply()
     sharedPreferences.edit().putBoolean(SESSION_EVENTS, true).apply()
+    sharedPreferences.edit().putBoolean(SESSION_CATEGORY, true).apply()
 }
