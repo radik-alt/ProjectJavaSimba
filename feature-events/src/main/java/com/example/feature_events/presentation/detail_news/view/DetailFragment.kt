@@ -1,22 +1,37 @@
 package com.example.feature_events.presentation.detail_news.view
 
+import android.app.Application
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.work.Configuration
+import androidx.work.ExistingWorkPolicy
+import androidx.work.WorkManager
 import com.example.common.dialog
+import com.example.common.toIntOrDefault
 import com.example.core.entity.CategoryDetail
+import com.example.core.entity.EventEntity
+import com.example.core.repository.db.SimbaDataBase
 import com.example.feature_events.R
 import com.example.feature_events.databinding.DialogHelpManyBinding
 import com.example.feature_events.databinding.FragmentDetailBinding
+import com.example.feature_events.entity.DonateItems
 import com.example.feature_events.presentation.detail_news.adapter.category_detail_adapter.CategoryDetailAdapter
+import com.example.feature_events.presentation.detail_news.adapter.donate_adapter.DonateAdapter
 import com.example.feature_events.presentation.detail_news.adapter.friends_detail_adapter.FriendsDetailAdapter
 import com.example.feature_events.presentation.detail_news.adapter.image_adapter.ImageDetailAdapter
+import com.example.feature_events.service.DataWorkerFactory
+import com.example.feature_events.service.DonatWorkManager
+import javax.inject.Inject
 
 class DetailFragment : Fragment() {
 
@@ -25,7 +40,13 @@ class DetailFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("FragmentDetailBinding == null")
 
     private val args: DetailFragmentArgs by navArgs()
-    private var dialog: Dialog ?= null
+    private var dialog: Dialog? = null
+
+    @Inject
+    lateinit var db: SimbaDataBase
+
+    @Inject
+    lateinit var application: Application
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -88,6 +109,8 @@ class DetailFragment : Fragment() {
         dialog = dialog(
             requireActivity(),
             DialogHelpManyBinding.inflate(layoutInflater).apply {
+                var sum = 0
+
                 tvTitle.text = getString(R.string.help_for_donate)
                 tvDescription.text = getString(R.string.choose_size_donate)
                 tvDescription2.text = getString(R.string.choose_size_donate_2)
@@ -96,8 +119,28 @@ class DetailFragment : Fragment() {
                     dialog?.dismiss()
                 }
 
-                btnSend.setOnClickListener {
+                rvItemsDonation.adapter =
+                    DonateAdapter(requireContext(), createDonateItem()) { selectSum ->
+                        edSumDonate.text?.clear()
+                        sum = selectSum
+                    }
 
+                edSumDonate.addTextChangedListener {
+                    (rvItemsDonation.adapter as DonateAdapter).apply {
+                        updateAllItems()
+                    }
+                    sum = it.toIntOrDefault(0)
+                }
+
+                btnSend.setOnClickListener {
+                    if (sum > 0) {
+                        startWorker(args.event, sum)
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.valid_donate), Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             },
             false
@@ -108,6 +151,29 @@ class DetailFragment : Fragment() {
         }
 
         dialog?.show()
+    }
+
+    private fun startWorker(event: EventEntity, sum: Int) {
+
+        val worker = WorkManager.getInstance(requireContext())
+        worker.enqueue(
+            DonatWorkManager.makeRequest(event.id, event.title, sum)
+        )
+//        val configuration = Configuration.Builder()
+//            .setWorkerFactory(
+//                DataWorkerFactory(db, application)
+//            ).build()
+//
+//        WorkManager.initialize(requireContext(), configuration)
+    }
+
+    private fun createDonateItem(): List<DonateItems> {
+        return listOf(
+            DonateItems(1, 500, false),
+            DonateItems(2, 1000, false),
+            DonateItems(3, 2000, false),
+            DonateItems(4, 3000, false)
+        )
     }
 
     override fun onDestroyView() {

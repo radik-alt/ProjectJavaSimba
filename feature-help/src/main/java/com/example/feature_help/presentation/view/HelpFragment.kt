@@ -15,7 +15,6 @@ import com.example.common.SESSION_CATEGORY
 import com.example.common.hide
 import com.example.common.isFirstEnter
 import com.example.core.entity.Category
-import com.example.feature_help.R
 import com.example.feature_help.databinding.FragmentHelpragmentBinding
 import com.example.base.MessageAdapter.MessageAdapter
 import com.example.base.placeholder.PlaceHolderAdapter

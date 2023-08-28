@@ -54,4 +54,5 @@
     <string name="choose_size_donate">Выберите размер пожертвования</string>
     <string name="choose_size_donate_2">или введите нужную сумму</string>
     <string name="help_for_donate">Спасибо за решение помочь!</string>
+    <string name="valid_donate">Сумма пожертвования должна быть больше 0</string>
 </resources>

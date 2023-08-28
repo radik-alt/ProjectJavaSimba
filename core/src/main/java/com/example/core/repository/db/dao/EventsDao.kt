@@ -20,6 +20,10 @@ interface EventsDao {
     @Query("SELECT * FROM Events")
     fun select(): Flow<List<EventWitPhotos>>
 
+    @Transaction
+    @Query("SELECT * FROM Events WHERE id =:eventId")
+    fun selectById(eventId: Int): EventWitPhotos?
+
     @Insert(entity = EventsRoomDto::class, onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertEvent(event: EventsRoomDto): Long
 

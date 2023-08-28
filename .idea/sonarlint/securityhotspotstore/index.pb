@@ -241,10 +241,6 @@ Yfeature-events/src/androidTest/java/com/example/feature_events/ExampleInstrumen
 Q.idea/sonarlint/securityhotspotstore/c/d/cd4bd1fd186737829685419dbd7806b389d35605,4\9\49bdc897eb0128fec3408a5bb9ba62adf8a4a43a
 I
 feature-events/.gitignore,7\4\7474bc05bc5b0308ccc769e5427a86c50773d151
-[
-+feature-events/src/main/AndroidManifest.xml,6\c\6cc90f37a5663ec8b2a5a0530af21da26765a15e
-…
-Ufeature-help/src/main/java/com/example/feature_help/presentation/view/HelpFragment.kt,0\e\0e169955bfe6fce64d1587d3237e56bb53cd6a00
 x
 Hfeature-help/src/main/java/com/example/feature_help/di/DataBaseModule.kt,5\e\5eaf2c790d41e5c54626684a4446d9e598c2b8e6
 G
@@ -269,8 +265,6 @@ Happ/src/main/java/com/example/projectjavasimba/service/ServiceGetData.kt,a\6\a
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 r
 Bapp/src/main/java/com/example/projectjavasimba/di/NetworkModule.kt,7\c\7cf0f7ed0c1250971c2e50417c283c69aff2e39c
-m
-=app/src/main/java/com/example/projectjavasimba/di/SimbaApp.kt,8\c\8c5fde33b344241e2fbb6980c241824d41694970
 s
 Capp/src/main/java/com/example/projectjavasimba/di/DataBaseModule.kt,8\e\8ee95e90d685c42c119cebaf048ca9eae9561359
 q
@@ -303,8 +297,6 @@ Q.idea/sonarlint/securityhotspotstore/0/6/0685d5cc2665ed317a3fa51df3c0e963ae0821
 Q.idea/sonarlint/securityhotspotstore/a/6/a63e97b55549e991f192a621432b47434fad6628,9\9\99415753acf8dec69292b4b84c90268f78b82620
 w
 G.idea/sonarlint/issuestore/d/9/d9931dff92d5ddb08bbe06e7a1d3004c22158125,7\b\7b8e3bca947988c3b57d956f0149c9b4daefd3fe
-a
-1core/src/main/java/com/example/common/TextView.kt,1\b\1b4120553db97c84ae42b7f01e58d8de7d0ba846
 \
 ,core/src/main/java/com/example/common/Uri.kt,5\7\57691490824010c7ed8cd177510657c50f5fb357
 `
@@ -353,16 +345,12 @@ d
 0core/src/main/java/com/example/common/Context.kt,d\4\d43aaa38b818c63c35696bec4030532cb979b701
 a
 1core/src/main/java/com/example/common/Calendar.kt,3\c\3c7d31b82ef64a0a29e859f31bb0f67b34a8d0f1
-e
-5core/src/main/java/com/example/common/CharSequence.kt,6\6\66ad941676d38a46a5aacd4c9036275bf3f97c27
 m
 =core/src/main/java/com/example/common/AutoCompleteTextView.kt,8\2\82649f7da6b2cdabf9cbafc8ba5623dac8da892d
 c
 3core/src/main/java/com/example/common/BigDecimal.kt,6\6\6659d279076046fbcb78e1551ed73cd4db94dac1
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 H
 profile/build.gradle.kts,0\c\0c575bf377859c7419855a43df093043d508ea48
 w
@@ -507,9 +495,21 @@ G.idea/sonarlint/issuestore/3/c/3c9bc9f8c68494f9251807bbeaba31b8bf936e69,3\d\3d
 [app/src/main/java/com/example/projectjavasimba/presentation/auth/viewmodel/AuthViewModel.kt,d\2\d25f5cc6c9523b3ed97ad17d7e487bc8fffc489d
 E
 core/build.gradle.kts,d\7\d72846b7b418aa17de692d1ccf924c738cf8dbe5
+…
+Uapp/src/main/java/com/example/projectjavasimba/presentation/auth/view/AuthActivity.kt,6\5\65ca46789aa139cda81b0b7d1e2d882614adff20
+`
+0core/src/main/java/com/example/common/Dialogs.kt,3\3\3341c1a02f185ef2945f7b0f9402274da8a72764
 i
 9core/src/main/java/com/example/core/entity/EventEntity.kt,6\2\62a4499bcbae23894c72d1e1506b35146f25ce5f
-Ž
-^feature-events/src/main/java/com/example/feature_events/presentation/news/view/NewsFragment.kt,e\8\e87ac97506085b118d91d8b448bdc75661bded52
-O
-feature-events/build.gradle.kts,0\5\050a804e639d7bdc64e37cb4513e7f0397dd723a
+e
+5core/src/main/java/com/example/common/CharSequence.kt,6\6\66ad941676d38a46a5aacd4c9036275bf3f97c27
+º
+‰feature-events/src/main/java/com/example/feature_events/presentation/detail_news/adapter/category_detail_adapter/CategoryDetailAdapter.kt,1\7\1724e37d68b4490910334fd9a81af496b3b4b0d2
+½
+Œfeature-events/src/main/java/com/example/feature_events/presentation/detail_news/adapter/category_detail_adapter/CategoryDetailViewHolder.kt,1\0\10fe7d5b6dfe4cb76be18044077c5a85641b6d1d
+
+Q.idea/sonarlint/securityhotspotstore/e/8/e87ac97506085b118d91d8b448bdc75661bded52,4\7\47c2e3896f6b6a9b8ba8afc5e8d21eb9742af953
+w
+G.idea/sonarlint/issuestore/e/8/e87ac97506085b118d91d8b448bdc75661bded52,8\c\8c06cab309d5006cbd8cbacdfbd6472e405da6ff
+a
+1core/src/main/java/com/example/common/TextView.kt,1\b\1b4120553db97c84ae42b7f01e58d8de7d0ba846

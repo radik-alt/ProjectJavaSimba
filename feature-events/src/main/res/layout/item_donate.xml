@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/llc_item"
+    android:background="@drawable/bg_item_donate">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btn_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/indiement15"
+        android:textColor="@color/green_color"
+        android:textSize="14sp"
+        android:fontFamily="@font/roboto_black"
+        android:text="500Р" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
