@@ -11,28 +11,23 @@ import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.work.Constraints
+import androidx.work.CoroutineWorker
 import androidx.work.Data
+import androidx.work.ListenableWorker
 import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.example.core.repository.db.SimbaDataBase
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class DonatWorkManager(
     context: Context,
     workerParameters: WorkerParameters,
-) : Worker(context, workerParameters) {
+    private val application: Application,
+    private val db: SimbaDataBase
+) : CoroutineWorker(context, workerParameters) {
 
-    @Inject
-    lateinit var application: Application
-
-    @Inject
-    lateinit var db: SimbaDataBase
-
-    override fun doWork(): Result {
+    override suspend fun doWork(): Result {
         Log.d("GetWorker", "StartWorker")
 
         val eventId = inputData.getInt(EVENT_ID, -1)
@@ -44,7 +39,7 @@ class DonatWorkManager(
                 Log.d("GetWorker", "StartWorker")
                 val response = db.eventsDao.selectById(eventId).let { event ->
                     if (event != null) {
-                        Log.d("GetWorker", "StartWorker")
+                        Log.d("GetWorker", event.toString())
                         createChannelNotification()
                         showNotification(
                             event.event?.name ?: "",
@@ -66,7 +61,8 @@ class DonatWorkManager(
     }
 
     private fun showNotification(title: String, message: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=Bh9qg9NivtU"))
+        val intent =
+            Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=Bh9qg9NivtU"))
         val pendingIntent = PendingIntent.getActivity(application, 0, intent, 0);
 
         val builder = NotificationCompat.Builder(application, CHANNEL_ID)
@@ -104,7 +100,6 @@ class DonatWorkManager(
         const val WORK_NAME = "DONAT_WORKER"
 
 
-
         private const val CHANNEL_ID = "CHANNEL_ID"
         private const val CHANNEL_NAME = "Channel Name";
         private const val CHANNEL_DESC = "Channel Description";
@@ -117,14 +112,25 @@ class DonatWorkManager(
                 .build()
             return OneTimeWorkRequestBuilder<DonatWorkManager>().apply {
                 setInputData(inputData)
-//                setConstraints(makeConstrains())
             }.build()
         }
+    }
 
-        private fun makeConstrains(): Constraints {
-            return Constraints.Builder()
-//                .setRequiresCharging(true)
-                .build()
+    class Factory @Inject constructor(
+        private val application: Application,
+        private val dataBase: SimbaDataBase
+    ) : ChildWorkerFactory {
+
+        override fun create(
+            context: Context,
+            workerParameters: WorkerParameters
+        ): ListenableWorker {
+            return DonatWorkManager(
+                context,
+                workerParameters,
+                application,
+                dataBase,
+            )
         }
     }
 }

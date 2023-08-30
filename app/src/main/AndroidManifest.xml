@@ -58,11 +58,11 @@
             android:name=".service.ServiceGetData"
             android:exported="false" />
 
-<!--        <provider-->
-<!--            android:authorities="androidx.work.WorkManagerInitializer"-->
-<!--            android:name="androidx.startup.InitializationProvider"-->
-<!--            tools:replace="android:authorities"-->
-<!--            tools:node="remove"/>-->
+        <provider
+            android:authorities="androidx.work.WorkManagerInitializer"
+            android:name="androidx.startup.InitializationProvider"
+            tools:replace="android:authorities"
+            tools:node="remove"/>
     </application>
 
 

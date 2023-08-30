@@ -3,7 +3,6 @@ package com.example.feature_events.presentation.detail_news.view
 import android.app.Application
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +12,6 @@ import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.work.Configuration
-import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.example.common.dialog
 import com.example.common.toIntOrDefault
@@ -29,7 +26,6 @@ import com.example.feature_events.presentation.detail_news.adapter.category_deta
 import com.example.feature_events.presentation.detail_news.adapter.donate_adapter.DonateAdapter
 import com.example.feature_events.presentation.detail_news.adapter.friends_detail_adapter.FriendsDetailAdapter
 import com.example.feature_events.presentation.detail_news.adapter.image_adapter.ImageDetailAdapter
-import com.example.feature_events.service.DataWorkerFactory
 import com.example.feature_events.service.DonatWorkManager
 import javax.inject.Inject
 
