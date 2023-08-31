@@ -1,13 +1,18 @@
 package com.example.feature_events.presentation.detail_news.view
 
+import android.Manifest
 import android.app.Application
 import android.app.Dialog
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -43,6 +48,8 @@ class DetailFragment : Fragment() {
 
     @Inject
     lateinit var application: Application
+
+    private var sum = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -105,7 +112,6 @@ class DetailFragment : Fragment() {
         dialog = dialog(
             requireActivity(),
             DialogHelpManyBinding.inflate(layoutInflater).apply {
-                var sum = 0
 
                 tvTitle.text = getString(R.string.help_for_donate)
                 tvDescription.text = getString(R.string.choose_size_donate)
@@ -129,8 +135,8 @@ class DetailFragment : Fragment() {
                 }
 
                 btnSend.setOnClickListener {
-                    if (sum > 0) {
-                        startWorker(args.event, sum)
+                    if (sum in 1..99999998) {
+                        validPermissionWorker(args.event, sum)
                     } else {
                         Toast.makeText(
                             requireContext(),
@@ -149,18 +155,41 @@ class DetailFragment : Fragment() {
         dialog?.show()
     }
 
-    private fun startWorker(event: EventEntity, sum: Int) {
+    private val postNotificationsPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            if (granted) {
+                startWorker(args.event, sum)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Не удалось получить разрешение на уведомление!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
 
-        val worker = WorkManager.getInstance(requireContext())
+    private fun validPermissionWorker(event: EventEntity, sum: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) ==
+                PackageManager.PERMISSION_DENIED
+            ) {
+                postNotificationsPermissionLauncher.launch(
+                    Manifest.permission.POST_NOTIFICATIONS
+                )
+            } else {
+                startWorker(event, sum)
+            }
+        }
+    }
+
+    private fun startWorker(event: EventEntity, sum: Int) {
+        val worker = WorkManager.getInstance(requireActivity())
         worker.enqueue(
             DonatWorkManager.makeRequest(event.id, event.title, sum)
         )
-//        val configuration = Configuration.Builder()
-//            .setWorkerFactory(
-//                DataWorkerFactory(db, application)
-//            ).build()
-//
-//        WorkManager.initialize(requireContext(), configuration)
     }
 
     private fun createDonateItem(): List<DonateItems> {

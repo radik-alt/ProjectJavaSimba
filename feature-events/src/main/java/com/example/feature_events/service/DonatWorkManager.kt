@@ -3,78 +3,81 @@ package com.example.feature_events.service
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.navigation.NavDeepLinkBuilder
 import androidx.work.CoroutineWorker
 import androidx.work.Data
 import androidx.work.ListenableWorker
 import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkerParameters
+import com.example.core.entity.EventEntity
 import com.example.core.repository.db.SimbaDataBase
+import com.example.feature_events.R
+import com.example.feature_events.data.mapping.toEventEntity
 import javax.inject.Inject
 
 class DonatWorkManager(
-    context: Context,
+    private val context: Context,
     workerParameters: WorkerParameters,
     private val application: Application,
     private val db: SimbaDataBase
 ) : CoroutineWorker(context, workerParameters) {
 
     override suspend fun doWork(): Result {
-        Log.d("GetWorker", "StartWorker")
-
         val eventId = inputData.getInt(EVENT_ID, -1)
         val eventSum = inputData.getInt(EVENT_SUM, -1)
-
-        Log.d("GetWorker", eventId.toString())
         try {
             if (eventId != -1) {
-                Log.d("GetWorker", "StartWorker")
-                val response = db.eventsDao.selectById(eventId).let { event ->
+                db.eventsDao.selectById(eventId).let { event ->
                     if (event != null) {
-                        Log.d("GetWorker", event.toString())
                         createChannelNotification()
                         showNotification(
                             event.event?.name ?: "",
-                            "Спасибо, что пожертвовали $eventSum ₽!"
+                            context.getString(R.string.thanks_for_donate, eventSum.toString()),
+                            event.toEventEntity()
                         )
                     } else {
                         return Result.failure()
                     }
                 }
-                Log.d("GetWorker", "StartWorker: $response")
             } else {
                 return Result.failure()
             }
         } catch (e: Exception) {
-            Log.d("GetWorker", e.message.toString())
             return Result.failure()
         }
         return Result.success()
     }
 
-    private fun showNotification(title: String, message: String) {
-        val intent =
-            Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=Bh9qg9NivtU"))
-        val pendingIntent = PendingIntent.getActivity(application, 0, intent, 0);
+    private fun showNotification(title: String, message: String, event: EventEntity) {
+        try {
+            val pendingIntent = NavDeepLinkBuilder(context)
+                .setGraph(R.navigation.events_nav)
+                .setDestination(R.id.detail_fragment, Bundle().apply {
+                    putParcelable("event", event)
+                })
+                .createPendingIntent()
 
-        val builder = NotificationCompat.Builder(application, CHANNEL_ID)
-            .setSmallIcon(com.example.core.R.drawable.ic_launcher_foreground)
-            .setContentTitle(title)
-            .setContentText(message)
-            .setContentIntent(pendingIntent)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .build()
+            val builder = NotificationCompat.Builder(application, CHANNEL_ID)
+                .setSmallIcon(com.example.core.R.drawable.ic_launcher_foreground)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setContentIntent(pendingIntent)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setAutoCancel(true)
+                .build()
 
-        val manager = NotificationManagerCompat.from(application)
-        manager.notify(NOTIFICATION_ID, builder)
+            val manager = NotificationManagerCompat.from(application)
+            manager.notify(NOTIFICATION_ID, builder)
+        } catch (e: Exception) {
+            Log.d("GetErrorMessage", e.message.toString())
+        }
     }
 
     private fun createChannelNotification() {
@@ -133,4 +136,6 @@ class DonatWorkManager(
             )
         }
     }
+
+
 }

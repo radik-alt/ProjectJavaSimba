@@ -14,9 +14,6 @@ import javax.inject.Inject
 class SimbaApp : Application(), HelpComponentProvider, EventComponentProvider,
     Configuration.Provider {
 
-//    @Inject
-//    lateinit var workerFactory: WorkerFactory
-
     val component by lazy {
         DaggerAppComponent.factory().create(this)
     }
