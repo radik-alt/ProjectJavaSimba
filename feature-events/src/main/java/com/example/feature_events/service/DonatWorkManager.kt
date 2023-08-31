@@ -3,7 +3,9 @@ package com.example.feature_events.service
 import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +22,7 @@ import com.example.core.entity.EventEntity
 import com.example.core.repository.db.SimbaDataBase
 import com.example.feature_events.R
 import com.example.feature_events.data.mapping.toEventEntity
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class DonatWorkManager(
@@ -32,15 +35,21 @@ class DonatWorkManager(
     override suspend fun doWork(): Result {
         val eventId = inputData.getInt(EVENT_ID, -1)
         val eventSum = inputData.getInt(EVENT_SUM, -1)
+        val actionClick = inputData.getBoolean(ACTION_CLICK, false)
+
+        Log.d("GetNotification", "StartWorkManager")
+
         try {
             if (eventId != -1) {
                 db.eventsDao.selectById(eventId).let { event ->
                     if (event != null) {
+                        Log.d("GetNotification", "StartNotification")
                         createChannelNotification()
                         showNotification(
                             event.event?.name ?: "",
-                            context.getString(R.string.thanks_for_donate, eventSum.toString()),
-                            event.toEventEntity()
+                            eventSum,
+                            event.toEventEntity(),
+                            actionClick
                         )
                     } else {
                         return Result.failure()
@@ -55,7 +64,12 @@ class DonatWorkManager(
         return Result.success()
     }
 
-    private fun showNotification(title: String, message: String, event: EventEntity) {
+    private fun showNotification(
+        title: String,
+        eventSum: Int,
+        event: EventEntity,
+        actionClick: Boolean
+    ) {
         try {
             val pendingIntent = NavDeepLinkBuilder(context)
                 .setGraph(R.navigation.events_nav)
@@ -64,14 +78,47 @@ class DonatWorkManager(
                 })
                 .createPendingIntent()
 
-            val builder = NotificationCompat.Builder(application, CHANNEL_ID)
-                .setSmallIcon(com.example.core.R.drawable.ic_launcher_foreground)
-                .setContentTitle(title)
-                .setContentText(message)
-                .setContentIntent(pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setAutoCancel(true)
-                .build()
+            val receiverIntent = Intent().apply {
+                action = LAST_NOTIFICATION
+                putExtra(EVENT_ID, event.id)
+                putExtra(EVENT_SUM, eventSum)
+            }
+            val receiverPendingIntent = PendingIntent.getBroadcast(
+                application,
+                0,
+                receiverIntent,
+                PendingIntent.FLAG_IMMUTABLE
+            )
+
+            Log.d("ReceiverNotification", receiverIntent.action.toString())
+
+            val builder = if (actionClick) {
+                NotificationCompat.Builder(application, CHANNEL_ID)
+                    .setSmallIcon(com.example.core.R.drawable.ic_launcher_foreground)
+                    .setContentTitle(title)
+                    .setContentText(
+                        context.getString(R.string.thanks_for_donate_notification_later),
+                    )
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setAutoCancel(true)
+                    .build()
+            } else {
+                NotificationCompat.Builder(application, CHANNEL_ID)
+                    .setSmallIcon(com.example.core.R.drawable.ic_launcher_foreground)
+                    .setContentTitle(title)
+                    .setContentText(
+                        context.getString(R.string.thanks_for_donate, eventSum.toString()),
+                    )
+                    .addAction(
+                        R.drawable.icon_calendar,
+                        context.getString(R.string.remind_me_later),
+                        receiverPendingIntent
+                    )
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setAutoCancel(true)
+                    .build()
+            }
+
 
             val manager = NotificationManagerCompat.from(application)
             manager.notify(NOTIFICATION_ID, builder)
@@ -90,31 +137,37 @@ class DonatWorkManager(
             channel.description = CHANNEL_DESC
             val notificationManager = application.getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(channel)
-        } else {
-        }
+        } else {}
     }
 
     companion object {
         const val EVENT_ID = "EVENT_ID"
-        const val EVENT_NAME = "EVENT_NAME"
         const val EVENT_SUM = "EVENT_SUM"
-        private const val NOTIFICATION_ID = 101
+        const val ACTION_CLICK = "CLICK_LAST_NOTIFICATION"
+        const val NOTIFICATION_ID = 101
 
         const val WORK_NAME = "DONAT_WORKER"
+        const val LAST_NOTIFICATION = "ACTION_LAST_NOTIFICATION"
 
 
         private const val CHANNEL_ID = "CHANNEL_ID"
         private const val CHANNEL_NAME = "Channel Name";
         private const val CHANNEL_DESC = "Channel Description";
 
-        fun makeRequest(id: Int, nameEvent: String, sum: Int): OneTimeWorkRequest {
+        fun makeRequest(
+            id: Int,
+            sum: Int,
+            delay: Long = 0,
+            lastClick: Boolean = false
+        ): OneTimeWorkRequest {
             val inputData = Data.Builder()
                 .putInt(EVENT_ID, id)
-                .putString(EVENT_NAME, nameEvent)
                 .putInt(EVENT_SUM, sum)
+                .putBoolean(ACTION_CLICK, lastClick)
                 .build()
             return OneTimeWorkRequestBuilder<DonatWorkManager>().apply {
                 setInputData(inputData)
+                setInitialDelay(delay, TimeUnit.MINUTES)
             }.build()
         }
     }

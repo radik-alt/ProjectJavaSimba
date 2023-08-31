@@ -3,6 +3,10 @@ package com.example.feature_events.presentation.detail_news.view
 import android.Manifest
 import android.app.Application
 import android.app.Dialog
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
@@ -72,6 +77,36 @@ class DetailFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         setData()
+        ContextCompat.registerReceiver(
+            requireActivity(),
+            notificationBroadcastReceiver,
+            IntentFilter(DonatWorkManager.LAST_NOTIFICATION),
+            ContextCompat.RECEIVER_NOT_EXPORTED
+        )
+    }
+
+    private val notificationBroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if (DonatWorkManager.LAST_NOTIFICATION == intent?.action) {
+                try {
+                    val manager = context?.let { NotificationManagerCompat.from(it) }
+                    manager?.cancel(DonatWorkManager.NOTIFICATION_ID)
+
+                    val eventId = intent.getIntExtra(DonatWorkManager.EVENT_ID, -1)
+                    val eventSum = intent.getIntExtra(DonatWorkManager.EVENT_SUM, -1)
+
+                    val worker = context?.let { WorkManager.getInstance(it) }
+                    worker?.enqueue(
+                        DonatWorkManager.makeRequest(
+                            id = eventId,
+                            sum = eventSum,
+                            delay = 30,
+                            lastClick = true
+                        )
+                    )
+                } catch (e: Exception) {}
+            }
+        }
     }
 
     private fun setData() {
@@ -135,7 +170,7 @@ class DetailFragment : Fragment() {
                 }
 
                 btnSend.setOnClickListener {
-                    if (sum in 1..99999998) {
+                    if (sum in 1..99999999) {
                         validPermissionWorker(args.event, sum)
                     } else {
                         Toast.makeText(
@@ -143,9 +178,10 @@ class DetailFragment : Fragment() {
                             getString(R.string.valid_donate), Toast.LENGTH_SHORT
                         ).show()
                     }
+                    dialog?.dismiss()
                 }
             },
-            false
+            true
         )
 
         dialog?.setOnDismissListener {
@@ -182,13 +218,25 @@ class DetailFragment : Fragment() {
             } else {
                 startWorker(event, sum)
             }
+        } else {
+            startWorker(event, sum)
         }
     }
 
-    private fun startWorker(event: EventEntity, sum: Int) {
+    private fun startWorker(
+        event: EventEntity,
+        sum: Int,
+        delay: Long = 0,
+        lastClick: Boolean = false
+    ) {
         val worker = WorkManager.getInstance(requireActivity())
         worker.enqueue(
-            DonatWorkManager.makeRequest(event.id, event.title, sum)
+            DonatWorkManager.makeRequest(
+                id = event.id,
+                sum = sum,
+                delay = delay,
+                lastClick = lastClick
+            )
         )
     }
 
