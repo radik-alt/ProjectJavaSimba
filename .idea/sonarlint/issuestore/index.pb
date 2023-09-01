@@ -1159,8 +1159,6 @@ g
 7core/src/main/java/com/example/common/SharedPrefence.kt,f\0\f0eafa4fed9144cec7f8761acb1673d1b36a1c68
 z
 Jfeature-events/src/main/java/com/example/feature_events/di/DomainModule.kt,c\1\c1a571d4bfdd7358e0ddece3258da81c22b7c444
-Ž
-^feature-events/src/main/java/com/example/feature_events/presentation/news/view/NewsFragment.kt,e\8\e87ac97506085b118d91d8b448bdc75661bded52
 x
 Hfeature-events/src/main/java/com/example/feature_events/di/DataModule.kt,d\1\d18a5b2ad485495a2c3af6b1781ab24814af15e8
 <
@@ -1185,8 +1183,6 @@ Gfeature-events/src/main/java/com/example/feature_events/di/WorkerKey.kt,8\d\8d
 Mfeature-events/src/main/java/com/example/feature_events/di/EventsComponent.kt,4\0\402cea93fec0a6a058ed2ac14620186ae117cee2
 ’
 bfeature-events/src/main/java/com/example/feature_events/data/repository_impl/NewsRepositoryImpl.kt,9\a\9ad8ae1647f2f11ecd70ef459a128555c468a37c
-m
-=app/src/main/java/com/example/projectjavasimba/di/SimbaApp.kt,8\c\8c5fde33b344241e2fbb6980c241824d41694970
 €
 Pfeature-events/src/main/java/com/example/feature_events/service/WorkerFactory.kt,3\d\3de805dbe5037ce6baba40e1f8da33ae9b69d71e
 [

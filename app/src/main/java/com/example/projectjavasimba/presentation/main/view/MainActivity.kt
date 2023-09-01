@@ -1,13 +1,13 @@
 package com.example.projectjavasimba.presentation.main.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.common.cancelSession
+import com.example.core.entity.EventEntity
+import com.example.feature_events.service.DonatWorkManager
 import com.example.projectjavasimba.R
 import com.example.projectjavasimba.databinding.ActivityMainBinding
 import com.example.projectjavasimba.di.SimbaApp
@@ -48,8 +48,16 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
-
         navBar.setupWithNavController(navController)
+
+        intent?.getParcelableExtra<EventEntity>(DonatWorkManager.EVENT_ENTITY)?.let { event ->
+            navController.navigate(
+                com.example.feature_events.R.id.detail_fragment,
+                Bundle().apply {
+                    putParcelable("event", event)
+                }
+            )
+        }
     }
 
     private fun observable() = with(newsViewModel) {

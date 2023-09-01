@@ -1153,8 +1153,6 @@ r
 Bcore/src/main/java/com/example/core/repository/db/dao/EventsDao.kt,4\7\477e97eb0385ded6db348ba4cf4824080006e881
 g
 7core/src/main/java/com/example/common/SharedPrefence.kt,f\0\f0eafa4fed9144cec7f8761acb1673d1b36a1c68
-Ž
-^feature-events/src/main/java/com/example/feature_events/presentation/news/view/NewsFragment.kt,e\8\e87ac97506085b118d91d8b448bdc75661bded52
 z
 Jfeature-events/src/main/java/com/example/feature_events/di/DomainModule.kt,c\1\c1a571d4bfdd7358e0ddece3258da81c22b7c444
 x
@@ -1179,8 +1177,6 @@ w
 Gfeature-events/src/main/java/com/example/feature_events/di/WorkerKey.kt,8\d\8d32a8b093a4b0f52d832a07b77f682c32f9ccff
 }
 Mfeature-events/src/main/java/com/example/feature_events/di/EventsComponent.kt,4\0\402cea93fec0a6a058ed2ac14620186ae117cee2
-m
-=app/src/main/java/com/example/projectjavasimba/di/SimbaApp.kt,8\c\8c5fde33b344241e2fbb6980c241824d41694970
 ’
 bfeature-events/src/main/java/com/example/feature_events/data/repository_impl/NewsRepositoryImpl.kt,9\a\9ad8ae1647f2f11ecd70ef459a128555c468a37c
 €

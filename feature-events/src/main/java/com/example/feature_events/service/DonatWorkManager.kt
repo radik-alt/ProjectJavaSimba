@@ -37,13 +37,10 @@ class DonatWorkManager(
         val eventSum = inputData.getInt(EVENT_SUM, -1)
         val actionClick = inputData.getBoolean(ACTION_CLICK, false)
 
-        Log.d("GetNotification", "StartWorkManager")
-
         try {
             if (eventId != -1) {
                 db.eventsDao.selectById(eventId).let { event ->
                     if (event != null) {
-                        Log.d("GetNotification", "StartNotification")
                         createChannelNotification()
                         showNotification(
                             event.event?.name ?: "",
@@ -71,12 +68,21 @@ class DonatWorkManager(
         actionClick: Boolean
     ) {
         try {
-            val pendingIntent = NavDeepLinkBuilder(context)
-                .setGraph(R.navigation.events_nav)
-                .setDestination(R.id.detail_fragment, Bundle().apply {
-                    putParcelable("event", event)
-                })
-                .createPendingIntent()
+            val intent = Intent(
+                applicationContext,
+                Class.forName("com.example.projectjavasimba.presentation.main.view.MainActivity")
+            ).apply {
+                action = NOTIFICATION_NAVIGATION
+                putExtra(EVENT_ENTITY, event)
+            }
+
+            val pendingIntent = PendingIntent.getActivities(
+                applicationContext,
+                0,
+                arrayOf(intent),
+                PendingIntent.FLAG_IMMUTABLE
+            )
+
 
             val receiverIntent = Intent().apply {
                 action = LAST_NOTIFICATION
@@ -99,6 +105,7 @@ class DonatWorkManager(
                     .setContentText(
                         context.getString(R.string.thanks_for_donate_notification_later),
                     )
+                    .setContentIntent(pendingIntent)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setAutoCancel(true)
                     .build()
@@ -114,6 +121,7 @@ class DonatWorkManager(
                         context.getString(R.string.remind_me_later),
                         receiverPendingIntent
                     )
+                    .setContentIntent(pendingIntent)
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setAutoCancel(true)
                     .build()
@@ -137,14 +145,17 @@ class DonatWorkManager(
             channel.description = CHANNEL_DESC
             val notificationManager = application.getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(channel)
-        } else {}
+        } else {
+        }
     }
 
     companion object {
         const val EVENT_ID = "EVENT_ID"
         const val EVENT_SUM = "EVENT_SUM"
+        const val EVENT_ENTITY = "EVENT_ENTITY"
         const val ACTION_CLICK = "CLICK_LAST_NOTIFICATION"
         const val NOTIFICATION_ID = 101
+        const val NOTIFICATION_NAVIGATION = "NOTIFICATION_NAVIGATION"
 
         const val WORK_NAME = "DONAT_WORKER"
         const val LAST_NOTIFICATION = "ACTION_LAST_NOTIFICATION"
