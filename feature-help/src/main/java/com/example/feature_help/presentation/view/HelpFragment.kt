@@ -19,6 +19,7 @@ import com.example.feature_help.databinding.FragmentHelpragmentBinding
 import com.example.base.MessageAdapter.MessageAdapter
 import com.example.base.placeholder.PlaceHolderAdapter
 import com.example.common.show
+import com.example.feature_help.R
 import com.example.feature_help.di.HelpComponentProvider
 import com.example.feature_help.presentation.adapter.HelperAdapter
 import com.example.feature_help.presentation.viewmodel.HelpViewModel
@@ -66,10 +67,10 @@ class HelpFragment : Fragment(), ServiceGetData.CallbackData<Category> {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        with(binding.toolbarHelper) {
-//            text.text = getString(R.string.help)
-//            create.visibility = View.GONE
-//        }
+        with(binding.toolbarHelper) {
+            text.text = getString(R.string.help)
+            create.visibility = View.GONE
+        }
     }
 
     private fun observable() = with(viewModel) {

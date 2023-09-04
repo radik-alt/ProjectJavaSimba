@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 com.example.feature_events.R.id.detail_fragment,
                 Bundle().apply {
                     putParcelable("event", event)
+                    putBoolean("navigateFromNotification", true)
                 }
             )
         }

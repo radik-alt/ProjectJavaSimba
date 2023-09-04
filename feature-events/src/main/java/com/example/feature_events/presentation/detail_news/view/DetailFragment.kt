@@ -67,7 +67,13 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val allowBackNavigate = arguments?.getBoolean("navigateFromNotification")
+
         binding.toolbar.run {
+            if (allowBackNavigate == true) {
+                back.visibility = View.GONE
+            }
+
             back.setOnClickListener {
                 findNavController().popBackStack()
             }
